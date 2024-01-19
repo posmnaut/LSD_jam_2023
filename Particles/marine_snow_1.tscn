@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://ltfqybl38muu"]
+
+[ext_resource type="Texture2D" uid="uid://yv7v5ay15wi3" path="res://Textures/rain_Drop.png" id="1_8vvax"]
+
+[sub_resource type="Gradient" id="Gradient_q0bjm"]
+offsets = PackedFloat32Array(0, 0.4, 0.586667, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vo3uf"]
+gradient = SubResource("Gradient_q0bjm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j4poq"]
+lifetime_randomness = 0.5
+emission_shape = 3
+emission_box_extents = Vector3(30, 5, 30)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_max = 0.1
+scale_max = 2.0
+color_ramp = SubResource("GradientTexture1D_vo3uf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6anw"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.447059, 0.447059, 0.447059, 1)
+albedo_texture = ExtResource("1_8vvax")
+billboard_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jdfll"]
+material = SubResource("StandardMaterial3D_f6anw")
+size = Vector2(0.1, 0.1)
+orientation = 2
+
+[node name="marine_snow_1" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
+amount = 1000
+lifetime = 20.0
+preprocess = 20.0
+visibility_aabb = AABB(-8, -4, -8, 16, 8, 16)
+process_material = SubResource("ParticleProcessMaterial_j4poq")
+draw_pass_1 = SubResource("PlaneMesh_jdfll")

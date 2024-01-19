@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://umon6ovuv3s6"]
+
+[ext_resource type="Texture2D" uid="uid://yv7v5ay15wi3" path="res://Textures/rain_Drop.png" id="1_b285t"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ifyjm"]
+emission_shape = 3
+emission_box_extents = Vector3(10, 5, 10)
+direction = Vector3(0, -1, 0)
+spread = 2.0
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+collision_mode = 1
+collision_friction = 0.9
+collision_bounce = 0.3
+
+[sub_resource type="Curve" id="Curve_i8mgj"]
+max_value = 0.05
+_data = [Vector2(0.019943, 0.00157895), 0.0, 0.248993, 0, 0, Vector2(0.0854701, 0.0168421), 0.167143, 0.167143, 0, 0, Vector2(0.25641, 0.0268421), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n60ku"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.227451, 0.227451, 0.227451, 1)
+albedo_texture = ExtResource("1_b285t")
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_8wxfd"]
+material = SubResource("StandardMaterial3D_n60ku")
+curve = SubResource("Curve_i8mgj")
+
+[node name="rain_1" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06902, 7.4775, -0.74571)
+amount = 750
+lifetime = 2.0
+randomness = 0.5
+visibility_aabb = AABB(-10, -10, -10, 20, 20, 20)
+trail_enabled = true
+trail_lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_ifyjm")
+draw_pass_1 = SubResource("RibbonTrailMesh_8wxfd")

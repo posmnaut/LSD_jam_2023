@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7vw40uobq67b"]
+
+[ext_resource type="PackedScene" uid="uid://b01jr3l3g4uvp" path="res://Models/sticks_quick_export_a.glb" id="1_68etg"]
+[ext_resource type="Script" path="res://Models/sticsk_1_a.gd" id="1_wdleo"]
+
+[node name="sticsk_1_a" type="Node3D"]
+script = ExtResource("1_wdleo")
+
+[node name="sticks_quick_export_a" parent="." instance=ExtResource("1_68etg")]

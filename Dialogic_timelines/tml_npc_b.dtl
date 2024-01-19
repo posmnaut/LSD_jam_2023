@@ -1,0 +1,9 @@
+join character_test_a (anim_test_a) 1
+if {tml_npc_b} == 0:
+	character_test_a (anim_test_a): "Oh hey, you made it! Not much up here yet, but glad to see yah."
+	set {tml_npc_b} = 1
+elif {tml_npc_b} == 1:
+	character_test_a (anim_test_a): "... yeah, that's it. Sorry mate!"
+	set {tml_npc_b} = 0
+	[signal arg="dialogue_exhausted"]
+[end_timeline]

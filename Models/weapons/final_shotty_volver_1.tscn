@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dw60ksydxlmg4"]
+
+[ext_resource type="PackedScene" uid="uid://nwqqeh8761ot" path="res://Models/weapons/FinalShottyVolver.glb" id="1_cb4li"]
+[ext_resource type="AudioStream" uid="uid://dgnccfw0qyvla" path="res://snd_effects/pl_gun2.wav" id="2_hfed8"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_m7xk3"]
+streams_count = 1
+stream_0/stream = ExtResource("2_hfed8")
+stream_0/weight = 1.0
+
+[sub_resource type="Animation" id="Animation_aeljc"]
+resource_name = "fire_revolver_1"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FrameSection:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 1), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n252u"]
+_data = {
+"fire_revolver_1": SubResource("Animation_aeljc")
+}
+
+[node name="FinalShottyVolver" instance=ExtResource("1_cb4li")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="FrameSection" parent="." index="0"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Cylrinder" parent="." index="1"]
+transform = Transform3D(-1, 0, -9.31323e-08, 0, 1, 0, 9.31323e-08, 0, -1, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="." index="3"]
+transform = Transform3D(10, 0, 5.68434e-14, 0, 10, 0, -5.68434e-14, 0, 10, 0, 3, -16)
+target_position = Vector3(0, 0, -1)
+collide_with_areas = true
+
+[node name="fire_audio_1" type="AudioStreamPlayer" parent="." index="4"]
+stream = SubResource("AudioStreamRandomizer_m7xk3")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="5"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 2.5, -20)
+visible = false
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_n252u")
+}

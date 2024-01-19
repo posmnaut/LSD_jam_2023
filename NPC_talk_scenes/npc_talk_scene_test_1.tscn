@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://g1t21fwy381q"]
+
+[ext_resource type="Texture2D" uid="uid://bchooxpormtow" path="res://NPC_talk_scenes/poss_test_sprite_1_a.png" id="1_codqa"]
+[ext_resource type="Script" path="res://NPC_talk_scenes/npc_talk_scene_test_1.gd" id="1_i273q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stquk"]
+atlas = ExtResource("1_codqa")
+region = Rect2(0, 0, 375, 346)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wwr0"]
+atlas = ExtResource("1_codqa")
+region = Rect2(375, 0, 375, 346)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6itc"]
+atlas = ExtResource("1_codqa")
+region = Rect2(750, 0, 375, 346)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xvht"]
+atlas = ExtResource("1_codqa")
+region = Rect2(1125, 0, 375, 346)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t53lh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stquk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wwr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6itc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xvht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="npc_talk_scene_test_1" type="Node2D"]
+script = ExtResource("1_i273q")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-379, -348)
+sprite_frames = SubResource("SpriteFrames_t53lh")
+autoplay = "default"
+frame = 1
+frame_progress = 0.173062
+centered = false
+
+[connection signal="animation_finished" from="Sprite" to="." method="_on_sprite_animation_finished"]

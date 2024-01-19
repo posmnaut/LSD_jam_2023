@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwl61tgyn5s4x"]
+
+[ext_resource type="PackedScene" uid="uid://pijejtk3a22s" path="res://Models/Roads/roadAsphalt_straight.glb" id="1_tmpu0"]
+
+[node name="Roads_1" type="Node3D"]
+
+[node name="roadAsphalt_straight" parent="." instance=ExtResource("1_tmpu0")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, -0.4, 3)

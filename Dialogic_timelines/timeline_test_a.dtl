@@ -1,0 +1,8 @@
+join character_test_a 1
+if {tml_npc_b} == 0:
+	character_test_a (New portrait): "hello whirled"
+	set {tml_npc_b} += 1
+elif {tml_npc_b} == 1:
+	character_test_a (New portrait): dialogue_2
+	set {tml_npc_b} = 0
+[end_timeline]

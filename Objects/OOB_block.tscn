@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://vt0ofidwibd1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r1yry"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtijk"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.611765)
+
+[node name="OOB_block" type="StaticBody3D"]
+disable_mode = 1
+metadata/is_wallrunable = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(700, 0, 0, 0, 30, 0, 0, 0, 1, 0, 15, 0)
+mesh = SubResource("BoxMesh_r1yry")
+surface_material_override/0 = SubResource("StandardMaterial3D_dtijk")

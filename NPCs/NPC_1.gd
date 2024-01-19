@@ -1,0 +1,5 @@
+extends StaticBody3D
+
+
+
+

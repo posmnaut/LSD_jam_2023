@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://4ixvh2yk1yf3"]
+
+[ext_resource type="PackedScene" uid="uid://dvpc1nvkct6du" path="res://Models/Roads/roadAsphalt_cornerOuter.glb" id="1_p0r86"]
+
+[node name="road_corner_1" type="Node3D"]
+
+[node name="roadAsphalt_cornerOuter" parent="." instance=ExtResource("1_p0r86")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)

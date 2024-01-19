@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://drst7cka1ajag"]
+
+[ext_resource type="PackedScene" uid="uid://d27toir6d2jfl" path="res://NPCs/AstroDude.glb" id="1_bbf76"]
+[ext_resource type="Script" path="res://NPCs/NPC_1.gd" id="1_kqlno"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bqdra"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3q1x7"]
+size = Vector3(1, 2, 1)
+
+[node name="NPC_1" type="StaticBody3D"]
+collision_layer = 5
+script = ExtResource("1_kqlno")
+metadata/dialogue = ""
+
+[node name="player_area_detection" type="Area3D" parent="."]
+
+[node name="player_area_detection" type="CollisionShape3D" parent="player_area_detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_bqdra")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_3q1x7")
+
+[node name="AstroDude" parent="." instance=ExtResource("1_bbf76")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.2, 0)

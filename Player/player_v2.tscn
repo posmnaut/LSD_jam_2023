@@ -1,0 +1,116 @@
+[gd_scene load_steps=14 format=3 uid="uid://6mie7fiylkbc"]
+
+[ext_resource type="Script" path="res://Player/player_v2.gd" id="1_0u1et"]
+[ext_resource type="Texture2D" uid="uid://d2oik12wohmhe" path="res://Textures/d_shadow_1.png" id="2_hom5p"]
+[ext_resource type="PackedScene" uid="uid://b01jr3l3g4uvp" path="res://Models/sticks_quick_export_a.glb" id="2_qbdjp"]
+[ext_resource type="PackedScene" uid="uid://umon6ovuv3s6" path="res://Particles/rain_1.tscn" id="3_13s55"]
+[ext_resource type="PackedScene" uid="uid://dw60ksydxlmg4" path="res://Models/weapons/final_shotty_volver_1.tscn" id="3_c3203"]
+[ext_resource type="PackedScene" uid="uid://ltfqybl38muu" path="res://Particles/marine_snow_1.tscn" id="4_k8ou1"]
+[ext_resource type="AudioStream" uid="uid://ddxpwvbnhi2ls" path="res://snd_effects/531947__straget__the-rain-falls-against-the-parasol.wav" id="5_5ufnx"]
+[ext_resource type="AudioStream" uid="uid://cyfyhq1kvw01d" path="res://snd_effects/pl_step2.wav" id="6_giq11"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tnk60"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_csmiy"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysqe2"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("2_hom5p")
+
+[sub_resource type="QuadMesh" id="QuadMesh_x8e4q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uec5m"]
+size = Vector3(2, 1, 2)
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06902, 0.5225, 7.74571)
+floor_stop_on_slope = false
+script = ExtResource("1_0u1et")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04435, 0)
+visible = false
+cast_shadow = 3
+mesh = SubResource("CapsuleMesh_tnk60")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04435, 0)
+shape = SubResource("ConvexPolygonShape3D_csmiy")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9527, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D"]
+spot_range = 15.0
+spot_angle = 30.0
+
+[node name="Steampunk Rifle" parent="Head/Camera3D" instance=ExtResource("2_qbdjp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.25, -0.6)
+visible = false
+
+[node name="FinalShottyVolver" parent="Head/Camera3D" instance=ExtResource("3_c3203")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0.42, -0.4, -0.665)
+
+[node name="Upper_Check" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.400872, 0)
+target_position = Vector3(0, 0, -1)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="Lower_Check" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38778e-17, -0.806414, 2.32831e-10)
+target_position = Vector3(0, 0, -1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 779.0
+offset_bottom = 389.0
+
+[node name="D_Shad_Check" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, -100, 0)
+
+[node name="Drop_Shadow" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.06472, 0, 7.32015)
+top_level = true
+size = Vector3(3, 3, 3)
+texture_albedo = ExtResource("2_hom5p")
+modulate = Color(0, 0, 0, 1)
+
+[node name="Drop_Shadow_old" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 1, 0, -3, -4.37114e-08, 0, 0.151235, 0)
+top_level = true
+visible = false
+material_override = SubResource("StandardMaterial3D_ysqe2")
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("QuadMesh_x8e4q")
+
+[node name="rain_1" parent="." instance=ExtResource("3_13s55")]
+
+[node name="marine_snow_1" parent="." instance=ExtResource("4_k8ou1")]
+visible = false
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true
+
+[node name="rain_audio_1" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_5ufnx")
+volume_db = 1.0
+unit_size = 50.0
+max_db = 6.0
+autoplay = true
+
+[node name="footsteps_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_giq11")
+volume_db = -20.0
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_uec5m")
