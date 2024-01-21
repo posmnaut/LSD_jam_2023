@@ -119,10 +119,17 @@ debug_shape_custom_color = Color(1, 0, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38778e-17, -0.806414, 2.32831e-10)
 target_position = Vector3(0, 0, -1)
 
-[node name="Look_Cast" type="RayCast3D" parent="Head"]
+[node name="Look_Cast_NPC" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, -0.5, 0)
 target_position = Vector3(0, 0, -1)
 collision_mask = 4
+
+[node name="Look_Cast_door" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, -0.5, 0)
+target_position = Vector3(0, 0, -1)
+collision_mask = 16
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="D_Shad_Check" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

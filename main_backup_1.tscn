@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=30 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="Environment" uid="uid://c8gqwpwnyflfi" path="res://Environments/lsd_environ_a.tres" id="2_5d32b"]
@@ -10,11 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://c7vw40uobq67b" path="res://Models/sticsk_1_a.tscn" id="7_y50it"]
 [ext_resource type="PackedScene" uid="uid://vt0ofidwibd1" path="res://Objects/OOB_block.tscn" id="8_6q8ho"]
 [ext_resource type="PackedScene" uid="uid://dvngx4u6lursv" path="res://kenney_models/urban_retro/detailDumpster_open.glb" id="8_e8w28"]
+[ext_resource type="PackedScene" uid="uid://d085myq6xl5oy" path="res://kenney_models/urban_retro_scenes/door_type_a.tscn" id="9_buja5"]
 [ext_resource type="AudioStream" uid="uid://wg43fq6o6dmb" path="res://music/10_MIX.mp3" id="10_2jqxx"]
 [ext_resource type="PackedScene" uid="uid://ch3rtekxsdeev" path="res://NPCs/NPC_cosmonaut_3_3Denemy.tscn" id="14_8kv7q"]
 [ext_resource type="PackedScene" uid="uid://cavpg0grf82qb" path="res://Objects/bump_trigger.tscn" id="15_tu6qt"]
 [ext_resource type="AudioStream" uid="uid://bsnnkdy410a21" path="res://snd_effects/Level_3_Talk_spriite.mp3" id="15_v6qj8"]
-[ext_resource type="PackedScene" uid="uid://diy8peom71tle" path="res://Objects/bump_trigger_target.tscn" id="16_wyqp5"]
+[ext_resource type="PackedScene" uid="uid://cts05vcre6t4a" path="res://Objects/click_trigger.tscn" id="16_q403t"]
+[ext_resource type="PackedScene" uid="uid://diy8peom71tle" path="res://Objects/trigger_target.tscn" id="16_wyqp5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qiiav"]
 size = Vector3(30, 15, 1)
@@ -482,6 +484,9 @@ autoplay = true
 max_distance = 30.0
 doppler_tracking = 2
 
+[node name="door_type_a" parent="building_b" instance=ExtResource("9_buja5")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 42.985, 0.531068, -17.7571)
+
 [node name="player_spawn_1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, -224)
 
@@ -525,7 +530,42 @@ metadata/opener_audio = ExtResource("15_v6qj8")
 
 [node name="bump_trigger" parent="." node_paths=PackedStringArray("target") instance=ExtResource("15_tu6qt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5282, 1.83183, -100.826)
-target = NodePath("../bump_trigger_target")
+target = NodePath("../trigger_target")
 
-[node name="bump_trigger_target" parent="." instance=ExtResource("16_wyqp5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.604, 29.9131, -77.7777)
+[node name="trigger_target" parent="." instance=ExtResource("16_wyqp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5191, 28.6147, -84.5703)
+
+[node name="click_trigger" parent="." node_paths=PackedStringArray("target") instance=ExtResource("16_q403t")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -17.6059, 2.50162, -103.465)
+target = NodePath("../underground_a/trigger_target2")
+
+[node name="underground_a" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0)
+
+[node name="Block" parent="underground_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 15, -13.8175, 0.5, -119.398)
+
+[node name="Block2" parent="underground_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-3.0598e-07, 1, 0, -7, -4.37114e-08, 0, 0, 0, 15, -20.8175, 4.5, -119.398)
+
+[node name="Block3" parent="underground_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-3.0598e-07, 1, 0, -7, -4.37114e-08, 0, 0, 0, 15, -6.81754, 4.5, -119.398)
+
+[node name="Block4" parent="underground_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(3.82438e-14, -4.37114e-08, 15, -7, -4.37114e-08, 0, 3.0598e-07, -1, -6.55671e-07, -13.8175, 4.5, -126.398)
+
+[node name="Block5" parent="underground_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(3.82438e-14, -4.37114e-08, 15, -7, -4.37114e-08, 0, 3.0598e-07, -1, -6.55671e-07, -13.8175, 4.5, -112.398)
+
+[node name="trigger_target2" parent="underground_a" instance=ExtResource("16_wyqp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2001, 4.5, -119.697)
+
+[node name="door_type_a" parent="underground_a" instance=ExtResource("9_buja5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4659, 0.978184, -125.746)
+
+[node name="click_trigger2" parent="underground_a" node_paths=PackedStringArray("target") instance=ExtResource("16_q403t")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, -12.3626, 2.79729, -126.51)
+target = NodePath("../../trigger_target2")
+
+[node name="trigger_target2" parent="." instance=ExtResource("16_wyqp5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2445, 3.5, -107.328)

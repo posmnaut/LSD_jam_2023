@@ -15,7 +15,8 @@ var jump_token = 2;
 @onready var stp_audio_player = $footsteps_1
 @onready var gun_anim = $"Head/Camera3D/Steampunk Rifle/AnimationPlayer"
 @onready var NPC_talk_area = $Area3D;
-@onready var Look_Cast = $Head/Look_Cast
+@onready var Look_Cast = $Head/Look_Cast_NPC
+@onready var look_cast_door = $Head/Look_Cast_door
 @onready var hud_RTL = $UI/RichTextLabel;
 @onready var blink_anim = $UI/MarginContainer/AnimatedSprite2D
 @onready var audio_s_player = $AudioStreamPlayer
@@ -61,6 +62,7 @@ var fall_tween
 var point_timer = 0
 var fog_fade = false
 var teleport_point 
+var fall_thresh = 100;
 
 var wall_run_angle = 15 #export me 
 var wall_run_current_angle = 0
@@ -100,6 +102,8 @@ func _process(delta):
 		stp_audio_player.pitch_scale = randf_range(0.7,1.3);
 		stp_audio_player.play()
 		
+	#close game loop
+	#plays anim then pauses then closes
 	if close_game :
 		if !blink_anim.is_playing() :
 			blink_anim.play_backwards();
@@ -111,10 +115,10 @@ func _process(delta):
 				get_tree().quit()
 				
 	#draw "can interact" icon
-	if !in_dialogue :
+	if !in_dialogue && !fog_fade:
 		var NPC_check = Look_Cast.get_collider();
-		if NPC_check != null :
-			NPC_check.set_meta("face_player", false)
+		var door_check = look_cast_door.get_collider();
+		if NPC_check != null || door_check != null:
 			interact_sprite.visible = true
 			point_timer += 3
 			if point_timer > 359 :
@@ -124,6 +128,8 @@ func _process(delta):
 			interact_sprite.scale.y = 0.75+_s
 		else :
 			interact_sprite.visible = false
+		if NPC_check != null :
+			NPC_check.set_meta("face_player", false)
 	else :
 		interact_sprite.visible = false
 		
@@ -138,11 +144,14 @@ func _process(delta):
 			fall_fade = 1
 	
 		if fall_fade > 1 :
+			# this handles position teleportation
 			if teleport_point != null :
 				position = teleport_point.global_position
+				rotation.y = teleport_point.rotation.y
 				teleport_point = null
 			else :
 				position = spwn_point.global_position
+				rotation.y = spwn_point.rotation.y
 
 			fall_tween = create_tween()
 			fall_tween.set_parallel(true)
@@ -151,14 +160,16 @@ func _process(delta):
 			fall_tween.finished.connect(set.bind("fall_fade", 0 ))
 			fog_fade = false
 
-
+#if dialogic "end" signal sent, in_dialogue = false 
 func _on_timeline_ended():
 	in_dialogue = false;
 	
+#checks for dialogic signals w/ string arguments and does "something"
 func _on_dialogic_signal(argument:String):
 	if argument == "d_end":
 		in_dialogue = false;
 		print("Something was activated!")
+	#puts faced NPC to sleep if dialogue is exhausted
 	if argument == "dialogue_exhausted":
 		var NPC_check = Look_Cast.get_collider();
 		if NPC_check != null :
@@ -167,43 +178,46 @@ func _on_dialogic_signal(argument:String):
 		
 
 func _input(event):
-#Handle escape quit function
+	#Handle escape quit function
 	if event.is_action_pressed("escape"):
 		close_game = true;
-	#BLOB FOR OPENING / CLOSING EYES
-	#if Input.is_action_pressed("shoot") :
-		#if !blink_anim.is_playing() && blink_anim.frame == 0:
-			#blink_anim.play();
-		
-		#if !blink_anim.is_playing() && blink_anim.frame == 7:
-			#blink_anim.play_backwards();
 	
-	if Input.is_action_pressed("shoot") && in_dialogue == false:		
-		var NPC_check = Look_Cast.get_collider();
-		if NPC_check != null :
-			var meta_check = NPC_check.get_meta("dialogue") 
-			var op_audio = NPC_check.get_meta("opener_audio")
-			var talk_timer = NPC_check.get_meta("talk_timer")
-			var is_asleep  = NPC_check.get_meta("fully_sleep")
-			NPC_check.set_meta("face_player", true)
-			if !is_asleep :
-				Dialogic.start(meta_check)
-				in_dialogue = true;
-				if op_audio != null :
-					if !audio_s_player.is_playing() :
-						if talk_timer == false :
-							audio_s_player.stream = op_audio;
-							audio_s_player.play();
-							NPC_check.set_meta("talk_timer",true);
+	#this is organized terribly, fix it 
+	#Handle NPC talk w/ shoot 
+	#Handle click trigger
+	if Input.is_action_pressed("shoot") && in_dialogue == false:
+		if !fog_fade :		
+			var NPC_check = Look_Cast.get_collider();
+			var click_check = look_cast_door.get_collider();
+			if NPC_check != null :
+				var meta_check = NPC_check.get_meta("dialogue") 
+				var op_audio = NPC_check.get_meta("opener_audio")
+				var talk_timer = NPC_check.get_meta("talk_timer")
+				var is_asleep  = NPC_check.get_meta("fully_sleep")
+				NPC_check.set_meta("face_player", true)
+				if !is_asleep :
+					Dialogic.start(meta_check)
+					in_dialogue = true;
+					if op_audio != null :
+						if !audio_s_player.is_playing() :
+							if talk_timer == false :
+								audio_s_player.stream = op_audio;
+								audio_s_player.play();
+								NPC_check.set_meta("talk_timer",true);
+			
+			if click_check !=null :
+				teleport_point = click_check.get_parent().target_point;
+				fog_fade = true
 
 	
 #Handle camera look / aim
-	if event is InputEventMouseMotion:
-		rotation.y -= event.relative.x / mouseSensibility 
-		camera.rotation.x -= event.relative.y / mouseSensibility
-		camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-90),deg_to_rad(90))
-		mouse_relative_x = clamp(event.relative.x,deg_to_rad(-50),deg_to_rad(50))
-		mouse_relative_y = clamp(event.relative.y,deg_to_rad(-50),deg_to_rad(50))
+	if fog_fade == false :
+		if event is InputEventMouseMotion:
+			rotation.y -= event.relative.x / mouseSensibility 
+			camera.rotation.x -= event.relative.y / mouseSensibility
+			camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-90),deg_to_rad(90))
+			mouse_relative_x = clamp(event.relative.x,deg_to_rad(-50),deg_to_rad(50))
+			mouse_relative_y = clamp(event.relative.y,deg_to_rad(-50),deg_to_rad(50))
 		
 func wall_run():
 	if is_on_wall() && Input.is_action_pressed("forward") && Input.is_action_pressed("duck") && !is_on_floor() && !mantling:
@@ -314,7 +328,7 @@ func _physics_process(delta):
 				fog_fade = true
 
 	# FALLING reposition trigger + behavior 
-	if position.y < -50:
+	if position.y < -fall_thresh:
 		fog_fade = true
 				
 		
@@ -404,10 +418,11 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, spd)
 
 	if !in_dialogue :
-		move_and_slide()
-		if p_normal.x + p_normal.y + p_normal.z != 0 :
-			if is_on_floor() || is_wallrunning :
-				step_timer += 1+(sprint_spd*0.5);
+		if !fog_fade :
+			move_and_slide()
+			if p_normal.x + p_normal.y + p_normal.z != 0 :
+				if is_on_floor() || is_wallrunning :
+					step_timer += 1+(sprint_spd*0.5);
 	
 	# position drop shadow
 	drop_shadow.global_position.y = ray_shadow.get_collision_point().y + 0.01
@@ -420,9 +435,9 @@ func _physics_process(delta):
 	#$Decal.global_position.x = global_position.x
 	#$Decal.global_position.z = global_position.z
 	
-	var debug = rad_to_deg(Vector2(p_normal.x,p_normal.z).angle())
-	var debug1 = wrapf((debug + 90) *-1,-180,180)
-	var debug2 = wrapf((rotation_degrees.y + 90) *-1,-180,180)
+	#var debug = rad_to_deg(Vector2(p_normal.x,p_normal.z).angle())
+	#var debug1 = wrapf((debug + 90) *-1,-180,180)
+	#var debug2 = wrapf((rotation_degrees.y + 90) *-1,-180,180)
 	hud_RTL.text = str(step_timer); ##str(camera.rotation_degrees)
 	#$RichTextLabel.text = str(Vector2(velocity.x,velocity.z).angle()) + " , " + str(Vector2(direction.x,direction.z).angle())
 
