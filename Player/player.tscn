@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://cqoa7g8s32y4c"]
+[gd_scene load_steps=21 format=3 uid="uid://cqoa7g8s32y4c"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xuua8"]
 [ext_resource type="PackedScene" uid="uid://b01jr3l3g4uvp" path="res://Models/sticks_quick_export_a.glb" id="2_1whcx"]
 [ext_resource type="Texture2D" uid="uid://d2oik12wohmhe" path="res://Textures/d_shadow_1.png" id="2_6b36o"]
 [ext_resource type="AudioStream" uid="uid://ejh3jjs2x14e" path="res://snd_effects/Concrete_-_Left_Foot_Step.wav" id="4_56f33"]
 [ext_resource type="Texture2D" uid="uid://ddqefkbpw5f2p" path="res://Textures/eyes_close_1.png" id="5_pkua1"]
+[ext_resource type="Texture2D" uid="uid://bpmj1hw4a55cs" path="res://Textures/hand_pointer.png" id="6_08gl2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tnk60"]
 
@@ -20,7 +21,7 @@ albedo_texture = ExtResource("2_6b36o")
 [sub_resource type="QuadMesh" id="QuadMesh_x8e4q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0xyq1"]
-size = Vector3(2, 2, 2)
+size = Vector3(0.5, 2, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rqxc"]
 atlas = ExtResource("5_pkua1")
@@ -143,10 +144,11 @@ gi_mode = 0
 mesh = SubResource("QuadMesh_x8e4q")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 collision_layer = 4
+collision_mask = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_0xyq1")
 
 [node name="footsteps_1" type="AudioStreamPlayer" parent="."]
@@ -163,6 +165,11 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 599.0
 offset_bottom = 341.0
+
+[node name="sprite_pointer" type="Sprite2D" parent="UI/MarginContainer"]
+position = Vector2(628, 605)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_08gl2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/MarginContainer"]
 position = Vector2(634, 370)

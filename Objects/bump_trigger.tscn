@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cavpg0grf82qb"]
+
+[ext_resource type="Script" path="res://Objects/bump_trigger.gd" id="1_nk42r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p2v0r"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jtvkw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xwm2"]
+transparency = 1
+albedo_color = Color(1, 0, 1, 0.160784)
+
+[node name="bump_trigger" type="Node3D"]
+script = ExtResource("1_nk42r")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_p2v0r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/CollisionShape3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("BoxMesh_jtvkw")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_5xwm2")

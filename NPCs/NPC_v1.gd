@@ -1,11 +1,13 @@
 extends StaticBody3D
 
 @onready var anim_tree = $AnimationTree
+@onready var sleep_sprite = $sleep_sprite
 
 var timer = 0;
 var f_timer = 0;
 var fully_asleep = false;
 var player= null
+var rotation_y = 0;
 
 
 #if metadata set, set timer
@@ -15,10 +17,18 @@ var player= null
 
 
 func _ready () :
-	pass
+	sleep_sprite.visible = false;
+	player = $"/root/global".player
+	rotation_y = rotation.y;
 	
 #this get_meta / set_meta block w/ the timer is not the right way to do this, I'm 90% sure
-	
+
+func _look_at_target_interpolated(weight:float) -> void:
+	var xform := transform # your transform
+	xform = xform.looking_at(player.global_position,Vector3.UP)
+	transform = transform.interpolate_with(xform,weight)
+
+
 func _process (_delta) : 
 	if !fully_asleep :
 		
@@ -29,6 +39,7 @@ func _process (_delta) :
 				var dist = self.global_position.distance_to($"/root/global".player.global_position)
 				if dist > 70 :
 					anim_tree.set("parameters/conditions/sleepmode",true)
+					sleep_sprite.visible = true;
 					#also set dialogue HERE
 					set_meta("fully_sleep",true);
 					fully_asleep = true;
@@ -39,12 +50,10 @@ func _process (_delta) :
 				print("time out")
 				set_meta("talk_timer",false)
 				f_timer = 0;
-			#if get_meta("face_player") == true :
-				#var target_vector = global_position.direction_to(player)
-				#var target_basis= Basis.looking_at(target_vector)
-				#basis = basis.slerp(target_basis, 0.5)
-			#else :
-				#pass
+			if get_meta("face_player") == true :
+				_look_at_target_interpolated(0.1)
+			else :
+				rotation.y = lerp(rotation.y,rotation_y,0.1)
 
 
 

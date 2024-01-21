@@ -28,6 +28,7 @@ directories/dch_directory={
 "character_test_a": "res://Dialogic_timelines/character_test_a.dch"
 }
 directories/dtl_directory={
+"timeline_null_reset": "res://Dialogic_timelines/timeline_null_reset.dtl",
 "timeline_test_a": "res://Dialogic_timelines/timeline_test_a.dtl",
 "tml_npc_b": "res://Dialogic_timelines/tml_npc_b.dtl",
 "tml_npc_c": "res://Dialogic_timelines/tml_npc_c.dtl"

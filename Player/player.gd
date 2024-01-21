@@ -21,6 +21,8 @@ var jump_token = 2;
 @onready var audio_s_player = $AudioStreamPlayer
 @onready var fog_color_default
 @onready var fog_density_default
+@onready var interact_sprite = $UI/MarginContainer/sprite_pointer
+@onready var bump_trigger_detect = $Area3D
 
 
 @export var spwn_point : Node3D
@@ -56,6 +58,9 @@ var close_game = false
 var fall_fade = 0;
 var fall_color_white = Color(Color.WHITE)
 var fall_tween 
+var point_timer = 0
+var fog_fade = false
+var teleport_point 
 
 var wall_run_angle = 15 #export me 
 var wall_run_current_angle = 0
@@ -86,8 +91,8 @@ func _ready():
 	blink_anim.play();
 	fog_density_default = environ_a.environment.get_fog_density()
 	fog_color_default = environ_a.environment.get_fog_light_color()
+	Dialogic.start("timeline_null_reset") #this preloads the dialogic system
 	
-
 
 func _process(delta):
 	if step_timer > 30 :
@@ -104,12 +109,51 @@ func _process(delta):
 			eyes_state_sub_timer += 1;
 			if eyes_state_sub_timer >= 15 :
 				get_tree().quit()
+				
+	#draw "can interact" icon
+	if !in_dialogue :
+		var NPC_check = Look_Cast.get_collider();
+		if NPC_check != null :
+			NPC_check.set_meta("face_player", false)
+			interact_sprite.visible = true
+			point_timer += 3
+			if point_timer > 359 :
+				point_timer = point_timer - 360;
+			var _s = (1+sin(deg_to_rad(point_timer))) *0.2;
+			interact_sprite.scale.x = 0.75+_s
+			interact_sprite.scale.y = 0.75+_s
+		else :
+			interact_sprite.visible = false
+	else :
+		interact_sprite.visible = false
 		
+	#falling fade out behavior
+	if fog_fade == true :
+		if 	fall_fade == 0 :
+			fall_tween = create_tween()
+			fall_tween.set_parallel(true)
+			fall_tween.tween_property(environ_a.environment, "fog_density", 1.0,3.0)
+			fall_tween.tween_property(environ_a.environment, "fog_light_color", fall_color_white,3.0)
+			fall_tween.finished.connect(set.bind("fall_fade", 2 ))
+			fall_fade = 1
+	
+		if fall_fade > 1 :
+			if teleport_point != null :
+				position = teleport_point.global_position
+				teleport_point = null
+			else :
+				position = spwn_point.global_position
+
+			fall_tween = create_tween()
+			fall_tween.set_parallel(true)
+			fall_tween.tween_property(environ_a.environment, "fog_density", fog_density_default,3.0)
+			fall_tween.tween_property(environ_a.environment, "fog_light_color", fog_color_default,3.0)
+			fall_tween.finished.connect(set.bind("fall_fade", 0 ))
+			fog_fade = false
 
 
 func _on_timeline_ended():
 	in_dialogue = false;
-	print("test")
 	
 func _on_dialogic_signal(argument:String):
 	if argument == "d_end":
@@ -141,6 +185,7 @@ func _input(event):
 			var op_audio = NPC_check.get_meta("opener_audio")
 			var talk_timer = NPC_check.get_meta("talk_timer")
 			var is_asleep  = NPC_check.get_meta("fully_sleep")
+			NPC_check.set_meta("face_player", true)
 			if !is_asleep :
 				Dialogic.start(meta_check)
 				in_dialogue = true;
@@ -259,39 +304,18 @@ func process_wall_run_rotation(delta) :
 	##camera.fov = wall_run_current_FOV ##this causes huge lag; why? 
 
 func _physics_process(delta):
-	# Add the gravity.
 
-	#respawn the player after they fall too far
-	# FALLING BEHAVIOR
-	# can we make this *less* of a mess?????
+	if fog_fade == false :
+		if bump_trigger_detect.has_overlapping_areas() :
+			var collision = bump_trigger_detect.get_overlapping_areas()
+			var check = collision[0].get_parent().target_point
+			if check != null :
+				teleport_point = check
+				fog_fade = true
+
+	# FALLING reposition trigger + behavior 
 	if position.y < -50:
-		if 	fall_fade == 0 :
-			fall_tween = create_tween()
-			fall_tween.set_parallel(true)
-			fall_tween.tween_property(environ_a.environment, "fog_density", 1.0,3.0)
-			fall_tween.tween_property(environ_a.environment, "fog_light_color", fall_color_white,3.0)
-			fall_fade = 1;
-			
-		if fall_fade == 1 :
-			fall_tween.finished.connect(set.bind("fall_fade", 2 ))
-			fall_tween.finished.connect(set.bind("position",  spwn_point.global_position))
-			fall_fade = 1.5;
-	
-	if fall_fade > 1 :
-		if fall_fade == 2 :
-			position = spwn_point.global_position
-			fall_fade = 3;
-			
-		if fall_fade == 3 :
-			fall_tween = create_tween()
-			fall_tween.set_parallel(true)
-			fall_tween.tween_property(environ_a.environment, "fog_density", fog_density_default,3.0)
-			fall_tween.tween_property(environ_a.environment, "fog_light_color", fog_color_default,3.0)
-			fall_fade = 4;
-			
-		if fall_fade == 4 :
-			fall_tween.finished.connect(set.bind("fall_fade", 0 ))
-			fall_fade = 4.5;
+		fog_fade = true
 				
 		
 	if is_on_floor():
