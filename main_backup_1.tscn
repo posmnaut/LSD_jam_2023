@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=31 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="Environment" uid="uid://c8gqwpwnyflfi" path="res://Environments/lsd_environ_a.tres" id="2_5d32b"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://bsnnkdy410a21" path="res://snd_effects/Level_3_Talk_spriite.mp3" id="15_v6qj8"]
 [ext_resource type="PackedScene" uid="uid://cts05vcre6t4a" path="res://Objects/click_trigger.tscn" id="16_q403t"]
 [ext_resource type="PackedScene" uid="uid://diy8peom71tle" path="res://Objects/trigger_target.tscn" id="16_wyqp5"]
+[ext_resource type="PackedScene" uid="uid://by5kw50jmtucl" path="res://Objects/ladder_type_a.tscn" id="18_m1oiu"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qiiav"]
 size = Vector3(30, 15, 1)
@@ -569,3 +570,6 @@ target = NodePath("../../trigger_target2")
 
 [node name="trigger_target2" parent="." instance=ExtResource("16_wyqp5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2445, 3.5, -107.328)
+
+[node name="ladder_type_a" parent="." instance=ExtResource("18_m1oiu")]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 1, -13.4205, 2.81944, -104.412)

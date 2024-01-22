@@ -13,7 +13,6 @@ var jump_token = 2;
 @onready var head = $Head
 @onready var drop_shadow = $Drop_Shadow
 @onready var stp_audio_player = $footsteps_1
-@onready var gun_anim = $"Head/Camera3D/Steampunk Rifle/AnimationPlayer"
 @onready var NPC_talk_area = $Area3D;
 @onready var Look_Cast = $Head/Look_Cast_NPC
 @onready var look_cast_door = $Head/Look_Cast_door
@@ -24,6 +23,10 @@ var jump_token = 2;
 @onready var fog_density_default
 @onready var interact_sprite = $UI/MarginContainer/sprite_pointer
 @onready var bump_trigger_detect = $Area3D
+@onready var p_collider = $CollisionShape3D
+@onready var default_height
+@onready var head_bonk = $head_bonk
+@onready var ladder_detection = $ladder_detection
 
 
 @export var spwn_point : Node3D
@@ -35,6 +38,7 @@ var fall = 30
 var bs_spd = 6
 var wall_run_spd = 12
 var spd = 6
+var spd_crch_mod = 0.5
 var p_normal
 var wall_run_t = 0 
 var direction
@@ -63,6 +67,12 @@ var point_timer = 0
 var fog_fade = false
 var teleport_point 
 var fall_thresh = 100;
+var crouch_speed = 20;
+var crouch_height = 0;
+var head_default = 0;
+var ceil_too_low = false
+var on_ladder = false
+var can_wall_run = true
 
 var wall_run_angle = 15 #export me 
 var wall_run_current_angle = 0
@@ -79,9 +89,6 @@ var step_timer = 0;
 
 var in_dialogue = false;
 
-var debug1
-var debug2
-
 func _ready():
 	$"/root/global".register_player(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED #captures mouse inside the screenspace
@@ -94,6 +101,9 @@ func _ready():
 	fog_density_default = environ_a.environment.get_fog_density()
 	fog_color_default = environ_a.environment.get_fog_light_color()
 	Dialogic.start("timeline_null_reset") #this preloads the dialogic system
+	default_height = p_collider.scale.y
+	crouch_height = default_height*0.6
+	head_default = head.position.y
 	
 
 func _process(delta):
@@ -159,6 +169,12 @@ func _process(delta):
 			fall_tween.tween_property(environ_a.environment, "fog_light_color", fog_color_default,3.0)
 			fall_tween.finished.connect(set.bind("fall_fade", 0 ))
 			fog_fade = false
+			
+	#check ceiling depth when crouching
+	ceil_too_low = false
+	if head_bonk.is_colliding() :
+		ceil_too_low = true
+		
 
 #if dialogic "end" signal sent, in_dialogue = false 
 func _on_timeline_ended():
@@ -318,7 +334,27 @@ func process_wall_run_rotation(delta) :
 	##camera.fov = wall_run_current_FOV ##this causes huge lag; why? 
 
 func _physics_process(delta):
-
+	
+	#ladder detection test
+	#for i in get_slide_collision_count():
+		#var collision = get_slide_collision(i)
+		#print("I collided with ", collision.get_collider().name)
+	if ladder_detection.has_overlapping_areas() :
+		on_ladder = true
+		can_wall_run = false
+		wall_run_t = false
+		is_wallrunning = false
+		wall_jump = false
+		#var normal = 
+		#var wall_run_dir = Vector3.UP.cross(normal)
+		#var player_view_dir = -camera.global_transform.basis.z
+		#var dot = wall_run_dir.dot(player_view_dir)
+		#print(abs(camera.global_transform.basis.z.y));
+	else:
+		on_ladder = false
+		can_wall_run = true
+	
+	#bump trigger detection
 	if fog_fade == false :
 		if bump_trigger_detect.has_overlapping_areas() :
 			var collision = bump_trigger_detect.get_overlapping_areas()
@@ -344,8 +380,20 @@ func _physics_process(delta):
 			stp_audio_player.pitch_scale = randf_range(0.7,1.3);
 			stp_audio_player.play()
 	
+	#crouching
+	if Input.is_action_pressed("crouch") :
+		p_collider.scale.y -= crouch_speed * delta;
+		head.position.y -= crouch_speed * delta;
+		spd = bs_spd*spd_crch_mod;
+	elif !ceil_too_low :
+		p_collider.scale.y += crouch_speed * delta;
+		head.position.y += crouch_speed * delta;
+	p_collider.scale.y = clamp(p_collider.scale.y,crouch_height,default_height)
+	head.position.y = clamp(head.position.y,head_default-0.5,head_default)
+	
 	if not is_on_floor():
-		velocity.y -= fall * delta
+		if !on_ladder :
+			velocity.y -= fall * delta
 		
 	if not is_on_wall():
 		wall_run_t = 0
@@ -376,9 +424,11 @@ func _physics_process(delta):
 	mantling = false
 	
 	if result1 == null and result2 != null:
-		if Input.is_action_pressed("forward") and !is_on_floor():
-			velocity.y = JUMP_VELOCITY
-			mantling = true
+		if Input.is_action_pressed("forward") :
+			if !is_on_floor() :
+				if !Input.is_action_pressed("crouch") :
+					velocity.y = JUMP_VELOCITY
+					mantling = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -386,10 +436,9 @@ func _physics_process(delta):
 	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	p_normal = direction
 	
-	
-	wall_run()
-	
-	process_wall_run_rotation(delta)
+	if can_wall_run :
+		wall_run()
+		process_wall_run_rotation(delta)
 
 	
 	if is_wallrunning and Input.is_action_just_pressed("ui_accept") :
@@ -409,20 +458,37 @@ func _physics_process(delta):
 		if spd < wall_run_spd :
 			spd = wall_run_spd + sprint_mod
 
-	
-	if direction:
-		velocity.x = direction.x * spd
-		velocity.z = direction.z * spd
+	if on_ladder :
+
+		var look_mod = 1 + abs(camera.global_transform.basis.z.y);
+		var forward_vec = Vector3.FORWARD
+		var right_vec = Vector3.RIGHT
+		var forward = Vector3()
+		var right = Vector3()
+
+		# in the function before you move things
+		var basis = camera.global_transform.basis
+		var sub_spd = int(Input.is_action_pressed("forward")) - int(Input.is_action_pressed("back")) 
+		var sub_spd_r = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left")) 
+		var b_spd = bs_spd*0.5
+		forward = basis * forward_vec * sub_spd 
+		right = basis * right_vec * sub_spd_r 
+		velocity = (forward + right) * (b_spd * look_mod)
+		
 	else:
-		velocity.x = move_toward(velocity.x, 0, spd)
-		velocity.z = move_toward(velocity.z, 0, spd)
+		if direction:
+			velocity.x = direction.x * spd
+			velocity.z = direction.z * spd
+		else:
+			velocity.x = move_toward(velocity.x, 0, spd)
+			velocity.z = move_toward(velocity.z, 0, spd)
 
 	if !in_dialogue :
 		if !fog_fade :
 			move_and_slide()
 			if p_normal.x + p_normal.y + p_normal.z != 0 :
 				if is_on_floor() || is_wallrunning :
-					step_timer += 1+(sprint_spd*0.5);
+					step_timer += (spd / bs_spd) + (sprint_spd*0.5);
 	
 	# position drop shadow
 	drop_shadow.global_position.y = ray_shadow.get_collision_point().y + 0.01
