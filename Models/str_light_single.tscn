@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4jkh3vewgtx1"]
+[gd_scene load_steps=6 format=3 uid="uid://b4jkh3vewgtx1"]
 
 [ext_resource type="PackedScene" uid="uid://tncmv067ua1p" path="res://Models/srt_light/detailLight_single.glb" id="1_6okkp"]
 
@@ -9,6 +9,19 @@ emission = Color(0.6, 0.6, 0, 1)
 emission_energy_multiplier = 8.32
 
 [sub_resource type="BoxMesh" id="BoxMesh_flh5f"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ka52l"]
+top_radius = 0.0
+bottom_radius = 2.919
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_td1b7"]
+transparency = 1
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+albedo_color = Color(1, 1, 1, 0.00392157)
 
 [node name="detailLight_single" instance=ExtResource("1_6okkp")]
 
@@ -21,12 +34,21 @@ material_override = SubResource("StandardMaterial3D_7ecrp")
 mesh = SubResource("BoxMesh_flh5f")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 3.5, 0.5)
+transform = Transform3D(1, 0, 0, 0, -0.400557, 0.916272, 0, -0.916272, -0.400557, 0, 3.5, 0.5)
 light_energy = 3.0
-light_indirect_energy = 3.0
 light_volumetric_fog_energy = 0.0
+light_size = 1.0
 spot_range = 6.0
 spot_angle = 26.71
 
 [node name="OmniLight3D" type="OmniLight3D" parent="SpotLight3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, -0.258819, -0.965926, 0, 0.965926, -0.258819, 0, 0, 0)
+light_volumetric_fog_energy = 0.0
+omni_range = 1.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 2.74424, 0.404024, 0, -1.21207, 0.914748, 0, 0.948349, 1.59275)
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("CylinderMesh_ka52l")
+surface_material_override/0 = SubResource("StandardMaterial3D_td1b7")

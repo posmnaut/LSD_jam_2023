@@ -6,21 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://ddqefkbpw5f2p" path="res://Textures/eyes_close_1.png" id="5_pkua1"]
 [ext_resource type="Texture2D" uid="uid://bpmj1hw4a55cs" path="res://Textures/hand_pointer.png" id="6_08gl2"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xeej3"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysqe2"]
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-albedo_texture = ExtResource("2_6b36o")
-
-[sub_resource type="QuadMesh" id="QuadMesh_x8e4q"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0xyq1"]
-size = Vector3(0.5, 2, 0.5)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_bb4wg"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rqxc"]
 atlas = ExtResource("5_pkua1")
 region = Rect2(0, 0, 596, 336)
@@ -85,9 +70,69 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xeej3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysqe2"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("2_6b36o")
+
+[sub_resource type="QuadMesh" id="QuadMesh_x8e4q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xyq1"]
+size = Vector3(0.5, 2, 0.5)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bb4wg"]
+
 [node name="Player" type="CharacterBody3D"]
 floor_stop_on_slope = false
 script = ExtResource("1_xuua8")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 782.0
+offset_bottom = 394.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 0
+offset_right = 1275.0
+offset_bottom = 735.0
+
+[node name="sprite_pointer" type="Sprite2D" parent="UI/MarginContainer"]
+position = Vector2(628, 605)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_08gl2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/MarginContainer"]
+position = Vector2(634, 370)
+scale = Vector2(2.2, 2.2)
+sprite_frames = SubResource("SpriteFrames_8rkq1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 2
+offset_left = 399.0
+offset_top = 339.0
+offset_right = 903.0
+offset_bottom = 731.0
+
+[node name="resume" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "RESUME"
+
+[node name="quit" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04435, 0)
@@ -159,34 +204,6 @@ shape = SubResource("CylinderShape3D_bb4wg")
 stream = ExtResource("4_56f33")
 volume_db = -20.0
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
-layout_mode = 0
-offset_right = 599.0
-offset_bottom = 341.0
-
-[node name="sprite_pointer" type="Sprite2D" parent="UI/MarginContainer"]
-position = Vector2(628, 605)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("6_08gl2")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/MarginContainer"]
-position = Vector2(634, 370)
-scale = Vector2(2.2, 2.2)
-sprite_frames = SubResource("SpriteFrames_8rkq1")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 5.0
-offset_right = 782.0
-offset_bottom = 394.0
-
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 current = true
 
@@ -196,3 +213,6 @@ current = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88844, 0)
 target_position = Vector3(0, 0.25, 0)
 collision_mask = 3
+
+[connection signal="pressed" from="UI/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/quit" to="." method="_on_quit_pressed"]

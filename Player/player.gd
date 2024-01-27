@@ -27,6 +27,7 @@ var jump_token = 2;
 @onready var default_height
 @onready var head_bonk = $head_bonk
 @onready var ladder_detection = $ladder_detection
+@onready var pause_menu = $UI/VBoxContainer
 
 
 @export var spwn_point : Node3D
@@ -73,6 +74,8 @@ var head_default = 0;
 var ceil_too_low = false
 var on_ladder = false
 var can_wall_run = true
+var pause = false
+var blink_frames = 0
 
 var wall_run_angle = 15 #export me 
 var wall_run_current_angle = 0
@@ -104,7 +107,15 @@ func _ready():
 	default_height = p_collider.scale.y
 	crouch_height = default_height*0.6
 	head_default = head.position.y
+	process_mode = Node.PROCESS_MODE_ALWAYS;
 	
+func _on_quit_pressed():
+	get_tree().quit()
+
+
+func _on_resume_pressed():
+	pause = !pause
+	blink_anim.play()
 
 func _process(delta):
 	if step_timer > 30 :
@@ -114,15 +125,31 @@ func _process(delta):
 		
 	#close game loop
 	#plays anim then pauses then closes
-	if close_game :
-		if !blink_anim.is_playing() :
-			blink_anim.play_backwards();
+	#if close_game :
+		#if !blink_anim.is_playing() :
+		#	blink_anim.play_backwards();
 			
-		if blink_anim.frame == 0 || eyes_state_sub_timer > 0:
+		#if blink_anim.frame == 0 || eyes_state_sub_timer > 0:
+		#	blink_anim.set_frame_and_progress(0,0.0);
+		#	eyes_state_sub_timer += 1;
+		#	if eyes_state_sub_timer >= 15 :
+		#		#get_tree().quit()
+		#		pass
+		
+	if pause :
+		if blink_anim.frame == 0 :
 			blink_anim.set_frame_and_progress(0,0.0);
-			eyes_state_sub_timer += 1;
-			if eyes_state_sub_timer >= 15 :
-				get_tree().quit()
+			pause_menu.show()
+			#get_tree().paused = true
+			Engine.time_scale = 0
+			#also disable movement here 
+			Input.mouse_mode = Input.MOUSE_MODE_CONFINED #captures mouse inside the screenspace
+	else :
+		pause_menu.hide()
+			#get_tree().paused = true
+		Engine.time_scale = 1
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED #captures mouse inside the screenspace
+
 				
 	#draw "can interact" icon
 	if !in_dialogue && !fog_fade:
@@ -191,13 +218,18 @@ func _on_dialogic_signal(argument:String):
 		if NPC_check != null :
 			if NPC_check.has_meta("is_sleep") :
 				NPC_check.set_meta("is_sleep",true)
-		
 
 func _input(event):
 	#Handle escape quit function
 	if event.is_action_pressed("escape"):
-		close_game = true;
-	
+		#close_game = true;
+		if blink_anim.frame == 0 || blink_anim.frame == 7 :
+			pause = !pause
+			if pause :
+				blink_anim.play_backwards();
+			else :
+				blink_anim.play()
+
 	#this is organized terribly, fix it 
 	#Handle NPC talk w/ shoot 
 	#Handle click trigger
@@ -217,8 +249,8 @@ func _input(event):
 					if op_audio != null :
 						if !audio_s_player.is_playing() :
 							if talk_timer == false :
-								audio_s_player.stream = op_audio;
-								audio_s_player.play();
+								#audio_s_player.stream = op_audio;
+								#audio_s_player.play();
 								NPC_check.set_meta("talk_timer",true);
 			
 			if click_check !=null :
@@ -384,7 +416,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("crouch") :
 		p_collider.scale.y -= crouch_speed * delta;
 		head.position.y -= crouch_speed * delta;
-		spd = bs_spd*spd_crch_mod;
+		spd = bs_spd - ((bs_spd*spd_crch_mod) * int(is_on_floor()));
 	elif !ceil_too_low :
 		p_collider.scale.y += crouch_speed * delta;
 		head.position.y += crouch_speed * delta;
@@ -509,3 +541,8 @@ func _physics_process(delta):
 
 	
 	
+
+
+
+
+
