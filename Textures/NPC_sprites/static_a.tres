@@ -1,0 +1,74 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://dwtb6123uht4e"]
+
+[ext_resource type="Texture2D" uid="uid://clfj4dh48onge" path="res://Textures/NPC_sprites/TVstatic_scanlines.png" id="1_yu5pl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw7wy"]
+atlas = ExtResource("1_yu5pl")
+region = Rect2(0, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nf7w"]
+atlas = ExtResource("1_yu5pl")
+region = Rect2(500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k56a3"]
+atlas = ExtResource("1_yu5pl")
+region = Rect2(1000, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv3tm"]
+atlas = ExtResource("1_yu5pl")
+region = Rect2(1500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce6vk"]
+atlas = ExtResource("1_yu5pl")
+region = Rect2(2000, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71wb7"]
+atlas = ExtResource("1_yu5pl")
+region = Rect2(2500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf35d"]
+atlas = ExtResource("1_yu5pl")
+region = Rect2(3000, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyd5a"]
+atlas = ExtResource("1_yu5pl")
+region = Rect2(3500, 0, 500, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8aeq"]
+atlas = ExtResource("1_yu5pl")
+region = Rect2(4000, 0, 500, 500)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw7wy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nf7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k56a3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv3tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce6vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71wb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rf35d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyd5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8aeq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]

@@ -13,6 +13,7 @@ func _ready():
 	#process_mode = Node.PROCESS_MODE_ALWAYS;
 
 func _process (delta) :
+	pass
 	#if Input.is_action_pressed("escape"):
 			#if pause :
 			#	get_tree().paused = false

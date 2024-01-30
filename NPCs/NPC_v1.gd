@@ -1,7 +1,8 @@
 extends StaticBody3D
 
 @onready var anim_tree = $AnimationTree
-@onready var sleep_sprite = $sleep_sprite
+@onready var sleep_sprite = $"game rig/Skeleton3D/BoneAttachment3D/sleep_sprite"
+@onready var face_sprite = $"game rig/Skeleton3D/BoneAttachment3D/face_sprite"
 
 var timer = 0;
 var f_timer = 0;
@@ -40,6 +41,7 @@ func _process (_delta) :
 				if dist > 70 :
 					anim_tree.set("parameters/conditions/sleepmode",true)
 					sleep_sprite.visible = true;
+					face_sprite.visible = false;
 					#also set dialogue HERE
 					set_meta("fully_sleep",true);
 					fully_asleep = true;

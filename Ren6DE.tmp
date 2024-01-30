@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://u23kfh2d4gyk"]
+
+[ext_resource type="Shader" path="res://retro_pp_dragon1freak.gdshader" id="1_ufmro"]
+[ext_resource type="PackedScene" uid="uid://dvajvt4h05xqg" path="res://main_backup_1.tscn" id="2_vupvh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l7oam"]
+shader = ExtResource("1_ufmro")
+shader_parameter/change_color_depth = true
+shader_parameter/target_color_depth = 4
+shader_parameter/dithering = true
+shader_parameter/scale_resolution = true
+shader_parameter/target_resolution_scale = 3
+shader_parameter/enable_recolor = false
+
+[node name="RenderContainer" type="SubViewportContainer"]
+material = SubResource("ShaderMaterial_l7oam")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+audio_listener_enable_3d = true
+size = Vector2i(1280, 768)
+render_target_update_mode = 4
+
+[node name="Main" parent="SubViewport" instance=ExtResource("2_vupvh")]

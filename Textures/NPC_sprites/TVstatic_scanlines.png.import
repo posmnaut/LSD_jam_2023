@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bchooxpormtow"
-path.s3tc="res://.godot/imported/poss_test_sprite_1_a.png-6ca076407a82599199078462a937f70a.s3tc.ctex"
+uid="uid://clfj4dh48onge"
+path.s3tc="res://.godot/imported/TVstatic_scanlines.png-a7eb643f7f412bf6213f2c18a0723dd1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://NPC_talk_scenes/poss_test_sprite_1_a.png"
-dest_files=["res://.godot/imported/poss_test_sprite_1_a.png-6ca076407a82599199078462a937f70a.s3tc.ctex"]
+source_file="res://Textures/NPC_sprites/TVstatic_scanlines.png"
+dest_files=["res://.godot/imported/TVstatic_scanlines.png-a7eb643f7f412bf6213f2c18a0723dd1.s3tc.ctex"]
 
 [params]
 

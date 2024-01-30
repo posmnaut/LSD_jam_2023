@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://c2hdp512qj3po"]
+
+[ext_resource type="Texture2D" uid="uid://bchooxpormtow" path="res://NPC_talk_scenes/poss_test_sprite_1_a.png" id="1_4b175"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51hxn"]
+atlas = ExtResource("1_4b175")
+region = Rect2(0, 0, 375, 346)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v65pp"]
+atlas = ExtResource("1_4b175")
+region = Rect2(375, 0, 375, 346)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jw4qv"]
+atlas = ExtResource("1_4b175")
+region = Rect2(750, 0, 375, 346)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjx5e"]
+atlas = ExtResource("1_4b175")
+region = Rect2(1125, 0, 375, 346)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51hxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v65pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jw4qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjx5e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
