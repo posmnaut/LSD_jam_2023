@@ -173,6 +173,8 @@ func _process(delta):
 	#falling fade out behavior
 	if fog_fade == true :
 		if 	fall_fade == 0 :
+			fog_density_default = environ_a.environment.get_fog_density()
+			fog_color_default = environ_a.environment.get_fog_light_color()
 			fall_tween = create_tween()
 			fall_tween.set_parallel(true)
 			fall_tween.tween_property(environ_a.environment, "fog_density", 1.0,3.0)

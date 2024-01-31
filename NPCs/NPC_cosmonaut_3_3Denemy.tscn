@@ -4109,7 +4109,7 @@ mesh = SubResource("ArrayMesh_iy138")
 skin = SubResource("Skin_a7r5t")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="game rig/Skeleton3D"]
-transform = Transform3D(0.00302636, 0.101985, 0.994781, 5.82477e-05, 0.994786, -0.101986, -0.999995, 0.000366583, 0.00300464, 0.525553, 8.49837, 0.0309455)
+transform = Transform3D(0.00302624, 0.101985, 0.994781, 5.82291e-05, 0.994786, -0.101986, -0.999996, 0.000366578, 0.00300453, 0.525553, 8.49838, 0.0309456)
 bone_name = "DEF-spine.006"
 bone_idx = 6
 
