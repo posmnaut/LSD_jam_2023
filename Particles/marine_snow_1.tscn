@@ -15,8 +15,8 @@ emission_shape = 3
 emission_box_extents = Vector3(30, 5, 30)
 direction = Vector3(0, 0, 0)
 spread = 180.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_max = 0.1
+gravity = Vector3(0, 0, 0)
 scale_max = 2.0
 color_ramp = SubResource("GradientTexture1D_vo3uf")
 

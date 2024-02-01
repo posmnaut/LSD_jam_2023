@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=31 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
+[ext_resource type="Environment" uid="uid://rxoead5ncs55" path="res://Environments/default_environ.tres" id="2_nnx32"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
 [ext_resource type="Texture2D" uid="uid://ihccctdrekwo" path="res://Textures/city_lauout_revised_a_export.png" id="3_343bq"]
 [ext_resource type="PackedScene" uid="uid://rwrbsssaksbh" path="res://Objects/Block.tscn" id="3_i1kup"]
@@ -57,12 +58,15 @@ albedo_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 script = ExtResource("1_dn6qx")
 env_lsd = ExtResource("4_o8xr1")
 
+[node name="districts" type="Node3D" parent="."]
+
 [node name="overhead_map" type="Sprite3D" parent="."]
 transform = Transform3D(-33, -2.07185e-05, -9.05634e-13, 0, -1.44248e-06, 33, -2.07185e-05, 33, 1.44248e-06, 0, 4.64825, 0)
+visible = false
 texture = ExtResource("3_343bq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("4_o8xr1")
+environment = ExtResource("2_nnx32")
 
 [node name="DirectionalLight3D_night" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 0, 0)
@@ -78,7 +82,7 @@ light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("spwn_point", "environ_a") instance=ExtResource("2_qq07f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.069, 5.523, -80.0195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7432, 2.16514, 44.1798)
 spwn_point = NodePath("../player_spawn_1")
 environ_a = NodePath("../WorldEnvironment")
 
@@ -307,6 +311,7 @@ transform = Transform3D(-4.37114e-07, -1, 0, 9.65926, -4.2222e-08, 7.76457, -2.5
 
 [node name="radio_test_1" parent="building_a" instance=ExtResource("7_fv0xj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.30702, -5.68396)
+audio = ""
 
 [node name="building_b" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.78, 0, 67.7353)
@@ -724,6 +729,10 @@ transform = Transform3D(-1.45217e-06, 0, 5.346, 0, 0.745904, 0, -33.2218, 0, -2.
 
 [node name="Block42" parent="building_c" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-3.51425e-07, 0, 5.346, 0, 0.745904, 0, -8.03968, 0, -2.33681e-07, 32.1935, 11.0026, -90.7762)
+
+[node name="radio_test_1" parent="building_c" instance=ExtResource("7_fv0xj")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 21.231, 1.62765, -86.4762)
+audio = "res://music/Buzz-0083.mp3"
 
 [node name="building_d" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1622, 12.0966, 106.716)

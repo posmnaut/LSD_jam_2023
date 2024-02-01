@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Player/player_v2.gd" id="1_0u1et"]
 [ext_resource type="Texture2D" uid="uid://d2oik12wohmhe" path="res://Textures/d_shadow_1.png" id="2_hom5p"]
-[ext_resource type="PackedScene" uid="uid://b01jr3l3g4uvp" path="res://Models/sticks_quick_export_a.glb" id="2_qbdjp"]
+[ext_resource type="PackedScene" uid="uid://b01jr3l3g4uvp" path="res://Models/steampunk_rifle.tscn" id="2_qbdjp"]
 [ext_resource type="PackedScene" uid="uid://umon6ovuv3s6" path="res://Particles/rain_1.tscn" id="3_13s55"]
 [ext_resource type="PackedScene" uid="uid://dw60ksydxlmg4" path="res://Models/weapons/final_shotty_volver_1.tscn" id="3_c3203"]
 [ext_resource type="PackedScene" uid="uid://ltfqybl38muu" path="res://Particles/marine_snow_1.tscn" id="4_k8ou1"]
