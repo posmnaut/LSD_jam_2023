@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://vd748wi3vkeu"]
+
+[ext_resource type="Script" path="res://Objects/district_environment.gd" id="1_uywwj"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4lavy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6m7ar"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.14902)
+
+[node name="DistrictEnvironment" type="Node3D"]
+script = ExtResource("1_uywwj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_4lavy")
+surface_material_override/0 = SubResource("StandardMaterial3D_6m7ar")

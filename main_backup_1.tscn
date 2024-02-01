@@ -1,12 +1,15 @@
-[gd_scene load_steps=31 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=34 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
+[ext_resource type="Environment" uid="uid://dtf40la4c1oam" path="res://Environments/lsd_environ_variable.tres" id="2_3vvsk"]
 [ext_resource type="Environment" uid="uid://rxoead5ncs55" path="res://Environments/default_environ.tres" id="2_nnx32"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
 [ext_resource type="Texture2D" uid="uid://ihccctdrekwo" path="res://Textures/city_lauout_revised_a_export.png" id="3_343bq"]
 [ext_resource type="PackedScene" uid="uid://rwrbsssaksbh" path="res://Objects/Block.tscn" id="3_i1kup"]
+[ext_resource type="PackedScene" uid="uid://vd748wi3vkeu" path="res://Objects/district_environment.tscn" id="3_nm1h6"]
 [ext_resource type="PackedScene" uid="uid://c6a505nq6i4b6" path="res://Objects/Block_wall_run.tscn" id="4_i8u5b"]
 [ext_resource type="Environment" uid="uid://c8gqwpwnyflfi" path="res://Environments/lsd_environ_a.tres" id="4_o8xr1"]
+[ext_resource type="Environment" uid="uid://dwrknp0svk5yq" path="res://Environments/lsd_environ_b.tres" id="5_qw5vd"]
 [ext_resource type="PackedScene" uid="uid://unin1xvrrdkl" path="res://NPCs/audio_boxes/radio_test_1.tscn" id="7_fv0xj"]
 [ext_resource type="PackedScene" uid="uid://dvngx4u6lursv" path="res://kenney_models/urban_retro/detailDumpster_open.glb" id="8_e8w28"]
 [ext_resource type="PackedScene" uid="uid://d085myq6xl5oy" path="res://kenney_models/urban_retro_scenes/door_type_a.tscn" id="9_buja5"]
@@ -56,9 +59,26 @@ albedo_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_dn6qx")
-env_lsd = ExtResource("4_o8xr1")
+env_lsd = ExtResource("2_3vvsk")
+
+[node name="district_BG_audio" type="AudioStreamPlayer" parent="."]
+
+[node name="district_BG_audio2" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
 
 [node name="districts" type="Node3D" parent="."]
+
+[node name="DistrictEnvironment" parent="districts" instance=ExtResource("3_nm1h6")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 48.7239, 1.46805, 39.3377)
+audio = "res://music/Buzz-0083.mp3"
+environ_info = ExtResource("4_o8xr1")
+light_color = Color(1, 1, 1, 1)
+light_strength = 1.0
+
+[node name="DistrictEnvironment2" parent="districts" instance=ExtResource("3_nm1h6")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 60.2076, 1.46805, 31.5153)
+audio = "res://music/LSD_Project.mp3"
+environ_info = ExtResource("5_qw5vd")
 
 [node name="overhead_map" type="Sprite3D" parent="."]
 transform = Transform3D(-33, -2.07185e-05, -9.05634e-13, 0, -1.44248e-06, 33, -2.07185e-05, 33, 1.44248e-06, 0, 4.64825, 0)
