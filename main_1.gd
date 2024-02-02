@@ -5,6 +5,7 @@ extends Node3D
 @onready var districts = $districts
 @onready var district_audio = $district_BG_audio
 @onready var district_audio_2 = $district_BG_audio2
+@onready var vis_map = $overhead_map
 
 var pause = false
 var start_white = Color("WHITE");
@@ -31,6 +32,7 @@ var environ_shift
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	vis_map.visible = false
 	environ.environment = env_lsd;
 	#process_mode = Node.PROCESS_MODE_ALWAYS;
 	district_array = districts.get_children(false)

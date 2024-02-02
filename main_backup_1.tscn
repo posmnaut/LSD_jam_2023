@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=35 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="Environment" uid="uid://dtf40la4c1oam" path="res://Environments/lsd_environ_variable.tres" id="2_3vvsk"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://wg43fq6o6dmb" path="res://music/10_MIX.mp3" id="10_2jqxx"]
 [ext_resource type="PackedScene" uid="uid://ch3rtekxsdeev" path="res://NPCs/NPC_cosmonaut_3_3Denemy.tscn" id="14_8kv7q"]
 [ext_resource type="PackedScene" uid="uid://b4jkh3vewgtx1" path="res://Models/str_light_single.tscn" id="15_0no74"]
+[ext_resource type="Texture2D" uid="uid://c4lj3vkej5o8b" path="res://Textures/billboards/chrome_sFUyElTgJf.png" id="15_aft2h"]
 [ext_resource type="AudioStream" uid="uid://bsnnkdy410a21" path="res://snd_effects/Level_3_Talk_spriite.mp3" id="15_v6qj8"]
 [ext_resource type="PackedScene" uid="uid://cts05vcre6t4a" path="res://Objects/click_trigger.tscn" id="16_ece4e"]
 [ext_resource type="AudioStream" uid="uid://xyoyomk8ynua" path="res://snd_effects/454067__kyles__light-bulb-hum-buzz3.wav" id="16_kq55b"]
@@ -81,7 +82,7 @@ audio = "res://music/LSD_Project.mp3"
 environ_info = ExtResource("5_qw5vd")
 
 [node name="overhead_map" type="Sprite3D" parent="."]
-transform = Transform3D(-33, -2.07185e-05, -9.05634e-13, 0, -1.44248e-06, 33, -2.07185e-05, 33, 1.44248e-06, 0, 4.64825, 0)
+transform = Transform3D(-28, -1.75793e-05, -7.68417e-13, 0, -1.22392e-06, 28, -1.75793e-05, 28, 1.22392e-06, 0, 4.64825, 0)
 visible = false
 texture = ExtResource("3_343bq")
 
@@ -102,7 +103,7 @@ light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 
 [node name="Player" parent="." node_paths=PackedStringArray("spwn_point", "environ_a") instance=ExtResource("2_qq07f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7432, 2.16514, 44.1798)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.4879, 21.6067, 44.1798)
 spwn_point = NodePath("../player_spawn_1")
 environ_a = NodePath("../WorldEnvironment")
 
@@ -228,7 +229,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
 shape = SubResource("BoxShape3D_ej4qk")
 
 [node name="building_a" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.9801, 0, 164.243)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.8692, 0, 139.551)
 
 [node name="Block_WR" parent="building_a" instance=ExtResource("4_i8u5b")]
 transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 1, 18, 27, 9)
@@ -334,7 +335,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.30702, -5.68396)
 audio = ""
 
 [node name="building_b" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.78, 0, 67.7353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.171, 0, 56.1814)
 
 [node name="Block" parent="building_b" instance=ExtResource("3_i1kup")]
 transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 16, 33.3108, 4, 5.99275)
@@ -529,6 +530,48 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 42.985
 [node name="player_spawn_1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.39116, 1, 11.1246)
 
+[node name="bridging_terrain" type="Node3D" parent="."]
+
+[node name="Block" parent="bridging_terrain" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 99.52, 17.354, 59.5112)
+
+[node name="Block5" parent="bridging_terrain" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 99.52, 7.35403, 59.5112)
+
+[node name="Block2" parent="bridging_terrain" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 99.0213, 17.354, 89.6838)
+
+[node name="Block6" parent="bridging_terrain" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 99.0213, 7.35403, 89.6838)
+
+[node name="Block3" parent="bridging_terrain" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 99.0213, 17.354, 99.4358)
+
+[node name="Block8" parent="bridging_terrain" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 99.0213, 7.35403, 99.4358)
+
+[node name="Block4" parent="bridging_terrain" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 87.342, 17.354, 89.9267)
+
+[node name="Block7" parent="bridging_terrain" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 20, 0, 0, 0, 1, 87.342, 7.35403, 89.9267)
+
+[node name="billboard_1" type="Node3D" parent="bridging_terrain"]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 3, 108.388, 0.354769, 70.1379)
+
+[node name="Block_WR16" parent="bridging_terrain/billboard_1" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(1.24033e-14, 4.50641e-07, -0.819, 6.49152, -4.50641e-07, 0, -2.83754e-07, -10.3095, -3.57996e-08, 0.3386, 7.16641, 1.43916)
+
+[node name="Block38" parent="bridging_terrain/billboard_1" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.744168, 0, 0, 0, 4.2918, 0, 0, 0, 1.7113, 0.372101, 2.12801, 5.73446)
+
+[node name="Block39" parent="bridging_terrain/billboard_1" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.744168, 0, 0, 0, 4.2918, 0, 0, 0, 1.7113, 0.372101, 2.12801, -2.85224)
+
+[node name="Sprite3D" type="Sprite3D" parent="bridging_terrain/billboard_1"]
+transform = Transform3D(-3.0598e-08, 0, -1, 0, 0.8, 0, 0.7, 0, -4.37114e-08, -0.17054, 7.32232, 1.45446)
+texture = ExtResource("15_aft2h")
+
 [node name="Ground" parent="." instance=ExtResource("3_i1kup")]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Ground"]
@@ -542,12 +585,17 @@ surface_material_override/0 = SubResource("StandardMaterial3D_bpmt7")
 transform = Transform3D(5, 0, 0, 0, 2, 0, 0, 0, 150, -97.9567, 2, -75)
 
 [node name="cosmonaut_animations-FINALBAKE" parent="." instance=ExtResource("14_8kv7q")]
-transform = Transform3D(-0.665959, 0, -0.745988, 0, 1, 0, 0.745988, 0, -0.665959, -70.3557, 0.523558, -98.3069)
+transform = Transform3D(-0.665959, 0, -0.745988, 0, 1, 0, 0.745988, 0, -0.665959, 73.4253, 0.523558, 70.171)
 metadata/dialogue = "res://Dialogic_timelines/tml_npc_b.dtl"
 metadata/opener_audio = ExtResource("15_v6qj8")
 
+[node name="cosmonaut_animations-FINALBAKE2" parent="." instance=ExtResource("14_8kv7q")]
+transform = Transform3D(0.0565891, 0, -0.998397, 0, 1, 0, 0.998397, 0, 0.0565891, 92.9575, 0.523558, 74.8817)
+metadata/dialogue = "res://Dialogic_timelines/tml_npc_blbd_a.dtl"
+metadata/opener_audio = ExtResource("15_v6qj8")
+
 [node name="building_c" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.8765, 0.210934, 124.129)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.9129, 0.210934, 115.799)
 
 [node name="Block_WR" parent="building_c" instance=ExtResource("4_i8u5b")]
 transform = Transform3D(-2.40725e-07, -7.161, 0, 5.50715, -3.13017e-07, 0, 0, 0, 0.5, 12, 4, -84.1056)
@@ -755,7 +803,7 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 audio = "res://music/Buzz-0083.mp3"
 
 [node name="building_d" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.1622, 12.0966, 106.716)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.2535, 12.0966, 99.226)
 
 [node name="Block" parent="building_d" instance=ExtResource("3_i1kup")]
 transform = Transform3D(5.54338, -0.150008, 5.04686, 9.72918e-08, 0.984233, 1.06945, -8.87263, -0.0937209, 3.15314, -3.6353, 7.7555, 7.3559)
@@ -1084,7 +1132,7 @@ unit_size = 2.0
 autoplay = true
 
 [node name="building_ndrgnd_a" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.6177, -0.0531216, -100.147)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.5571, -0.0531216, -90.9714)
 
 [node name="Block" parent="building_ndrgnd_a" instance=ExtResource("3_i1kup")]
 transform = Transform3D(2, 0, 0, 0, 20, 0, 0, 0, 120, 26.1606, -2.67632, 0)

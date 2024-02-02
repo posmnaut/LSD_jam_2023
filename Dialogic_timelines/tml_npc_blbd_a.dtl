@@ -1,0 +1,5 @@
+if {npc_blbd_a} == 0:
+	"... well, it beats re-electing Holden Bloodfeast again..."
+	set {npc_blbd_a} = 1
+	[signal arg="dialogue_exhausted"]
+[end_timeline]

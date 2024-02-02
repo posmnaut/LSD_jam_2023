@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 
 global="*res://global.gd"
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
-Dialogic="*res://addons/dialogic/Other/DialogicGameHandler.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
@@ -31,6 +31,7 @@ directories/dtl_directory={
 "timeline_null_reset": "res://Dialogic_timelines/timeline_null_reset.dtl",
 "timeline_test_a": "res://Dialogic_timelines/timeline_test_a.dtl",
 "tml_npc_b": "res://Dialogic_timelines/tml_npc_b.dtl",
+"tml_npc_blbd_a": "res://Dialogic_timelines/tml_npc_blbd_a.dtl",
 "tml_npc_c": "res://Dialogic_timelines/tml_npc_c.dtl"
 }
 glossary/default_case_sensitive=true
@@ -38,6 +39,7 @@ layout/style_list=[]
 layout/default_style="Default"
 variables={
 "Var": 0,
+"npc_blbd_a": 0,
 "tml_npc_b": 0
 }
 text/letter_speed=0.01
