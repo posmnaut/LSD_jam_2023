@@ -30,6 +30,7 @@ directories/dch_directory={
 directories/dtl_directory={
 "timeline_null_reset": "res://Dialogic_timelines/timeline_null_reset.dtl",
 "timeline_test_a": "res://Dialogic_timelines/timeline_test_a.dtl",
+"tml_bldg_radio_a": "res://Dialogic_timelines/tml_bldg_radio_a.dtl",
 "tml_npc_b": "res://Dialogic_timelines/tml_npc_b.dtl",
 "tml_npc_blbd_a": "res://Dialogic_timelines/tml_npc_blbd_a.dtl",
 "tml_npc_c": "res://Dialogic_timelines/tml_npc_c.dtl"
@@ -40,6 +41,7 @@ layout/default_style="Default"
 variables={
 "Var": 0,
 "npc_blbd_a": 0,
+"npc_bldg_radio": 0,
 "tml_npc_b": 0
 }
 text/letter_speed=0.01

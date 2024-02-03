@@ -1,0 +1,5 @@
+if {npc_bldg_radio} == 0:
+	"I come here to chill. Feel free to join me. But don't touch the radio."
+	set {npc_bldg_radio} = 1
+	[signal arg="dialogue_exhausted"]
+[end_timeline]

@@ -1,6 +1,9 @@
 extends Node3D
-@onready var environ = $WorldEnvironment
+
 @export 	var env_lsd : Environment
+@export var aud_amb_vol_mod = 0.75
+
+@onready var environ = $WorldEnvironment
 @onready var world_light = $DirectionalLight3D_day
 @onready var districts = $districts
 @onready var district_audio = $district_BG_audio
@@ -74,7 +77,8 @@ func _process (delta) :
 		if crossfade_step == 1 :
 			if district_audio_2.volume_db > -80.0 :
 				district_audio_2.volume_db -= 0.5 
-			if district_audio.volume_db < 0.0 :
+			var amb_vol = 80.0 - (80.0*aud_amb_vol_mod);
+			if district_audio.volume_db < 0.0 - amb_vol :
 				district_audio.volume_db += 0.5
 			#tween light color and energy
 			world_light.set_color(lerp(world_light.light_color,environ_shift.light_color,0.01));
