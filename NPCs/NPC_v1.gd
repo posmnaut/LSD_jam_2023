@@ -20,14 +20,14 @@ var rotation_y = 0;
 func _ready () :
 	sleep_sprite.visible = false;
 	player = $"/root/global".player
-	rotation_y = rotation.y;
+	rotation_y = global_transform.basis.get_euler().y;
 	
 #this get_meta / set_meta block w/ the timer is not the right way to do this, I'm 90% sure
 
 func _look_at_target_interpolated(weight:float) -> void:
-	var xform := transform # your transform
+	var xform := global_transform # your transform
 	xform = xform.looking_at(player.global_position,Vector3.UP)
-	transform = transform.interpolate_with(xform,weight)
+	global_transform = global_transform.interpolate_with(xform,weight)
 
 
 func _process (_delta) : 
@@ -55,7 +55,7 @@ func _process (_delta) :
 			if get_meta("face_player") == true :
 				_look_at_target_interpolated(0.1)
 			else :
-				rotation.y = lerp(rotation.y,rotation_y,0.1)
+				rotation.y = lerp_angle(rotation.y,rotation_y,0.1)
 
 
 

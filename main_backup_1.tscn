@@ -63,7 +63,7 @@ script = ExtResource("1_dn6qx")
 env_lsd = ExtResource("2_3vvsk")
 
 [node name="Player" parent="." node_paths=PackedStringArray("spwn_point", "environ_a") instance=ExtResource("2_qq07f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60631, 18.2606, 116.063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5646, 18.2606, 22.03)
 spwn_point = NodePath("../player_spawn_1")
 environ_a = NodePath("../WorldEnvironment")
 
@@ -803,9 +803,8 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 audio = "res://music/game2-002_frosky.mp3"
 
 [node name="cosmonaut_animations-FINALBAKE3" parent="building_c" instance=ExtResource("14_8kv7q")]
-transform = Transform3D(-0.0209424, 0, 0.999781, 0, 1, 0, -0.999781, 0, -0.0209424, 6.38666, 1.62765, -0.860666)
+transform = Transform3D(0.0209425, 0, -0.999781, 0, 1, 0, 0.999781, 0, 0.0209425, -43.37, 0.304829, 9.13608)
 metadata/dialogue = "res://Dialogic_timelines/tml_bldg_radio_a.dtl"
-metadata/face_player = false
 
 [node name="building_d" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.2535, 12.0966, 99.226)
