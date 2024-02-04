@@ -46,7 +46,7 @@ var direction
 var is_wallrunning = false
 var side = ""
 var wall_jump = false
-var is_wall_run_jumping = false
+var is_wall_run_jumping = 0
 var wall_jump_dir = Vector3.ZERO
 var wall_jump_factor = 0.4 #export me
 var wall_jump_h_power = 2 #export me
@@ -301,7 +301,7 @@ func wall_run():
 			wall_run_x_rot = rad_to_deg(Vector2(wall_run_dir.x,wall_run_dir.z).angle())
 			wall_run_x_vec = Vector2(wall_run_dir.x,wall_run_dir.z)
 			is_wallrunning = true
-			is_wall_run_jumping = false
+			is_wall_run_jumping = 0
 			if spd < wall_run_spd :
 				spd = wall_run_spd
 			#spd += 0.1
@@ -405,7 +405,7 @@ func _physics_process(delta):
 	if is_on_floor():
 		spd = bs_spd
 		wall_run_t = 0
-		is_wall_run_jumping = false
+		is_wall_run_jumping = 0
 		jump_token = 2;
 		if land_audio :
 			#i would turn the below into a function since you're repeating it 
@@ -477,8 +477,9 @@ func _physics_process(delta):
 	
 	if is_wallrunning and Input.is_action_just_pressed("ui_accept") :
 		
-		is_wall_run_jumping = true
+		is_wall_run_jumping += 1
 		velocity.y = wall_jump_y_velocity
+		jump_token = 1;
 		
 		if side == "LEFT" :
 			wall_jump_dir = global_transform.basis.x * wall_jump_h_power
@@ -487,13 +488,17 @@ func _physics_process(delta):
 			
 		wall_jump_dir *= wall_jump_factor
 	
-	if is_wall_run_jumping :
-		direction = (direction * (1- wall_jump_factor)) + wall_jump_dir
-		if spd < wall_run_spd :
-			spd = wall_run_spd + sprint_mod
+	if is_wall_run_jumping > 0:
+		if is_wall_run_jumping < 30 :
+			is_wall_run_jumping += 1;
+			direction = (direction * (1- wall_jump_factor)) + wall_jump_dir
+			if spd < wall_run_spd :
+				spd = wall_run_spd + sprint_mod
 
 	if on_ladder :
 
+		is_wall_run_jumping = false
+		is_wallrunning = false
 		var look_mod = 1 + abs(camera.global_transform.basis.z.y);
 		var forward_vec = Vector3.FORWARD
 		var right_vec = Vector3.RIGHT
@@ -510,12 +515,17 @@ func _physics_process(delta):
 		velocity = (forward + right) * (b_spd * look_mod)
 		
 	else:
-		if direction:
-			velocity.x = direction.x * spd
-			velocity.z = direction.z * spd
-		else:
-			velocity.x = move_toward(velocity.x, 0, spd)
-			velocity.z = move_toward(velocity.z, 0, spd)
+		if is_on_floor() :
+			if direction:
+				velocity.x = direction.x * spd
+				velocity.z = direction.z * spd
+			else:
+				velocity.x = move_toward(velocity.x, 0, spd)
+				velocity.z = move_toward(velocity.z, 0, spd)
+		else :
+			if direction :
+				velocity.x = move_toward(velocity.x,direction.x*spd,0.5);
+				velocity.z = move_toward(velocity.z,direction.z*spd,0.5);
 
 	if !in_dialogue :
 		if !fog_fade :

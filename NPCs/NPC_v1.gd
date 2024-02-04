@@ -9,6 +9,7 @@ var f_timer = 0;
 var fully_asleep = false;
 var player= null
 var rotation_y = 0;
+var dur_timer = 900;
 
 
 #if metadata set, set timer
@@ -48,7 +49,7 @@ func _process (_delta) :
 		
 		if get_meta("talk_timer") == true :
 			f_timer += 1;
-			if f_timer > 1800 :
+			if f_timer > dur_timer :
 				print("time out")
 				set_meta("talk_timer",false)
 				f_timer = 0;
