@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca7mj5lf6bkpo"]
+
+[ext_resource type="PackedScene" uid="uid://cw2o5580dff6m" path="res://Models/fish/fish-v1.glb" id="1_5ucwr"]
+
+[node name="fish-v1" instance=ExtResource("1_5ucwr")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/1/rotation = Quaternion(-1.88737e-09, 2.45125e-09, -0.647794, 0.761816)
+bones/2/rotation = Quaternion(0.5, -0.5, -0.5, -0.5)
+bones/3/rotation = Quaternion(0, 0, 0.0221993, 0.999754)
+
+[node name="Plane_003" parent="Armature/Skeleton3D" index="0"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0, 0)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "swimming"
