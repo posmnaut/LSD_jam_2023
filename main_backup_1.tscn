@@ -86,14 +86,14 @@ volume_db = -80.0
 
 [node name="DistrictEnvironment" parent="districts" instance=ExtResource("3_nm1h6")]
 transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 116.337, 1.46805, 78.1027)
-audio = "res://music/Far_City_Scape_Ambience_-_LSD_cloudy.mp3"
+audio = "res://music/apartment_city_ambience_-_LSD.mp3"
 environ_info = ExtResource("4_o8xr1")
 light_color = Color(1, 1, 1, 1)
 light_strength = 1.0
 
 [node name="DistrictEnvironment2" parent="districts" instance=ExtResource("3_nm1h6")]
 transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, -85.8694, 1.46805, 81.2342)
-audio = "res://music/LSD_Project.mp3"
+audio = "res://music/Far_City_Scape_Ambience_-_LSD_cloudy.mp3"
 environ_info = ExtResource("5_qw5vd")
 
 [node name="overhead_map" type="Sprite3D" parent="."]
