@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=39 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="Environment" uid="uid://dtf40la4c1oam" path="res://Environments/lsd_environ_variable.tres" id="2_3vvsk"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bsnnkdy410a21" path="res://snd_effects/Level_3_Talk_spriite.mp3" id="15_v6qj8"]
 [ext_resource type="PackedScene" uid="uid://cts05vcre6t4a" path="res://Objects/click_trigger.tscn" id="16_ece4e"]
 [ext_resource type="AudioStream" uid="uid://xyoyomk8ynua" path="res://snd_effects/454067__kyles__light-bulb-hum-buzz3.wav" id="16_kq55b"]
+[ext_resource type="AudioStream" uid="uid://cy56fl2r6opwj" path="res://snd_effects/NPC_talk_audio/intro_talk_sprite_-_computer_.wav" id="17_ichpr"]
 [ext_resource type="PackedScene" uid="uid://diy8peom71tle" path="res://Objects/trigger_target.tscn" id="17_po3j1"]
 [ext_resource type="PackedScene" uid="uid://ca7mj5lf6bkpo" path="res://Models/fish/fish_v_1.tscn" id="18_ux8f1"]
 [ext_resource type="PackedScene" uid="uid://by5kw50jmtucl" path="res://Objects/ladder_type_a.tscn" id="18_y2qa4"]
@@ -597,7 +598,7 @@ transform = Transform3D(5, 0, 0, 0, 2, 0, 0, 0, 150, -97.9567, 2, -75)
 [node name="cosmonaut_animations-FINALBAKE" parent="." instance=ExtResource("14_8kv7q")]
 transform = Transform3D(-0.665959, 0, -0.745988, 0, 1, 0, 0.745988, 0, -0.665959, 73.4253, 0.523558, 70.171)
 metadata/dialogue = "res://Dialogic_timelines/tml_npc_b.dtl"
-metadata/opener_audio = ExtResource("15_v6qj8")
+metadata/opener_audio = ExtResource("17_ichpr")
 
 [node name="cosmonaut_animations-FINALBAKE2" parent="." instance=ExtResource("14_8kv7q")]
 transform = Transform3D(0.0565891, 0, -0.998397, 0, 1, 0, 0.998397, 0, 0.0565891, 92.9575, 0.523558, 74.8817)

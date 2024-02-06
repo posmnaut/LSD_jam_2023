@@ -1,7 +1,7 @@
 extends StaticBody3D
 
 @onready var anim_tree = $AnimationTree
-@onready var sleep_sprite = $"game rig/Skeleton3D/BoneAttachment3D/sleep_sprite"
+@onready var sleep_sprite = $"game rig/sleep_sprite"
 @onready var face_sprite = $"game rig/Skeleton3D/BoneAttachment3D/face_sprite"
 
 var timer = 0;

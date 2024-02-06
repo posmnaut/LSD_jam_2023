@@ -94,10 +94,8 @@ script = ExtResource("1_xuua8")
 [node name="particles" type="Node3D" parent="."]
 
 [node name="rain_1" parent="particles" instance=ExtResource("2_72iar")]
-visible = false
 
 [node name="marine_snow_1" parent="particles" instance=ExtResource("3_wy08r")]
-visible = false
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

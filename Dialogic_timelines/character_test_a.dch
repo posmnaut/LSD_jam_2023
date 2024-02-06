@@ -5,7 +5,18 @@
 "color": Color(1, 1, 1, 1),
 "custom_info": {
 "sound_mood_default": "",
-"sound_moods": {},
+"sound_moods": {
+"Mood 1": {
+"mode": 0,
+"name": "Mood 1",
+"pitch_base": 1.2,
+"pitch_variance": 0.2,
+"skip_characters": 1.0,
+"sound_path": "res://snd_effects/NPC_talk_audio/talk_sprite_Level_3-_pitch_2.wav",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
+},
 "style": ""
 },
 "default_portrait": "anim_test_a",
@@ -21,8 +32,9 @@
 },
 "mirror": false,
 "offset": Vector2(0, 0),
-"scale": 1,
-"scene": ""
+"scale": 1.0,
+"scene": "",
+"sound_mood": "Mood 1"
 },
 "anim_test_a": {
 "export_overrides": {
@@ -31,7 +43,8 @@
 "mirror": false,
 "offset": Vector2(0, -128),
 "scale": 0.5,
-"scene": "res://NPC_talk_scenes/npc_talk_scene_test_1.tscn"
+"scene": "res://NPC_talk_scenes/npc_talk_scene_test_1.tscn",
+"sound_mood": "Mood 1"
 },
 "anim_test_b": {
 "export_overrides": {

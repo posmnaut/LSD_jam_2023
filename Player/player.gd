@@ -110,6 +110,8 @@ func _ready():
 	crouch_height = default_height*0.6
 	head_default = head.position.y
 	process_mode = Node.PROCESS_MODE_ALWAYS;
+	part_m_snow.visible = false;
+	part_rain.visible = false;
 	
 func _on_quit_pressed():
 	get_tree().quit()
@@ -253,8 +255,9 @@ func _input(event):
 					if op_audio != null :
 						if !audio_s_player.is_playing() :
 							if talk_timer == false :
-								#audio_s_player.stream = op_audio;
-								#audio_s_player.play();
+								audio_s_player.stream = op_audio;
+								audio_s_player.volume_db = -20.0
+								audio_s_player.play();
 								NPC_check.set_meta("talk_timer",true);
 			
 			if click_check !=null :
