@@ -5,6 +5,8 @@ extends Node3D
 @export var light_color : Color
 @export_range(0, 16) var light_strength = 0.0
 
+@onready var mesh = $MeshInstance3D
+
 #light color is self explanatory (for directional light 3d)
 #light strength is self explanatory (for directional light 3d)
 #audio is self explanatory
@@ -13,3 +15,6 @@ extends Node3D
 #fog color
 #fog light energy
 #fog density
+
+func _ready() :
+	mesh.visible = false

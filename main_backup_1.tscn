@@ -93,7 +93,7 @@ light_strength = 1.0
 
 [node name="DistrictEnvironment2" parent="districts" instance=ExtResource("3_nm1h6")]
 transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, -85.8694, 1.46805, 81.2342)
-audio = "res://music/Far_City_Scape_Ambience_-_LSD_cloudy.mp3"
+audio = "res://music/far_street_sounds.mp3"
 environ_info = ExtResource("5_qw5vd")
 
 [node name="overhead_map" type="Sprite3D" parent="."]
@@ -809,11 +809,11 @@ transform = Transform3D(-1.45217e-06, 0, 5.346, 0, 0.745904, 0, -33.2218, 0, -2.
 transform = Transform3D(-3.51425e-07, 0, 5.346, 0, 0.745904, 0, -8.03968, 0, -2.33681e-07, 16.5244, 11.0026, -6.64142)
 
 [node name="radio_test_1" parent="building_c" instance=ExtResource("7_fv0xj")]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 5.56193, 1.62765, -2.34142)
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 5.56193, 1.62765, -2.34142)
 audio = "res://music/game2-002_frosky.mp3"
 
 [node name="cosmonaut_animations-FINALBAKE3" parent="building_c" instance=ExtResource("14_8kv7q")]
-transform = Transform3D(0.0209425, 0, -0.999781, 0, 1, 0, 0.999781, 0, 0.0209425, -43.37, 0.304829, 9.13608)
+transform = Transform3D(-0.518027, 0, 0.855364, 0, 1, 0, -0.855364, 0, -0.518027, 6.62988, 0.304829, 0.232506)
 metadata/dialogue = "res://Dialogic_timelines/tml_bldg_radio_a.dtl"
 
 [node name="building_d" type="Node3D" parent="."]
@@ -1227,3 +1227,5 @@ autoplay = true
 
 [node name="ladder_type_a" parent="building_ndrgnd_a" instance=ExtResource("18_y2qa4")]
 transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0.46263, 59.8473)
+
+[connection signal="set_particle" from="." to="Player" method="_on_main_set_particle"]

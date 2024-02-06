@@ -28,6 +28,8 @@ var jump_token = 2;
 @onready var head_bonk = $head_bonk
 @onready var ladder_detection = $ladder_detection
 @onready var pause_menu = $UI/VBoxContainer
+@onready var part_rain = $particles/rain_1
+@onready var part_m_snow = $particles/marine_snow_1
 
 
 @export var spwn_point : Node3D
@@ -558,3 +560,12 @@ func _physics_process(delta):
 
 
 
+
+
+func _on_main_set_particle(type):
+	if type == 0 :
+		part_rain.visible = true
+		part_m_snow.visible = false
+	if type == 1 :
+		part_rain.visible = false
+		part_m_snow.visible = true

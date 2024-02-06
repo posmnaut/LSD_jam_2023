@@ -24,6 +24,7 @@ var aud_db_1 = 0;
 var aud_db_2 = 0;
 var aud_db_int = 1/80;
 
+signal set_particle(type)
 var environ_shift
 #light color
 #light strength
@@ -52,6 +53,7 @@ func _process (delta) :
 	if district_tag == false :
 		var _dist = district_array[district_int].global_position.distance_to($"/root/global".player.global_position)
 		if _dist < _radius :
+			set_particle.emit(district_int)
 			if district_array[district_int].audio != null :
 				if district_audio.stream != load(district_array[district_int].audio) :
 					crossfade = true;

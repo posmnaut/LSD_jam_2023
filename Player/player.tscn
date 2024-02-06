@@ -1,7 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://cqoa7g8s32y4c"]
+[gd_scene load_steps=22 format=3 uid="uid://cqoa7g8s32y4c"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xuua8"]
 [ext_resource type="Texture2D" uid="uid://d2oik12wohmhe" path="res://Textures/d_shadow_1.png" id="2_6b36o"]
+[ext_resource type="PackedScene" uid="uid://umon6ovuv3s6" path="res://Particles/rain_1.tscn" id="2_72iar"]
+[ext_resource type="PackedScene" uid="uid://ltfqybl38muu" path="res://Particles/marine_snow_1.tscn" id="3_wy08r"]
 [ext_resource type="AudioStream" uid="uid://ejh3jjs2x14e" path="res://snd_effects/Concrete_-_Left_Foot_Step.wav" id="4_56f33"]
 [ext_resource type="Texture2D" uid="uid://ddqefkbpw5f2p" path="res://Textures/eyes_close_1.png" id="5_pkua1"]
 [ext_resource type="Texture2D" uid="uid://bpmj1hw4a55cs" path="res://Textures/hand_pointer.png" id="6_08gl2"]
@@ -88,6 +90,14 @@ size = Vector3(0.5, 2, 0.5)
 [node name="Player" type="CharacterBody3D"]
 floor_stop_on_slope = false
 script = ExtResource("1_xuua8")
+
+[node name="particles" type="Node3D" parent="."]
+
+[node name="rain_1" parent="particles" instance=ExtResource("2_72iar")]
+visible = false
+
+[node name="marine_snow_1" parent="particles" instance=ExtResource("3_wy08r")]
+visible = false
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
