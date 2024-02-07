@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=41 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="Environment" uid="uid://dtf40la4c1oam" path="res://Environments/lsd_environ_variable.tres" id="2_3vvsk"]
@@ -24,7 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://diy8peom71tle" path="res://Objects/trigger_target.tscn" id="17_po3j1"]
 [ext_resource type="PackedScene" uid="uid://ca7mj5lf6bkpo" path="res://Models/fish/fish_v_1.tscn" id="18_ux8f1"]
 [ext_resource type="PackedScene" uid="uid://by5kw50jmtucl" path="res://Objects/ladder_type_a.tscn" id="18_y2qa4"]
+[ext_resource type="Texture2D" uid="uid://cceb3ktykdya3" path="res://Textures/billboards/maxresdefault (2).png" id="19_htbgt"]
 [ext_resource type="Script" path="res://Models/fish/fish_v_1.gd" id="19_plvh7"]
+[ext_resource type="Texture2D" uid="uid://cfwlcsxvlwpse" path="res://Textures/posters_graffitti/cool_poster.png" id="20_jgvec"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qiiav"]
 size = Vector3(30, 15, 1)
@@ -816,6 +818,18 @@ audio = "res://music/game2-002_frosky.mp3"
 [node name="cosmonaut_animations-FINALBAKE3" parent="building_c" instance=ExtResource("14_8kv7q")]
 transform = Transform3D(-0.518027, 0, 0.855364, 0, 1, 0, -0.855364, 0, -0.518027, 6.62988, 0.304829, 0.232506)
 metadata/dialogue = "res://Dialogic_timelines/tml_bldg_radio_a.dtl"
+
+[node name="poster_a" type="Sprite3D" parent="building_c"]
+transform = Transform3D(-3.0598e-08, 0, 0.7, -0.315756, 0.624738, -1.38021e-08, -0.624738, -0.315756, -2.73082e-08, 25.0739, 17.0906, -1.34024)
+texture = ExtResource("20_jgvec")
+
+[node name="billboard_a" type="Sprite3D" parent="building_c"]
+transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 25.0069, 18.2189, 2.47721)
+texture = ExtResource("19_htbgt")
+
+[node name="poster_a2" type="Sprite3D" parent="building_c"]
+transform = Transform3D(0.00484349, -0.0412309, -0.698768, -0.0815258, 0.693996, -0.0415145, 0.695219, 0.0816695, -3.05441e-08, -7.65149, 1.76378, -5.38778)
+texture = ExtResource("20_jgvec")
 
 [node name="building_d" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.2535, 12.0966, 99.226)
