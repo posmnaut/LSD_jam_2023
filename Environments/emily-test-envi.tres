@@ -1,0 +1,49 @@
+[gd_resource type="Environment" load_steps=5 format=3 uid="uid://2k0p5ye6tjpi"]
+
+[sub_resource type="Gradient" id="Gradient_1jr5g"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e7ftf"]
+gradient = SubResource("Gradient_1jr5g")
+use_hdr = true
+fill_from = Vector2(0.495726, 0.354701)
+fill_to = Vector2(0.970085, 0.92735)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_q3n0s"]
+turbidity = 298.0
+sun_disk_scale = 201.16
+ground_color = Color(0.101961, 0.0705882, 0.0352941, 1)
+energy_multiplier = 1.02
+
+[sub_resource type="Sky" id="Sky_0affk"]
+sky_material = SubResource("PhysicalSkyMaterial_q3n0s")
+radiance_size = 0
+
+[resource]
+background_mode = 2
+background_color = Color(0.337255, 0.454902, 0.235294, 1)
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_0affk")
+sky_custom_fov = 91.4
+sky_rotation = Vector3(0.612611, 0, 0)
+ambient_light_source = 3
+ambient_light_color = Color(0.356863, 0.572549, 0.462745, 1)
+ambient_light_sky_contribution = 0.58
+ambient_light_energy = 7.57
+reflected_light_source = 1
+tonemap_mode = 3
+tonemap_exposure = 0.57
+tonemap_white = 1.81
+glow_enabled = true
+glow_intensity = 1.73
+glow_hdr_threshold = 0.94
+glow_map_strength = 0.72
+glow_map = SubResource("GradientTexture2D_e7ftf")
+fog_enabled = true
+fog_light_color = Color(0.27451, 0.305882, 0, 1)
+fog_light_energy = 0.35
+fog_sun_scatter = 0.01
+fog_density = 0.352
+fog_aerial_perspective = 0.578
+fog_sky_affect = 0.314
+fog_height = 9.04
+fog_height_density = 0.2596
