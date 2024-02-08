@@ -75,7 +75,6 @@ animations = [{
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xeej3"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ugqj5"]
-frustum_focal_length = 18.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysqe2"]
 transparency = 1
