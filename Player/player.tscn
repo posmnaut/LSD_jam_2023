@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cqoa7g8s32y4c"]
+[gd_scene load_steps=23 format=3 uid="uid://cqoa7g8s32y4c"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xuua8"]
 [ext_resource type="Texture2D" uid="uid://d2oik12wohmhe" path="res://Textures/d_shadow_1.png" id="2_6b36o"]
@@ -73,6 +73,9 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xeej3"]
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ugqj5"]
+frustum_focal_length = 18.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysqe2"]
 transparency = 1
@@ -150,6 +153,7 @@ shape = SubResource("CapsuleShape3D_xeej3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9527, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+attributes = SubResource("CameraAttributesPhysical_ugqj5")
 
 [node name="Upper_Check" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.400872, 0)

@@ -1,9 +1,8 @@
 [gd_scene load_steps=41 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
-[ext_resource type="Environment" uid="uid://dtf40la4c1oam" path="res://Environments/lsd_environ_variable.tres" id="2_3vvsk"]
-[ext_resource type="Environment" uid="uid://rxoead5ncs55" path="res://Environments/default_environ.tres" id="2_nnx32"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
+[ext_resource type="Environment" uid="uid://2k0p5ye6tjpi" path="res://Environments/emily-test-envi.tres" id="2_rn2j0"]
 [ext_resource type="Texture2D" uid="uid://ihccctdrekwo" path="res://Textures/city_lauout_revised_a_export.png" id="3_343bq"]
 [ext_resource type="PackedScene" uid="uid://rwrbsssaksbh" path="res://Objects/Block.tscn" id="3_i1kup"]
 [ext_resource type="PackedScene" uid="uid://vd748wi3vkeu" path="res://Objects/district_environment.tscn" id="3_nm1h6"]
@@ -27,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://cceb3ktykdya3" path="res://Textures/billboards/maxresdefault (2).png" id="19_htbgt"]
 [ext_resource type="Script" path="res://Models/fish/fish_v_1.gd" id="19_plvh7"]
 [ext_resource type="Texture2D" uid="uid://cfwlcsxvlwpse" path="res://Textures/posters_graffitti/cool_poster.png" id="20_jgvec"]
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ojppl"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qiiav"]
 size = Vector3(30, 15, 1)
@@ -73,7 +74,7 @@ point_count = 9
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_dn6qx")
-env_lsd = ExtResource("2_3vvsk")
+env_lsd = ExtResource("2_rn2j0")
 
 [node name="Player" parent="." node_paths=PackedStringArray("spwn_point", "environ_a") instance=ExtResource("2_qq07f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5646, 18.2606, 22.03)
@@ -105,7 +106,8 @@ visible = false
 texture = ExtResource("3_343bq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_nnx32")
+environment = ExtResource("2_rn2j0")
+camera_attributes = SubResource("CameraAttributesPhysical_ojppl")
 
 [node name="DirectionalLight3D_night" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 0, 0)
@@ -117,8 +119,12 @@ light_volumetric_fog_energy = 0.0
 
 [node name="DirectionalLight3D_day" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 0, 0)
+light_color = Color(0.517647, 0.415686, 0.207843, 1)
+light_energy = 1.832
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
+light_angular_distance = 1.38
+shadow_enabled = true
 
 [node name="Terrain" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.855, 0, -115.153)
@@ -652,6 +658,9 @@ transform = Transform3D(-4.37114e-08, 0, -6.8062, 0, 7.7947, 0, 1, 0, -2.97509e-
 [node name="Block4" parent="building_c" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-4.37114e-08, 0, -6.8062, 0, 7.7947, 0, 1, 0, -2.97509e-07, -3.83466, 4.34594, 8.95358)
 
+[node name="Block56" parent="building_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, -4.23282, 0, 2.76021, 0, 1, 0, -1.85023e-07, -5.02181, 1.56778, 3.25753)
+
 [node name="Block2" parent="building_c" instance=ExtResource("3_i1kup")]
 transform = Transform3D(1, 0, 0, 0, 7.7947, 0, 0, 0, 6.51315, -7.06963, 3.9969, 5.95648)
 
@@ -720,6 +729,9 @@ transform = Transform3D(-1.386e-07, 0, -3.11221, 0, 2.86341, 0, 3.17081, 0, -1.3
 
 [node name="Block28" parent="building_c" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-1.386e-07, 0, -18.0835, 0, 2.17451, 0, 3.17081, 0, -7.90456e-07, 4.94744, 7.84701, 4.98368)
+
+[node name="Block55" parent="building_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-2.95221e-07, 0, -6.48648, 0, 2.17451, 0, 6.75389, 0, -2.83533e-07, -3.3512, 6.72263, 6.15184)
 
 [node name="Block29" parent="building_c" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-7.83107e-08, 0, -1.59214, 0, 8.26257, 0, 1.79154, 0, -6.95949e-08, 13.0905, 3.59291, 4.35888)
@@ -816,7 +828,7 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 audio = "res://music/game2-002_frosky.mp3"
 
 [node name="cosmonaut_animations-FINALBAKE3" parent="building_c" instance=ExtResource("14_8kv7q")]
-transform = Transform3D(-0.518027, 0, 0.855364, 0, 1, 0, -0.855364, 0, -0.518027, 6.62988, 0.304829, 0.232506)
+transform = Transform3D(-0.729826, 0, 1.20509, 0, 1.40886, 0, -1.20509, 0, -0.729826, 6.76702, 0.304829, 0.458946)
 metadata/dialogue = "res://Dialogic_timelines/tml_bldg_radio_a.dtl"
 
 [node name="poster_a" type="Sprite3D" parent="building_c"]
@@ -1243,5 +1255,89 @@ autoplay = true
 
 [node name="ladder_type_a" parent="building_ndrgnd_a" instance=ExtResource("18_y2qa4")]
 transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0.46263, 59.8473)
+
+[node name="testlight" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="testlight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.1792, 3.17847, 31.0024)
+light_color = Color(0.392157, 0.262745, 0.160784, 1)
+light_energy = 6.68
+light_indirect_energy = 3.748
+light_size = 0.668
+omni_range = 8.05
+
+[node name="building_e" type="Node3D" parent="."]
+
+[node name="cosmonaut_animations-FINALBAKE4" parent="building_e" instance=ExtResource("14_8kv7q")]
+transform = Transform3D(1.16753, 0, 0.788516, 0, 1.40886, 0, -0.788516, 0, 1.16753, -41.1278, 0.515763, 59.2936)
+metadata/dialogue = "res://Dialogic_timelines/tml_bldg_radio_a.dtl"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="building_e/cosmonaut_animations-FINALBAKE4"]
+transform = Transform3D(0.709794, 0, 3.27826e-07, 0, 0.709794, 0, -3.27826e-07, 0, 0.709794, -2.49405, 2.16898, 1.94238)
+light_color = Color(0.52549, 0.603922, 0.329412, 1)
+light_energy = 5.14
+light_indirect_energy = 14.008
+light_volumetric_fog_energy = 2.344
+light_size = 0.081
+light_negative = true
+light_specular = 10.015
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="building_e/cosmonaut_animations-FINALBAKE4"]
+transform = Transform3D(0.709794, 0, 3.27826e-07, 0, 0.709794, 0, -3.27826e-07, 0, 0.709794, 13.2005, 1.55678, -3.93564)
+light_color = Color(0.52549, 0.603922, 0.329412, 1)
+light_energy = 5.14
+light_indirect_energy = 14.008
+light_volumetric_fog_energy = 2.344
+light_size = 0.081
+light_negative = true
+light_specular = 10.015
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="building_e/cosmonaut_animations-FINALBAKE4"]
+transform = Transform3D(0.709794, 0, 3.27826e-07, 0, 0.709794, 0, -3.27826e-07, 0, 0.709794, -0.496956, 2.80573, -1.44566)
+light_color = Color(0.364706, 0.584314, 0.8, 1)
+light_energy = 2.696
+light_indirect_energy = 1.794
+light_volumetric_fog_energy = 2.344
+light_size = 0.081
+light_specular = 0.0
+
+[node name="Block" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(16.141, 0, 0, 0, 0.38258, 0, 0, 0, 6.15213, -35.0153, 5.21141, 44.4074)
+
+[node name="Block8" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(16.141, 0, 0, 0, -1.67231e-08, 6.15213, 0, -0.38258, -2.68918e-07, -35.0153, 2.33235, 41.4074)
+
+[node name="Block9" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(16.141, 0, 0, 0, -1.67231e-08, 6.15213, 0, -0.38258, -2.68918e-07, -35.0153, 2.33235, 47.2981)
+
+[node name="Block10" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-2.52868e-07, 0.38258, 0, 2.52868e-07, 0, 5.53692, 5.78494, 1.67231e-08, -2.42026e-07, -27.1465, 2.33235, 44.1687)
+
+[node name="Block4" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.239641, 0, 6.1419, 0, 0.433528, 0, -14.0523, 0, 0.104741, -42.1445, 6.36313, 58.6322)
+
+[node name="Block11" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.239641, -0.433465, -2.69501e-07, 0, -1.89501e-08, 6.14279, -14.0523, -0.0073921, 5.96046e-08, -45.1445, 3.503, 58.6322)
+
+[node name="Block12" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.239641, -0.433465, -2.69501e-07, 0, -1.89501e-08, 6.14279, -14.0523, -0.0073921, 5.96046e-08, -39.2949, 3.503, 58.6744)
+
+[node name="Block13" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5.64544, 0.00739212, -2.69501e-07, 1.87744e-07, 4.52578e-09, 6.14279, 0.0962748, -0.433465, 5.96046e-08, -42.3096, 3.503, 65.6432)
+
+[node name="Block6" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.0645252, 0, 3.08792, 0, 1.81035, 0, -3.78368, 0, 0.0526599, -35.2, 1.2875, 52.8431)
+
+[node name="Block7" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-5.2189, -0.0739557, 0.745221, -3.94881, 0.171401, 0.145316, -6.55561, -0.0443684, -0.6808, -32.8049, 7.68641, 45.1899)
+
+[node name="Block2" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.48197e-07, 0, 8.23496, 0, 8.65257, 0, -10.2535, 0, -3.59961e-07, -27.0603, 4.63238, 52.9724)
+
+[node name="Block3" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(15.7459, 0, 3.31971e-14, 0, 6.03664, 0, -5.54521e-14, 0, 9.61858, -31.3862, 3.63722, 63.418)
+
+[node name="Block5" parent="building_e" instance=ExtResource("3_i1kup")]
+transform = Transform3D(15.7075, 0, 0.671461, 0, 6.03664, 0, -1.0992, 0, 9.59511, -31.3862, 9.6625, 63.418)
 
 [connection signal="set_particle" from="." to="Player" method="_on_main_set_particle"]
