@@ -1343,7 +1343,6 @@ transform = Transform3D(15.7459, 0, 3.31971e-14, 0, 6.03664, 0, -5.54521e-14, 0,
 [node name="Block5" parent="building_e" instance=ExtResource("3_i1kup")]
 transform = Transform3D(15.7075, 0, 0.671461, 0, 6.03664, 0, -1.0992, 0, 9.59511, -31.3862, 9.6625, 63.418)
 
-
 [node name="building_c_store" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.4828, 0, 117.617)
 
@@ -1560,6 +1559,5 @@ transform = Transform3D(3.36458e-14, -2.38477e-08, -7.32952, -6.1584, -2.38477e-
 
 [node name="Block7" parent="building_7" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-1.01123e-14, -2.38477e-08, -7.55071, -6.1584, -2.38477e-08, 0, -2.69192e-07, 0.545571, -3.30052e-07, 68.9955, 3.20893, -34.4926)
-
 
 [connection signal="set_particle" from="." to="Player" method="_on_main_set_particle"]
