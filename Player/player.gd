@@ -245,18 +245,19 @@ func _input(event):
 			var click_check = look_cast_door.get_collider();
 			if NPC_check != null :
 				var meta_check = NPC_check.get_meta("dialogue") 
-				var op_audio = NPC_check.get_meta("opener_audio")
+				var op_audio = NPC_check.open_audio;
 				var talk_timer = NPC_check.get_meta("talk_timer")
 				var is_asleep  = NPC_check.get_meta("fully_sleep")
+				print(op_audio)
 				NPC_check.set_meta("face_player", true)
 				if !is_asleep :
 					Dialogic.start(meta_check)
 					in_dialogue = true;
-					if op_audio != null :
+					if op_audio != "" && op_audio != null:
 						if !audio_s_player.is_playing() :
 							if talk_timer == false :
-								audio_s_player.stream = op_audio;
-								audio_s_player.volume_db = -20.0
+								audio_s_player.stream = load(op_audio);
+								audio_s_player.volume_db = -10.0
 								audio_s_player.play();
 								NPC_check.set_meta("talk_timer",true);
 			
@@ -502,7 +503,7 @@ func _physics_process(delta):
 
 	if on_ladder :
 
-		is_wall_run_jumping = false
+		is_wall_run_jumping = 0
 		is_wallrunning = false
 		var look_mod = 1 + abs(camera.global_transform.basis.z.y);
 		var forward_vec = Vector3.FORWARD

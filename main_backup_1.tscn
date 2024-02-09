@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
-[ext_resource type="Environment" uid="uid://2k0p5ye6tjpi" path="res://Environments/emily-test-envi.tres" id="2_rn2j0"]
 [ext_resource type="Texture2D" uid="uid://ihccctdrekwo" path="res://Textures/city_lauout_revised_a_export.png" id="3_343bq"]
 [ext_resource type="PackedScene" uid="uid://rwrbsssaksbh" path="res://Objects/Block.tscn" id="3_i1kup"]
 [ext_resource type="PackedScene" uid="uid://vd748wi3vkeu" path="res://Objects/district_environment.tscn" id="3_nm1h6"]
@@ -10,6 +9,7 @@
 [ext_resource type="Environment" uid="uid://c8gqwpwnyflfi" path="res://Environments/lsd_environ_a.tres" id="4_o8xr1"]
 [ext_resource type="Environment" uid="uid://dwrknp0svk5yq" path="res://Environments/lsd_environ_b.tres" id="5_qw5vd"]
 [ext_resource type="PackedScene" uid="uid://unin1xvrrdkl" path="res://NPCs/audio_boxes/radio_test_1.tscn" id="7_fv0xj"]
+[ext_resource type="Environment" uid="uid://rxoead5ncs55" path="res://Environments/default_environ.tres" id="8_cfywh"]
 [ext_resource type="PackedScene" uid="uid://dvngx4u6lursv" path="res://kenney_models/urban_retro/detailDumpster_open.glb" id="8_e8w28"]
 [ext_resource type="PackedScene" uid="uid://d085myq6xl5oy" path="res://kenney_models/urban_retro_scenes/door_type_a.tscn" id="9_buja5"]
 [ext_resource type="AudioStream" uid="uid://wg43fq6o6dmb" path="res://music/10_MIX.mp3" id="10_2jqxx"]
@@ -74,10 +74,10 @@ point_count = 9
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_dn6qx")
-env_lsd = ExtResource("2_rn2j0")
+env_lsd = ExtResource("4_o8xr1")
 
 [node name="Player" parent="." node_paths=PackedStringArray("spwn_point", "environ_a") instance=ExtResource("2_qq07f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5646, 18.2606, 22.03)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.4102, 18.2606, 72.5627)
 spwn_point = NodePath("../player_spawn_1")
 environ_a = NodePath("../WorldEnvironment")
 
@@ -106,7 +106,7 @@ visible = false
 texture = ExtResource("3_343bq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_rn2j0")
+environment = ExtResource("8_cfywh")
 camera_attributes = SubResource("CameraAttributesPhysical_ojppl")
 
 [node name="DirectionalLight3D_night" type="DirectionalLight3D" parent="."]
@@ -118,7 +118,7 @@ light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 
 [node name="DirectionalLight3D_day" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866024, -0.433016, 0.25, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 0, 0)
 light_color = Color(0.517647, 0.415686, 0.207843, 1)
 light_energy = 1.832
 light_indirect_energy = 0.0
@@ -589,6 +589,7 @@ transform = Transform3D(0.744168, 0, 0, 0, 4.2918, 0, 0, 0, 1.7113, 0.372101, 2.
 
 [node name="Sprite3D" type="Sprite3D" parent="bridging_terrain/billboard_1"]
 transform = Transform3D(-3.0598e-08, 0, -1, 0, 0.8, 0, 0.7, 0, -4.37114e-08, -0.17054, 7.32232, 1.45446)
+shaded = true
 texture = ExtResource("15_aft2h")
 
 [node name="Ground" parent="." instance=ExtResource("3_i1kup")]
@@ -605,6 +606,7 @@ transform = Transform3D(5, 0, 0, 0, 2, 0, 0, 0, 150, -97.9567, 2, -75)
 
 [node name="cosmonaut_animations-FINALBAKE" parent="." instance=ExtResource("14_8kv7q")]
 transform = Transform3D(-0.665959, 0, -0.745988, 0, 1, 0, 0.745988, 0, -0.665959, 73.4253, 0.523558, 70.171)
+open_audio = "res://snd_effects/NPC_talk_audio/Talk_Sprite_Level_2_sfx_-_pitch_1.wav"
 metadata/dialogue = "res://Dialogic_timelines/tml_npc_b.dtl"
 metadata/opener_audio = ExtResource("17_ichpr")
 
@@ -833,10 +835,12 @@ metadata/dialogue = "res://Dialogic_timelines/tml_bldg_radio_a.dtl"
 
 [node name="poster_a" type="Sprite3D" parent="building_c"]
 transform = Transform3D(-3.0598e-08, 0, 0.7, -0.315756, 0.624738, -1.38021e-08, -0.624738, -0.315756, -2.73082e-08, 25.0739, 17.0906, -1.34024)
+shaded = true
 texture = ExtResource("20_jgvec")
 
 [node name="billboard_a" type="Sprite3D" parent="building_c"]
 transform = Transform3D(-3.0598e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.0598e-08, 25.0069, 18.2189, 2.47721)
+shaded = true
 texture = ExtResource("19_htbgt")
 
 [node name="poster_a2" type="Sprite3D" parent="building_c"]
@@ -1339,5 +1343,145 @@ transform = Transform3D(15.7459, 0, 3.31971e-14, 0, 6.03664, 0, -5.54521e-14, 0,
 
 [node name="Block5" parent="building_e" instance=ExtResource("3_i1kup")]
 transform = Transform3D(15.7075, 0, 0.671461, 0, 6.03664, 0, -1.0992, 0, 9.59511, -31.3862, 9.6625, 63.418)
+
+[node name="building_c_store" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.4828, 0, 117.617)
+
+[node name="floor" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-1.74846e-06, 0, 60, 0, 0.5, 0, -40, 0, -2.62268e-06, 0, 0.5, 0)
+
+[node name="roof" type="Node3D" parent="building_c_store"]
+
+[node name="Block" parent="building_c_store/roof" instance=ExtResource("3_i1kup")]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 36, 0, 10, -2)
+
+[node name="Block2" parent="building_c_store/roof" instance=ExtResource("3_i1kup")]
+transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 36, -16, 10, 2)
+
+[node name="Block3" parent="building_c_store/roof" instance=ExtResource("3_i1kup")]
+transform = Transform3D(28, 0, 0, 0, 1, 0, 0, 0, 36, 16, 10, 2)
+
+[node name="Block4" parent="building_c_store/roof" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 5, -16, 10.5, 20)
+
+[node name="Block5" parent="building_c_store/roof" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.906308, 0, 2.11309, 0, 0.5, 0, -0.422618, 0, 4.53154, -18, 10.5, 20)
+
+[node name="Block" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 30, -30, 3, -5)
+
+[node name="Block18" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 30, -30, 7.5, 5)
+
+[node name="Block19" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 8, -30, 7.5, -16)
+
+[node name="Block20" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 8, -30, 9, -11)
+
+[node name="Block17" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 6, -30, 5, 17)
+
+[node name="Block2" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 40, 30, 5, 0)
+
+[node name="Block3" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(60, 0, 0, 0, 10, 0, 0, 0, 1, 0, 5, 20)
+
+[node name="Block4" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(60, 0, 0, 0, 4, 0, 0, 0, 1, 0, 8, -20)
+
+[node name="Block5" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(25, 0, 0, 0, 6, 0, 0, 0, 1, 17.5, 3, -20)
+
+[node name="Block6" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(25, 0, 0, 0, 6, 0, 0, 0, 1, -17.5, 3, -20)
+
+[node name="Block10" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(60, 0, 0, 0, 4, 0, 0, 0, 1, 0, 8, 2)
+
+[node name="Block11" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(35, 0, 0, 0, 6, 0, 0, 0, 1, 11.5, 3, 2)
+
+[node name="Block12" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(20, 0, 0, 0, 6, 0, 0, 0, 1, -19.5, 3, 2)
+
+[node name="detailLight_single" parent="building_c_store" instance=ExtResource("15_0no74")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8, 0, -22)
+
+[node name="light_buzz_1" type="AudioStreamPlayer3D" parent="building_c_store/detailLight_single"]
+stream = ExtResource("16_kq55b")
+unit_size = 2.0
+autoplay = true
+
+[node name="Block7" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.5, 0, 0, 0, 2, 0, 0, 0, 7, 21, 1.50079, -15)
+
+[node name="Block8" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-2.18557e-08, 0, 7, 0, 2, 0, -0.5, 0, -3.0598e-07, 25, 1.50079, -19)
+
+[node name="Block9" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-3.0598e-07, 0, 3, 0, 0.5, 0, -7, 0, -1.31134e-07, 21, 2.50079, -15)
+
+[node name="Block13" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 8, -15, 5, 6.162)
+
+[node name="Block14" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(22, 0, 0, 0, 4, 0, 0, 0, 1, 12, 8, 10.7207)
+
+[node name="Block16" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(22, 0, 0, 0, 10, 0, 0, 0, 1, -4, 5, 10.7207)
+
+[node name="Block15" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 1, 20, 5, 10.7207)
+
+[node name="ladder_type_a" parent="building_c_store" instance=ExtResource("18_y2qa4")]
+transform = Transform3D(1, 0, 0, 0, 1.6, 0, 0, 0, 1, 0, 2.5, 19)
+
+[node name="back_bboard" type="Node3D" parent="building_c_store"]
+
+[node name="Block_WR" parent="building_c_store/back_bboard" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(15, 0, 0, 0, 10, 0, 0, 0, 1, 0, 12, 27)
+
+[node name="Block" parent="building_c_store/back_bboard" instance=ExtResource("3_i1kup")]
+transform = Transform3D(13.5946, 0.422618, 0, -6.33927, 0.906308, 0, 0, 0, 3, 13, 4, 25)
+
+[node name="Block2" parent="building_c_store/back_bboard" instance=ExtResource("3_i1kup")]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 3, -1, 7, 25)
+
+[node name="shelves" type="Node3D" parent="building_c_store"]
+
+[node name="Block19" parent="building_c_store/shelves" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 1, -21.517, 2, -8.617)
+
+[node name="Block20" parent="building_c_store/shelves" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 1, -21.517, 2, -3.617)
+
+[node name="Block21" parent="building_c_store/shelves" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 1, -21.517, 2, -13.617)
+
+[node name="Block21" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -28.8605, 1, -15.8904)
+
+[node name="Block22" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -28.8605, 2, -11.8904)
+
+[node name="Block24" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2.5, 0, 0, 0, 0.5, 0, 0, 0, 7, -30.8605, 5, -11.8904)
+
+[node name="Block25" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2.5, 0, 0, 0, 0.453154, 4.22618, 0, -0.211309, 9.06308, -30.8605, 6, -4.89042)
+
+[node name="Block23" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2, 0, 0, 0, 1.5, 0, 0, 0, 2, -28.86, 4.25, -10.89)
+
+[node name="Block26" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.772, 1.25, 15.715)
+
+[node name="Block27" parent="building_c_store" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 2, 24.772, 1.5, 15.715)
+
+[node name="Block_WR" parent="building_c_store" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(18, 0, 0, 0, 10, 0, 0, 0, 1, 0, 14, -20)
 
 [connection signal="set_particle" from="." to="Player" method="_on_main_set_particle"]

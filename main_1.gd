@@ -53,7 +53,7 @@ func _process (delta) :
 	if district_tag == false :
 		var _dist = district_array[district_int].global_position.distance_to($"/root/global".player.global_position)
 		if _dist < _radius :
-			set_particle.emit(district_int)
+			#set_particle.emit(district_int)
 			if district_array[district_int].audio != null :
 				if district_audio.stream != load(district_array[district_int].audio) :
 					crossfade = true;

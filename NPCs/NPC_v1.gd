@@ -1,5 +1,6 @@
 extends StaticBody3D
 
+@export var open_audio = ""
 @onready var anim_tree = $AnimationTree
 @onready var sleep_sprite = $"game rig/sleep_sprite"
 @onready var face_sprite = $"game rig/Skeleton3D/BoneAttachment3D/face_sprite"
