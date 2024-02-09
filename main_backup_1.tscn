@@ -111,7 +111,6 @@ camera_attributes = SubResource("CameraAttributesPhysical_ojppl")
 
 [node name="DirectionalLight3D_night" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 0, 0)
-visible = false
 light_color = Color(0, 0, 0, 1)
 light_energy = 0.0
 light_indirect_energy = 0.0
@@ -1338,5 +1337,82 @@ transform = Transform3D(15.7459, 0, 3.31971e-14, 0, 6.03664, 0, -5.54521e-14, 0,
 
 [node name="Block5" parent="building_e" instance=ExtResource("3_i1kup")]
 transform = Transform3D(15.7075, 0, 0.671461, 0, 6.03664, 0, -1.0992, 0, 9.59511, -31.3862, 9.6625, 63.418)
+
+[node name="building_7" type="Node3D" parent="."]
+
+[node name="Block" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.82592, 0, 0, 0, 10.8194, 0, 0, 0, 14.594, 91.1602, 5.32597, -45.6403)
+
+[node name="Block15" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(9.58517, 0, 0, 0, 1.47497, 0, 0, 0, 14.594, 96.1783, 5.32597, -45.6012)
+
+[node name="Block12" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.22708, 0, 0, 0, 10.8194, 0, 0, 0, 20.9742, 76.2312, 5.32597, -47.2619)
+
+[node name="Block10" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(13.3281, 0, 0, 0, 10.8194, 0, 0, 0, 1.88142, 88.9834, 5.32597, -37.6711)
+
+[node name="Block16" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.552394, 0, 0, 0, 6.39741, 0, 0, 0, 1.01038, 100.311, 2.80711, -39.1209)
+
+[node name="Block17" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.552394, 0, 0, 0, 6.39741, 0, 0, 0, 1.01038, 100.311, 2.80711, -51.8635)
+
+[node name="Block13" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(4.70187, 0, 0, 0, 10.8194, 0, 0, 0, 1.88142, 77.9859, 5.32597, -37.6711)
+
+[node name="Block14" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(4.70187, 0, 0, 0, 5.71019, 0, 0, 0, 1.88142, 81.4604, 7.86311, -37.6711)
+
+[node name="Block11" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(19.9276, 0, 0, 0, 10.8194, 0, 0, 0, 1.88142, 85.6827, 5.32597, -56.8481)
+
+[node name="Block3" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(19.9276, 0, 0, 0, 0.952493, 0, 0, 0, 20.9742, 85.6827, 10.1703, -47.2619)
+
+[node name="Block2" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(28.8888, 0, 0, 0, 1.94356, 0, 0, 0, 20.9742, 81.521, 9.81185, -70.8736)
+
+[node name="Block22" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(28.8888, 0, 0, 0, 0.612258, 0, 0, 0, 20.9742, 81.521, 18.3759, -70.8736)
+
+[node name="Block20" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.4228, 0, 0, 0, 19.8442, 0, 0, 0, 20.9742, 67.7778, 9.81185, -70.8736)
+
+[node name="Block21" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.4228, 0, 0, 0, 19.8442, 0, 0, 0, 20.9742, 95.3033, 9.81185, -70.8736)
+
+[node name="Block18" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(28.8888, 0, 0, 0, 4.45761, 0, 0, 0, 1.93916, 81.521, 9.81185, -61.1852)
+
+[node name="Block23" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(9.96592, 0, 0, 0, 8.56459, 0, 0, 0, 1.93916, 72.6005, 15.1849, -61.1852)
+
+[node name="Block24" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(9.96592, 0, 0, 0, 8.56459, 0, 0, 0, 1.93916, 90.3058, 15.1849, -61.1852)
+
+[node name="Block26" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(9.96592, 0, 0, 0, 8.56459, 0, 0, 0, 1.93916, 90.3058, 4.41908, -61.1852)
+
+[node name="Block19" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(28.8888, 0, 0, 0, 19.8442, 0, 0, 0, 1.93916, 81.521, 9.81185, -80.0762)
+
+[node name="Block4" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(7.698, 0, 0, 0, 0.545571, 0, 0, 0, 20.9742, 68.9934, 6.05094, -44.7561)
+
+[node name="Block5" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-2.69192e-07, 0.545571, 0, -6.1584, -2.38477e-08, 0, 0, 0, 20.9742, 65.4891, 3.20893, -44.7561)
+
+[node name="Block6" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-2.69192e-07, 0.545571, 0, -6.1584, -2.38477e-08, 0, 0, 0, 14.679, 72.5475, 3.20893, -41.4071)
+
+[node name="Block8" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-2.69192e-07, 0.545571, 0, -6.1584, -2.38477e-08, 0, 0, 0, 2.61769, 72.5475, 3.20893, -53.9304)
+
+[node name="Block9" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(3.36458e-14, -2.38477e-08, -7.32952, -6.1584, -2.38477e-08, 0, -2.69192e-07, 0.545571, -3.20383e-07, 69.0175, 3.14854, -54.9304)
+
+[node name="Block7" parent="building_7" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-1.01123e-14, -2.38477e-08, -7.55071, -6.1584, -2.38477e-08, 0, -2.69192e-07, 0.545571, -3.30052e-07, 68.9955, 3.20893, -34.4926)
 
 [connection signal="set_particle" from="." to="Player" method="_on_main_set_particle"]
