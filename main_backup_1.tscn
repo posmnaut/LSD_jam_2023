@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=42 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://wg43fq6o6dmb" path="res://music/10_MIX.mp3" id="10_2jqxx"]
 [ext_resource type="PackedScene" uid="uid://ch3rtekxsdeev" path="res://NPCs/NPC_cosmonaut_3_3Denemy.tscn" id="14_8kv7q"]
 [ext_resource type="PackedScene" uid="uid://b4jkh3vewgtx1" path="res://Models/str_light_single.tscn" id="15_0no74"]
+[ext_resource type="Texture2D" uid="uid://7wa0ckt5akwl" path="res://Textures/ground_1.jpg" id="15_0psbm"]
 [ext_resource type="Texture2D" uid="uid://c4lj3vkej5o8b" path="res://Textures/billboards/chrome_sFUyElTgJf.png" id="15_aft2h"]
 [ext_resource type="AudioStream" uid="uid://bsnnkdy410a21" path="res://snd_effects/Level_3_Talk_spriite.mp3" id="15_v6qj8"]
 [ext_resource type="PackedScene" uid="uid://cts05vcre6t4a" path="res://Objects/click_trigger.tscn" id="16_ece4e"]
@@ -55,14 +56,16 @@ size = Vector3(0.4, 0.8, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c1ncn"]
 albedo_color = Color(0.152941, 0.152941, 0.152941, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7jn3b"]
-size = Vector3(400, 1, 400)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk2lw"]
+albedo_color = Color(0.415686, 0.415686, 0.415686, 1)
+albedo_texture = ExtResource("15_0psbm")
 
-[sub_resource type="BoxMesh" id="BoxMesh_djs8j"]
-size = Vector3(400, 1, 400)
+[sub_resource type="CylinderMesh" id="CylinderMesh_k0vwm"]
+top_radius = 230.0
+bottom_radius = 230.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bpmt7"]
-albedo_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1jgl3"]
+radius = 230.0
 
 [sub_resource type="Curve3D" id="Curve3D_vg5by"]
 bake_interval = 0.01
@@ -96,12 +99,12 @@ light_color = Color(1, 1, 1, 1)
 light_strength = 1.0
 
 [node name="DistrictEnvironment2" parent="districts" instance=ExtResource("3_nm1h6")]
-transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, -85.8694, 1.46805, 81.2342)
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, -85.8466, 1.46805, 81.2947)
 audio = "res://music/far_street_sounds.mp3"
 environ_info = ExtResource("5_qw5vd")
 
 [node name="overhead_map" type="Sprite3D" parent="."]
-transform = Transform3D(-28, -1.75793e-05, -7.68417e-13, 0, -1.22392e-06, 28, -1.75793e-05, 28, 1.22392e-06, 0, 4.64825, 0)
+transform = Transform3D(-28, -1.75793e-05, -7.68417e-13, 0, -1.22392e-06, 28, -1.75793e-05, 28, 1.22392e-06, 0, 0.6, 0)
 visible = false
 texture = ExtResource("3_343bq")
 
@@ -353,7 +356,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.63326, 0.549944, -2.17395)
 audio = "res://music/City_Level_Song_cloudy.mp3"
 
 [node name="building_b" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.171, 0, 56.1814)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 53.3724, 0, 25.2072)
 
 [node name="Block" parent="building_b" instance=ExtResource("3_i1kup")]
 transform = Transform3D(1, 0, 0, 0, 8, 0, 0, 0, 16, 33.3108, 4, 5.99275)
@@ -592,16 +595,17 @@ shaded = true
 texture = ExtResource("15_aft2h")
 
 [node name="Ground" parent="." instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Ground"]
-shape = SubResource("BoxShape3D_7jn3b")
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Ground"]
+material_override = SubResource("StandardMaterial3D_fk2lw")
+mesh = SubResource("CylinderMesh_k0vwm")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Ground"]
-mesh = SubResource("BoxMesh_djs8j")
-surface_material_override/0 = SubResource("StandardMaterial3D_bpmt7")
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("CylinderShape3D_1jgl3")
 
 [node name="Road" parent="." instance=ExtResource("3_i1kup")]
-transform = Transform3D(5, 0, 0, 0, 2, 0, 0, 0, 150, -97.9567, 2, -75)
+transform = Transform3D(5, 0, 0, 0, 2, 0, 0, 0, 150, -68.9567, 2, -75)
 
 [node name="cosmonaut_animations-FINALBAKE" parent="." instance=ExtResource("14_8kv7q")]
 transform = Transform3D(-0.665959, 0, -0.745988, 0, 1, 0, 0.745988, 0, -0.665959, 73.4253, 0.523558, 70.171)
@@ -1559,5 +1563,168 @@ transform = Transform3D(3.36458e-14, -2.38477e-08, -7.32952, -6.1584, -2.38477e-
 
 [node name="Block7" parent="building_7" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-1.01123e-14, -2.38477e-08, -7.55071, -6.1584, -2.38477e-08, 0, -2.69192e-07, 0.545571, -3.30052e-07, 68.9955, 3.20893, -34.4926)
+
+[node name="building_microscope" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 0, 47)
+
+[node name="Block" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 32, -32, 5, 4)
+
+[node name="Block2" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 14, 14, 5, 13)
+
+[node name="Block10" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 7, 0, 0, 0, 14, 14, 8, 4)
+
+[node name="Block3" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 14, 14, 5, -5)
+
+[node name="Block4" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 46, 0, 5, 0, -1, 0, -2.01072e-06, -9, 7.5, -12)
+
+[node name="Block6" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 21, 0, 5, 0, -1, 0, -9.17939e-07, -21, 2.5, -12)
+
+[node name="Block7" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 21, 0, 5, 0, -1, 0, -9.17939e-07, 3, 2.5, -12)
+
+[node name="Block8" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 21, 0, 5, 0, -1, 0, -9.17939e-07, -21, 2.5, -13)
+
+[node name="Block9" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 21, 0, 5, 0, -1, 0, -9.17939e-07, 3, 2.5, -13)
+
+[node name="Block5" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 46, 0, 10, 0, -1, 0, -2.01072e-06, -9, 5, 20)
+
+[node name="Block11" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 8, -25, 6, -30)
+
+[node name="Block13" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2.12132, 0, -5.65685, 0, 1, 0, 2.12132, 0, 5.65685, -22, 3, -41)
+
+[node name="Block15" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2.12132, 0, -5.65685, 0, 1, 0, 2.12132, 0, 5.65685, 2, 15, -19)
+
+[node name="Block16" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 8, 7, 18, -31)
+
+[node name="Block17" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-1.31134e-07, 0, 8, 0, 1, 0, -3, 0, -3.49691e-07, 0, 19, -43)
+
+[node name="Block12" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2.12132, 0, 5.65685, 0, 1, 0, -2.12132, 0, 5.65685, -21, 9, -20)
+
+[node name="Block14" parent="building_microscope" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-1.31134e-07, 0, 8, 0, 1, 0, -3, 0, -3.49691e-07, -9, 12, -15)
+
+[node name="tube" type="Node3D" parent="building_microscope"]
+
+[node name="Block_WR" parent="building_microscope/tube" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(16, 0, 0, 0, 24, 0, 0, 0, 1, -9, 17, -13)
+
+[node name="Block_WR5" parent="building_microscope/tube" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(16, 0, 0, 0, 28, 0, 0, 0, 1, -9, 14, -49)
+
+[node name="Block_WR3" parent="building_microscope/tube" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-6.99382e-07, 0, -1, 0, 24, 0, 16, 0, -4.37114e-08, 9, 12, -31)
+
+[node name="Block_WR7" parent="building_microscope/tube" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-3.0598e-07, 0, -1, 0, 24, 0, 7, 0, -4.37114e-08, -27, 12, -36)
+
+[node name="Block_WR9" parent="building_microscope/tube" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-3.0598e-07, 0, -1, 0, 24, 0, 7, 0, -4.37114e-08, -27, 12, -26)
+
+[node name="Block_WR10" parent="building_microscope/tube" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-6.99382e-07, 0, -1, 0, 8, 0, 16, 0, -4.37114e-08, -27, 20, -31)
+
+[node name="Block_WR11" parent="building_microscope/tube" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-6.99382e-07, 0, -1, 0, 16, 0, 16, 0, -4.37114e-08, -27, 5, -31)
+
+[node name="Block_WR2" parent="building_microscope/tube" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(11.3137, 0, 0.707107, 0, 24, 0, -11.3137, 0, 0.707107, 4, 12, -18)
+
+[node name="Block_WR8" parent="building_microscope/tube" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(11.3137, 0, -0.707107, 0, 24, 0, 11.3137, 0, 0.707107, -22, 12, -18)
+
+[node name="Block_WR4" parent="building_microscope/tube" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-11.3137, 0, 0.707107, 0, 26, 0, -11.3137, 0, -0.707107, 4, 13, -44)
+
+[node name="Block_WR6" parent="building_microscope/tube" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-11.3137, 0, -0.707107, 0, 26, 0, 11.3137, 0, -0.707107, -22, 13, -44)
+
+[node name="Block" parent="building_microscope/tube" instance=ExtResource("3_i1kup")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, -25, 12, -31)
+
+[node name="ladder_type_a" parent="building_microscope/tube" instance=ExtResource("18_y2qa4")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, -28, -2.5, -31)
+
+[node name="roof_a" type="Node3D" parent="building_microscope"]
+
+[node name="Block" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(46, 0, 0, 0, 1, 0, 0, 0, 32, -9, 10, 4)
+
+[node name="Block20" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(46, 0, 0, 0, 1, 0, 0, 0, 28, -9, 5, 1)
+
+[node name="Block22" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(16, 0, 0, 0, 1, 0, 0, 0, 28, -24, 5, 6)
+
+[node name="Block21" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(13.8564, 0.5, 0, -8, 0.866025, 0, 0, 0, 6, -9.31313, 1.07884, 17)
+
+[node name="Block2" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(36, 0, 0, 0, 1, 0, 0, 0, 36, -9, 24, -16)
+
+[node name="Block16" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 6, -9, 22, -37)
+
+[node name="Block15" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(36, 0, 0, 0, 1, 0, 0, 0, 38, -9, 30, -7)
+
+[node name="Block18" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(36, 0, 0, 0, 6, 0, 0, 0, 1, -9, 27, -25)
+
+[node name="Block17" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(7.88011, -0.615661, 0, 6.15662, 0.788011, 0, 0, 0, 6, -1.30652, 27.0185, -29)
+
+[node name="Block19" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 6, 5.32422, 30, -29)
+
+[node name="Block3" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(16, 0, 0, 0, 0.707107, 16.9706, 0, -0.707107, 16.9706, -9, 36, -41)
+
+[node name="Block9" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(16, 0, 0, 0, 0.5, -15.5885, 0, 0.866025, 9, -19, 32, -3)
+
+[node name="Block4" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 16, 0, 0, 0, 12, 4, 32, -44)
+
+[node name="Block5" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 16, 0, 0, 0, 12, -22, 32, -44)
+
+[node name="Block6" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 40, -26, 32, -19)
+
+[node name="Block7" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 40, 8, 32, -18)
+
+[node name="Block8" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(36, 0, 0, 0, 1, 0, 0, 0, 32, -9, 40, -22)
+
+[node name="Block10" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(16, 0, 0, 0, 0.5, -17.3205, 0, 0.866025, 10, 1, 33, -4)
+
+[node name="Block11" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 6, -15.5885, 0, 10.3923, 9, 8, 35, 3)
+
+[node name="Block12" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 6, -15.5885, 0, 10.3923, 9, -26, 35, 3)
+
+[node name="Block13" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(36, 0, 0, 0, -0.866026, -6, 0, 0.5, -10.3923, -9, 27, 6)
+
+[node name="Block14" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(36, 0, 0, 0, -0.866026, -6, 0, 0.5, -10.3923, -9, 42, -3)
 
 [connection signal="set_particle" from="." to="Player" method="_on_main_set_particle"]
