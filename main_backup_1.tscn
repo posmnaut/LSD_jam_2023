@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=36 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -29,24 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://cfwlcsxvlwpse" path="res://Textures/posters_graffitti/cool_poster.png" id="20_jgvec"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ojppl"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_qiiav"]
-size = Vector3(30, 15, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_p0m3y"]
-size = Vector3(30, 15, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_mjhhq"]
-size = Vector3(15, 15, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_rqrqc"]
-size = Vector3(15, 15, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_13yri"]
-size = Vector3(4, 4, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ej4qk"]
-size = Vector3(4, 4, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2yrnq"]
 
@@ -127,127 +109,6 @@ light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 light_angular_distance = 1.38
 shadow_enabled = true
-
-[node name="Terrain" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120.855, 0, -115.153)
-
-[node name="Block2" parent="Terrain" instance=ExtResource("3_i1kup")]
-transform = Transform3D(20, 0, 0, 0, 22, 0, 0, 0, 1.7, 4.79233, 1.5225, 16.5762)
-
-[node name="Block3" parent="Terrain" instance=ExtResource("3_i1kup")]
-transform = Transform3D(29.5214, 0, -0.85, 0, 20.944, 0, 17.0442, 0, 1.47224, -0.207667, 1.5225, -15.4238)
-
-[node name="Block4" parent="Terrain" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-1.00536e-06, 0, -1.7, 0, 20.465, 0, 23, 0, -7.43094e-08, 14.7923, 1.5225, 4.77624)
-
-[node name="Block6" parent="Terrain" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
-
-[node name="Block7" parent="Terrain" instance=ExtResource("3_i1kup")]
-transform = Transform3D(4.42, 0, 0, 0, 1, 0, 0, 0, 4.9, -4, 3, 5)
-
-[node name="Block9" parent="Terrain" instance=ExtResource("3_i1kup")]
-transform = Transform3D(34.0884, 0, 0, 0, 20.944, 0, 0, 0, 1.7, -8.2077, 1.5225, -3.4238)
-
-[node name="Block10" parent="Terrain" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.9403e-07, 0, -1.7, 0, 21.8025, 0, 20.453, 0, -7.43094e-08, -16.2077, 1.5225, 6.5762)
-
-[node name="Block_type_2" type="StaticBody3D" parent="Terrain"]
-disable_mode = 1
-metadata/is_wallrunable = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Block_type_2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-mesh = SubResource("BoxMesh_qiiav")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Block_type_2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-shape = SubResource("BoxShape3D_p0m3y")
-
-[node name="Block_type_3" type="StaticBody3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -30, -7.06, -10)
-disable_mode = 1
-metadata/is_wallrunable = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Block_type_3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-mesh = SubResource("BoxMesh_mjhhq")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Block_type_3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-shape = SubResource("BoxShape3D_rqrqc")
-
-[node name="Block_type_4" type="StaticBody3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 39, -7.06, 7)
-disable_mode = 1
-metadata/is_wallrunable = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Block_type_4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-mesh = SubResource("BoxMesh_13yri")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Block_type_4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-shape = SubResource("BoxShape3D_ej4qk")
-
-[node name="Block_type_5" type="StaticBody3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 34, -9.06, 7)
-disable_mode = 1
-metadata/is_wallrunable = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Block_type_5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-mesh = SubResource("BoxMesh_13yri")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Block_type_5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-shape = SubResource("BoxShape3D_ej4qk")
-
-[node name="Block_type_6" type="StaticBody3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 29, -11, 7)
-disable_mode = 1
-metadata/is_wallrunable = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Block_type_6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -15)
-mesh = SubResource("BoxMesh_13yri")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Block_type_6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-shape = SubResource("BoxShape3D_ej4qk")
-
-[node name="Block_type_7" type="StaticBody3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 45, -5.06, 7)
-disable_mode = 1
-metadata/is_wallrunable = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Block_type_7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-mesh = SubResource("BoxMesh_13yri")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Block_type_7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-shape = SubResource("BoxShape3D_ej4qk")
-
-[node name="Block_type_8" type="StaticBody3D" parent="Terrain"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -19, -9.06, -11)
-disable_mode = 1
-metadata/is_wallrunable = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Block_type_8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-mesh = SubResource("BoxMesh_13yri")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Block_type_8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 5, -14)
-shape = SubResource("BoxShape3D_ej4qk")
 
 [node name="building_a" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.653, 0, 155.119)
@@ -2474,5 +2335,179 @@ transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
 
 [node name="roof" parent="building_abs_apt/center_stalk/apt_temp3" instance=ExtResource("3_i1kup")]
 transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
+
+[node name="building_8_shack" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -142.192, 0, -100.692)
+
+[node name="hill" type="Node3D" parent="building_8_shack"]
+
+[node name="Block7" parent="building_8_shack/hill" instance=ExtResource("3_i1kup")]
+transform = Transform3D(4, 0, 0, 0, 10, 0, 0, 0, 10, -23.4031, 4.82084, 7)
+
+[node name="Block10" parent="building_8_shack/hill" instance=ExtResource("3_i1kup")]
+transform = Transform3D(3.4202, -28.1908, 0, 9.39693, 10.2606, 0, 0, 0, 10, -9.00001, 0, 7)
+
+[node name="Block" parent="building_8_shack/hill" instance=ExtResource("3_i1kup")]
+transform = Transform3D(4.33013, 0, -1.5, 0, 1, 0, 2.5, 0, 2.59808, -27, 9, 2.134)
+
+[node name="Block2" parent="building_8_shack/hill" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 10, 0, 0.5, 0, 0.866025, -27.866, 4, 1.634)
+
+[node name="main_platform" type="Node3D" parent="building_8_shack"]
+
+[node name="Block2" parent="building_8_shack/main_platform" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -51, 10, 15)
+
+[node name="Block4" parent="building_8_shack/main_platform" instance=ExtResource("3_i1kup")]
+transform = Transform3D(30, 0, 0, 0, 1, 0, 0, 0, 24, -66, 11, 6.25)
+
+[node name="Block5" parent="building_8_shack/main_platform" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -79.9487, 3, 14)
+
+[node name="Block6" parent="building_8_shack/main_platform" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 5, -79.9487, -3, 14)
+
+[node name="Block8" parent="building_8_shack/main_platform" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -79.9487, 3, -4)
+
+[node name="Block10" parent="building_8_shack/main_platform" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 5, -79.9487, -3, -4)
+
+[node name="Block9" parent="building_8_shack/main_platform" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -51.9487, 3, -4)
+
+[node name="Block12" parent="building_8_shack/main_platform" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -49.9487, 2, 16)
+
+[node name="bridge_parts" type="Node3D" parent="building_8_shack"]
+
+[node name="Block13" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -45.9487, 1, 10)
+
+[node name="Block14" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -45.9487, 1, 7)
+
+[node name="Block15" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -37.9487, 1, 10)
+
+[node name="Block16" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -37.9487, 1, 6)
+
+[node name="Block17" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -32.9487, 0, 13)
+
+[node name="Block19" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -29.9487, 0, 12)
+
+[node name="Block18" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -32.9487, 0, 9)
+
+[node name="Block6" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 5, -42.0264, 9, 8)
+
+[node name="Block20" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -62.9487, -5, -8)
+
+[node name="Block21" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -62.9487, -5, -11)
+
+[node name="Block22" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -54.9487, -5, -8)
+
+[node name="Block23" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 16, 0, 0, 0, 1, -54.9487, -5, -12)
+
+[node name="Block7" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 5, -59.0264, 3, -10)
+
+[node name="Block11" parent="building_8_shack/bridge_parts" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -31.5767, 8, 11)
+
+[node name="wall_run_boards" type="Node3D" parent="building_8_shack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42, 3, -21)
+
+[node name="Block_WR" parent="building_8_shack/wall_run_boards" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(7.51754, 0, -0.34202, 0, 7, 0, 2.73616, 0, 0.939693, 14, 5, 10)
+
+[node name="Block_WR6" parent="building_8_shack/wall_run_boards" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(7.51754, 0, -0.34202, 0, 7, 0, 2.73616, 0, 0.939693, 20.5684, 5, 12.4101)
+
+[node name="Block_WR2" parent="building_8_shack/wall_run_boards" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(8, 0, 0, 0, 7, 0, 0, 0, 1, 9, 7.8, 10)
+
+[node name="Block_WR3" parent="building_8_shack/wall_run_boards" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(8, 0, 0, 0, 7, 0, 0, 0, 1, 4.2, 10.6, 10)
+
+[node name="Block_WR4" parent="building_8_shack/wall_run_boards" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(8, 0, 0, 0, 7, 0, 0, 0, 1, 0.199997, 13.4, 10)
+
+[node name="Block_WR5" parent="building_8_shack/wall_run_boards" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(8, 0, 0, 0, 7, 0, 0, 0, 1, -7.8, 13.4, 10)
+
+[node name="building_main" type="Node3D" parent="building_8_shack"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -156.572, 11, 55)
+
+[node name="Block" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.82592, 0, 0, 0, 10.8194, 0, 0, 0, 9.96678, 91.1602, 5.32597, -43.3264)
+
+[node name="Block32" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.82592, 0, 0, 0, 4.95108, 0, 0, 0, 6.98749, 91.1602, 7.77086, -54.271)
+
+[node name="Block33" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.82592, 0, 0, 0, 4.95108, 0, 0, 0, 6.54455, 91.1602, 3.09156, -50.0483)
+
+[node name="Block15" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(11.1934, 0, 0, 0, 0.686305, 0, 0, 0, 14.594, 95.5893, 5.98475, -45.6012)
+
+[node name="Block35" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2.30737, 0, 0, 0, 2.77122, 0, 0, 0, 2.26812, 96.1507, 7.50095, -39.5491)
+
+[node name="Block36" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.41221, 0, 0, 0, 1.13287, 0, 0, 0, 1.48844, 95.3766, 6.81151, -41.6289)
+
+[node name="Block37" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.41221, 0, 0, 0, 1.51013, 0, 0, 0, 1.48844, 98.027, 7.01132, -40.4665)
+
+[node name="Block25" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2.67365, 0, 0, 0, 0.686305, 0, 0, 0, 10.3886, 89.1705, 5.98475, -51.3699)
+
+[node name="Block30" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(11.6381, 0, 0, 0, 0.686305, 0, 0, 0, 2.33209, 82.6668, 5.98475, -54.7947)
+
+[node name="Block31" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-7.45353e-07, 0, -2.33209, 0, 0.686305, 0, 17.0517, 0, -1.01939e-07, 77.7841, 5.98475, -46.6835)
+
+[node name="Block29" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5.36505, 0, 0, 0, 0.686305, 0, 0, 0, 2.99145, 87.8622, 2.86458, -39.3774)
+
+[node name="Block27" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2.67365, 0, 0, 0, 0.529291, -3.06399, 0, 0.284446, 5.70141, 89.1941, 4.49495, -43.6076)
+
+[node name="Block28" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2.67365, 0, 0, 0, 0.545594, 2.71196, 0, -0.251765, 5.87703, 86.52, 1.55794, -43.6076)
+
+[node name="Block12" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.22708, 0, 0, 0, 10.8194, 0, 0, 0, 20.9742, 76.2312, 5.32597, -47.2619)
+
+[node name="Block10" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(13.3281, 0, 0, 0, 10.8194, 0, 0, 0, 1.88142, 88.9834, 5.32597, -37.6711)
+
+[node name="Block16" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.552394, 0, 0, 0, 6.39741, 0, 0, 0, 1.01038, 100.311, 2.80711, -39.1209)
+
+[node name="Block17" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.552394, 0, 0, 0, 6.39741, 0, 0, 0, 1.01038, 100.311, 2.80711, -51.8635)
+
+[node name="Block13" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(4.70187, 0, 0, 0, 10.8194, 0, 0, 0, 1.88142, 77.9859, 5.32597, -37.6711)
+
+[node name="Block14" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(4.70187, 0, 0, 0, 5.71019, 0, 0, 0, 1.88142, 81.4604, 7.86311, -37.6711)
+
+[node name="Block11" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(19.9276, 0, 0, 0, 10.8194, 0, 0, 0, 1.88142, 85.6827, 5.32597, -56.8481)
+
+[node name="Block3" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
+transform = Transform3D(19.9276, 0, 0, 0, 0.952493, 0, 0, 0, 20.9742, 85.6827, 10.1703, -47.2619)
 
 [connection signal="set_particle" from="." to="Player" method="_on_main_set_particle"]
