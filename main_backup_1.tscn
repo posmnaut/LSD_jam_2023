@@ -778,6 +778,13 @@ doppler_tracking = 2
 [node name="door_type_a" parent="building_b" instance=ExtResource("9_buja5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 42.985, 0.531068, -17.7571)
 
+[node name="click_trigger" parent="building_b" node_paths=PackedStringArray("target") instance=ExtResource("16_ece4e")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 43, 2, -17.5)
+target = NodePath("../../ndrgrd_teleport_zones/zone_a/t_t_from_build_a")
+
+[node name="t_t_from_zone_a" parent="building_b" instance=ExtResource("17_po3j1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, 2, -20)
+
 [node name="building_c" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.862, 0.210934, 27.627)
 
@@ -2315,10 +2322,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.772, 1.25, 15.715)
 transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 2, 24.772, 1.5, 15.715)
 
 [node name="Block10" parent="building_c_store/internals" instance=ExtResource("3_i1kup")]
-transform = Transform3D(51, 0, 0, 0, 4, 0, 0, 0, 1, 4, 8, 2)
+transform = Transform3D(51, 0, 0, 0, 4, 0, 0, 0, 1, 4, 7, 2)
 
 [node name="Block11" parent="building_c_store/internals" instance=ExtResource("3_i1kup")]
-transform = Transform3D(35, 0, 0, 0, 6, 0, 0, 0, 1, 11.5, 3, 2)
+transform = Transform3D(35, 0, 0, 0, 6, 0, 0, 0, 1, 12, 3, 2)
 
 [node name="Block12" parent="building_c_store/internals" instance=ExtResource("3_i1kup")]
 transform = Transform3D(12, 0, 0, 0, 6, 0, 0, 0, 1, -15.5, 3, 2)
@@ -2336,7 +2343,7 @@ transform = Transform3D(-3.0598e-07, 0, 3, 0, 0.5, 0, -7, 0, -1.31134e-07, 21, 2
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 8, -15, 5, 6.162)
 
 [node name="Block14" parent="building_c_store/internals" instance=ExtResource("3_i1kup")]
-transform = Transform3D(22, 0, 0, 0, 4, 0, 0, 0, 1, 12, 8, 10.7207)
+transform = Transform3D(22, 0, 0, 0, 4, 0, 0, 0, 1, 12, 7, 10.7207)
 
 [node name="Block16" parent="building_c_store/internals" instance=ExtResource("3_i1kup")]
 transform = Transform3D(22, 0, 0, 0, 10, 0, 0, 0, 1, -4, 5, 10.7207)
@@ -2369,6 +2376,13 @@ transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 1, -21.517, 2, -3.617)
 
 [node name="Block21" parent="building_c_store/shelves" instance=ExtResource("3_i1kup")]
 transform = Transform3D(5, 0, 0, 0, 2.5, 0, 0, 0, 1, -21.517, 2, -13.617)
+
+[node name="door_type_a" parent="building_c_store" instance=ExtResource("9_buja5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29.4, 0, 6)
+
+[node name="click_trigger" parent="building_c_store" node_paths=PackedStringArray("target") instance=ExtResource("16_ece4e")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 30, 2, 6)
+target = NodePath("../../ndrgrd_teleport_zones/zone_b/t_t_from_build_c_store")
 
 [node name="building_microscope" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0, 25)
@@ -2532,6 +2546,9 @@ transform = Transform3D(36, 0, 0, 0, -0.866026, -6, 0, 0.5, -10.3923, -9, 27, 6)
 
 [node name="Block14" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
 transform = Transform3D(36, 0, 0, 0, -0.866026, -6, 0, 0.5, -10.3923, -9, 42, -3)
+
+[node name="tt_from_zone_c" parent="building_microscope" instance=ExtResource("17_po3j1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 43, -22)
 
 [node name="detailLight_single" parent="." instance=ExtResource("15_0no74")]
 transform = Transform3D(-0.902254, 0, 0.431204, 0, 1, 0, -0.431204, 0, -0.902254, -81.6376, 0.5, -45.8468)
@@ -2965,6 +2982,9 @@ autoplay = true
 [node name="ladder_type_a" parent="building_ndrgnd_a" instance=ExtResource("18_y2qa4")]
 transform = Transform3D(1, 0, 0, 0, 1.5, 0, 0, 0, 1, 0, 0.46263, 52.8473)
 
+[node name="tt_from_zone_b" parent="building_ndrgnd_a" instance=ExtResource("17_po3j1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 11, 10)
+
 [node name="testlight" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.9753, 13.3546, 69.7887)
 
@@ -3110,6 +3130,13 @@ transform = Transform3D(3.36458e-14, -2.38477e-08, -7.32952, -6.1584, -2.38477e-
 
 [node name="Block7" parent="building_7" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-1.01123e-14, -2.38477e-08, -7.55071, -6.1584, -2.38477e-08, 0, -2.69192e-07, 0.545571, -3.30052e-07, 68.9955, 3.20893, -34.4926)
+
+[node name="door_type_a" parent="building_7" instance=ExtResource("9_buja5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91, 0.5, -79)
+
+[node name="click_trigger" parent="building_7" node_paths=PackedStringArray("target") instance=ExtResource("16_ece4e")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 91, 2, -79)
+target = NodePath("../../ndrgrd_teleport_zones/zone_c/t_t_from_build_7")
 
 [node name="building_8_shack" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.192, 0, -100.692)
@@ -3284,5 +3311,149 @@ transform = Transform3D(19.9276, 0, 0, 0, 10.8194, 0, 0, 0, 1.88142, 85.6827, 5.
 
 [node name="Block3" parent="building_8_shack/building_main" instance=ExtResource("3_i1kup")]
 transform = Transform3D(19.9276, 0, 0, 0, 0.952493, 0, 0, 0, 20.9742, 85.6827, 10.1703, -47.2619)
+
+[node name="ndrgrd_teleport_zones" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, -20, -40)
+
+[node name="zone_a" type="Node3D" parent="ndrgrd_teleport_zones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="floor" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 20, 0, 8, 0)
+
+[node name="floor2" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -10, 8, -5)
+
+[node name="roof" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 20, 0, 14, 0)
+
+[node name="roof2" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -10, 14, -5)
+
+[node name="wall" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 10, -15, 11, -5)
+
+[node name="wall2" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 1, -5, 11, -10)
+
+[node name="wall3" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-8.74228e-07, 0, -1, 0, 5, 0, 20, 0, -4.37114e-08, 5, 11, 0)
+
+[node name="wall4" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 10, 0, 5, 0, -1, 0, -4.37114e-07, -10, 11, 0)
+
+[node name="wall5" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 10, -5, 11, 5)
+
+[node name="wall6" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 10, 0, 5, 0, -1, 0, -4.37114e-07, 0, 11, 10)
+
+[node name="t_t_from_build_a" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("17_po3j1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 7)
+
+[node name="door_type_a" parent="ndrgrd_teleport_zones/zone_a" instance=ExtResource("9_buja5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.5, 8.531, -4.636)
+
+[node name="click_trigger" parent="ndrgrd_teleport_zones/zone_a" node_paths=PackedStringArray("target") instance=ExtResource("16_ece4e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 3, 0, 1, 0, -4.37114e-08, -15, 10, -4.621)
+target = NodePath("../../../building_b/t_t_from_zone_a")
+
+[node name="zone_b" type="Node3D" parent="ndrgrd_teleport_zones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -25)
+
+[node name="floor" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 20, 0, 8, 0)
+
+[node name="floor2" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -10, 8, -5)
+
+[node name="roof" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 20, 0, 14, 0)
+
+[node name="roof2" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, -10, 14, -5)
+
+[node name="wall" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 10, -5, 11, -5)
+
+[node name="wall2" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("3_i1kup")]
+transform = Transform3D(20, 0, 0, 0, 5, 0, 0, 0, 1, -5, 11, -10)
+
+[node name="wall3" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-8.74228e-07, 0, -1, 0, 5, 0, 20, 0, -4.37114e-08, 5, 11, 0)
+
+[node name="wall4" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 10, 0, 5, 0, -1, 0, -4.37114e-07, -10, 11, 0)
+
+[node name="wall5" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 10, -5, 11, 5)
+
+[node name="wall6" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 10, 0, 5, 0, -1, 0, -4.37114e-07, 0, 11, 10)
+
+[node name="t_t_from_build_c_store" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("17_po3j1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 7)
+
+[node name="door_type_a" parent="ndrgrd_teleport_zones/zone_b" instance=ExtResource("9_buja5")]
+transform = Transform3D(1, 0, 2.13163e-14, 0, 1, 0, -2.13163e-14, 0, 1, 0.257492, 8.531, -9.3785)
+
+[node name="click_trigger" parent="ndrgrd_teleport_zones/zone_b" node_paths=PackedStringArray("target") instance=ExtResource("16_ece4e")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 3, 0, -8.74228e-08, 0, -1, 0.242508, 10, -9.8785)
+target = NodePath("../../../building_ndrgnd_a/tt_from_zone_b")
+
+[node name="zone_c" type="Node3D" parent="ndrgrd_teleport_zones"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 2, -25)
+
+[node name="floor" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(18.1262, 0.422618, 0, -8.45237, 0.906308, 0, 0, 0, 10, 3.85104, 3.8081, -5)
+
+[node name="floor2" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 10, -12.5219, 8, -5)
+
+[node name="floor3" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 18, -0.455847, -5)
+
+[node name="roof" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(18.1262, 0.422618, 0, -8.45237, 0.906308, 0, 0, 0, 10, 4.2, 9.808, -5)
+
+[node name="roof2" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 10, -11, 14, -5)
+
+[node name="roof3" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 18, 5.54415, -5)
+
+[node name="wall" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 10, -20, 11, -5)
+
+[node name="wall2" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(35, 0, 0, 0, 15, 0, 0, 0, 1, 2, 7, -10)
+
+[node name="wall3" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(35, 0, 0, 0, 15, 0, 0, 0, 1, 5, 7, 0)
+
+[node name="wall4" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 10, 0, 5, 0, -1, 0, -4.37114e-07, -15, 11, 0)
+
+[node name="wall5" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 10, 23, 2.54415, -5)
+
+[node name="wall6" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 10, 0, 5, 0, -1, 0, -4.37114e-07, 18, 2.54415, 0)
+
+[node name="wall7" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 10, 0, 5, 0, -1, 0, -4.37114e-07, 18, 2.54415, -10)
+
+[node name="wall8" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-4.37114e-08, 0, 10, 0, 5, 0, -1, 0, -4.37114e-07, -15, 11, -10)
+
+[node name="t_t_from_build_7" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("17_po3j1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 11, -5)
+
+[node name="door_type_a" parent="ndrgrd_teleport_zones/zone_c" instance=ExtResource("9_buja5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.4696, 0, -5.5)
+
+[node name="click_trigger" parent="ndrgrd_teleport_zones/zone_c" node_paths=PackedStringArray("target") instance=ExtResource("16_ece4e")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 3, 0, -1, 0, 1.31134e-07, 22.5, 2, -5.5)
+target = NodePath("../../../building_microscope/tt_from_zone_c")
 
 [connection signal="set_particle" from="." to="Player" method="_on_main_set_particle"]

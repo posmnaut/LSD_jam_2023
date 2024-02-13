@@ -83,20 +83,20 @@ func _process (delta) :
 			if district_audio.volume_db < 0.0 - amb_vol :
 				district_audio.volume_db += 0.5
 			#tween light color and energy
-			world_light.set_color(lerp(world_light.light_color,environ_shift.light_color,0.01));
-			world_light.light_energy = lerp(world_light.light_energy,environ_shift.light_strength,0.01)
+			#world_light.set_color(lerp(world_light.light_color,environ_shift.light_color,0.01));
+			#world_light.light_energy = lerp(world_light.light_energy,environ_shift.light_strength,0.01)
 			#tween BG energy mult
-			var e_set = lerp(environ.get_environment().background_energy_multiplier,environ_shift.environ_info.background_energy_multiplier,0.01);
-			environ.get_environment().set_bg_energy_multiplier(e_set)
+			#var e_set = lerp(environ.get_environment().background_energy_multiplier,environ_shift.environ_info.background_energy_multiplier,0.01);
+			#environ.get_environment().set_bg_energy_multiplier(e_set)
 			#tween fog light energy
-			e_set = lerp(environ.get_environment().fog_light_energy,environ_shift.environ_info.fog_light_energy,0.01);
-			environ.get_environment().set_fog_light_energy(e_set)
+			#e_set = lerp(environ.get_environment().fog_light_energy,environ_shift.environ_info.fog_light_energy,0.01);
+			#environ.get_environment().set_fog_light_energy(e_set)
 			#tween fog density
-			e_set = lerp(environ.get_environment().fog_density,environ_shift.environ_info.fog_density,0.01);
-			environ.get_environment().set_fog_density(e_set)
+			#e_set = lerp(environ.get_environment().fog_density,environ_shift.environ_info.fog_density,0.01);
+			#environ.get_environment().set_fog_density(e_set)
 			#tween fog light color
-			e_set = lerp(environ.get_environment().fog_light_color,environ_shift.environ_info.fog_light_color,0.01);
-			environ.get_environment().set_fog_light_color(e_set)
+			#e_set = lerp(environ.get_environment().fog_light_color,environ_shift.environ_info.fog_light_color,0.01);
+			#environ.get_environment().set_fog_light_color(e_set)
 			#crossfade = false
 			#crossfade_step = 0
 
