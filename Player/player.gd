@@ -386,15 +386,14 @@ func _physics_process(delta):
 		var check = collision[0].get_parent();
 		var name = check.get_name()
 		
-		if name == "ladder_type_a" :
-			print("ladder")
+		if is_instance_of(check,ladder):
 			on_ladder = true
 			can_wall_run = false
 			wall_run_t = false
 			is_wallrunning = false
 			wall_jump = false
 			
-		if name == "door_swing_a" :
+		if is_instance_of(check,door):
 			var test_a = check.global_transform.origin - global_transform.origin;
 			var _dot = test_a.dot(check.global_transform.basis.z)
 			check.swing = true

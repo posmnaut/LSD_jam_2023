@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://by5kw50jmtucl"]
+[gd_scene load_steps=5 format=3 uid="uid://by5kw50jmtucl"]
+
+[ext_resource type="Script" path="res://Objects/ladder_type_a.gd" id="1_fkyyy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pi54d"]
 
@@ -11,6 +13,7 @@ size = Vector3(1, 6, 1)
 
 [node name="ladder_type_a" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("1_fkyyy")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 6, 0, 0, 0, 1, 0, 2.5, 0)

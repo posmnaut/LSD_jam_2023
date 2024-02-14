@@ -1,4 +1,5 @@
 extends Node3D
+class_name door
 
 @onready var door_vis = $r_point
 @onready var swing = false;
