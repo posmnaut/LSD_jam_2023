@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1nau01usoyac"]
+
+[ext_resource type="PackedScene" uid="uid://7kytrgykx4k0" path="res://kenney_models/urban_retro/door_typeA.glb" id="1_hvalb"]
+
+[node name="door_typeA" instance=ExtResource("1_hvalb")]
+
+[node name="door_typeA2" parent="tmpParent" index="0"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)

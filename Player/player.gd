@@ -13,7 +13,6 @@ var jump_token = 2;
 @onready var head = $Head
 @onready var drop_shadow = $Drop_Shadow
 @onready var stp_audio_player = $footsteps_1
-@onready var NPC_talk_area = $Area3D;
 @onready var Look_Cast = $Head/Look_Cast_NPC
 @onready var look_cast_door = $Head/Look_Cast_door
 @onready var hud_RTL = $UI/RichTextLabel;
@@ -170,7 +169,7 @@ func _process(delta):
 		else :
 			interact_sprite.visible = false
 		if NPC_check != null :
-			NPC_check.set_meta("face_player", false)
+			NPC_check.face_player = false
 	else :
 		interact_sprite.visible = false
 		
@@ -244,12 +243,13 @@ func _input(event):
 			var NPC_check = Look_Cast.get_collider();
 			var click_check = look_cast_door.get_collider();
 			if NPC_check != null :
+				#var npc_main = NPC_check.get_parent()
 				var meta_check = NPC_check.get_meta("dialogue") 
 				var op_audio = NPC_check.open_audio;
 				var talk_timer = NPC_check.get_meta("talk_timer")
 				var is_asleep  = NPC_check.get_meta("fully_sleep")
 				print(op_audio)
-				NPC_check.set_meta("face_player", true)
+				NPC_check.face_player = true
 				if !is_asleep :
 					Dialogic.start(meta_check)
 					in_dialogue = true;
@@ -375,24 +375,35 @@ func process_wall_run_rotation(delta) :
 
 func _physics_process(delta):
 	
-	#ladder detection test
+	
+	#ladder detection 
+	#also used for door detection
 	#for i in get_slide_collision_count():
 		#var collision = get_slide_collision(i)
 		#print("I collided with ", collision.get_collider().name)
 	if ladder_detection.has_overlapping_areas() :
-		on_ladder = true
-		can_wall_run = false
-		wall_run_t = false
-		is_wallrunning = false
-		wall_jump = false
-		#var normal = 
-		#var wall_run_dir = Vector3.UP.cross(normal)
-		#var player_view_dir = -camera.global_transform.basis.z
-		#var dot = wall_run_dir.dot(player_view_dir)
-		#print(abs(camera.global_transform.basis.z.y));
+		var collision = ladder_detection.get_overlapping_areas();
+		var check = collision[0].get_parent();
+		var name = check.get_name()
+		
+		if name == "ladder_type_a" :
+			print("ladder")
+			on_ladder = true
+			can_wall_run = false
+			wall_run_t = false
+			is_wallrunning = false
+			wall_jump = false
+			
+		if name == "door_swing_a" :
+			var test_a = check.global_transform.origin - global_transform.origin;
+			var _dot = test_a.dot(check.global_transform.basis.z)
+			check.swing = true
+			check.swing_direction = _dot
 	else:
+		
 		on_ladder = false
 		can_wall_run = true
+
 	
 	#bump trigger detection
 	if fog_fade == false :

@@ -11,6 +11,7 @@ var fully_asleep = false;
 var player= null
 var rotation_y = 0;
 var dur_timer = 900;
+var face_player = false
 
 
 #if metadata set, set timer
@@ -54,7 +55,7 @@ func _process (_delta) :
 				print("time out")
 				set_meta("talk_timer",false)
 				f_timer = 0;
-			if get_meta("face_player") == true :
+			if face_player == true :
 				_look_at_target_interpolated(0.1)
 			else :
 				rotation.y = lerp_angle(rotation.y,rotation_y,0.1)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy0baknwmyu22"]
+
+[ext_resource type="Script" path="res://Objects/door_swing_a.gd" id="1_hu0g7"]
+[ext_resource type="PackedScene" uid="uid://d1nau01usoyac" path="res://kenney_models/urban_retro_scenes/door_type_a_b.tscn" id="2_udggm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q1cv7"]
+size = Vector3(3, 4, 2)
+
+[node name="door_swing_a" type="Node3D"]
+script = ExtResource("1_hu0g7")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, -0.25, 0)
+shape = SubResource("BoxShape3D_q1cv7")
+
+[node name="r_point" type="Node3D" parent="."]
+
+[node name="door_typeA" parent="r_point" instance=ExtResource("2_udggm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13988, -4.76837e-07, -0.00553274)

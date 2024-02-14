@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=37 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cceb3ktykdya3" path="res://Textures/billboards/maxresdefault (2).png" id="19_htbgt"]
 [ext_resource type="Script" path="res://Models/fish/fish_v_1.gd" id="19_plvh7"]
 [ext_resource type="Texture2D" uid="uid://cfwlcsxvlwpse" path="res://Textures/posters_graffitti/cool_poster.png" id="20_jgvec"]
+[ext_resource type="PackedScene" uid="uid://cy0baknwmyu22" path="res://Objects/door_swing_a.tscn" id="28_a8am6"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ojppl"]
 
@@ -121,7 +122,7 @@ metadata/dialogue = "res://Dialogic_timelines/tml_npc_b.dtl"
 metadata/opener_audio = ExtResource("17_ichpr")
 
 [node name="cosmonaut_animations-FINALBAKE2" parent="." instance=ExtResource("14_8kv7q")]
-transform = Transform3D(0.0565891, 0, -0.998397, 0, 1, 0, 0.998397, 0, 0.0565891, 92.9575, 0.523558, -28.9164)
+transform = Transform3D(0.0565891, 0, -0.998397, 0, 1, 0, 0.998397, 0, 0.0565891, -1.0425, 0.523558, 21.0836)
 metadata/dialogue = "res://Dialogic_timelines/tml_npc_blbd_a.dtl"
 metadata/opener_audio = ExtResource("15_v6qj8")
 
@@ -3137,6 +3138,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91, 0.5, -79)
 [node name="click_trigger" parent="building_7" node_paths=PackedStringArray("target") instance=ExtResource("16_ece4e")]
 transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 91, 2, -79)
 target = NodePath("../../ndrgrd_teleport_zones/zone_c/t_t_from_build_7")
+
+[node name="door_swing_a" parent="building_7" instance=ExtResource("28_a8am6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.25, 0, -37)
 
 [node name="building_8_shack" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.192, 0, -100.692)
