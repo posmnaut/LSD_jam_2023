@@ -1,17 +1,22 @@
 extends StaticBody3D
+class_name talkable_NPC
 
 @export var open_audio = ""
 @onready var anim_tree = $AnimationTree
 @onready var sleep_sprite = $"game rig/sleep_sprite"
 @onready var face_sprite = $"game rig/Skeleton3D/BoneAttachment3D/face_sprite"
+@export var dialogue_string = "";
 
 var timer = 0;
 var f_timer = 0;
 var fully_asleep = false;
 var player= null
 var rotation_y = 0;
-var dur_timer = 900;
+var dur_timer = 900.0;
 var face_player = false
+var is_sleep = false
+var talk_timer = false
+var timing_int = 100.0
 
 
 #if metadata set, set timer
@@ -33,12 +38,12 @@ func _look_at_target_interpolated(weight:float) -> void:
 	global_transform = global_transform.interpolate_with(xform,weight)
 
 
-func _process (_delta) : 
+func _process (delta) : 
 	if !fully_asleep :
 		
-		if get_meta("is_sleep") == true :
-			timer += 1;
-			if timer > 10 :
+		if is_sleep == true :
+			timer += timing_int * delta;
+			if timer > 10.0 :
 				timer = 0
 				var dist = self.global_position.distance_to($"/root/global".player.global_position)
 				if dist > 70 :
@@ -46,14 +51,12 @@ func _process (_delta) :
 					sleep_sprite.visible = true;
 					face_sprite.visible = false;
 					#also set dialogue HERE
-					set_meta("fully_sleep",true);
 					fully_asleep = true;
 		
-		if get_meta("talk_timer") == true :
-			f_timer += 1;
+		if talk_timer == true :
+			f_timer += timing_int * delta;
 			if f_timer > dur_timer :
-				print("time out")
-				set_meta("talk_timer",false)
+				talk_timer = false
 				f_timer = 0;
 			if face_player == true :
 				_look_at_target_interpolated(0.1)

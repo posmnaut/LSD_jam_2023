@@ -130,6 +130,8 @@ metadata/opener_audio = ExtResource("17_ichpr")
 
 [node name="cosmonaut_animations-FINALBAKE2" parent="." instance=ExtResource("14_8kv7q")]
 transform = Transform3D(0.0565891, 0, -0.998397, 0, 1, 0, 0.998397, 0, 0.0565891, -1.0425, 0.523558, 21.0836)
+open_audio = "res://snd_effects/NPC_talk_audio/Intro_Talk_Sprite_Level_1.wav"
+dialogue_string = "res://Dialogic_timelines/tml_npc_blbd_a.dtl"
 metadata/dialogue = "res://Dialogic_timelines/tml_npc_blbd_a.dtl"
 metadata/opener_audio = ExtResource("15_v6qj8")
 

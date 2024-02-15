@@ -221,8 +221,8 @@ func _on_dialogic_signal(argument:String):
 	if argument == "dialogue_exhausted":
 		var NPC_check = Look_Cast.get_collider();
 		if NPC_check != null :
-			if NPC_check.has_meta("is_sleep") :
-				NPC_check.set_meta("is_sleep",true)
+			if is_instance_of(NPC_check,talkable_NPC):
+				NPC_check.is_sleep = true;
 
 func _input(event):
 	#Handle escape quit function
@@ -243,23 +243,23 @@ func _input(event):
 			var NPC_check = Look_Cast.get_collider();
 			var click_check = look_cast_door.get_collider();
 			if NPC_check != null :
-				#var npc_main = NPC_check.get_parent()
-				var meta_check = NPC_check.get_meta("dialogue") 
-				var op_audio = NPC_check.open_audio;
-				var talk_timer = NPC_check.get_meta("talk_timer")
-				var is_asleep  = NPC_check.get_meta("fully_sleep")
-				print(op_audio)
-				NPC_check.face_player = true
-				if !is_asleep :
-					Dialogic.start(meta_check)
-					in_dialogue = true;
-					if op_audio != "" && op_audio != null:
-						if !audio_s_player.is_playing() :
-							if talk_timer == false :
-								audio_s_player.stream = load(op_audio);
-								audio_s_player.volume_db = -10.0
-								audio_s_player.play();
-								NPC_check.set_meta("talk_timer",true);
+				if is_instance_of(NPC_check, talkable_NPC) :
+					var dialogue_string = NPC_check.dialogue_string
+					var op_audio = NPC_check.open_audio;
+					var talk_timer = NPC_check.talk_timer;
+					var is_asleep  = NPC_check.fully_asleep;
+					NPC_check.face_player = true
+					if !is_asleep :
+						if dialogue_string != "" :
+							Dialogic.start(dialogue_string)
+							in_dialogue = true;
+							if op_audio != "" && op_audio != null:
+								if !audio_s_player.is_playing() :
+									if talk_timer == false :
+										audio_s_player.stream = load(op_audio);
+										audio_s_player.volume_db = -10.0
+										audio_s_player.play();
+										NPC_check.talk_timer = true
 			
 			if click_check !=null :
 				teleport_point = click_check.get_parent().target_point;
