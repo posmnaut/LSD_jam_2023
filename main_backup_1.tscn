@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=37 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -29,6 +29,13 @@
 [ext_resource type="Texture2D" uid="uid://cfwlcsxvlwpse" path="res://Textures/posters_graffitti/cool_poster.png" id="20_jgvec"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ojppl"]
+
+[sub_resource type="Curve3D" id="Curve3D_pl87l"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.354279, -2.86102e-05, 0.130981, 0, 0, 0, 0, 0, 0, 13.3862, 5.51901, -1.87737, 0, 0, 0, 0, 0, 0, 25.3862, 9.51901, -25.8774, 0, 0, 0, 0, 0, 0, 40.3862, 11.519, -39.8774, 0, 0, 0, 0, 0, 0, 60.3862, 13.519, -43.8774, 0, 0, 0, 0, 0, 0, 80.3862, 14.519, -33.8774, 0, 0, 0, 0, 0, 0, 90.3862, 12.519, -15.8774, 0, 0, 0, 0, 0, 0, 93.3862, 9.51901, 4.12263, 0, 0, 0, 0, 0, 0, 100.386, 3.51901, 17.1226, 0, 0, 0, 0, 0, 0, 110.386, -2.48099, 28.1226, 0, 0, 0, 0, 0, 0, 123.386, -6.48099, 37.1226, 0, 0, 0, 0, 0, 0, 140.386, -6.48099, 36.1226, 0, 0, 0, 0, 0, 0, 155.386, -6.48099, 25.1226, 0, 0, 0, 0, 0, 0, 162.386, -7.48099, 17.1226, 0, 0, 0, 0, 0, 0, 163.386, -8.48099, 3.12263, 0, 0, 0, 0, 0, 0, 157.386, -15.481, -4.87737),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 1.309, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 16
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk2lw"]
 albedo_color = Color(0.415686, 0.415686, 0.415686, 1)
@@ -62,7 +69,7 @@ script = ExtResource("1_dn6qx")
 env_lsd = ExtResource("4_o8xr1")
 
 [node name="Player" parent="." node_paths=PackedStringArray("spwn_point", "environ_a") instance=ExtResource("2_qq07f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5707, 2.2606, 0.73984)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9264, 26.1578, 125.64)
 spwn_point = NodePath("../player_spawn_1")
 environ_a = NodePath("../WorldEnvironment")
 
@@ -425,6 +432,276 @@ transform = Transform3D(2, 0, 0, 0, 0.996195, -2.26605, 0, 0.0871557, 25.9011, -
 
 [node name="walk_way_type_a5" parent="bridging_district_b" instance=ExtResource("3_i1kup")]
 transform = Transform3D(0.517638, -0.134431, -24.8697, 0, 0.990268, -3.6185, 1.93185, 0.0360207, 6.66381, -51, 12.5, 15)
+
+[node name="B to A" type="Path3D" parent="bridging_district_b"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.3862, 24.481, 120.877)
+visible = false
+curve = SubResource("Curve3D_pl87l")
+
+[node name="bridging_disctric_b_to_a" type="Node3D" parent="bridging_district_b"]
+
+[node name="Block_WR2" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(0.0691335, -16.3747, 0.496151, 0.0328391, -0.7198, -8.9981, 0.428041, 2.69992, 0.610196, -33.5759, 30.1835, 119.207)
+
+[node name="Block_WR3" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(0.362563, -7.87418, 0.635228, 0.0359415, 0.17284, -8.98378, 0.200588, 14.2016, 0.461544, -21.5383, 30.2767, 110.519)
+
+[node name="Block_WR4" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(0.362563, -5.30739, 0.635228, 0.0359415, 0.116499, -8.98378, 0.200588, 9.57222, 0.461544, -15.4881, 30.3739, 98.8969)
+
+[node name="Block_WR5" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(0.203614, -14.2097, 0.635227, 0.0264304, -0.367981, -8.98377, 0.234221, 12.3943, 0.461544, -5.55361, 30.6566, 88.1868)
+
+[node name="Block_WR6" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(0.0780041, -22.5006, 0.301477, 0.0356765, -0.406437, -8.98377, 0.409636, 4.32003, 0.725016, 12.3512, 32.4545, 79.5522)
+
+[node name="Block_WR7" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-0.28741, -21.2174, 0.260314, 0.0460806, -1.47813, -8.41808, 0.634999, -9.49605, 0.728704, 32.6693, 35.7827, 82.0155)
+
+[node name="Block_WR8" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-0.443337, -11.3337, 0.301477, 0.0100463, -1.68892, -8.98377, 0.308834, -16.2148, 0.725016, 47.2161, 37.8235, 93.6117)
+
+[node name="Block_WR9" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-0.616254, -3.23597, 0.301477, -0.0136561, -1.98276, -8.98377, 0.0870363, -23.2231, 0.725016, 54.2519, 41.0912, 112.938)
+
+[node name="Block_WR10" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-0.615602, -8.07631, 0.301477, 0.00741083, -1.4222, -8.98378, 0.347807, -14.2644, 0.725016, 59.8548, 43.6579, 131.459)
+
+[node name="Block_WR11" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-0.316851, -13.1719, 0.301477, 0.0220183, -1.26895, -8.98377, 0.404585, -10.2465, 0.725016, 66.6458, 48.3257, 145.997)
+
+[node name="Block_WR12" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-0.238989, -11.1147, 0.301477, 0.0256374, -0.882622, -8.98378, 0.417053, -6.31495, 0.725016, 77.6924, 52.0269, 153.387)
+
+[node name="Block_WR13" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(0.029163, -18.4896, 0.204517, 0.125219, -0.0225189, -8.61303, 0.402556, 1.34648, 2.66435, 91.6771, 53.1639, 156.011)
+
+[node name="Block_WR14" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(0.27445, -12.8908, 0.301477, 0.150615, 4.52473, -8.07437, 0.283005, 10.093, 4.0048, 107.304, 52.4345, 149.918)
+
+[node name="Block_WR15" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(0.70058, -2.71936, 0.301477, 0.132272, 3.30247, -8.07437, 0.213944, 6.86307, 4.0048, 115.244, 48.4941, 141.764)
+
+[node name="Block_WR16" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(1.34978, -0.580363, 0.301477, 0.0603156, 7.77587, -8.07437, 0.0199962, 15.7212, 4.0048, 117.341, 41.1577, 133.061)
+
+[node name="Block_WR17" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(0.481037, 7.18937, 0.301477, -0.140496, 4.62806, -8.07437, -0.319477, 8.78976, 4.0048, 115.683, 31.2981, 121.14)
+
+[node name="borad-arms" type="Node3D" parent="bridging_district_b/bridging_disctric_b_to_a"]
+
+[node name="Block" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5.42327, 0.614827, 0, -4.16895, 0.799812, 0, 0, 0, 0.542452, -26.248, 24.6334, 118.757)
+
+[node name="Block2" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-1.82269, -0.186447, -0.513139, -3.69993, 0.848425, -0.00648534, 5.45714, 0.512957, -0.175786, -25.0347, 24.6334, 118.757)
+
+[node name="Block3" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(6.18418, 0, 6.37103, 0, 0.960456, 0, -11.9837, 0, 3.28777, -11.9287, 22.4939, 100.711)
+
+[node name="Block14" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.07607, 0, 0.662741, 0, 3.64978, 0, -0.68561, 0, 1.04018, -11.7744, 24.5777, 94.7803)
+
+[node name="Block22" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.05737, 0, 0.690281, 0, 3.64978, 0, -0.714097, 0, 1.02212, 1.88573, 26.305, 82.3929)
+
+[node name="Block15" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.585124, 0, 1.09603, 0, 8.18312, 0, -1.13385, 0, 0.565608, -9.80385, 18.4444, 102.236)
+
+[node name="Block16" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.579834, 7.36119, 4.84973e-08, 5.07269e-15, 3.57695e-07, -1.23337, -1.19412, 3.5744, 2.3549e-08, -6.65806, 13.8955, 103.764)
+
+[node name="Block17" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.927734, 5.72205e-07, -2.32992, 0, -19.6395, -7.4607e-15, -1.91059, 1.14441e-06, -1.13135, -3.62604, 8.89546, 105.367)
+
+[node name="Block18" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.1366, -9.46304e-09, 0.560437, 1.25868e-09, 8.92574, 4.92481e-10, -0.579774, 8.26172e-10, 1.09869, 5.16598, 19.8194, 87.0761)
+
+[node name="Block19" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.16745, 3.89485, 2.94152e-08, 1.29621e-09, 3.61159e-07, -1.3453, -0.631817, 7.19677, 5.15924e-08, 6.83044, 14.8576, 90.1516)
+
+[node name="Block20" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.86792, -1.98326e-07, -1.23278, 2.07393e-09, -21.4218, -1.09616e-09, -1.01091, 1.376e-06, -2.27789, 8.35819, 9.40386, 93.2225)
+
+[node name="Block23" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.26221, -1.14309e-08, -0.180411, 1.25868e-09, 12.4592, 4.92481e-10, 0.186636, -6.71919e-09, 1.22011, 21.7808, 20.9014, 83.8245)
+
+[node name="Block26" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.27593, 0, 0, 0, 3.91684, 0, 0, 0, 1.23337, 22.8743, 29.3057, 78.213)
+
+[node name="Block24" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.31752, -0.999398, -5.94752e-09, 1.29621e-09, 3.61159e-07, -1.3453, 0.162121, 8.12186, 5.90902e-08, 21.3537, 14.8576, 87.2953)
+
+[node name="Block25" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2.10803, -9.59402e-07, 0.316326, 2.07393e-09, -21.4218, -1.09616e-09, 0.259391, 1.00611e-06, -2.57069, 20.8179, 9.40386, 90.6832)
+
+[node name="Block33" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.956133, -7.65382e-09, -0.816696, 1.25868e-09, 16.119, 4.92481e-10, 0.844877, -1.53521e-08, 0.924242, 38.3501, 22.5837, 90.6493)
+
+[node name="Block74" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.956133, -1.21753e-09, -0.816696, 1.25868e-09, 2.56412, 4.92481e-10, 0.844877, -2.44214e-09, 0.924242, 42.5933, 32.2752, 87.4037)
+
+[node name="Block34" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.01586, -5.26755, -3.72145e-08, 1.29621e-09, 3.61159e-07, -1.3453, 0.854497, 6.26229, 4.62829e-08, 36.099, 14.8576, 93.3254)
+
+[node name="Block35" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.62538, -1.35289e-06, 1.66726, 2.07393e-09, -21.4218, -1.09616e-09, 1.36719, 3.19992e-07, -1.98211, 33.8021, 9.40386, 95.8728)
+
+[node name="Block36" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.523277, -7.35911e-10, -1.12488, 1.25868e-09, 18.2155, 4.92481e-10, 1.1637, -1.93715e-08, 0.505824, 47.7322, 23.4845, 103.089)
+
+[node name="Block73" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.523277, -1.47344e-10, -1.12488, 1.25868e-09, 3.6471, 4.92481e-10, 1.1637, -3.87855e-09, 0.505824, 52.4148, 34.2816, 101.991)
+
+[node name="Block37" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.573743, -7.37931, -5.29743e-08, 1.2962e-09, 3.61159e-07, -1.3453, 1.19706, 3.53684, 2.68469e-08, 44.5787, 14.8576, 104.6)
+
+[node name="Block38" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.917989, -1.3646e-06, 2.33566, 2.07393e-09, -21.4218, -1.09616e-09, 1.9153, -2.6564e-07, -1.11946, 41.4364, 9.40386, 105.975)
+
+[node name="Block39" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.560612, -1.62228e-09, -1.10795, 1.25868e-09, 21.7033, 4.92481e-10, 1.14618, -2.30403e-08, 0.541913, 52.697, 25.3119, 124.963)
+
+[node name="Block72" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.560612, -2.22104e-10, -1.10795, 1.25868e-09, 2.97138, 4.92481e-10, 1.14618, -3.15442e-09, 0.541913, 55.7585, 37.4851, 124.698)
+
+[node name="Block40" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.61213, -7.26115, -5.2079e-08, 1.29621e-09, 3.61159e-07, -1.3453, 1.1779, 3.77347, 2.85448e-08, 49.594, 14.8576, 126.576)
+
+[node name="Block41" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.979408, -1.37248e-06, 2.29826, 2.07393e-09, -21.4218, -1.09616e-09, 1.88463, -2.214e-07, -1.19436, 46.4978, 9.40386, 128.052)
+
+[node name="Block42" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.923441, -1.08273e-08, -0.851122, 1.25868e-09, 24.6966, 4.92481e-10, 0.88049, -2.39491e-08, 0.892641, 60.7952, 26.821, 143.479)
+
+[node name="Block70" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.923441, -1.95823e-09, -0.851122, 1.25868e-09, 4.46663, 4.92481e-10, 0.88049, -4.33143e-09, 0.892641, 60.5914, 41.3697, 142.147)
+
+[node name="Block71" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.923441, -1.40674e-09, -0.851122, 1.25868e-09, 3.20872, 4.92481e-10, 0.88049, -3.1116e-09, 0.892641, 63.7972, 39.9725, 139.346)
+
+[node name="Block43" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.982764, -5.501, -3.89411e-08, 1.29621e-09, 3.61159e-07, -1.3453, 0.892366, 6.05825, 4.48399e-08, 58.4444, 14.8576, 146.068)
+
+[node name="Block44" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.57242, -1.36404e-06, 1.74115, 2.07393e-09, -21.4218, -1.09616e-09, 1.42778, 2.68513e-07, -1.91753, 56.0526, 9.40386, 148.526)
+
+[node name="Block45" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.09962, -1.8363e-08, -0.625597, 1.25868e-09, 28.354, 4.92481e-10, 0.647183, -2.39445e-08, 1.06294, 69.5689, 28.6786, 153.874)
+
+[node name="Block69" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.09962, -3.03447e-09, -0.625597, 1.25868e-09, 4.68547, 4.92481e-10, 0.647183, -3.9568e-09, 1.06294, 73.1565, 45.5714, 151.931)
+
+[node name="Block46" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.16009, -3.97762, -2.77124e-08, 1.2962e-09, 3.61159e-07, -1.3453, 0.645245, 7.15136, 5.25267e-08, 67.8691, 14.8576, 156.93)
+
+[node name="Block47" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.85614, -1.26712e-06, 1.25898, 2.07393e-09, -21.4218, -1.09616e-09, 1.03239, 5.71948e-07, -2.26351, 66.0997, 9.40386, 159.869)
+
+[node name="Block48" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.15916, -2.17534e-08, -0.515467, 1.25868e-09, 29.8269, 4.92481e-10, 0.533253, -2.31168e-08, 1.1205, 81.0359, 29.1888, 160.435)
+
+[node name="Block68" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.15916, -3.80809e-09, -0.515467, 1.25868e-09, 5.22142, 4.92481e-10, 0.533253, -4.04677e-09, 1.1205, 82.9004, 46.6317, 157.46)
+
+[node name="Block49" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.21913, -3.23785, -2.22864e-08, 1.2962e-09, 3.61159e-07, -1.3453, 0.52524, 7.5153, 5.50485e-08, 79.6522, 14.8576, 163.647)
+
+[node name="Block50" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.9506, -1.20314e-06, 1.02483, 2.07393e-09, -21.4218, -1.09616e-09, 0.84038, 6.96545e-07, -2.3787, 78.1874, 9.40386, 166.749)
+
+[node name="Block51" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.15657, -2.99093e-08, 0.520875, 1.25868e-09, 28.1414, 4.92481e-10, -0.538848, 1.53847e-09, 1.11799, 102.588, 28.63, 159.941)
+
+[node name="Block52" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.18926, 3.63556, 2.75554e-08, 1.2962e-09, 3.61159e-07, -1.3453, -0.589757, 7.33117, 5.26092e-08, 104.142, 14.8576, 163.074)
+
+[node name="Block53" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.90281, -2.47301e-07, -1.15071, 2.07393e-09, -21.4218, -1.09616e-09, -0.943612, 1.36805e-06, -2.32043, 105.559, 9.40386, 166.198)
+
+[node name="Block54" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.884174, -2.67192e-08, 0.889232, 1.25868e-09, 27.5037, 4.92481e-10, -0.919915, 1.19513e-08, 0.854683, 116.492, 28.7275, 149.332)
+
+[node name="Block55" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.896287, 6.03622, 4.46839e-08, 1.29621e-09, 3.61159e-07, -1.3453, -0.979189, 5.52517, 3.912e-08, 119.071, 14.8576, 151.693)
+
+[node name="Block56" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.43406, 2.63058e-07, -1.91055, 2.07393e-09, -21.4218, -1.09616e-09, -1.5667, 1.3651e-06, -1.7488, 121.52, 9.40386, 154.095)
+
+[node name="Block57" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.400825, -1.50991e-08, 1.17094, 1.25868e-09, 21.9152, 4.92481e-10, -1.21134, 1.77756e-08, 0.387456, 122.352, 25.3132, 141.699)
+
+[node name="Block58" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.386183, 7.82918, 5.71883e-08, 1.29621e-09, 3.61159e-07, -1.3453, -1.27004, 2.38063, 1.60163e-08, 125.697, 14.8576, 142.717)
+
+[node name="Block59" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.617889, 8.26219e-07, -2.47805, 2.07393e-09, -21.4218, -1.09616e-09, -2.03206, 1.11807e-06, -0.753506, 128.943, 9.40386, 143.827)
+
+[node name="Block60" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-0.33868, -1.60548e-09, 1.18913, 1.25868e-09, 13.0399, 4.92481e-10, -1.23016, 1.37842e-08, -0.327384, 123.529, 20.9014, 127.952)
+
+[node name="Block63" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-0.33868, -3.3189e-10, 1.18913, 1.25868e-09, 2.69564, 4.92481e-10, -1.23016, 2.84952e-09, -0.327384, 119.574, 28.9579, 127.108)
+
+[node name="Block64" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-0.33868, -1.01365e-09, 1.18913, 1.25868e-09, 8.23298, 4.92481e-10, -1.23016, 8.70295e-09, -0.327384, 118.204, 31.2538, 129.606)
+
+[node name="Block65" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.368601, -2.14445e-09, 1.11132, 1.70837e-09, 3.57341, 4.54153e-10, -1.69211, 3.14064e-09, 0.242086, 118.094, 37.2787, 137.149)
+
+[node name="Block66" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.97754, -4.48447e-09, 0.790934, 1.28303e-09, 4.46295, 4.78784e-10, -0.857911, 1.56469e-09, 0.901222, 114.258, 44.681, 147.146)
+
+[node name="Block67" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(1.17928, -9.54053e-09, 0.505706, 1.37728e-09, 9.49475, 1.26972e-10, -0.54853, 3.32882e-09, 1.08722, 101.608, 46.6271, 156.635)
+
+[node name="Block61" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-0.383434, 7.83431, 5.6464e-08, 1.29621e-09, 3.61159e-07, -1.3453, -1.27087, -2.36368, -1.84078e-08, 126.877, 14.8576, 126.942)
+
+[node name="Block62" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-0.613495, 1.30775e-06, -2.47968, 2.07393e-09, -21.4218, -1.09616e-09, -2.0334, 4.71712e-07, 0.748137, 130.193, 9.40386, 126.065)
+
+[node name="Block12" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.585124, 0, 1.09603, 0, 3.64978, 0, -1.13385, 0, 0.565608, -16.7324, 24.664, 103.803)
+
+[node name="Block13" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(0.585124, 0, 1.09603, 0, 3.64978, 0, -1.13385, 0, 0.565608, -40.9422, 24.664, 119.82)
+
+[node name="Block4" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(6.40227, 0, 3.13302, 0, 0.960456, 0, -3.40759, 0, 5.88641, 3.72544, 24.775, 84.8016)
+
+[node name="Block5" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(14.5001, 0, -0.361986, 0, 0.960456, 0, 0.556531, 0, 9.43133, 21.9691, 27.0109, 81.3564)
+
+[node name="Block6" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(4.88866, -0.0582055, 8.04733, -0.0986593, 0.956078, 1.03186, -5.35649, -0.0707315, 7.32547, 39.9293, 30.8685, 88.5176)
+
+[node name="Block7" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(6.72009, -0.0582055, 2.88209, 0.207894, 0.956078, 0.706255, -2.71991, -0.0707315, 7.17477, 50.0178, 32.4337, 101.714)
+
+[node name="Block9" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(6.72009, -0.0582055, 4.33211, 0.207894, 0.956078, 1.06158, -2.71991, -0.0707315, 10.7845, 55.1971, 36.0735, 124.244)
+
+[node name="Block10" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(6.582, -0.0582055, 8.32687, -0.0987661, 0.956078, 1.10631, -6.7514, -0.0707315, 8.10176, 63.5014, 38.8387, 140.965)
+
+[node name="Block27" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(3.40097, -0.0582055, 6.84283, -0.220723, 0.956078, 0.712335, -5.78221, -0.0707315, 3.99762, 71.0461, 42.7998, 152.074)
+
+[node name="Block32" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(2.66939, -0.0582055, 7.28462, -0.292564, 0.956078, 0.674979, -6.15126, -0.0707315, 3.12913, 82.0119, 43.9413, 158.481)
+
+[node name="Block28" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(8.54028, -0.0582055, 3.11714, 0.22468, 0.956078, 0.686121, -3.99086, -0.0707315, 6.70919, 101.156, 42.148, 157.646)
+
+[node name="Block29" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(5.11122, -0.0582055, 4.16158, -0.0766964, 0.956078, 0.552908, -5.24277, -0.0707315, 4.04907, 115.29, 42.4962, 147.784)
+
+[node name="Block30" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(3.0768, -0.0554337, 10.1174, -0.566398, 0.910548, 0.83854, -10.1879, -0.0673632, 3.00889, 120.465, 35.8947, 140.739)
+
+[node name="Block31" parent="bridging_district_b/bridging_disctric_b_to_a/borad-arms" instance=ExtResource("3_i1kup")]
+transform = Transform3D(-2.03538, -0.0588898, 6.91475, -0.676208, 0.967318, 0.279619, -7.46537, -0.071563, -1.91059, 120.862, 27.5336, 128.439)
 
 [node name="bridging_district_c" type="Node3D" parent="."]
 
@@ -797,14 +1074,8 @@ transform = Transform3D(0, -2.3365e-07, -0.819, 11.2112, -3.06757e-07, 7.02633e-
 [node name="Block_WR11" parent="building_c" instance=ExtResource("4_i8u5b")]
 transform = Transform3D(-2.63478e-07, -7.01778, 0, 6.02768, -3.06757e-07, 0, 0, 0, 0.819, 9.49844, 3.25504, 6.43628)
 
-[node name="Block_WR12" parent="building_c" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(-2.63478e-07, -7.01778, 0, 6.02768, -3.06757e-07, 0, 0, 0, 0.819, 9.49844, 3.25504, 9.38948)
-
 [node name="Block_WR15" parent="building_c" instance=ExtResource("4_i8u5b")]
 transform = Transform3D(8.98326e-15, 3.06757e-07, -0.819, 4.70159, -3.06757e-07, 0, -2.05513e-07, -7.01778, -3.57996e-08, 29.363, 14.8345, 10.3895)
-
-[node name="Block_WR13" parent="building_c" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(-2.63478e-07, -7.01778, 0, 6.02768, -3.06757e-07, 0, 0, 0, 0.819, 9.49844, 3.25504, 12.5277)
 
 [node name="Block_WR14" parent="building_c" instance=ExtResource("4_i8u5b")]
 transform = Transform3D(-2.63478e-07, -7.01778, 0, 6.02768, -3.06757e-07, 0, 0, 0, 0.819, 9.49844, 3.25504, 15.1981)
@@ -891,7 +1162,7 @@ transform = Transform3D(-2.52252e-07, 0, -6.4734, 0, 9.88388, 0, 5.77087, 0, -2.
 transform = Transform3D(-3.02702e-08, 0, -8.41541, 0, 12.849, 0, 0.692505, 0, -3.67849e-07, 17.2767, 4.86359, -3.80282)
 
 [node name="Block35" parent="building_c" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-3.30895e-07, 0, -13.6099, 0, 1.52812, 0, 7.56998, 0, -5.9491e-07, 7.29794, 8.27235, 1.34888)
+transform = Transform3D(-3.30895e-07, 0, -13.6099, 0, 2.21267, 0, 7.56998, 0, -5.9491e-07, 7.29794, 9.70539, 1.34888)
 
 [node name="Block43" parent="building_c" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-6.45923e-07, 0, -10.2221, 0, 0.809652, 0, 14.777, 0, -4.46821e-07, 5.18284, 10.9993, 4.43648)
@@ -918,7 +1189,7 @@ transform = Transform3D(-7.83107e-08, 0, -1.59214, 0, 8.26257, 0, 1.79154, 0, -6
 transform = Transform3D(-7.83107e-08, 0, -1.59214, 0, 8.26257, 0, 1.79154, 0, -6.95949e-08, 1.03043, 3.59291, -1.79612)
 
 [node name="Block24" parent="building_c" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-4.37114e-08, 0, -15.8289, 0, 11.31, 0, 1, 0, -6.91906e-07, 13.3608, 5.2213, 5.15458)
+transform = Transform3D(-4.37114e-08, 0, -17.3377, 0, 11.31, 0, 1, 0, -7.57857e-07, 13.6293, 5.2213, 5.15458)
 
 [node name="Block44" parent="building_c" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-4.37114e-08, 0, -21.3698, 0, 7.23332, 0, 1, 0, -9.34106e-07, 10.8999, 14.5009, 5.15458)
@@ -987,7 +1258,7 @@ transform = Transform3D(0.614434, 0, 0.96545, 0, 5.08827, 0, -0.41983, 0, 1.4129
 transform = Transform3D(-1.45217e-06, 0, 13.365, 0, 0.745904, 0, -33.2218, 0, -5.84202e-07, 25.5244, 11.0026, 3.35858)
 
 [node name="Block26" parent="building_c" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-4.55133e-07, 0, 5.26797, 0, 8.17558, 0, -10.4122, 0, -2.3027e-07, 17.7095, 3.6304, 10.7702)
+transform = Transform3D(-4.55133e-07, 0, 7.26423, 0, 8.17558, 0, -10.4122, 0, -3.17529e-07, 17.8708, 3.6304, 10.7702)
 
 [node name="Block22" parent="building_c" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-1.45217e-06, 0, 5.346, 0, 0.745904, 0, -33.2218, 0, -2.33681e-07, 0.524437, 11.0026, 1.35858)
@@ -2104,6 +2375,9 @@ transform = Transform3D(-0.687436, 0, 6.34808, 0, 5.25, 0, -0.396891, 0, -10.995
 [node name="Block_WR26" parent="building_d" instance=ExtResource("4_i8u5b")]
 transform = Transform3D(-0.58432, 0, 4.6988, 0, 5.25, 0, -0.337357, 0, -8.13856, -3.4496, 6.9034, -42.3041)
 
+[node name="Block_WR27" parent="building_d" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-0.00129562, 0, 9.39758, 0, 3.00799, 0, -0.674713, 0, -0.0180421, 4.12344, 6.63733, -46.1553)
+
 [node name="Block_WR28" parent="building_d" instance=ExtResource("4_i8u5b")]
 transform = Transform3D(-0.58432, 0, -4.6988, 0, 6.3, 0, 0.337357, 0, -8.13856, -3.4496, 6.9034, -51.3041)
 
@@ -2154,7 +2428,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("19_plvh7")
 
 [node name="building_e" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41344, 0, 18)
 
 [node name="cosmonaut_animations-FINALBAKE4" parent="building_e" instance=ExtResource("14_8kv7q")]
 transform = Transform3D(1.16753, 0, 0.788516, 0, 1.40886, 0, -0.788516, 0, 1.16753, -41.1278, 0.515763, 59.2936)
@@ -2227,6 +2501,15 @@ transform = Transform3D(15.7459, 0, 3.31971e-14, 0, 6.03664, 0, -5.54521e-14, 0,
 
 [node name="Block5" parent="building_e" instance=ExtResource("3_i1kup")]
 transform = Transform3D(15.7075, 0, 0.671461, 0, 6.03664, 0, -1.0992, 0, 9.59511, -31.3862, 9.6625, 63.418)
+
+[node name="Block_WR" parent="building_e" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(0.268476, 0, 0, 0, 4.46323, 0, 0, 0, 5.86752, -39.02, 3.25409, 55.2221)
+
+[node name="Block_WR3" parent="building_e" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(0.268476, 0, 0, 0, 5.68678, 0, 0, 0, 9.28733, -31.1283, 4.6223, 52.8445)
+
+[node name="Block_WR2" parent="building_e" instance=ExtResource("4_i8u5b")]
+transform = Transform3D(-1.17355e-08, 0, 7.90106, 0, 4.96089, 0, -0.268476, 0, -3.45367e-07, -35.0926, 3.52476, 58.6166)
 
 [node name="building_c_store" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.483, 0, 110.617)
