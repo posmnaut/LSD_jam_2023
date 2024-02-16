@@ -466,7 +466,9 @@ func _physics_process(delta):
 			jump_token -= 1;
 			land_audio = true;
 			velocity.y = JUMP_VELOCITY
-			spd += 2
+			spd += 1
+			if jump_token < 2 :
+				is_wall_run_jumping = 0
 		
 	# Handle Ledge Grab
 	var result1 = ray_upper.get_collider()
@@ -482,9 +484,10 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("left", "right", "forward", "back")
-	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	p_normal = direction
+	if !is_wallrunning :
+		var input_dir = Input.get_vector("left", "right", "forward", "back")
+		direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		p_normal = direction
 	
 	if can_wall_run :
 		wall_run()
@@ -564,7 +567,7 @@ func _physics_process(delta):
 	#var debug = rad_to_deg(Vector2(p_normal.x,p_normal.z).angle())
 	#var debug1 = wrapf((debug + 90) *-1,-180,180)
 	#var debug2 = wrapf((rotation_degrees.y + 90) *-1,-180,180)
-	hud_RTL.text = str(step_timer); ##str(camera.rotation_degrees)
+	hud_RTL.text = str(spd); ##str(camera.rotation_degrees)
 	#$RichTextLabel.text = str(Vector2(velocity.x,velocity.z).angle()) + " , " + str(Vector2(direction.x,direction.z).angle())
 
 	

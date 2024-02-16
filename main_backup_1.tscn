@@ -444,40 +444,40 @@ curve = SubResource("Curve3D_pl87l")
 [node name="bridging_disctric_b_to_a" type="Node3D" parent="bridging_district_b"]
 
 [node name="Block_WR2" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(0.0691335, -16.3747, 0.496151, 0.0328391, -0.7198, -8.9981, 0.428041, 2.69992, 0.610196, -33.5759, 30.1835, 119.207)
+transform = Transform3D(0.0702701, -16.3931, -2.49003e-07, -1.64936e-08, 3.60856e-07, -9.0324, 0.429114, 2.68446, -3.06398e-07, -33.5759, 30.1835, 119.207)
 
 [node name="Block_WR3" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(0.362563, -7.87418, 0.635228, 0.0359415, 0.17284, -8.98378, 0.200588, 14.2016, 0.461544, -21.5383, 30.2767, 110.519)
+transform = Transform3D(0.363761, -7.87302, -3.18907e-07, -1.80444e-08, -8.65085e-08, -9.01803, 0.201636, 14.2033, -2.31699e-07, -21.5383, 30.2767, 110.519)
 
 [node name="Block_WR4" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(0.362563, -5.30739, 0.635228, 0.0359415, 0.116499, -8.98378, 0.200588, 9.57222, 0.461544, -15.4881, 30.3739, 98.8969)
+transform = Transform3D(0.363761, -5.3066, -3.18907e-07, -1.80444e-08, -5.83088e-08, -9.01803, 0.201636, 9.57337, -2.31699e-07, -15.4881, 30.3739, 98.8969)
 
 [node name="Block_WR5" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(0.203614, -14.2097, 0.635227, 0.0264304, -0.367981, -8.98377, 0.234221, 12.3943, 0.461544, -5.55361, 30.6566, 88.1868)
+transform = Transform3D(0.204756, -14.2116, -3.18907e-07, -1.32714e-08, 1.84039e-07, -9.01802, 0.234716, 12.3976, -2.31699e-07, -6.02793, 30.6566, 88.2346)
 
 [node name="Block_WR6" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(0.0780041, -22.5006, 0.301477, 0.0356765, -0.406437, -8.98377, 0.409636, 4.32003, 0.725016, 12.3512, 32.4545, 79.5522)
+transform = Transform3D(0.0784228, -22.5093, -1.51485e-07, -1.79075e-08, 2.04834e-07, -9.01802, 0.411107, 4.29387, -3.6392e-07, 12.3512, 32.4545, 79.5522)
 
 [node name="Block_WR7" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(-0.28741, -21.2174, 0.260314, 0.0460806, -1.47813, -8.41808, 0.634999, -9.49605, 0.728704, 32.6693, 35.7827, 82.0155)
+transform = Transform3D(-0.286346, -21.2455, -1.24563e-07, -2.20013e-08, 7.05984e-07, -8.45357, 0.637148, -9.54811, -3.4789e-07, 32.6693, 35.7827, 82.0155)
 
 [node name="Block_WR8" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(-0.443337, -11.3337, 0.301477, 0.0100463, -1.68892, -8.98377, 0.308834, -16.2148, 0.725016, 47.2161, 37.8235, 93.6117)
+transform = Transform3D(0.445631, 11.2312, -2.22977e-07, 9.59935e-16, -8.67894e-07, -9.01802, -0.305679, 16.3733, -3.25065e-07, 48.2161, 38.8235, 94.6117)
 
 [node name="Block_WR9" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(-0.616254, -3.23597, 0.301477, -0.0136561, -1.98276, -8.98377, 0.0870363, -23.2231, 0.725016, 54.2519, 41.0912, 112.938)
+transform = Transform3D(-0.616461, -3.2749, -1.51485e-07, 6.85911e-09, 9.95366e-07, -9.01802, 0.086638, -23.3022, -3.6392e-07, 54.2519, 41.0912, 112.938)
 
 [node name="Block_WR10" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(-0.615602, -8.07631, 0.301477, 0.00741083, -1.4222, -8.98378, 0.347807, -14.2644, 0.725016, 59.8548, 43.6579, 131.459)
+transform = Transform3D(-0.615429, -8.10216, -1.51486e-07, -3.71323e-09, 7.14003e-07, -9.01803, 0.348193, -14.3205, -3.63921e-07, 59.8548, 43.6579, 131.459)
 
 [node name="Block_WR11" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(-0.316851, -13.1719, 0.301477, 0.0220183, -1.26895, -8.98377, 0.404585, -10.2465, 0.725016, 66.6458, 48.3257, 145.997)
+transform = Transform3D(-0.316673, -13.1883, -1.51485e-07, -1.10372e-08, 6.37347e-07, -9.01802, 0.405323, -10.3038, -3.6392e-07, 66.6458, 48.3257, 145.997)
 
 [node name="Block_WR12" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(-0.238989, -11.1147, 0.301477, 0.0256374, -0.882622, -8.98378, 0.417053, -6.31495, 0.725016, 77.6924, 52.0269, 153.387)
+transform = Transform3D(-0.238493, -11.1305, -1.51486e-07, -1.28671e-08, 4.43172e-07, -9.01803, 0.418123, -6.34872, -3.63921e-07, 77.6924, 52.0269, 153.387)
 
 [node name="Block_WR13" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
-transform = Transform3D(0.029163, -18.4896, 0.204517, 0.125219, -0.0225189, -8.61303, 0.402556, 1.34648, 2.66435, 91.6771, 53.1639, 156.011)
+transform = Transform3D(0.0309497, -18.4888, -3.02419e-08, -1.84718e-08, 2.8286e-09, -9.01803, 0.421454, 1.35773, -3.93029e-07, 91.6771, 53.1639, 156.011)
 
 [node name="Block_WR14" parent="bridging_district_b/bridging_disctric_b_to_a" instance=ExtResource("4_i8u5b")]
 transform = Transform3D(0.27445, -12.8908, 0.301477, 0.150615, 4.52473, -8.07437, 0.283005, 10.093, 4.0048, 107.304, 52.4345, 149.918)
