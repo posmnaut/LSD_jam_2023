@@ -49,8 +49,8 @@ var side = ""
 var wall_jump = false
 var is_wall_run_jumping = 0
 var wall_jump_dir = Vector3.ZERO
-var wall_jump_factor = 0.4 #export me
-var wall_jump_h_power = 2 #export me
+var wall_jump_factor = 0.45 #export me
+var wall_jump_h_power = 2.0 #export me
 var wall_climb_strength = 4 #export me
 var mantling = false
 var sprint_mod = 2
@@ -160,7 +160,7 @@ func _process(delta):
 		var door_check = look_cast_door.get_collider();
 		if NPC_check != null || door_check != null:
 			interact_sprite.visible = true
-			point_timer += 3
+			point_timer += 300 * delta
 			if point_timer > 359 :
 				point_timer = point_timer - 360;
 			var _s = (1+sin(deg_to_rad(point_timer))) *0.2;
@@ -256,6 +256,7 @@ func _input(event):
 							if op_audio != "" && op_audio != null:
 								if !audio_s_player.is_playing() :
 									if talk_timer == false :
+										audio_s_player.pitch_scale = 1.0
 										audio_s_player.stream = load(op_audio);
 										audio_s_player.volume_db = -10.0
 										audio_s_player.play();
@@ -378,11 +379,13 @@ func process_wall_run_rotation(delta) :
 func _physics_process(delta):
 	
 	
-	#ladder detection 
-	#also used for door detection
-	#for i in get_slide_collision_count():
-		#var collision = get_slide_collision(i)
-		#print("I collided with ", collision.get_collider().name)
+	#ladder detection
+	#door detection
+	#donk block detection
+	#PLEASE NOTE: these checks are only made on the first object in the collision
+	#array. this means you CANNOT overlap multple objects of this type; only the
+	#first will trigger
+	
 	if ladder_detection.has_overlapping_areas() :
 		var collision = ladder_detection.get_overlapping_areas();
 		var check = collision[0].get_parent();
@@ -394,14 +397,22 @@ func _physics_process(delta):
 			wall_run_t = false
 			is_wallrunning = false
 			wall_jump = false
+			if stp_audio_player.stream != load("res://snd_effects/player/Metal_Walk_Sample.wav") :
+				stp_audio_player.stream = load("res://snd_effects/player/Metal_Walk_Sample.wav")
 			
 		if is_instance_of(check,door):
 			var test_a = check.global_transform.origin - global_transform.origin;
 			var _dot = test_a.dot(check.global_transform.basis.z)
 			check.swing = true
 			check.swing_direction = _dot
+			
+		if is_instance_of(check,block_wallrun_donk):
+			can_wall_run = false
+			is_wallrunning = false
+			wall_run_t = false
 	else:
-		
+		if stp_audio_player.stream != load("res://snd_effects/Concrete_-_Left_Foot_Step.wav") :
+			stp_audio_player.stream = load("res://snd_effects/Concrete_-_Left_Foot_Step.wav")
 		on_ladder = false
 		can_wall_run = true
 
@@ -468,7 +479,11 @@ func _physics_process(delta):
 			jump_token -= 1;
 			land_audio = true;
 			velocity.y = JUMP_VELOCITY
-			spd += 1
+			if jump_token == 1 :
+				spd += 1
+			audio_s_player.stream = load("res://snd_effects/player/wall_grab_option_3.wav");
+			audio_s_player.pitch_scale = randf_range(0.9,1.1);
+			audio_s_player.play()
 			if jump_token < 2 :
 				is_wall_run_jumping = 0
 		
@@ -497,6 +512,9 @@ func _physics_process(delta):
 
 	
 	if is_wallrunning and Input.is_action_just_pressed("ui_accept") :
+		audio_s_player.stream = load("res://snd_effects/player/wall_grab_option_3.wav");
+		audio_s_player.pitch_scale = randf_range(0.9,1.1);
+		audio_s_player.play()
 		
 		is_wall_run_jumping += 1
 		velocity.y = wall_jump_y_velocity
@@ -552,7 +570,7 @@ func _physics_process(delta):
 		if !fog_fade :
 			move_and_slide()
 			if p_normal.x + p_normal.y + p_normal.z != 0 :
-				if is_on_floor() || is_wallrunning :
+				if is_on_floor() || is_wallrunning || on_ladder:
 					step_timer += (spd / bs_spd) + (sprint_spd*0.5);
 	
 	# position drop shadow
