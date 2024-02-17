@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmxltdk5g2pm0"]
+
+[ext_resource type="PackedScene" uid="uid://h2grjkmqwapi" path="res://props/shipping_container_coldones/ShippingProps1 (1).glb" id="1_tuwcs"]
+
+[node name="ShippingPropsFull" type="Node3D"]
+
+[node name="ShippingProps1 (1)" parent="." instance=ExtResource("1_tuwcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 0, -54)

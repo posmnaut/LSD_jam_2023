@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=39 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" path="res://Models/fish/fish_v_1.gd" id="19_plvh7"]
 [ext_resource type="Texture2D" uid="uid://cfwlcsxvlwpse" path="res://Textures/posters_graffitti/cool_poster.png" id="20_jgvec"]
 [ext_resource type="PackedScene" uid="uid://cy0baknwmyu22" path="res://Objects/door_swing_a.tscn" id="28_a8am6"]
+[ext_resource type="PackedScene" uid="uid://deyk3drreyw8x" path="res://props/shipping_container_coldones/shipping_props_full_v_b.tscn" id="30_e3jx2"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ojppl"]
 
@@ -3744,5 +3745,8 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.469
 [node name="click_trigger" parent="ndrgrd_teleport_zones/zone_c" node_paths=PackedStringArray("target") instance=ExtResource("16_ece4e")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 3, 0, -1, 0, 1.31134e-07, 22.5, 2, -5.5)
 target = NodePath("../../../building_microscope/tt_from_zone_c")
+
+[node name="ShippingPropsFull2" parent="." instance=ExtResource("30_e3jx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5392, 0.5, 34.6438)
 
 [connection signal="set_particle" from="." to="Player" method="_on_main_set_particle"]

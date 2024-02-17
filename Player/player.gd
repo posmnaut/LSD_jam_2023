@@ -279,7 +279,9 @@ func wall_run():
 	if is_on_wall() && Input.is_action_pressed("forward") && Input.is_action_pressed("duck") && !is_on_floor() && !mantling:
 		var normal = get_wall_normal()
 		var collision = get_slide_collision(0)
-		var is_wallrunable = collision.get_collider().get_meta("is_wallrunable") 
+		var is_wallrunable
+		if collision.get_collider().has_meta("is_wallrunable") :
+			is_wallrunable = collision.get_collider().get_meta("is_wallrunable") 
 		
 		var wall_run_dir = Vector3.UP.cross(normal)
 		var player_view_dir = -camera.global_transform.basis.z
