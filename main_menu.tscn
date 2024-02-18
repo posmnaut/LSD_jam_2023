@@ -1,0 +1,180 @@
+[gd_scene load_steps=15 format=3 uid="uid://y78ryt3e82vb"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_khdyb"]
+[ext_resource type="Texture2D" uid="uid://vmrvon835uyi" path="res://Textures/main_menu/space_man_a_cover_Edit_a_half.png" id="1_ntfj0"]
+[ext_resource type="Texture2D" uid="uid://ddqefkbpw5f2p" path="res://Textures/eyes_close_1.png" id="3_1p3w4"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_eigls"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_0cl2l"]
+frame_0/texture = SubResource("ImageTexture_eigls")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rqxc"]
+atlas = ExtResource("3_1p3w4")
+region = Rect2(0, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cygeh"]
+atlas = ExtResource("3_1p3w4")
+region = Rect2(596, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jibi"]
+atlas = ExtResource("3_1p3w4")
+region = Rect2(1192, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2wqe"]
+atlas = ExtResource("3_1p3w4")
+region = Rect2(1788, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw4c3"]
+atlas = ExtResource("3_1p3w4")
+region = Rect2(2384, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g542"]
+atlas = ExtResource("3_1p3w4")
+region = Rect2(2980, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn2d2"]
+atlas = ExtResource("3_1p3w4")
+region = Rect2(3576, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o674j"]
+atlas = ExtResource("3_1p3w4")
+region = Rect2(4172, 0, 596, 336)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0islo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rqxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rqxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rqxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cygeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jibi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2wqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw4c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g542")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn2d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o674j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o674j")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_khdyb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.998
+offset_bottom = 0.360001
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ntfj0")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_right = 559.0
+offset_bottom = 179.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 64
+text = "no stars,
+                 no problem"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.317
+anchor_right = 0.5
+anchor_bottom = 0.317
+offset_top = 32.94
+offset_right = 128.0
+offset_bottom = 184.94
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="start" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "awaken"
+
+[node name="quit" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "dream"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AnimatedTexture_0cl2l")
+
+[node name="CenterContainer" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer"]
+visible = false
+scale = Vector2(3.22, 3.22)
+sprite_frames = SubResource("SpriteFrames_0islo")

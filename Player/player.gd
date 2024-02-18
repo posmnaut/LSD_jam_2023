@@ -16,11 +16,11 @@ var jump_token = 2;
 @onready var Look_Cast = $Head/Look_Cast_NPC
 @onready var look_cast_door = $Head/Look_Cast_door
 @onready var hud_RTL = $UI/RichTextLabel;
-@onready var blink_anim = $UI/MarginContainer/AnimatedSprite2D
+@onready var blink_anim = $UI/Control/AnimatedSprite2D
 @onready var audio_s_player = $AudioStreamPlayer
 @onready var fog_color_default
 @onready var fog_density_default
-@onready var interact_sprite = $UI/MarginContainer/sprite_pointer
+@onready var interact_sprite = $UI/Control/sprite_pointer
 @onready var bump_trigger_detect = $Area3D
 @onready var p_collider = $CollisionShape3D
 @onready var default_height
@@ -228,7 +228,7 @@ func _input(event):
 	#Handle escape quit function
 	if event.is_action_pressed("escape"):
 		#close_game = true;
-		if blink_anim.frame == 0 || blink_anim.frame == 7 :
+		if blink_anim.frame == 0 || blink_anim.sprite_frames.get_frame_count(blink_anim.animation) :
 			pause = !pause
 			if pause :
 				blink_anim.play_backwards();
