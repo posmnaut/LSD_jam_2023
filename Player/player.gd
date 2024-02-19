@@ -29,6 +29,7 @@ var jump_token = 2;
 @onready var pause_menu = $UI/VBoxContainer
 @onready var part_rain = $particles/rain_1
 @onready var part_m_snow = $particles/marine_snow_1
+@onready var options_menu = $UI/options_menu
 
 
 @export var spwn_point : Node3D
@@ -111,11 +112,32 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS;
 	part_m_snow.visible = false;
 	part_rain.visible = false;
+	options_menu.exit_options_menu.connect(on_exit_options_menu)
+	
 	
 func _on_quit_pressed():
 	get_tree().quit()
 
-
+func _on_options_pressed():
+	vis_swap_main()
+	options_menu.visible = true
+	options_menu.set_process(true)
+	options_menu.blink_anim.visible = false
+	options_menu.type_tag = 1
+	
+func on_exit_options_menu() -> void:
+	vis_swap_main()
+	options_menu.visible = false
+	options_menu.set_process(false)
+	
+	
+func vis_swap_main() -> void:
+	$UI/Control.visible = !$UI/Control.visible
+	$UI/VBoxContainer.visible = !$UI/VBoxContainer.visible
+	$UI/VBoxContainer/resume.visible = !$UI/VBoxContainer/resume.visible
+	$UI/VBoxContainer/options.visible = !$UI/VBoxContainer/options.visible
+	$UI/VBoxContainer/quit.visible = !$UI/VBoxContainer/quit.visible
+		
 func _on_resume_pressed():
 	pause = !pause
 	blink_anim.play()
@@ -389,7 +411,6 @@ func _physics_process(delta):
 	if ladder_detection.has_overlapping_areas() :
 		var collision = ladder_detection.get_overlapping_areas();
 		var check = collision[0].get_parent();
-		var name = check.get_name()
 		
 		if is_instance_of(check,ladder):
 			on_ladder = true

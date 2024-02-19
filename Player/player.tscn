@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://cqoa7g8s32y4c"]
+[gd_scene load_steps=23 format=3 uid="uid://cqoa7g8s32y4c"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xuua8"]
 [ext_resource type="Texture2D" uid="uid://d2oik12wohmhe" path="res://Textures/d_shadow_1.png" id="2_6b36o"]
 [ext_resource type="PackedScene" uid="uid://umon6ovuv3s6" path="res://Particles/rain_1.tscn" id="2_72iar"]
 [ext_resource type="PackedScene" uid="uid://ltfqybl38muu" path="res://Particles/marine_snow_1.tscn" id="3_wy08r"]
+[ext_resource type="PackedScene" uid="uid://dr3jsr5rhikda" path="res://options_menu.tscn" id="4_7vlyy"]
 [ext_resource type="AudioStream" uid="uid://ejh3jjs2x14e" path="res://snd_effects/Concrete_-_Left_Foot_Step.wav" id="4_56f33"]
 [ext_resource type="Texture2D" uid="uid://ddqefkbpw5f2p" path="res://Textures/eyes_close_1.png" id="5_pkua1"]
 [ext_resource type="Texture2D" uid="uid://bpmj1hw4a55cs" path="res://Textures/hand_pointer.png" id="6_08gl2"]
@@ -113,8 +114,17 @@ offset_top = 5.0
 offset_right = 782.0
 offset_bottom = 394.0
 
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = -1717.0
+offset_top = -890.0
+offset_right = -442.0
+offset_bottom = -155.0
+
 [node name="Control" type="Control" parent="UI"]
 layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -128,34 +138,38 @@ scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_08gl2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/Control"]
-position = Vector2(-4, 40)
 scale = Vector2(3.22, 3.22)
 sprite_frames = SubResource("SpriteFrames_8rkq1")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
-visible = false
-layout_mode = 0
-offset_left = -1717.0
-offset_top = -890.0
-offset_right = -442.0
-offset_bottom = -155.0
-
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 2
-offset_left = 2.0
-offset_top = 9.0
-offset_right = 951.0
-offset_bottom = 554.0
+anchor_left = 0.006
+anchor_top = 0.05
+anchor_right = 0.006
+anchor_bottom = 0.05
+offset_left = 178.08
+offset_top = 136.0
+offset_right = 949.08
+offset_bottom = 545.0
 
 [node name="resume" type="Button" parent="UI/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "RESUME"
 
+[node name="options" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "OPTIONS"
+
 [node name="quit" type="Button" parent="UI/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "QUIT"
+
+[node name="options_menu" parent="UI" instance=ExtResource("4_7vlyy")]
+visible = false
+layout_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04435, 0)
@@ -238,4 +252,5 @@ target_position = Vector3(0, 0.25, 0)
 collision_mask = 3
 
 [connection signal="pressed" from="UI/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,171 @@
+[gd_scene load_steps=14 format=3 uid="uid://dr3jsr5rhikda"]
+
+[ext_resource type="Script" path="res://options_menu.gd" id="1_bwdas"]
+[ext_resource type="Texture2D" uid="uid://ddqefkbpw5f2p" path="res://Textures/eyes_close_1.png" id="1_wjlf4"]
+[ext_resource type="Texture2D" uid="uid://vmrvon835uyi" path="res://Textures/main_menu/space_man_a_cover_Edit_a_half.png" id="2_etl1m"]
+[ext_resource type="PackedScene" uid="uid://bh2onxymo5wnr" path="res://audio_slider_settings.tscn" id="3_1vug5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rqxc"]
+atlas = ExtResource("1_wjlf4")
+region = Rect2(0, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cygeh"]
+atlas = ExtResource("1_wjlf4")
+region = Rect2(596, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jibi"]
+atlas = ExtResource("1_wjlf4")
+region = Rect2(1192, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2wqe"]
+atlas = ExtResource("1_wjlf4")
+region = Rect2(1788, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw4c3"]
+atlas = ExtResource("1_wjlf4")
+region = Rect2(2384, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g542"]
+atlas = ExtResource("1_wjlf4")
+region = Rect2(2980, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn2d2"]
+atlas = ExtResource("1_wjlf4")
+region = Rect2(3576, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o674j"]
+atlas = ExtResource("1_wjlf4")
+region = Rect2(4172, 0, 596, 336)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_syqqx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rqxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rqxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rqxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cygeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jibi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2wqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw4c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g542")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn2d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o674j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o674j")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="options_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bwdas")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.998
+offset_bottom = 0.360001
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_etl1m")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.382
+anchor_bottom = 1.43
+offset_right = -0.240021
+offset_bottom = -0.400024
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="audio_slider_settings" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_1vug5")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="audio_slider_settings2" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_1vug5")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bus_name = "Music"
+
+[node name="audio_slider_settings3" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_1vug5")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+bus_name = "SFX"
+
+[node name="fullscreen_toggle" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "Fullscreen"
+
+[node name="exit" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "back"
+
+[node name="CenterContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CenterContainer"]
+visible = false
+scale = Vector2(3.22, 3.22)
+sprite_frames = SubResource("SpriteFrames_syqqx")
