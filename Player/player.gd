@@ -110,7 +110,7 @@ func _ready():
 	crouch_height = default_height*0.6
 	head_default = head.position.y
 	process_mode = Node.PROCESS_MODE_ALWAYS;
-	part_m_snow.visible = false;
+	part_m_snow.visible = true;
 	part_rain.visible = false;
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 	

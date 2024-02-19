@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb5q52oie5m6y"]
+
+[ext_resource type="PackedScene" uid="uid://cqu42o1qy21ek" path="res://kenney_models/urban_retro/roadAsphalt_center.glb" id="1_1e1ye"]
+[ext_resource type="Texture2D" uid="uid://demdbb8k7yuxb" path="res://kenney_models/urban_retro/roadAsphalt_center_asphalt.png" id="2_y62o1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_10l57"]
+resource_name = "asphalt"
+albedo_color = Color(1, 1, 1, 1)
+albedo_texture = ExtResource("2_y62o1")
+metallic_specular = 0.0
+roughness = 0.5
+emission_enabled = true
+texture_filter = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yl50g"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0),
+"name": "asphalt",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lsmac"]
+resource_name = "roadAsphalt_center_Mesh roadAsphalt_center"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1.00001),
+"attribute_data": PackedByteArray(0, 0, 255, 127, 255, 127, 255, 127, 0, 0, 255, 255, 255, 127, 255, 255),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0),
+"material": SubResource("StandardMaterial3D_10l57"),
+"name": "asphalt",
+"primitive": 3,
+"uv_scale": Vector4(2, 2, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 0, 0, 0, 0, 84, 213, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 0, 0, 0, 0, 84, 213, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42, 84, 213, 170, 42)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_yl50g")
+
+[node name="roadAsphalt_center" instance=ExtResource("1_1e1ye")]
+
+[node name="roadAsphalt_center2" parent="tmpParent" index="0"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+mesh = SubResource("ArrayMesh_lsmac")
