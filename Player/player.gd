@@ -6,6 +6,7 @@ var mouseSensibility = 600
 var mouse_relative_x = 0
 var mouse_relative_y = 0
 var jump_token = 2;
+var consecWallJumps = 0;
 @onready var ray_upper = $Head/Upper_Check
 @onready var ray_lower = $Head/Lower_Check
 @onready var ray_shadow = $D_Shad_Check
@@ -326,7 +327,13 @@ func wall_run():
 			wall_run_dir += -normal * 1 #adds force to the wall so the player "sticks" to it
 			velocity.y = 0
 			velocity.y -= 0.01
-			velocity.y += camera.rotation.x * wall_climb_strength
+			
+			
+			#NOTE: Added a little more strength to the look direction change, that way you feel more in control ->
+			#-> by being able to change direction more easily (also lets you do cool corkskrew runs)
+			#IMPORTANT NOTE: I LOVE WHAT YOU DID HERE TO MAKE THE WALL RUN WORK!
+			velocity.y += camera.rotation.x * wall_climb_strength * 2
+			
 			direction = wall_run_dir
 			side = get_side(collision.get_position())
 			wall_run_x_rot = rad_to_deg(Vector2(wall_run_dir.x,wall_run_dir.z).angle())
@@ -457,12 +464,19 @@ func _physics_process(delta):
 		wall_run_t = 0
 		is_wall_run_jumping = 0
 		jump_token = 2;
+		consecWallJumps = 0
 		if land_audio :
 			#i would turn the below into a function since you're repeating it 
 			land_audio = false
 			step_timer = 0;
 			stp_audio_player.pitch_scale = randf_range(0.7,1.3);
 			stp_audio_player.play()
+	#NOTE: This `if-statement` allows for the player to do wall jumps on "non-sliding" walls up to a certain ->
+	#-> number of wall jumps (currently `2`).
+	elif(is_on_floor() == false && get_slide_collision_count() != 0 && consecWallJumps < 2 && jump_token == 0 && is_wallrunning == false):
+		consecWallJumps += 1
+		jump_token = 1
+		#print("I jumped!")
 	
 	#crouching
 	if Input.is_action_pressed("crouch") :
@@ -582,7 +596,61 @@ func _physics_process(delta):
 			else:
 				velocity.x = move_toward(velocity.x, 0, spd)
 				velocity.z = move_toward(velocity.z, 0, spd)
-		else :
+		elif(is_wallrunning == true):
+			#spd = 0.0
+			#playerLookVelocGain = 0
+			#NOTE: This next part is how the player will gain speed when looking down while wall running, and lose ->
+			#-> speed when looking up while wall running.
+			#NOTE: We multiply the `camera.rotation.x` instance variable by `2` so that it has a little more ->
+			#-> affect on the speed.
+			#NOTE: We also want to be able to tell if it is a negative or positive direction that player is ->
+			#-> looking because we want to accelerate faster than we deccelerate to make the movement feel good ->
+			#-> and like you are picking up speed by going up and down.
+			#IMPORTANT NOTE: We make it the negation (`-`) of the cameras rotation because a positive rotation ->
+			#-> is when the player is looking up. So to make this positive rotation take away from the player's ->
+			#-> `wall_run_x_vec` velocity we have to negate it.
+			#if(camera.rotation_degrees[0] <= 3.0 && camera.rotation_degrees[0] > 0.0 && spd <= 20.0):
+				#hud_RTL.text = str("");
+				#spd += camera.rotation_degrees[0] * 1/90
+				#spd += camera.rotation_degrees[2] * 1/90
+			if(camera.rotation_degrees[0] <= 0.0 && spd < 15.0):
+				hud_RTL.text = str("");
+				spd += -camera.rotation_degrees[0] * 1/10
+				
+				if(camera.rotation_degrees[0] == 0.0):
+					spd += 0.9
+				elif(camera.rotation_degrees[2] < 0.0):
+					spd += -camera.rotation_degrees[2] * 1/10
+				else:
+					spd += camera.rotation_degrees[2] * 1/10
+			elif(camera.rotation_degrees[0] > 0.0 && spd > 3.0):
+				hud_RTL.text = str("");
+				spd += -camera.rotation_degrees[0] * 1/1000
+				
+				if(camera.rotation_degrees[2] < 0.0):
+					spd += camera.rotation_degrees[2] * 1/1000
+				else:
+					spd += -camera.rotation_degrees[2] * 1/1000
+			elif(spd <= 3.0):
+				hud_RTL.text = str("YOURE TOO SLOW");
+				spd += 3
+			elif(spd >= 15.0):
+				hud_RTL.text = str("YOURE TOO FAST");
+				spd += -3
+			#else:
+				#hud_RTL.text = str("ERROR CATCH: Rotation not found");
+				#spd += -0.01
+				
+			#spd += playerLookVelocGain
+			#print(camera.rotation_degrees)
+			direction = direction.normalized()
+			#NOTE: Changed the `delta` argument for the `move_toward()` instance function from `0.5` to `1`. This ->
+			#-> is to make transitioning smoother from one wall instance to another.
+			#velocity.x = move_toward(velocity.x,direction.x * spd,1.0);
+			#velocity.z = move_toward(velocity.z,direction.z * spd,1.0);
+			var newVelocity = Vector3(direction.x * spd, direction.y, direction.z * spd)
+			velocity = velocity.move_toward(newVelocity, 1)
+		else:
 			if direction :
 				velocity.x = move_toward(velocity.x,direction.x*spd,0.5);
 				velocity.z = move_toward(velocity.z,direction.z*spd,0.5);
