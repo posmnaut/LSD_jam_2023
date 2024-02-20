@@ -6,6 +6,7 @@ class_name talkable_NPC
 @onready var sleep_sprite = $"game rig/sleep_sprite"
 @onready var face_sprite = $"game rig/Skeleton3D/BoneAttachment3D/face_sprite"
 @export var dialogue_string = "";
+@onready var animation_player = $AnimationPlayer
 
 var timer = 0;
 var f_timer = 0;
@@ -17,6 +18,7 @@ var face_player = false
 var is_sleep = false
 var talk_timer = false
 var timing_int = 100.0
+var head_scratch = true
 
 
 #if metadata set, set timer
@@ -47,6 +49,7 @@ func _process (delta) :
 				timer = 0
 				var dist = self.global_position.distance_to($"/root/global".player.global_position)
 				if dist > 70 :
+					anim_tree.set("parameters/conditions/idle_head_scratch_bool",false)
 					anim_tree.set("parameters/conditions/sleepmode",true)
 					sleep_sprite.visible = true;
 					face_sprite.visible = false;
@@ -54,6 +57,12 @@ func _process (delta) :
 					fully_asleep = true;
 		
 		if talk_timer == true :
+			if(head_scratch == true):
+				head_scratch = false
+				anim_tree.set("parameters/conditions/head_scratch_bool",true)
+			elif(animation_player.is_playing() == false && head_scratch == false):
+				anim_tree.set("parameters/conditions/head_scratch_bool",false)
+				anim_tree.set("parameters/conditions/idle_head_scratch_bool",true)
 			f_timer += timing_int * delta;
 			if f_timer > dur_timer :
 				talk_timer = false
