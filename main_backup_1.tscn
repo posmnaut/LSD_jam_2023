@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=52 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -29,6 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://cfwlcsxvlwpse" path="res://Textures/posters_graffitti/cool_poster.png" id="20_jgvec"]
 [ext_resource type="PackedScene" uid="uid://dbuloer42rosn" path="res://Objects/Block_hidn.tscn" id="27_bqnf6"]
 [ext_resource type="PackedScene" uid="uid://cy0baknwmyu22" path="res://Objects/door_swing_a.tscn" id="28_a8am6"]
+[ext_resource type="PackedScene" uid="uid://cg56ym3ojtfdg" path="res://kenney_models/urban_retro_scenes/wall_a/wall_a_corner.tscn" id="28_b8u2e"]
+[ext_resource type="PackedScene" uid="uid://mbxjp8n3kpgp" path="res://kenney_models/urban_retro_scenes/wall_a/wall_a.tscn" id="29_uygdi"]
+[ext_resource type="PackedScene" uid="uid://cw4hk8q57c283" path="res://kenney_models/urban_retro_scenes/wall_a/wall_c_flat_low.tscn" id="30_3swny"]
 [ext_resource type="PackedScene" uid="uid://deyk3drreyw8x" path="res://props/shipping_container_coldones/shipping_props_full_v_b.tscn" id="30_e3jx2"]
 [ext_resource type="PackedScene" uid="uid://dojtahuof8uom" path="res://kenney_models/urban_retro_scenes/roads/road_asphalt_corner_outer.tscn" id="31_6uelx"]
 [ext_resource type="PackedScene" uid="uid://c3dvuoiqgmnks" path="res://kenney_models/urban_retro_scenes/roads/road_asphalt_straight.tscn" id="31_eqrta"]
@@ -69,7 +72,7 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_swftv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l3ct6"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -104,7 +107,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_swftv"),
+"material": SubResource("ShaderMaterial_l3ct6"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -2547,6 +2550,198 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0.5, 54)
 [node name="Block" parent="building_e" instance=ExtResource("27_bqnf6")]
 transform = Transform3D(0.821258, -0.317354, -0.474154, 0.410026, 0.906161, 0.103686, 0.396754, -0.279568, 0.874316, -39.1186, 5.55113, 44.5844)
 
+[node name="building_c_store_kenney" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105, 0, 105)
+
+[node name="wallA_corner" parent="building_c_store_kenney" instance=ExtResource("28_b8u2e")]
+transform = Transform3D(1, 0, 0, 0, 1.75, 0, 0, 0, 1, -30.5, 0.499999, -20.5)
+
+[node name="wallA_corner2" parent="building_c_store_kenney" instance=ExtResource("28_b8u2e")]
+transform = Transform3D(-7.54979e-08, 4.32134e-08, 1, -1.50996e-07, -1.45, 2.98023e-08, 1, -2.18944e-07, 7.54979e-08, -30.5, 10.1, -20.5)
+
+[node name="wallA_corner3" parent="building_c_store_kenney" instance=ExtResource("28_b8u2e")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.75, 0, 1, 0, -4.37114e-08, 18.5, 0.499999, -20.5)
+
+[node name="wallA_corner4" parent="building_c_store_kenney" instance=ExtResource("28_b8u2e")]
+transform = Transform3D(-1, 2.18944e-07, -1.19209e-07, -1.50996e-07, -1.45, 2.98023e-08, -1.19209e-07, 4.32134e-08, 1, 18.5, 10.1, -20.5)
+
+[node name="wallA_corner5" parent="building_c_store_kenney" instance=ExtResource("28_b8u2e")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1.75, 0, -8.74228e-08, 0, -1, 18.5, 0.499999, 18.5)
+
+[node name="wallA_corner6" parent="building_c_store_kenney" instance=ExtResource("28_b8u2e")]
+transform = Transform3D(1.62921e-07, -4.32133e-08, -1, -1.50996e-07, -1.45, 2.98023e-08, -1, 2.18944e-07, -1.62921e-07, 18.5, 10.1, 18.5)
+
+[node name="wallA" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, -26, 0.5, -21.25)
+
+[node name="wallA2" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, -26, 10.1, -21.25)
+
+[node name="wallA3" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, -20, 0.5, -21.25)
+
+[node name="wallA4" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, -20, 10.1, -21.25)
+
+[node name="wallA5" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, -14, 0.5, -21.25)
+
+[node name="wallA6" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, -14, 10.1, -21.25)
+
+[node name="wallA7" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, 2, 0.5, -21.25)
+
+[node name="wallA8" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, 2, 10.1, -21.25)
+
+[node name="wallA13" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-1.75, -2.18944e-07, 0, 2.64243e-07, -1.45, 0, 0, 0, 1, -3.5, 10.1, -21.25)
+
+[node name="wallA14" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-1.75, -2.18944e-07, 0, 2.64243e-07, -1.45, 0, 0, 0, 1, -8.5, 10.1, -21.25)
+
+[node name="wallA9" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, 8, 0.5, -21.25)
+
+[node name="wallA10" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, 8, 10.1, -21.25)
+
+[node name="wallA11" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, 14, 0.5, -21.25)
+
+[node name="wallA21" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1.75, 0, 2, 0, -4.37114e-08, 19.25, 0.5, -16)
+
+[node name="wallA22" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1.75, 0, 2, 0, -4.37114e-08, 19.25, 0.5, -10)
+
+[node name="wallA23" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1.75, 0, 2, 0, -4.37114e-08, 19.25, 0.5, -4)
+
+[node name="wallA24" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1.75, 0, 2, 0, -4.37114e-08, 19.25, 0.5, 2)
+
+[node name="wallA25" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1.75, 0, 2, 0, -4.37114e-08, 19.25, 0.5, 8)
+
+[node name="wallA26" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1.75, 0, 2, 0, -4.37114e-08, 19.25, 0.5, 14)
+
+[node name="wallA12" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, 14, 10.1, -21.25)
+
+[node name="wallA_corner7" parent="building_c_store_kenney" instance=ExtResource("28_b8u2e")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1.75, 0, -1, 0, -4.37114e-08, -30.5, 0.499999, 18.5)
+
+[node name="wallA_corner8" parent="building_c_store_kenney" instance=ExtResource("28_b8u2e")]
+transform = Transform3D(1, -2.18944e-07, 3.17865e-08, -1.50996e-07, -1.45, 2.98023e-08, 3.17865e-08, -4.32134e-08, -1, -30.5, 10.1, 18.5)
+
+[node name="wallA27" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, -26, 0.5, 19.25)
+
+[node name="wallA28" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, -26, 10.1, 19.25)
+
+[node name="wallA29" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, -20, 0.5, 19.25)
+
+[node name="wallA30" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, -20, 10.1, 19.25)
+
+[node name="wallA31" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, -14, 0.5, 19.25)
+
+[node name="wallA32" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, -14, 10.1, 19.25)
+
+[node name="wallA33" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, 2, 0.5, 19.25)
+
+[node name="wallA34" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, 2, 10.1, 19.25)
+
+[node name="wallA35" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-1.75, -2.18944e-07, 0, 2.64243e-07, -1.45, 0, 0, 0, 1, -3.5, 10.1, 19.25)
+
+[node name="wallA36" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-1.75, -2.18944e-07, 0, 2.64243e-07, -1.45, 0, 0, 0, 1, -8.5, 10.1, 19.25)
+
+[node name="wallA41" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(1.75, 1.11253e-07, 0, -1.11253e-07, 1.75, 0, 0, 0, 1, -8.5, 0.5, 19.25)
+
+[node name="wallA42" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(1.75, 1.11253e-07, 0, -1.11253e-07, 1.75, 0, 0, 0, 1, -3.5, 0.5, 19.25)
+
+[node name="wallA37" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, 8, 0.5, 19.25)
+
+[node name="wallA38" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, 8, 10.1, 19.25)
+
+[node name="wallA39" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(2, 0, 0, 0, 1.75, 0, 0, 0, 1, 14, 0.5, 19.25)
+
+[node name="wallA40" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-2, -2.18944e-07, 0, 3.01992e-07, -1.45, 0, 0, 0, 1, 14, 10.1, 19.25)
+
+[node name="wallA15" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-5.96046e-08, 3.55271e-15, -1, 3.01992e-07, -1.45, -7.1097e-15, -2, -2.18944e-07, 2.98023e-08, 19.25, 10.1, -16)
+
+[node name="wallA16" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-5.96046e-08, 3.55271e-15, -1, 3.01992e-07, -1.45, -7.1097e-15, -2, -2.18944e-07, 2.98023e-08, 19.25, 10.1, -10)
+
+[node name="wallA17" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-5.96046e-08, 3.55271e-15, -1, 3.01992e-07, -1.45, -7.1097e-15, -2, -2.18944e-07, 2.98023e-08, 19.25, 10.1, -4)
+
+[node name="wallA18" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-5.96046e-08, 3.55271e-15, -1, 3.01992e-07, -1.45, -7.1097e-15, -2, -2.18944e-07, 2.98023e-08, 19.25, 10.1, 2)
+
+[node name="wallA19" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-5.96046e-08, 3.55271e-15, -1, 3.01992e-07, -1.45, -7.1097e-15, -2, -2.18944e-07, 2.98023e-08, 19.25, 10.1, 8)
+
+[node name="wallA20" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-5.96046e-08, 3.55271e-15, -1, 3.01992e-07, -1.45, -7.1097e-15, -2, -2.18944e-07, 2.98023e-08, 19.25, 10.1, 14)
+
+[node name="wallA45" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1.75, 0, 2, 0, -4.37114e-08, -31.25, 0.5, -4)
+
+[node name="wallA46" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1.75, 0, 2, 0, -4.37114e-08, -31.25, 0.5, 2)
+
+[node name="wallA47" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.75, 0, 1, 0, -4.37114e-08, -31.25, 0.5, 6.5)
+
+[node name="wallA48" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.75, 0, 1, 0, -4.37114e-08, -31.25, 0.5, 15.5)
+
+[node name="wallA51" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-5.96046e-08, 3.55271e-15, -1, 3.01992e-07, -1.45, -7.1097e-15, -2, -2.18944e-07, 2.98023e-08, -31.25, 10.1, -4)
+
+[node name="wallA52" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-5.96046e-08, 3.55271e-15, -1, 3.01992e-07, -1.45, -7.1097e-15, -2, -2.18944e-07, 2.98023e-08, -31.25, 10.1, 2)
+
+[node name="wallA53" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-5.96046e-08, 3.55271e-15, -1, 3.01992e-07, -1.45, -7.1097e-15, -2, -2.18944e-07, 2.98023e-08, -31.25, 10.1, 8)
+
+[node name="wallA54" parent="building_c_store_kenney" instance=ExtResource("29_uygdi")]
+transform = Transform3D(-5.96046e-08, 3.55271e-15, -1, 3.01992e-07, -1.45, -7.1097e-15, -2, -2.18944e-07, 2.98023e-08, -31.25, 10.1, 14)
+
+[node name="wallC_flatLow" parent="building_c_store_kenney" instance=ExtResource("30_3swny")]
+transform = Transform3D(-3.55206e-08, -1, -3.69465e-08, -0.422618, -1.84732e-08, 0.906308, -0.906308, 4.78068e-08, -0.422618, -32, 6, -6)
+
+[node name="wallC_flatLow4" parent="building_c_store_kenney" instance=ExtResource("30_3swny")]
+transform = Transform3D(-3.55206e-08, -1, -3.69465e-08, -0.422618, -1.84732e-08, 0.906308, -0.906308, 4.78068e-08, -0.422618, -32, 7.2652, -3.28629)
+
+[node name="wallC_flatLow5" parent="building_c_store_kenney" instance=ExtResource("30_3swny")]
+transform = Transform3D(-3.55206e-08, -1, -3.69465e-08, -0.422618, -1.84732e-08, 0.906308, -0.906308, 4.78068e-08, -0.422618, -32, 4.73678, -8.71796)
+
+[node name="wallC_flatLow2" parent="building_c_store_kenney" instance=ExtResource("30_3swny")]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -32, 5, -11)
+
+[node name="wallC_flatLow3" parent="building_c_store_kenney" instance=ExtResource("30_3swny")]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -32, 5, -14)
+
 [node name="building_c_store" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -115.483, 0, 103.617)
 
@@ -2571,7 +2766,7 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 5, -16, 10.5, 20)
 transform = Transform3D(0.906308, 0, 2.11309, 0, 0.5, 0, -0.422618, 0, 4.53154, -18, 10.5, 20)
 
 [node name="north_wall" parent="building_c_store" instance=ExtResource("3_i1kup")]
-transform = Transform3D(51, 0, 0, 0, 10, 0, 0, 0, 1, 4, 5, 20)
+transform = Transform3D(51, 0, 0, 0, 10, 0, 0, 0, 1, 4, 5, 20.5)
 
 [node name="east_wall" type="Node3D" parent="building_c_store"]
 
@@ -2588,7 +2783,7 @@ transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 8, -21, 7.5, -16)
 transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 8, -21, 9, -11)
 
 [node name="Block17" parent="building_c_store/east_wall" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 6, -21, 5, 17)
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 6, -21, 5, 17.5)
 
 [node name="east_wall_platforming" type="Node3D" parent="building_c_store"]
 
@@ -2599,7 +2794,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.8605, 1, -15.8904)
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -19.8605, 2, -11.8904)
 
 [node name="Block24" parent="building_c_store/east_wall_platforming" instance=ExtResource("3_i1kup")]
-transform = Transform3D(2.5, 0, 0, 0, 0.5, 0, 0, 0, 7, -21.8605, 5, -11.8904)
+transform = Transform3D(2.5, 0, 0, 0, 0.5, 0, 0, 0, 6, -22, 5, -11.15)
 
 [node name="Block25" parent="building_c_store/east_wall_platforming" instance=ExtResource("3_i1kup")]
 transform = Transform3D(2.5, 0, 0, 0, 0.453154, 4.22618, 0, -0.211309, 9.06308, -21.8605, 6, -4.89042)

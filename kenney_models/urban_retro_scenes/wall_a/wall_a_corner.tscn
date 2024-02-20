@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg56ym3ojtfdg"]
+
+[ext_resource type="PackedScene" uid="uid://b8yoy3ac2kcwi" path="res://kenney_models/urban_retro/wallA_corner.glb" id="1_gfjmp"]
+
+[node name="wallA_corner" instance=ExtResource("1_gfjmp")]
+
+[node name="wallA_corner2" parent="tmpParent" index="0"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)

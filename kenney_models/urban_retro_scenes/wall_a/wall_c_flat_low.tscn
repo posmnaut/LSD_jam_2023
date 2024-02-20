@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw4hk8q57c283"]
+
+[ext_resource type="PackedScene" uid="uid://07t2c83p21db" path="res://kenney_models/urban_retro/wallC_flatLow.glb" id="1_oc4rd"]
+
+[node name="wallC_flatLow" instance=ExtResource("1_oc4rd")]
+
+[node name="wallC_flatLow2" parent="tmpParent" index="0"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
