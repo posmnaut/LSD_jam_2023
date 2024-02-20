@@ -4,25 +4,34 @@ extends Node3D
 @export var aud_amb_vol_mod = 0.75
 
 @onready var environ = $WorldEnvironment
-@onready var world_light = $DirectionalLight3D_day
 @onready var districts = $districts
+@onready var world_lights = $world_lights
 @onready var district_audio = $district_BG_audio
 @onready var district_audio_2 = $district_BG_audio2
 @onready var vis_map = $overhead_map
 
+var player
 var pause = false
 var start_white = Color("WHITE");
 var start_energy = 2.0;
 
+var NPC_array = []
 var district_array = []
+var light_array = []
+var NPC_int = 0;
 var district_int = 0
 var district_tag = false
 var crossfade = false
 var crossfade_step = 0;
+var fade_token = -1
+
+var NPC_talk_reset_range = 20.0
+var NPC_sleep_range = 70.0
+var NPC_disappear_range = 70.0
 
 var aud_db_1 = 0;
 var aud_db_2 = 0;
-var aud_db_int = 1/80;
+var aud_db_int = 1.0/80.0;
 
 signal set_particle(type)
 var environ_shift
@@ -36,14 +45,60 @@ var environ_shift
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player = $"/root/global".player
+	player.blink_anim.animation_finished.connect(shift_environ)
 	vis_map.visible = false
 	environ.environment = env_lsd;
 	#process_mode = Node.PROCESS_MODE_ALWAYS;
 	district_array = districts.get_children(false)
+	light_array = world_lights.get_children(false)
+	NPC_array = $NPCs.get_children(false)
+	#this is a really stupid way to preload shadow maps for lights
+	#I'm 90% certain there's as better way 
+	for n in 3:
+			light_array[n].visible = true;
+	for n in 3:
+			light_array[n].visible = false;
+	light_array[0].visible = true;
+	district_audio.stream = load(district_array[0].audio)
+	district_audio.volume_db = 0.0
+	district_audio.play(randf_range(0.0,district_audio.stream.get_length()))
 	
-	
+func shift_environ() -> void:
+	if fade_token != -1 :
+		player.blink_anim.play()
+		for n in 3:
+			light_array[n].visible = false;
+		light_array[fade_token].visible = true;
+		environ.set_environment(district_array[fade_token].environ_info)
+		fade_token = -1
 
 func _process (delta) :
+	
+	#NPC talk, sleep, and disappear toggle check 
+	var npc_dist = NPC_array[NPC_int].global_position.distance_to($"/root/global".player.global_position)
+	#reset talk timer if outside talk range
+	if npc_dist > NPC_talk_reset_range :
+		NPC_array[NPC_int].talk_timer = false;
+		NPC_array[NPC_int].f_timer = 0;
+	#if outside sleep range, is ready to sleep, go to sleep
+	if npc_dist > NPC_sleep_range :
+		if NPC_array[NPC_int].is_sleep == true :
+			if NPC_array[NPC_int].fully_asleep == false :
+				NPC_array[NPC_int].set_sleepmode = true
+	#if seen by player while sleeping, set disappear to true 
+	if npc_dist < NPC_sleep_range*0.5 :
+		if NPC_array[NPC_int].fully_asleep == true :
+			NPC_array[NPC_int].disappear = true
+	#if outside disappear range & disappear set to true, move position
+	if npc_dist > NPC_disappear_range :
+		if NPC_array[NPC_int].disappear == true :
+			NPC_array[NPC_int].global_transform.origin.y = -200;
+	
+	
+	NPC_int += 1;
+	if NPC_int > NPC_array.size() -1 :
+		NPC_int = 0;
 	
 	#player environment check
 	#if environment changed, do environment change behavior 
@@ -76,6 +131,8 @@ func _process (delta) :
 			district_audio.play(_pbp)
 			environ_shift = district_array[district_int]
 			crossfade_step = 1;
+			player.blink_anim.play_backwards()
+			fade_token = district_int
 		if crossfade_step == 1 :
 			if district_audio_2.volume_db > -80.0 :
 				district_audio_2.volume_db -= 0.5 

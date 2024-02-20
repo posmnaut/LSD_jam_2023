@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbuloer42rosn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a66xn"]
+
+[node name="block_hidn" type="StaticBody3D"]
+disable_mode = 1
+metadata/is_wallrunable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_a66xn")

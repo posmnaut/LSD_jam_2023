@@ -240,11 +240,13 @@ shape = SubResource("CylinderShape3D_bb4wg")
 [node name="footsteps_1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_56f33")
 volume_db = -20.0
+bus = &"SFX"
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
 current = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="head_bonk" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88844, 0)

@@ -10,19 +10,20 @@ class_name talkable_NPC
 var timer = 0;
 var f_timer = 0;
 var fully_asleep = false;
+var disappear = false;
+var set_sleepmode = false;
 var player= null
 var rotation_y = 0;
-var dur_timer = 900.0;
+var dur_timer = 450.0;
 var face_player = false
 var is_sleep = false
 var talk_timer = false
 var timing_int = 100.0
 
 
-#if metadata set, set timer
-#if dialogue empty, set trigger (dialogue signal from dialogic behavior)
-#	+ metadata tag set by player
-# if player away & dialogue exhausted, set to sleep, and change dialogue
+#NOTE:
+#NPC talk triggers are partially inside the player entity (ctrl+f NPC)
+#NPC talk timer, sleep, and disappear behaviors are set inside the MAIN script
 
 
 func _ready () :
@@ -40,18 +41,16 @@ func _look_at_target_interpolated(weight:float) -> void:
 
 func _process (delta) : 
 	if !fully_asleep :
-		
+	
 		if is_sleep == true :
-			timer += timing_int * delta;
-			if timer > 10.0 :
-				timer = 0
-				var dist = self.global_position.distance_to($"/root/global".player.global_position)
-				if dist > 70 :
-					anim_tree.set("parameters/conditions/sleepmode",true)
-					sleep_sprite.visible = true;
-					face_sprite.visible = false;
-					#also set dialogue HERE
-					fully_asleep = true;
+			if set_sleepmode :
+				anim_tree.set("parameters/conditions/sleepmode",true)
+				sleep_sprite.visible = true;
+				face_sprite.visible = false;
+				#also set dialogue HERE
+				fully_asleep = true;
+				set_sleepmode = false;
+				print("sleepmode set")
 		
 		if talk_timer == true :
 			f_timer += timing_int * delta;

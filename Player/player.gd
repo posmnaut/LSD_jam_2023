@@ -17,7 +17,7 @@ var consecWallJumps = 0;
 @onready var Look_Cast = $Head/Look_Cast_NPC
 @onready var look_cast_door = $Head/Look_Cast_door
 @onready var hud_RTL = $UI/RichTextLabel;
-@onready var blink_anim = $UI/Control/AnimatedSprite2D
+@onready var blink_anim = $UI/Control/AnimatedSprite2D as AnimatedSprite2D
 @onready var audio_s_player = $AudioStreamPlayer
 @onready var fog_color_default
 @onready var fog_density_default
@@ -182,7 +182,14 @@ func _process(delta):
 		var NPC_check = Look_Cast.get_collider();
 		var door_check = look_cast_door.get_collider();
 		if NPC_check != null || door_check != null:
-			interact_sprite.visible = true
+			if NPC_check != null :
+				if NPC_check.fully_asleep || NPC_check.is_sleep :
+					interact_sprite.visible = false
+				else:
+					interact_sprite.visible = true
+			else:	
+				interact_sprite.visible = true
+				
 			point_timer += 300 * delta
 			if point_timer > 359 :
 				point_timer = point_timer - 360;

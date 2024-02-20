@@ -1,0 +1,76 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmv5t1dg87veh"]
+
+[ext_resource type="PackedScene" uid="uid://rwrbsssaksbh" path="res://Objects/Block.tscn" id="1_jmqss"]
+
+[node name="WbExportAbsApts" type="Node3D"]
+
+[node name="building_abs_apt" type="Node3D" parent="."]
+
+[node name="center_stalk" type="Node3D" parent="building_abs_apt"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 8)
+
+[node name="stalk_a" type="Node3D" parent="building_abs_apt/center_stalk"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+
+[node name="Block" parent="building_abs_apt/center_stalk/stalk_a" instance=ExtResource("1_jmqss")]
+transform = Transform3D(4.98097, 1.30734, 0, -0.42093, 14.4338, -1.2941, -0.112788, 3.86751, 4.82963, 36, 7, -37)
+
+[node name="Block2" parent="building_abs_apt/center_stalk/stalk_a" instance=ExtResource("1_jmqss")]
+transform = Transform3D(3.93923, -1.73648, 0, 0.670925, 9.51251, 1.03528, -0.179774, -2.54887, 3.8637, 36, 17, -36)
+
+[node name="Block3" parent="building_abs_apt/center_stalk/stalk_a" instance=ExtResource("1_jmqss")]
+transform = Transform3D(1.96962, 1.04189, 0, -0.34202, 5.81908, 0.347296, 0.0603074, -1.02606, 1.96962, 36, 23, -38)
+
+[node name="Block4" parent="building_abs_apt/center_stalk/stalk_a" instance=ExtResource("1_jmqss")]
+transform = Transform3D(1, 0, 0, 0, 4.78152, -0.292372, 0, 1.46186, 0.956305, 36, 27, -38)
+
+[node name="stalk_a2" type="Node3D" parent="building_abs_apt/center_stalk"]
+transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 12, 10, 3)
+
+[node name="Block" parent="building_abs_apt/center_stalk/stalk_a2" instance=ExtResource("1_jmqss")]
+transform = Transform3D(4.98098, 1.30734, -5.96046e-08, -0.420931, 14.4338, -1.2941, -0.112788, 3.86751, 4.82963, 37.6237, 5.46263, -37)
+
+[node name="Block2" parent="building_abs_apt/center_stalk/stalk_a2" instance=ExtResource("1_jmqss")]
+transform = Transform3D(2.55065, 7.36985, 0.896576, -3.07602, 6.2601, 0.517638, -0.179774, -2.54887, 3.8637, 41.4689, 13.6696, -37)
+
+[node name="Block3" parent="building_abs_apt/center_stalk/stalk_a2" instance=ExtResource("1_jmqss")]
+transform = Transform3D(1.34181, 5.65235, 0, -3.76823, 2.01271, 0, 0, 0, 4, 46.9378, 16.3393, -38)
+
+[node name="Block4" parent="building_abs_apt/center_stalk/stalk_a2" instance=ExtResource("1_jmqss")]
+transform = Transform3D(-1.03098, -4.69547, 0, 2.81728, -1.7183, 0, 0, 0, 3, 51.125, 17, -38)
+
+[node name="stalk_a3" type="Node3D" parent="building_abs_apt/center_stalk"]
+transform = Transform3D(0.212012, -0.148453, 0.965926, 0.573576, 0.819152, 0, -0.79124, 0.554032, 0.258819, 66, -20, -5)
+
+[node name="Block" parent="building_abs_apt/center_stalk/stalk_a3" instance=ExtResource("1_jmqss")]
+transform = Transform3D(3.98478, 0.871557, -1.49012e-07, -0.336744, 9.6225, -1.03528, -0.0902303, 2.57834, 3.8637, 35.4264, 4.18085, -37)
+
+[node name="Block2" parent="building_abs_apt/center_stalk/stalk_a3" instance=ExtResource("1_jmqss")]
+transform = Transform3D(2.95442, -1.38919, 1.10061e-08, 0.503194, 7.61001, 0.776457, -0.13483, -2.0391, 2.89778, 36, 12, -37)
+
+[node name="Block3" parent="building_abs_apt/center_stalk/stalk_a3" instance=ExtResource("1_jmqss")]
+transform = Transform3D(1.96962, 0.694593, -3.6687e-09, -0.34202, 3.87938, 0.347296, 0.0603074, -0.68404, 1.96962, 36, 17, -38)
+
+[node name="Block4" parent="building_abs_apt/center_stalk/stalk_a3" instance=ExtResource("1_jmqss")]
+transform = Transform3D(0.872047, 2.43775, -0.0427513, -0.48718, 4.28192, -0.171062, -0.0467898, 0.85001, 0.984333, 36.7912, 19.446, -37.2589)
+
+[node name="stalk_a4" type="Node3D" parent="building_abs_apt/center_stalk"]
+transform = Transform3D(-0.709406, 0.496732, 0.5, 0.573576, 0.819152, 2.98202e-08, -0.409576, 0.286788, -0.866025, 76, -20, -46)
+
+[node name="Block" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("1_jmqss")]
+transform = Transform3D(3.98478, 0.871557, 2.38419e-07, -0.336744, 9.6225, -1.03528, -0.0902302, 2.57834, 3.8637, 35.4264, 4.18084, -37)
+
+[node name="Block2" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("1_jmqss")]
+transform = Transform3D(2.95442, -1.38919, 1.10061e-08, 0.503194, 7.61001, 0.776457, -0.13483, -2.0391, 2.89778, 36, 12, -37)
+
+[node name="Block3" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("1_jmqss")]
+transform = Transform3D(1.42233, -2.68324, -0.420739, 1.14758, 2.90696, -0.755291, 0.812426, 0.591442, 1.80347, 34.0076, 17.1743, -37)
+
+[node name="Block5" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("1_jmqss")]
+transform = Transform3D(1.42233, -2.68324, -0.420739, 1.14758, 2.90696, -0.755291, 0.812426, 0.591442, 1.80347, 34.0076, 17.1743, -37)
+
+[node name="Block4" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("1_jmqss")]
+transform = Transform3D(0.736031, 3.38462, 0.00576362, -0.675463, 3.67477, -0.0599442, -0.0448133, 0.20114, 0.998185, 35.5082, 19.1235, -36.7589)
+
+[node name="Block6" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("1_jmqss")]
+transform = Transform3D(0.784737, -3.03265, 0.127713, 0.524895, 2.7035, -0.657364, 0.329656, 2.91447, 0.742672, 32.2328, 18.9754, -35.2589)

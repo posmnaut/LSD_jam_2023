@@ -12,6 +12,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91443, 0)
 unit_size = 1.0
 autoplay = true
 max_distance = 30.0
+bus = &"Music"
 doppler_tracking = 2
 
 [node name="radio" parent="." instance=ExtResource("2_c3g6s")]
