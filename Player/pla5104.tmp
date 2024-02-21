@@ -1,0 +1,256 @@
+[gd_scene load_steps=23 format=3 uid="uid://cqoa7g8s32y4c"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_xuua8"]
+[ext_resource type="Texture2D" uid="uid://d2oik12wohmhe" path="res://Textures/d_shadow_1.png" id="2_6b36o"]
+[ext_resource type="PackedScene" uid="uid://umon6ovuv3s6" path="res://Particles/rain_1.tscn" id="2_72iar"]
+[ext_resource type="PackedScene" uid="uid://ltfqybl38muu" path="res://Particles/marine_snow_1.tscn" id="3_wy08r"]
+[ext_resource type="PackedScene" uid="uid://dr3jsr5rhikda" path="res://options_menu.tscn" id="4_7vlyy"]
+[ext_resource type="AudioStream" uid="uid://ejh3jjs2x14e" path="res://snd_effects/Concrete_-_Left_Foot_Step.wav" id="4_56f33"]
+[ext_resource type="Texture2D" uid="uid://ddqefkbpw5f2p" path="res://Textures/eyes_close_1.png" id="5_pkua1"]
+[ext_resource type="Texture2D" uid="uid://bpmj1hw4a55cs" path="res://Textures/hand_pointer.png" id="6_08gl2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rqxc"]
+atlas = ExtResource("5_pkua1")
+region = Rect2(0, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cygeh"]
+atlas = ExtResource("5_pkua1")
+region = Rect2(596, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jibi"]
+atlas = ExtResource("5_pkua1")
+region = Rect2(1192, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2wqe"]
+atlas = ExtResource("5_pkua1")
+region = Rect2(1788, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw4c3"]
+atlas = ExtResource("5_pkua1")
+region = Rect2(2384, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g542"]
+atlas = ExtResource("5_pkua1")
+region = Rect2(2980, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gn2d2"]
+atlas = ExtResource("5_pkua1")
+region = Rect2(3576, 0, 596, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o674j"]
+atlas = ExtResource("5_pkua1")
+region = Rect2(4172, 0, 596, 336)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8rkq1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rqxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cygeh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jibi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2wqe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw4c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g542")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gn2d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o674j")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xeej3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysqe2"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+albedo_texture = ExtResource("2_6b36o")
+
+[sub_resource type="QuadMesh" id="QuadMesh_x8e4q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xyq1"]
+size = Vector3(0.5, 2, 0.5)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bb4wg"]
+
+[node name="Player" type="CharacterBody3D"]
+floor_stop_on_slope = false
+script = ExtResource("1_xuua8")
+
+[node name="particles" type="Node3D" parent="."]
+
+[node name="rain_1" parent="particles" instance=ExtResource("2_72iar")]
+visible = false
+
+[node name="marine_snow_1" parent="particles" instance=ExtResource("3_wy08r")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 5.0
+offset_right = 782.0
+offset_bottom = 394.0
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = -1717.0
+offset_top = -890.0
+offset_right = -442.0
+offset_bottom = -155.0
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sprite_pointer" type="Sprite2D" parent="UI/Control"]
+position = Vector2(-6, 43)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_08gl2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/Control"]
+scale = Vector2(3.22, 3.22)
+sprite_frames = SubResource("SpriteFrames_8rkq1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 2
+anchor_left = 0.006
+anchor_top = 0.05
+anchor_right = 0.006
+anchor_bottom = 0.05
+offset_left = 178.08
+offset_top = 136.0
+offset_right = 949.08
+offset_bottom = 545.0
+
+[node name="resume" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "RESUME"
+
+[node name="options" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "OPTIONS"
+
+[node name="quit" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "QUIT"
+
+[node name="options_menu" parent="UI" instance=ExtResource("4_7vlyy")]
+visible = false
+layout_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.04435, 0)
+shape = SubResource("CapsuleShape3D_xeej3")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9527, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="Upper_Check" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.400872, 0)
+target_position = Vector3(0, 0, -1)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="Lower_Check" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38778e-17, -0.806414, 2.32831e-10)
+target_position = Vector3(0, 0, -1)
+
+[node name="Look_Cast_NPC" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, -0.5, 0)
+target_position = Vector3(0, 0, -1)
+collision_mask = 4
+
+[node name="Look_Cast_door" type="RayCast3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, -0.5, 0)
+target_position = Vector3(0, 0, -1)
+collision_mask = 16
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="D_Shad_Check" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, -100, 0)
+
+[node name="Drop_Shadow" type="Decal" parent="."]
+top_level = true
+size = Vector3(3, 3, 3)
+texture_albedo = ExtResource("2_6b36o")
+modulate = Color(0, 0, 0, 1)
+
+[node name="Drop_Shadow_old" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, 1, 0, -3, -4.37114e-08, 0, 0.151235, 0)
+top_level = true
+visible = false
+material_override = SubResource("StandardMaterial3D_ysqe2")
+cast_shadow = 0
+gi_mode = 0
+mesh = SubResource("QuadMesh_x8e4q")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 4
+collision_mask = 9
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_0xyq1")
+
+[node name="ladder_detection" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
+metadata/is_ladder = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ladder_detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_bb4wg")
+
+[node name="footsteps_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_56f33")
+volume_db = -20.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="head_bonk" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88844, 0)
+target_position = Vector3(0, 0.25, 0)
+collision_mask = 3
+
+[connection signal="pressed" from="UI/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/quit" to="." method="_on_quit_pressed"]
