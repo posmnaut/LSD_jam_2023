@@ -79,6 +79,9 @@ var on_ladder = false
 var can_wall_run = true
 var pause = false
 var blink_frames = 0
+var collisionInst = null
+var wallTouched = false
+var allowWallJump = false
 
 var wall_run_angle = 15 #export me 
 var wall_run_current_angle = 0
@@ -458,13 +461,16 @@ func _physics_process(delta):
 	if position.y < -fall_thresh:
 		fog_fade = true
 				
-		
+	
 	if is_on_floor():
 		spd = bs_spd
 		wall_run_t = 0
 		is_wall_run_jumping = 0
 		jump_token = 2;
 		consecWallJumps = 0
+		collisionInst = null
+		wallTouched = false
+		allowWallJump = true
 		if land_audio :
 			#i would turn the below into a function since you're repeating it 
 			land_audio = false
@@ -473,10 +479,93 @@ func _physics_process(delta):
 			stp_audio_player.play()
 	#NOTE: This `if-statement` allows for the player to do wall jumps on "non-sliding" walls up to a certain ->
 	#-> number of wall jumps (currently `2`).
-	elif(is_on_floor() == false && get_slide_collision_count() != 0 && consecWallJumps < 2 && jump_token == 0 && is_wallrunning == false):
-		consecWallJumps += 1
-		jump_token = 1
-		#print("I jumped!")
+	elif(is_on_floor() == false && get_slide_collision_count() != 0 && get_slide_collision(0).get_collider().has_meta("is_wallrunable") == true && get_slide_collision(0).get_collider().get_meta("is_wallrunable") == false && consecWallJumps < 2 && is_wallrunning == false && get_slide_collision(0).get_collider_id() != collisionInst && mantling == false && allowWallJump == true):
+		if(wallTouched == false && jump_token == 0):
+			allowWallJump = false
+			jump_token -= 1
+		else:
+			wallTouched = true
+			collisionInst = get_slide_collision(0).get_collider_id()
+			consecWallJumps += 1
+			#NOTE: I re-assign the `jump_token` variable to `1` instead of doing `jump_token += 1` because it ->
+			#-> prevents the double jump AND the wall jump from being used (prevents the three jump up a single ->
+			#-> wall, allowing players to get to places they shouldn't). Another way to put it is, you either ->
+			#-> double jump OR you wall jump, not a mix of the two.
+			jump_token = 1
+			#print("I jumped!")
+			hud_RTL.text = str(get_slide_collision(0).get_collider_id())
+	
+	# Handle Jump.
+	if Input.is_action_just_pressed("ui_accept"):
+		#if(jump_token == 1 && wallTouched == false && get_slide_collision_count() != 0 && get_slide_collision(0).get_collider().has_meta("is_wallrunable") == true && get_slide_collision(0).get_collider().get_meta("is_wallrunable") == false ):
+			#wallTouched = true
+		if(jump_token < 0 && wallTouched == false):
+			allowWallJump = false
+		elif jump_token > 0 && !is_wallrunning:
+			jump_token -= 1;
+			land_audio = true;
+			velocity.y = JUMP_VELOCITY
+			if jump_token == 1 :
+				spd += 1
+			audio_s_player.stream = load("res://snd_effects/player/wall_grab_option_3.wav");
+			audio_s_player.pitch_scale = randf_range(0.9,1.1);
+			audio_s_player.play()
+			if jump_token < 2 :
+				is_wall_run_jumping = 0
+					
+	
+	#if is_on_floor():
+		#spd = bs_spd
+		#wall_run_t = 0
+		#is_wall_run_jumping = 0
+		#jump_token = 2;
+		#consecWallJumps = 0
+		#collisionInst = null
+		#wallTouched = false
+		#allowWallJump = true
+		#if land_audio :
+			##i would turn the below into a function since you're repeating it 
+			#land_audio = false
+			#step_timer = 0;
+			#stp_audio_player.pitch_scale = randf_range(0.7,1.3);
+			#stp_audio_player.play()
+	##NOTE: This `if-statement` allows for the player to do wall jumps on "non-sliding" walls up to a certain ->
+	##-> number of wall jumps (currently `2`).
+	#elif(is_on_floor() == false && get_slide_collision_count() != 0 && get_slide_collision(0).get_collider().has_meta("is_wallrunable") == true && get_slide_collision(0).get_collider().get_meta("is_wallrunable") == false && consecWallJumps < 2 && is_wallrunning == false && get_slide_collision(0).get_collider_id() != collisionInst && mantling == false):
+		#if(wallTouched == false && jump_token == 0):
+			#allowWallJump = false
+			#jump_token -= 1
+		#else:
+			#wallTouched = true
+			#collisionInst = get_slide_collision(0).get_collider_id()
+			#consecWallJumps += 1
+			##NOTE: I re-assign the `jump_token` variable to `1` instead of doing `jump_token += 1` because it ->
+			##-> prevents the double jump AND the wall jump from being used (prevents the three jump up a single ->
+			##-> wall, allowing players to get to places they shouldn't). Another way to put it is, you either ->
+			##-> double jump OR you wall jump, not a mix of the two.
+			#jump_token = 1
+			##print("I jumped!")
+			#hud_RTL.text = str(get_slide_collision(0).get_collider_id())
+	#
+	## Handle Jump.
+	#if Input.is_action_just_pressed("ui_accept"):
+		##if(jump_token == 1 && wallTouched == false && get_slide_collision_count() != 0 && get_slide_collision(0).get_collider().has_meta("is_wallrunable") == true && get_slide_collision(0).get_collider().get_meta("is_wallrunable") == false ):
+			##wallTouched = true
+		#if(jump_token < 0 && wallTouched == false):
+			#allowWallJump = false
+		#if jump_token > 0 && !is_wallrunning:
+			#jump_token -= 1;
+			#land_audio = true;
+			#velocity.y = JUMP_VELOCITY
+			#if jump_token == 1 :
+				#spd += 1
+			#audio_s_player.stream = load("res://snd_effects/player/wall_grab_option_3.wav");
+			#audio_s_player.pitch_scale = randf_range(0.9,1.1);
+			#audio_s_player.play()
+			#if jump_token < 2 :
+				#is_wall_run_jumping = 0
+					#
+	
 	
 	#crouching
 	if Input.is_action_pressed("crouch") :
@@ -507,20 +596,6 @@ func _physics_process(delta):
 		camera.fov = lerp(camera.fov,fov_default,0.1);
 		sprint_spd = 0
 		sprint = false
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept"):
-		if jump_token > 0 && !is_wallrunning :
-			jump_token -= 1;
-			land_audio = true;
-			velocity.y = JUMP_VELOCITY
-			if jump_token == 1 :
-				spd += 1
-			audio_s_player.stream = load("res://snd_effects/player/wall_grab_option_3.wav");
-			audio_s_player.pitch_scale = randf_range(0.9,1.1);
-			audio_s_player.play()
-			if jump_token < 2 :
-				is_wall_run_jumping = 0
 		
 	# Handle Ledge Grab
 	var result1 = ray_upper.get_collider()
@@ -614,7 +689,7 @@ func _physics_process(delta):
 				#spd += camera.rotation_degrees[0] * 1/90
 				#spd += camera.rotation_degrees[2] * 1/90
 			if(camera.rotation_degrees[0] <= 0.0 && spd < 15.0):
-				hud_RTL.text = str("");
+				#hud_RTL.text = str("");
 				spd += -camera.rotation_degrees[0] * 1/10
 				
 				if(camera.rotation_degrees[0] == 0.0):
@@ -624,7 +699,7 @@ func _physics_process(delta):
 				else:
 					spd += camera.rotation_degrees[2] * 1/10
 			elif(camera.rotation_degrees[0] > 0.0 && spd > 3.0):
-				hud_RTL.text = str("");
+				#hud_RTL.text = str("");
 				spd += -camera.rotation_degrees[0] * 1/1000
 				
 				if(camera.rotation_degrees[2] < 0.0):
@@ -632,10 +707,10 @@ func _physics_process(delta):
 				else:
 					spd += -camera.rotation_degrees[2] * 1/1000
 			elif(spd <= 3.0):
-				hud_RTL.text = str("YOURE TOO SLOW");
+				#hud_RTL.text = str("YOURE TOO SLOW");
 				spd += 3
 			elif(spd >= 15.0):
-				hud_RTL.text = str("YOURE TOO FAST");
+				#hud_RTL.text = str("YOURE TOO FAST");
 				spd += -3
 			#else:
 				#hud_RTL.text = str("ERROR CATCH: Rotation not found");
@@ -666,7 +741,7 @@ func _physics_process(delta):
 	drop_shadow.global_position.y = ray_shadow.get_collision_point().y + 0.01
 	drop_shadow.global_position.x = global_position.x
 	drop_shadow.global_position.z = global_position.z
-	hud_RTL.text = str(drop_shadow.global_position.y)
+	#hud_RTL.text = str(drop_shadow.global_position.y)
 	#drop_shadow.look_at(ray_shadow.get_collision_point() + ray_shadow.get_collision_normal(),Vector3.UP)
 	drop_shadow.rotate_y(0.01)
 	
@@ -676,7 +751,7 @@ func _physics_process(delta):
 	#var debug = rad_to_deg(Vector2(p_normal.x,p_normal.z).angle())
 	#var debug1 = wrapf((debug + 90) *-1,-180,180)
 	#var debug2 = wrapf((rotation_degrees.y + 90) *-1,-180,180)
-	hud_RTL.text = str(spd); ##str(camera.rotation_degrees)
+	#hud_RTL.text = str(spd); ##str(camera.rotation_degrees)
 	#$RichTextLabel.text = str(Vector2(velocity.x,velocity.z).angle()) + " , " + str(Vector2(direction.x,direction.z).angle())
 
 	
