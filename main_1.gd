@@ -33,6 +33,8 @@ var aud_db_1 = 0;
 var aud_db_2 = 0;
 var aud_db_int = 1.0/80.0;
 
+var audio_override = false
+
 signal set_particle(type)
 var environ_shift
 #light color
@@ -47,6 +49,7 @@ var environ_shift
 func _ready():
 	player = $"/root/global".player
 	player.blink_anim.animation_finished.connect(shift_environ)
+	player.click_teleport.connect(teleport_audio_shift)
 	vis_map.visible = false
 	environ.environment = env_lsd;
 	#process_mode = Node.PROCESS_MODE_ALWAYS;
@@ -72,6 +75,33 @@ func shift_environ() -> void:
 		light_array[fade_token].visible = true;
 		environ.set_environment(district_array[fade_token].environ_info)
 		fade_token = -1
+
+func teleport_audio_shift(audio) -> void:
+	if audio_override :
+		audio_override = false
+		var _pbp = district_audio.get_playback_position()
+		var _stream_store = district_audio_2.stream
+		district_audio_2.stream = district_audio.stream
+		district_audio_2.play(_pbp)
+		district_audio.stream = _stream_store
+		var _aud_vol_a = district_audio.volume_db;
+		var _aud_vol_b = district_audio_2.volume_db;
+		district_audio.volume_db = _aud_vol_b;
+		district_audio_2.volume_db = _aud_vol_a;
+		district_audio.play(_pbp)
+		crossfade_step = 1;
+	else :
+		audio_override = true
+		var _pbp = district_audio.get_playback_position()
+		district_audio_2.stream = district_audio.stream
+		district_audio_2.play(_pbp)
+		district_audio.stream = load(audio) #get this from door
+		var _aud_vol_a = district_audio.volume_db;
+		var _aud_vol_b = district_audio_2.volume_db;
+		district_audio.volume_db = _aud_vol_b;
+		district_audio_2.volume_db = _aud_vol_a;
+		district_audio.play(_pbp)
+		crossfade_step = 1;
 
 func _process (delta) :
 	
@@ -102,17 +132,18 @@ func _process (delta) :
 	
 	#player environment check
 	#if environment changed, do environment change behavior 
-	
-	var p_test = district_array[district_int].get_child(0);
-	var _radius = p_test.mesh.radius * district_array[district_int].scale.y;
-	if district_tag == false :
-		var _dist = district_array[district_int].global_position.distance_to($"/root/global".player.global_position)
-		if _dist < _radius :
-			if player.is_on_floor() :
-				if district_array[district_int].audio != null :
-					if district_audio.stream != load(district_array[district_int].audio) :
-						crossfade = true;
-						crossfade_step = 0;
+	if audio_override == false :
+		var p_test = district_array[district_int].get_child(0);
+		var _radius = p_test.mesh.radius * district_array[district_int].scale.y;
+		if district_tag == false :
+			var _dist = district_array[district_int].global_position.distance_to($"/root/global".player.global_position)
+			if _dist < _radius :
+				if player.is_on_floor() :
+					if district_array[district_int].audio != null :
+						if district_audio.stream != load(district_array[district_int].audio) :
+							crossfade = true;
+							crossfade_step = 0;
+
 	
 	if crossfade :
 		# dump current audio into second stream, cloning position, volume, etc

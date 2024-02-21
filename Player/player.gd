@@ -98,6 +98,8 @@ var step_timer = 0;
 
 var in_dialogue = false;
 
+signal click_teleport(audio)
+
 func _ready():
 	$"/root/global".register_player(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED #captures mouse inside the screenspace
@@ -297,6 +299,7 @@ func _input(event):
 			
 			if click_check !=null :
 				teleport_point = click_check.get_parent().target_point;
+				click_teleport.emit(click_check.get_parent().audio);
 				fog_fade = true
 
 	
