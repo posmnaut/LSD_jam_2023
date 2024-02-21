@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=53 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dbuloer42rosn" path="res://Objects/Block_hidn.tscn" id="27_bqnf6"]
 [ext_resource type="PackedScene" uid="uid://cy0baknwmyu22" path="res://Objects/door_swing_a.tscn" id="28_a8am6"]
 [ext_resource type="PackedScene" uid="uid://cg56ym3ojtfdg" path="res://kenney_models/urban_retro_scenes/wall_a/wall_a_corner.tscn" id="28_b8u2e"]
+[ext_resource type="PackedScene" uid="uid://sdb2vtj37qjg" path="res://Models/enemy_Crate/wood_crate_3denemy.tscn" id="28_ygdo5"]
 [ext_resource type="PackedScene" uid="uid://mbxjp8n3kpgp" path="res://kenney_models/urban_retro_scenes/wall_a/wall_a.tscn" id="29_uygdi"]
 [ext_resource type="PackedScene" uid="uid://cw4hk8q57c283" path="res://kenney_models/urban_retro_scenes/wall_a/wall_c_flat_low.tscn" id="30_3swny"]
 [ext_resource type="PackedScene" uid="uid://deyk3drreyw8x" path="res://props/shipping_container_coldones/shipping_props_full_v_b.tscn" id="30_e3jx2"]
@@ -72,7 +73,7 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jsi03"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kn5ac"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -107,7 +108,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_jsi03"),
+"material": SubResource("ShaderMaterial_kn5ac"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -231,7 +232,7 @@ transform = Transform3D(1.16753, 0, 0.788516, 0, 1.40886, 0, -0.788516, 0, 1.167
 metadata/dialogue = "res://Dialogic_timelines/tml_bldg_radio_a.dtl"
 
 [node name="OmniLight3D" type="OmniLight3D" parent="NPCs/cosmonaut_animations-FINALBAKE4"]
-transform = Transform3D(0.709794, 0, 3.27826e-07, 0, 0.709794, 0, -3.27826e-07, 0, 0.709794, -2.49405, 2.16898, 1.94238)
+transform = Transform3D(0.709794, 0, 2.98023e-07, 0, 0.709794, 0, -2.98023e-07, 0, 0.709794, -2.685, 2.16898, 0.956911)
 light_color = Color(0.52549, 0.603922, 0.329412, 1)
 light_energy = 5.14
 light_indirect_energy = 14.008
@@ -239,6 +240,7 @@ light_volumetric_fog_energy = 2.344
 light_size = 0.081
 light_negative = true
 light_specular = 10.015
+shadow_enabled = true
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="NPCs/cosmonaut_animations-FINALBAKE4"]
 transform = Transform3D(0.709794, 0, 3.27826e-07, 0, 0.709794, 0, -3.27826e-07, 0, 0.709794, 13.2005, 1.55678, -3.93564)
@@ -249,6 +251,7 @@ light_volumetric_fog_energy = 2.344
 light_size = 0.081
 light_negative = true
 light_specular = 10.015
+shadow_enabled = true
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="NPCs/cosmonaut_animations-FINALBAKE4"]
 transform = Transform3D(0.709794, 0, 3.27826e-07, 0, 0.709794, 0, -3.27826e-07, 0, 0.709794, -0.496956, 2.80573, -1.44566)
@@ -258,6 +261,7 @@ light_indirect_energy = 1.794
 light_volumetric_fog_energy = 2.344
 light_size = 0.081
 light_specular = 0.0
+shadow_enabled = true
 
 [node name="overhead_map" type="Sprite3D" parent="."]
 transform = Transform3D(-28, -1.75793e-05, -7.68417e-13, 0, -1.22392e-06, 28, -1.75793e-05, 28, 1.22392e-06, 0, 0.6, -12)
@@ -2547,8 +2551,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0.5, 54)
 [node name="Block" parent="building_e" instance=ExtResource("27_bqnf6")]
 transform = Transform3D(0.821258, -0.317354, -0.474154, 0.410026, 0.906161, 0.103686, 0.396754, -0.279568, 0.874316, -39.1186, 5.55113, 44.5844)
 
+[node name="WoodCrate3Denemy" parent="building_e" instance=ExtResource("28_ygdo5")]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -37, 1.5, 49)
+
 [node name="building_c_store_kenney" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105, 0, 105)
+visible = false
 
 [node name="wallA_corner" parent="building_c_store_kenney" instance=ExtResource("28_b8u2e")]
 transform = Transform3D(1, 0, 0, 0, 1.75, 0, 0, 0, 1, -30.5, 0.499999, -20.5)
