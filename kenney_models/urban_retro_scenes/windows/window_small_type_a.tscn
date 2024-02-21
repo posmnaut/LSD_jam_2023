@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4akoc2ye0gu7"]
+
+[ext_resource type="PackedScene" uid="uid://dwkdfdlp6u3au" path="res://kenney_models/urban_retro/windowSmall_typeA.glb" id="1_onena"]
+
+[node name="windowSmall_typeA" instance=ExtResource("1_onena")]
+
+[node name="windowSmall_typeA2" parent="tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

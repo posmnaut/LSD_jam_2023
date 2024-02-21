@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bylkfqdc8e0sp"]
+
+[ext_resource type="PackedScene" uid="uid://7fva12vr3w2j" path="res://Models/3denemy/card-table.glb" id="1_rt65x"]
+
+[node name="card-table" instance=ExtResource("1_rt65x")]
+
+[node name="Cube" parent="." index="0"]
+visible = false
+
+[node name="Empty" parent="." index="1"]
+visible = false
+
+[node name="table" parent="." index="2"]
+visible = false
+
+[node name="NurbsPath_002" parent="." index="3"]
+visible = false
+
+[node name="NurbsPath_003" parent="." index="4"]
+visible = false
+
+[node name="NurbsPath_005" parent="." index="5"]
+visible = false
+
+[node name="Plane" parent="." index="6"]
+visible = false
+
+[node name="table1" parent="." index="8"]
+visible = false

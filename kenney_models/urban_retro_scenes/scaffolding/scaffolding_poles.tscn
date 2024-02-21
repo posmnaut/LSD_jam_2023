@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://v4bdgxg6sgie"]
+
+[ext_resource type="PackedScene" uid="uid://bf8u4l2u4eatf" path="res://kenney_models/urban_retro/scaffolding_poles.glb" id="1_ifsd1"]
+
+[node name="scaffolding_poles" instance=ExtResource("1_ifsd1")]
+
+[node name="scaffolding_poles2" parent="tmpParent" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

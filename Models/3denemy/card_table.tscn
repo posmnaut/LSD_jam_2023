@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlqhmo0k3lfbh"]
+
+[ext_resource type="PackedScene" uid="uid://7fva12vr3w2j" path="res://Models/3denemy/card-table.glb" id="1_qtp0b"]
+
+[node name="card-table" instance=ExtResource("1_qtp0b")]
