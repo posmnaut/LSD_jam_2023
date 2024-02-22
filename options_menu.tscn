@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dr3jsr5rhikda"]
+[gd_scene load_steps=13 format=3 uid="uid://dr3jsr5rhikda"]
 
 [ext_resource type="Script" path="res://options_menu.gd" id="1_bwdas"]
 [ext_resource type="Texture2D" uid="uid://ddqefkbpw5f2p" path="res://Textures/eyes_close_1.png" id="1_wjlf4"]
@@ -33,10 +33,6 @@ region = Rect2(2980, 0, 596, 336)
 atlas = ExtResource("1_wjlf4")
 region = Rect2(3576, 0, 596, 336)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o674j"]
-atlas = ExtResource("1_wjlf4")
-region = Rect2(4172, 0, 596, 336)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_syqqx"]
 animations = [{
 "frames": [{
@@ -68,14 +64,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_gn2d2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o674j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o674j")
+"texture": null
 }],
 "loop": false,
 "name": &"default",
-"speed": 6.0
+"speed": 5.0
 }]
 
 [node name="options_menu" type="Control"]
@@ -169,3 +162,5 @@ grow_vertical = 2
 visible = false
 scale = Vector2(3.22, 3.22)
 sprite_frames = SubResource("SpriteFrames_syqqx")
+frame = 8
+frame_progress = 1.0

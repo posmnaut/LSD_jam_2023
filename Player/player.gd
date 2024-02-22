@@ -7,6 +7,7 @@ var mouse_relative_x = 0
 var mouse_relative_y = 0
 var jump_token = 2;
 var consecWallJumps = 0;
+
 @onready var ray_upper = $Head/Upper_Check
 @onready var ray_lower = $Head/Lower_Check
 @onready var ray_shadow = $D_Shad_Check
@@ -109,6 +110,7 @@ func _ready():
 	fov_sprint = fov_default + 5.0;
 	blink_anim.set_frame_and_progress(0,0.0);
 	blink_anim.play();
+	
 	fog_density_default = environ_a.environment.get_fog_density()
 	fog_color_default = environ_a.environment.get_fog_light_color()
 	Dialogic.start("timeline_null_reset") #this preloads the dialogic system
@@ -256,7 +258,7 @@ func _on_dialogic_signal(argument:String):
 	if argument == "dialogue_exhausted":
 		var NPC_check = Look_Cast.get_collider();
 		if NPC_check != null :
-			if is_instance_of(NPC_check,talkable_NPC):
+			if is_instance_of(NPC_check,talkable_NPC) || is_instance_of(NPC_check,billboard_talkable_NPC):
 				NPC_check.is_sleep = true;
 
 func _input(event):
@@ -278,7 +280,7 @@ func _input(event):
 			var NPC_check = Look_Cast.get_collider();
 			var click_check = look_cast_door.get_collider();
 			if NPC_check != null :
-				if is_instance_of(NPC_check, talkable_NPC) :
+				if is_instance_of(NPC_check, talkable_NPC) || is_instance_of(NPC_check, billboard_talkable_NPC) :
 					var dialogue_string = NPC_check.dialogue_string
 					var op_audio = NPC_check.open_audio;
 					var talk_timer = NPC_check.talk_timer;
@@ -502,6 +504,7 @@ func _physics_process(delta):
 			#-> wall, allowing players to get to places they shouldn't). Another way to put it is, you either ->
 			#-> double jump OR you wall jump, not a mix of the two.
 			jump_token = 1
+			velocity.y += JUMP_VELOCITY/4
 			#print("I jumped!")
 			hud_RTL.text = str(get_slide_collision(0).get_collider_id())
 	
