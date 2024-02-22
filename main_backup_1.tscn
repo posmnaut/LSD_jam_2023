@@ -1,6 +1,4 @@
-
-[gd_scene load_steps=125 format=3 uid="uid://dvajvt4h05xqg"]
-
+[gd_scene load_steps=126 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -651,8 +649,7 @@ specular_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 1, 1, 0.00392157)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ce8hr"]
-
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bcrs2"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -687,7 +684,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_ce8hr"),
+"material": SubResource("ShaderMaterial_bcrs2"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,

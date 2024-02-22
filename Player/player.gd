@@ -506,7 +506,7 @@ func _physics_process(delta):
 			jump_token = 1
 			velocity.y += JUMP_VELOCITY/4
 			#print("I jumped!")
-			hud_RTL.text = str(get_slide_collision(0).get_collider_id())
+			#hud_RTL.text = str(get_slide_collision(0).get_collider_id())
 	
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept"):
