@@ -83,7 +83,7 @@ _data = {
 }
 point_count = 9
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifng4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpk2v"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -118,7 +118,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_ifng4"),
+"material": SubResource("ShaderMaterial_bpk2v"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -220,6 +220,11 @@ audio = "res://music/Track_B_-_LSD_cloudya.mp3"
 
 [node name="NPCs" type="Node3D" parent="."]
 
+[node name="cosmonaut_billboard" parent="NPCs" instance=ExtResource("9_ja64c")]
+transform = Transform3D(-0.762691, 0, -0.646763, 0, 1, 0, 0.646763, 0, -0.762691, 78.3488, 0.7928, 107.104)
+open_audio = ""
+dialogue_string = ""
+
 [node name="cosmonaut_animations-FINALBAKE" parent="NPCs" instance=ExtResource("14_8kv7q")]
 transform = Transform3D(-0.665959, 0, -0.745988, 0.0182782, 0.9997, -0.0163173, 0.745764, -0.024502, -0.665759, 129.399, 0.523558, 39.9996)
 open_audio = "res://snd_effects/NPC_talk_audio/Talk_Sprite_Level_2_sfx_-_pitch_1.wav"
@@ -228,6 +233,8 @@ metadata/opener_audio = ExtResource("17_ichpr")
 
 [node name="cosmonaut_animations-FINALBAKE2" parent="NPCs" instance=ExtResource("14_8kv7q")]
 transform = Transform3D(0.0565891, 0, -0.998397, 0, 1, 0, 0.998397, 0, 0.0565891, -1.0425, 0.523558, 3.0836)
+open_audio = "res://snd_effects/NPC_talk_audio/Intro_Talk_Sprite_Level_1.wav"
+dialogue_string = "res://Dialogic_timelines/tml_npc_blbd_a.dtl"
 metadata/dialogue = "res://Dialogic_timelines/tml_npc_blbd_a.dtl"
 metadata/opener_audio = ExtResource("15_v6qj8")
 
@@ -270,11 +277,6 @@ light_volumetric_fog_energy = 2.344
 light_size = 0.081
 light_specular = 0.0
 shadow_enabled = true
-
-[node name="cosmonaut_animations-FINALBAKE5" parent="NPCs" instance=ExtResource("9_ja64c")]
-transform = Transform3D(-0.771158, 0, -0.636644, 0, 1, 0, 0.636644, 0, -0.771158, 78.1518, 0.810754, 107.413)
-open_audio = "res://snd_effects/NPC_talk_audio/Talk_Sprite_Level_2_sfx_-_pitch_1.wav"
-dialogue_string = "res://Dialogic_timelines/tml_npc_blbd_a.dtl"
 
 [node name="overhead_map" type="Sprite3D" parent="."]
 transform = Transform3D(-28, -1.75793e-05, -7.68417e-13, 0, -1.22392e-06, 28, -1.75793e-05, 28, 1.22392e-06, 0, 0.6, -12)

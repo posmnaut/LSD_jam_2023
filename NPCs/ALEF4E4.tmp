@@ -1,69 +1,69 @@
-[gd_scene load_steps=49 format=3 uid="uid://ch3rtekxsdeev"]
+[gd_scene load_steps=49 format=3 uid="uid://cjk2nh5vdlm6g"]
 
-[ext_resource type="Texture2D" uid="uid://byetio4y6t3ae" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_body_BaseColor.png" id="1_3tgt6"]
-[ext_resource type="Script" path="res://NPCs/NPC_v1.gd" id="1_s76uo"]
-[ext_resource type="Texture2D" uid="uid://dwwc1f80wrkb" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_body_Emission.png" id="2_bvrro"]
-[ext_resource type="Texture2D" uid="uid://7iyk4e2twadr" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_body_Metallic.png" id="3_e7p2k"]
-[ext_resource type="Texture2D" uid="uid://c3hnyd7gxubux" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_body_Normal.png" id="4_8g17e"]
-[ext_resource type="Texture2D" uid="uid://cttjyt3tfxgik" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_helmet_BaseColor.png" id="5_gt8o8"]
-[ext_resource type="Texture2D" uid="uid://d3je7xgkfmwyn" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_helmet_Emission.png" id="6_0ajjj"]
-[ext_resource type="Texture2D" uid="uid://ockylrml8b0e" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_helmet_Metallic.png" id="7_3uydt"]
-[ext_resource type="Texture2D" uid="uid://cwvsym5jpllu6" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_helmet_Normal.png" id="8_cl34r"]
-[ext_resource type="Texture2D" uid="uid://dvhebav2uuwsb" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_backpack_BaseColor.png" id="9_h3w2r"]
-[ext_resource type="Texture2D" uid="uid://d1m7qe41841aq" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_backpack_Emission.png" id="10_l2qi3"]
-[ext_resource type="Texture2D" uid="uid://dqm0sww28x7lt" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_backpack_Metallic.png" id="11_712vj"]
-[ext_resource type="Texture2D" uid="uid://caqomjo87ik3" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_backpack_Normal.png" id="12_gvubj"]
-[ext_resource type="SpriteFrames" uid="uid://dwtb6123uht4e" path="res://Textures/NPC_sprites/static_a.tres" id="14_8hhxv"]
-[ext_resource type="Texture2D" uid="uid://co80ukkfcbp0x" path="res://Textures/sleep_mode_sprite_a.png" id="14_q14ng"]
-[ext_resource type="SpriteFrames" uid="uid://c2hdp512qj3po" path="res://Talk Portraits/possum_talk_head_a.tres" id="15_f82hr"]
+[ext_resource type="Script" path="res://NPCs/NPC_billboard.gd" id="1_vgyew"]
+[ext_resource type="Texture2D" uid="uid://byetio4y6t3ae" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_body_BaseColor.png" id="2_64sbp"]
+[ext_resource type="Texture2D" uid="uid://dwwc1f80wrkb" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_body_Emission.png" id="3_iho6d"]
+[ext_resource type="Texture2D" uid="uid://7iyk4e2twadr" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_body_Metallic.png" id="4_yuov7"]
+[ext_resource type="Texture2D" uid="uid://c3hnyd7gxubux" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_body_Normal.png" id="5_euwsj"]
+[ext_resource type="Texture2D" uid="uid://cttjyt3tfxgik" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_helmet_BaseColor.png" id="6_bao0h"]
+[ext_resource type="Texture2D" uid="uid://d3je7xgkfmwyn" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_helmet_Emission.png" id="7_ao7qr"]
+[ext_resource type="Texture2D" uid="uid://ockylrml8b0e" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_helmet_Metallic.png" id="8_h1vcs"]
+[ext_resource type="Texture2D" uid="uid://cwvsym5jpllu6" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_helmet_Normal.png" id="9_51pu0"]
+[ext_resource type="Texture2D" uid="uid://dvhebav2uuwsb" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_backpack_BaseColor.png" id="10_214hs"]
+[ext_resource type="Texture2D" uid="uid://d1m7qe41841aq" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_backpack_Emission.png" id="11_83etv"]
+[ext_resource type="Texture2D" uid="uid://dqm0sww28x7lt" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_backpack_Metallic.png" id="12_6uo5f"]
+[ext_resource type="Texture2D" uid="uid://caqomjo87ik3" path="res://NPCs/cosmonaut_npc_anims_3denemy/cosmonaut_animations-FINALBAKE_backpack_Normal.png" id="13_ae5vc"]
+[ext_resource type="SpriteFrames" uid="uid://dwtb6123uht4e" path="res://Textures/NPC_sprites/static_a.tres" id="14_cd0lc"]
+[ext_resource type="SpriteFrames" uid="uid://c2hdp512qj3po" path="res://Talk Portraits/possum_talk_head_a.tres" id="15_3e8m6"]
+[ext_resource type="Texture2D" uid="uid://co80ukkfcbp0x" path="res://Textures/sleep_mode_sprite_a.png" id="16_0ysqw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnisg"]
 resource_name = "body"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("1_3tgt6")
+albedo_texture = ExtResource("2_64sbp")
 metallic = 1.0
-metallic_texture = ExtResource("3_e7p2k")
+metallic_texture = ExtResource("4_yuov7")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("3_e7p2k")
+roughness_texture = ExtResource("4_yuov7")
 roughness_texture_channel = 1
 emission_enabled = true
-emission_texture = ExtResource("2_bvrro")
+emission_texture = ExtResource("3_iho6d")
 normal_enabled = true
-normal_texture = ExtResource("4_8g17e")
+normal_texture = ExtResource("5_euwsj")
 texture_filter = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7sp3"]
 resource_name = "helmet"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("5_gt8o8")
+albedo_texture = ExtResource("6_bao0h")
 metallic = 1.0
-metallic_texture = ExtResource("7_3uydt")
+metallic_texture = ExtResource("8_h1vcs")
 metallic_texture_channel = 2
 roughness = 0.5
-roughness_texture = ExtResource("7_3uydt")
+roughness_texture = ExtResource("8_h1vcs")
 roughness_texture_channel = 1
 emission_enabled = true
-emission_texture = ExtResource("6_0ajjj")
+emission_texture = ExtResource("7_ao7qr")
 normal_enabled = true
-normal_texture = ExtResource("8_cl34r")
+normal_texture = ExtResource("9_51pu0")
 texture_filter = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ou0vc"]
 resource_name = "backpack"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("9_h3w2r")
+albedo_texture = ExtResource("10_214hs")
 metallic = 1.0
-metallic_texture = ExtResource("11_712vj")
+metallic_texture = ExtResource("12_6uo5f")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("11_712vj")
+roughness_texture = ExtResource("12_6uo5f")
 roughness_texture_channel = 1
 emission_enabled = true
-emission_texture = ExtResource("10_l2qi3")
+emission_texture = ExtResource("11_83etv")
 normal_enabled = true
-normal_texture = ExtResource("12_gvubj")
+normal_texture = ExtResource("13_ae5vc")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_iy138"]
@@ -340,27 +340,27 @@ bind/72/bone = -1
 bind/72/pose = Transform3D(3.90026e-08, -1.22748e-07, 1, 1, -4.78749e-15, -5.87655e-22, 4.78749e-15, 1, 1.22748e-07, -0.436862, 0.266231, -7.56304)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwesx"]
-atlas = ExtResource("14_q14ng")
+atlas = ExtResource("16_0ysqw")
 region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0s1f3"]
-atlas = ExtResource("14_q14ng")
+atlas = ExtResource("16_0ysqw")
 region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wmgph"]
-atlas = ExtResource("14_q14ng")
+atlas = ExtResource("16_0ysqw")
 region = Rect2(512, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xjhp"]
-atlas = ExtResource("14_q14ng")
+atlas = ExtResource("16_0ysqw")
 region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b8noy"]
-atlas = ExtResource("14_q14ng")
+atlas = ExtResource("16_0ysqw")
 region = Rect2(1024, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r83mg"]
-atlas = ExtResource("14_q14ng")
+atlas = ExtResource("16_0ysqw")
 region = Rect2(1280, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mo5e1"]
@@ -6683,9 +6683,7 @@ size = Vector3(1, 2, 1)
 
 [node name="cosmonaut_animations-FINALBAKE" type="StaticBody3D"]
 collision_layer = 5
-script = ExtResource("1_s76uo")
-open_audio = "res://snd_effects/NPC_talk_audio/Intro_Talk_Sprite_Level_1.wav"
-dialogue_string = "res://Dialogic_timelines/tml_npc_blbd_a.dtl"
+script = ExtResource("1_vgyew")
 
 [node name="game rig" type="Node3D" parent="."]
 transform = Transform3D(-1.00536e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.00536e-08, 0, 0, 0)
@@ -6863,7 +6861,7 @@ bones/24/name = "DEF-forearm.L"
 bones/24/parent = 23
 bones/24/rest = Transform3D(1, 9.03844e-07, -1.38792e-07, -9.06182e-07, 0.99984, -0.0178865, 1.22604e-07, 0.0178865, 0.99984, -5.88596e-07, 0.808559, 1.08406e-06)
 bones/24/enabled = true
-bones/24/position = Vector3(-2.9788e-07, 0.866484, -4.10912e-08)
+bones/24/position = Vector3(-6.5384e-07, 0.872139, 2.50255e-08)
 bones/24/rotation = Quaternion(0.738184, -0.245428, 0.112431, 0.618231)
 bones/24/scale = Vector3(1, 1, 1)
 bones/25/name = "DEF-forearm.L.001"
@@ -7208,14 +7206,14 @@ mesh = SubResource("ArrayMesh_iy138")
 skin = SubResource("Skin_a7r5t")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="game rig/Skeleton3D"]
-transform = Transform3D(0.00305137, 0.12199, 0.992527, -2.33906e-05, 0.992531, -0.121991, -0.999995, 0.000349021, 0.00303143, 0.608677, 8.42373, 0.0308698)
+transform = Transform3D(0.00303952, 0.111892, 0.993716, 1.81794e-05, 0.993721, -0.111892, -0.999995, 0.000358174, 0.00301839, 0.566897, 8.46182, 0.0309084)
 bone_name = "DEF-spine.006"
 bone_idx = 6
 
 [node name="face_sprite" type="AnimatedSprite3D" parent="game rig/Skeleton3D/BoneAttachment3D"]
 transform = Transform3D(0.3, -1.40786e-05, -1.64415e-05, 1.45348e-05, 0.299882, 0.00842524, 1.60396e-05, -0.00842524, 0.299882, 0.003, 1.004, 0.84)
 transparency = 0.92
-sprite_frames = ExtResource("14_8hhxv")
+sprite_frames = ExtResource("14_cd0lc")
 autoplay = "default"
 frame_progress = 0.488559
 
@@ -7223,7 +7221,7 @@ frame_progress = 0.488559
 transform = Transform3D(0.4, -1.87715e-05, -2.1922e-05, 1.93797e-05, 0.399842, 0.0112336, 2.13861e-05, -0.0112336, 0.399842, 0.003, 1.004, 0.84)
 visible = false
 transparency = 0.7
-sprite_frames = ExtResource("15_f82hr")
+sprite_frames = ExtResource("15_3e8m6")
 autoplay = "default"
 frame_progress = 0.480672
 

@@ -69,6 +69,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o674j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o674j")
 }],
 "loop": false,
 "name": &"default",
@@ -178,6 +181,6 @@ grow_vertical = 2
 visible = false
 scale = Vector2(3.22, 3.22)
 sprite_frames = SubResource("SpriteFrames_0islo")
-frame = 9
+frame = 10
 frame_progress = 1.0
-speed_scale = 2.0
+speed_scale = 3.0

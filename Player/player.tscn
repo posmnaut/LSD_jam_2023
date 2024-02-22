@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cqoa7g8s32y4c"]
+[gd_scene load_steps=22 format=3 uid="uid://cqoa7g8s32y4c"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xuua8"]
 [ext_resource type="Texture2D" uid="uid://d2oik12wohmhe" path="res://Textures/d_shadow_1.png" id="2_6b36o"]
@@ -37,10 +37,6 @@ region = Rect2(2980, 0, 596, 336)
 atlas = ExtResource("5_pkua1")
 region = Rect2(3576, 0, 596, 336)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o674j"]
-atlas = ExtResource("5_pkua1")
-region = Rect2(4172, 0, 596, 336)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_8rkq1"]
 animations = [{
 "frames": [{
@@ -66,11 +62,11 @@ animations = [{
 "texture": SubResource("AtlasTexture_gn2d2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o674j")
+"texture": null
 }],
 "loop": false,
 "name": &"default",
-"speed": 6.0
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xeej3"]
@@ -140,6 +136,7 @@ texture = ExtResource("6_08gl2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/Control"]
 scale = Vector2(3.22, 3.22)
 sprite_frames = SubResource("SpriteFrames_8rkq1")
+speed_scale = 3.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 layout_mode = 2
