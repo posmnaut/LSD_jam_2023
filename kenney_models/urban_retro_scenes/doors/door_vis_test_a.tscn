@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg4vhwpiwkg4h"]
+
+[ext_resource type="Texture2D" uid="uid://cykxehvbr0xpo" path="res://kenney_models/urban_retro/wallA_flatWindow_windows.png" id="1_dsipv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oe0l3"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.498039)
+albedo_texture = ExtResource("1_dsipv")
+normal_scale = -8.25
+uv1_scale = Vector3(1.5, 1, 1)
+uv1_offset = Vector3(0.5, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3m423"]
+material = SubResource("StandardMaterial3D_oe0l3")
+size = Vector3(1.5, 3, 0.25)
+
+[node name="DoorVisTestA" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_3m423")

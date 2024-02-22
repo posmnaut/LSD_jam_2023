@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://d4kdq56uthixl"]
+
+[ext_resource type="Script" path="res://Objects/doors/door_swing_a.gd" id="1_ur524"]
+[ext_resource type="PackedScene" uid="uid://cg4vhwpiwkg4h" path="res://kenney_models/urban_retro_scenes/doors/door_vis_test_a.tscn" id="2_y36al"]
+[ext_resource type="Texture2D" uid="uid://v86l6ny7au6u" path="res://kenney_models/urban_retro/detailAwning_small_roof.png" id="3_av2ee"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q1cv7"]
+size = Vector3(3, 4, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5brao"]
+albedo_texture = ExtResource("3_av2ee")
+
+[sub_resource type="BoxMesh" id="BoxMesh_d58tm"]
+material = SubResource("StandardMaterial3D_5brao")
+size = Vector3(0.5, 4.5, 0.5)
+
+[node name="door_swing_a" type="Node3D"]
+script = ExtResource("1_ur524")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, -0.25, 0)
+shape = SubResource("BoxShape3D_q1cv7")
+
+[node name="r_point" type="Node3D" parent="."]
+
+[node name="DoorVisTestA" parent="r_point" instance=ExtResource("2_y36al")]
+transform = Transform3D(1.75, 0, 0, 0, 1.4, 0, 0, 0, 1, 1.26464, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.225, 1.9, 0)
+mesh = SubResource("BoxMesh_d58tm")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-7.54979e-08, 0.7, -1.50996e-07, 1, 5.28485e-08, 8.74228e-08, 8.74228e-08, -1.05697e-07, -1, 1.1, 4.4, 0)
+mesh = SubResource("BoxMesh_d58tm")

@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnsh6ocb6ncrf"]
+
+[ext_resource type="PackedScene" uid="uid://07t2c83p21db" path="res://kenney_models/urban_retro/wallC_flatLow.glb" id="1_6i82i"]
+[ext_resource type="Texture2D" uid="uid://c8dm1qcss2wtn" path="res://kenney_models/urban_retro/wallC_flatLow_bars.png" id="2_3dygx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb38h"]
+resource_name = "bars"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("2_3dygx")
+metallic_specular = 0.0
+roughness = 0.5
+emission_enabled = true
+texture_filter = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lrp15"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, 0, 1.00001, 0.5, 1e-05),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0),
+"name": "bars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_aua66"]
+resource_name = "wallC_flatLow_Mesh wallC_flatLow"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, 0, 1.00001, 0.5, 1e-05),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 218, 246, 255, 255, 255, 255, 255, 127, 218, 246, 255, 127, 255, 255, 255, 127, 218, 246, 255, 255, 255, 255, 255, 255, 218, 246, 255, 127),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0, 6, 0, 4, 0, 5, 0, 7, 0, 5, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_pb38h"),
+"name": "bars",
+"primitive": 3,
+"uv_scale": Vector4(28, 1, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(254, 255, 0, 0, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 255, 127, 254, 255, 255, 255, 0, 0, 255, 127, 0, 0, 255, 255, 0, 0, 255, 127, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lrp15")
+
+[node name="wallC_flatLow" instance=ExtResource("1_6i82i")]
+
+[node name="wallC_flatLow2" parent="tmpParent" index="0"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("ArrayMesh_aua66")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj83usxgv4eg1"]
+
+[ext_resource type="Texture2D" uid="uid://ht08lic62ph7" path="res://kenney_models/urban_retro/roadAsphalt_cornerOuter_tiles.png" id="1_5g10m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kpik"]
+albedo_texture = ExtResource("1_5g10m")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_adom3"]
+material = SubResource("StandardMaterial3D_2kpik")
+orientation = 1
+
+[node name="TiledFloorTestA" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_adom3")

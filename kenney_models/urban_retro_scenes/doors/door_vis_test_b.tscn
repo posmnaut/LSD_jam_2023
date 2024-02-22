@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfhf1vv4auhce"]
+
+[ext_resource type="Texture2D" uid="uid://ctf5qwsqmblx5" path="res://kenney_models/urban_retro/door_typeA_doors.png" id="1_60faq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsf1k"]
+albedo_texture = ExtResource("1_60faq")
+uv1_scale = Vector3(1.5, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3ahub"]
+material = SubResource("StandardMaterial3D_hsf1k")
+size = Vector3(1.5, 3, 0.25)
+
+[node name="DoorVisTestA" type="Node3D"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_3ahub")

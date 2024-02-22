@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cy0baknwmyu22"]
 
-[ext_resource type="Script" path="res://Objects/door_swing_a.gd" id="1_hu0g7"]
+[ext_resource type="Script" path="res://Objects/doors/door_swing_a.gd" id="1_hu0g7"]
 [ext_resource type="PackedScene" uid="uid://d1nau01usoyac" path="res://kenney_models/urban_retro_scenes/door_type_a_b.tscn" id="2_udggm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q1cv7"]
