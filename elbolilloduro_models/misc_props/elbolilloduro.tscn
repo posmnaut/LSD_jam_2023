@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp7lrlq14kr31"]
+
+[ext_resource type="PackedScene" uid="uid://dbbe0hxkq2qrk" path="res://elbolilloduro_models/misc_props/elbolilloduro.glb" id="1_gdkrc"]
+
+[node name="elbolilloduro" instance=ExtResource("1_gdkrc")]
+
+[node name="Librero_042" parent="." index="227"]
+transform = Transform3D(-1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, -36.2812, -1.6542, -17.5683)

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://488jxiqdxc1c"]
+
+[ext_resource type="PackedScene" uid="uid://buxfl5bh3bpcd" path="res://elbolilloduro_models/gas_station/elbolilloduro_gas_station_props.glb" id="1_llvr4"]
+
+[node name="elbolilloduro_gas_station_props" instance=ExtResource("1_llvr4")]
