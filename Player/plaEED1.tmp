@@ -199,9 +199,8 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Look_Cast_cash" type="RayCast3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0455912, 0)
-target_position = Vector3(0, 0, -1.995)
-collision_mask = 256
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39818, 0)
+target_position = Vector3(0, 0, -2.08)
 
 [node name="D_Shad_Check" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

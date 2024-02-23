@@ -25,9 +25,11 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"character_construction": "res://Dialogic_timelines/character_construction.dch",
 "character_test_a": "res://Dialogic_timelines/character_test_a.dch"
 }
 directories/dtl_directory={
+"construction_npc": "res://Dialogic_timelines/construction_npc.dtl",
 "timeline_null_reset": "res://Dialogic_timelines/timeline_null_reset.dtl",
 "timeline_test_a": "res://Dialogic_timelines/timeline_test_a.dtl",
 "tml_bldg_radio_a": "res://Dialogic_timelines/tml_bldg_radio_a.dtl",
@@ -36,8 +38,8 @@ directories/dtl_directory={
 "tml_npc_c": "res://Dialogic_timelines/tml_npc_c.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://NPCs/sprite_portraits/construction_npc_style.tres"]
+layout/default_style="res://NPCs/sprite_portraits/construction_npc_style.tres"
 variables={
 "Var": 0,
 "npc_blbd_a": 0,
@@ -60,6 +62,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+portraits/default_portrait=""
 
 [display]
 

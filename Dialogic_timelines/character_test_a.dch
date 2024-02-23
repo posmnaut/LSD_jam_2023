@@ -43,7 +43,7 @@
 "mirror": false,
 "offset": Vector2(0, -128),
 "scale": 0.5,
-"scene": "res://NPC_talk_scenes/npc_talk_scene_test_1.tscn",
+"scene": "npc_talk_scene_test_1.tscn",
 "sound_mood": "Mood 1"
 },
 "anim_test_b": {

@@ -1,3 +1,4 @@
+[sound path="res://snd_effects/NPC_talk_audio/Intro_Talk_Sprite_Level_1.wav" volume="0.0"]
 if {npc_blbd_a} == 0:
 	"... well, it beats re-electing Holden Bloodfeast again..."
 	set {npc_blbd_a} = 0

@@ -1,0 +1,5 @@
+[update_position time="0.0"]
+join character_construction 1
+[sound path="res://snd_effects/NPC_talk_audio/Intro_Talk_Sprite_Level_1.wav" volume="0.0"]
+"That's odd, construction was supposed to resume today..."
+[end_timeline]
