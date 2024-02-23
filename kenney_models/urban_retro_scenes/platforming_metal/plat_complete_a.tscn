@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://rr4lmwmts448"]
+
+[ext_resource type="PackedScene" uid="uid://clwcvy5hqcx7" path="res://kenney_models/urban_retro_scenes/platforming_metal/plat_metal_support.tscn" id="1_ccch3"]
+[ext_resource type="PackedScene" uid="uid://ca8y2coqtiy68" path="res://kenney_models/urban_retro_scenes/platforming_metal/plat_metal_top.tscn" id="2_k4pcy"]
+
+[node name="PlatCompleteA" type="Node3D"]
+
+[node name="PlatMetalSupport" parent="." instance=ExtResource("1_ccch3")]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 4, 0)
+
+[node name="PlatMetalTop" parent="." instance=ExtResource("2_k4pcy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
