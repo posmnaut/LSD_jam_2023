@@ -1,4 +1,4 @@
-[gd_scene load_steps=305 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=309 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://di30l1mqu1hct" path="res://kenney_models/urban_retro_scenes/billboard_template/billboard_temp_b_lit.tscn" id="19_aykif"]
 [ext_resource type="Texture2D" uid="uid://cceb3ktykdya3" path="res://Textures/billboards/maxresdefault (2).png" id="19_htbgt"]
 [ext_resource type="Script" path="res://Models/fish/fish_v_1.gd" id="19_plvh7"]
+[ext_resource type="PackedScene" uid="uid://dhun2ff71nicv" path="res://elbolilloduro_models/scenes/sandbags_a_ELBLDO.tscn" id="19_u8xbo"]
 [ext_resource type="Texture2D" uid="uid://cfwlcsxvlwpse" path="res://Textures/posters_graffitti/cool_poster.png" id="20_jgvec"]
 [ext_resource type="PackedScene" uid="uid://rr4lmwmts448" path="res://kenney_models/urban_retro_scenes/platforming_metal/plat_complete_a.tscn" id="21_goo3m"]
 [ext_resource type="PackedScene" uid="uid://bhgosh3etfmqn" path="res://props/shipping_container_coldones/ship_container_type_a_coldones.tscn" id="22_i2x0a"]
@@ -50,6 +51,7 @@
 [ext_resource type="PackedScene" uid="uid://car2ua1o2mjsu" path="res://props/shipping_container_coldones/ship_container_type_e_coldones.tscn" id="29_yrsau"]
 [ext_resource type="PackedScene" uid="uid://cw4hk8q57c283" path="res://kenney_models/urban_retro_scenes/wall_a/wall_c_flat_low.tscn" id="30_3swny"]
 [ext_resource type="PackedScene" uid="uid://deyk3drreyw8x" path="res://props/shipping_container_coldones/shipping_props_full_v_b.tscn" id="30_e3jx2"]
+[ext_resource type="PackedScene" uid="uid://dunjd0a0lqskt" path="res://elbolilloduro_models/scenes/dumpster_a_ELBLDLO.tscn" id="30_jblbi"]
 [ext_resource type="PackedScene" uid="uid://dojtahuof8uom" path="res://kenney_models/urban_retro_scenes/roads/road_asphalt_corner_outer.tscn" id="31_6uelx"]
 [ext_resource type="PackedScene" uid="uid://c3dvuoiqgmnks" path="res://kenney_models/urban_retro_scenes/roads/road_asphalt_straight.tscn" id="31_eqrta"]
 [ext_resource type="PackedScene" uid="uid://kxo71hp1h18l" path="res://kenney_models/urban_retro_scenes/roads/road_asphalt_straight_long.tscn" id="32_471gi"]
@@ -59,6 +61,7 @@
 [ext_resource type="PackedScene" uid="uid://cb5q52oie5m6y" path="res://kenney_models/urban_retro_scenes/roads/road_asphalt_center.tscn" id="34_p1wv6"]
 [ext_resource type="PackedScene" uid="uid://exuebpxkmvnh" path="res://kenney_models/urban_retro_scenes/roads/road_asphalt_corner_inner.tscn" id="34_r2g8c"]
 [ext_resource type="PackedScene" uid="uid://106jc1y0so2s" path="res://kenney_models/urban_retro_scenes/awning/detail_awning_wide.tscn" id="35_26idt"]
+[ext_resource type="PackedScene" uid="uid://dk3bsd740bses" path="res://Models/coldones/stacked_screens_a_coldones.tscn" id="35_bqgrv"]
 [ext_resource type="Shader" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="35_iuuh8"]
 [ext_resource type="Texture2D" uid="uid://c4ggdp0kg5wjk" path="res://addons/simplegrasstextured/textures/grassbushcc008.png" id="36_0sfkp"]
 [ext_resource type="PackedScene" uid="uid://x5thaxlpj4sq" path="res://kenney_models/urban_retro_scenes/detail/detail_beam.tscn" id="36_3ga3j"]
@@ -82,6 +85,7 @@
 [ext_resource type="Texture2D" uid="uid://cabxd2rn3opyf" path="res://elbolilloduro_models/gas_station/elbolilloduro_gas_station_props_Light.jpg" id="55_8v6jy"]
 [ext_resource type="Texture2D" uid="uid://dob01emhj3w7f" path="res://kenney_models/urban_retro/detailBeam_roof.png" id="57_to48r"]
 [ext_resource type="Texture2D" uid="uid://cyeafrrcfdn3x" path="res://kenney_models/urban_retro/detailBeam_metal.png" id="58_egmap"]
+[ext_resource type="PackedScene" uid="uid://b7q28nbmymvwb" path="res://Models/3denemy/apt_tree/apartments_tree.tscn" id="59_cdqba"]
 [ext_resource type="Texture2D" uid="uid://bf8vlb5adwon0" path="res://kenney_models/urban_retro/balcony_typeA_bars.png" id="59_ir30q"]
 [ext_resource type="Texture2D" uid="uid://bccgelqspubns" path="res://Models/srt_light/detailLight_single_metal.png" id="60_ul8qe"]
 [ext_resource type="Texture2D" uid="uid://dy6a78n87fs8u" path="res://Industrial_Models/Industrial_exterior_v2_Building_3.png" id="78_t762m"]
@@ -2253,7 +2257,7 @@ specular_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 1, 1, 0.00392157)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f21rp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1enxk"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -2288,7 +2292,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_f21rp"),
+"material": SubResource("ShaderMaterial_1enxk"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -2474,13 +2478,10 @@ transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 124, 0, -8
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 131, 0, -99)
 
 [node name="ShipContainerTypeBColdones" parent="bridging_terrain" instance=ExtResource("25_ibmxf")]
-transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 127, 6.5, -95)
+transform = Transform3D(-0.859564, -0.0812527, -0.504528, -0.0941083, 0.995562, 3.23591e-09, 0.502289, 0.0474802, -0.863396, 126.061, 7.06019, -92.6795)
 
-[node name="Block" parent="bridging_terrain" instance=ExtResource("3_i1kup")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 120, 1, -103)
-
-[node name="Block2" parent="bridging_terrain" instance=ExtResource("3_i1kup")]
-transform = Transform3D(3, 0, 0, 0, 4, 0, 0, 0, 3, 128, 7, -102)
+[node name="SandbagsAElbldo" parent="bridging_terrain" instance=ExtResource("19_u8xbo")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 122.595, 2, -100.936)
 
 [node name="Block3" parent="bridging_terrain" instance=ExtResource("3_i1kup")]
 transform = Transform3D(2.12132, 0, 8.48528, 0, 1, 0, -2.12132, 0, 8.48528, 133, 12, -108)
@@ -2631,26 +2632,23 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 [node name="ShipContainerTypeEColdones" parent="bridging_district_a" instance=ExtResource("29_yrsau")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, 0, 75)
 
-[node name="Block" parent="bridging_district_a" instance=ExtResource("3_i1kup")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 57, 1, 52)
+[node name="DumpsterAElbldlo" parent="bridging_district_a" instance=ExtResource("30_jblbi")]
+transform = Transform3D(1.44889, 0, -0.388229, 0, 1.5, 0, 0.388229, 0, 1.44889, 57, 2.4, 52)
 
-[node name="Block2" parent="bridging_district_a" instance=ExtResource("3_i1kup")]
-transform = Transform3D(3, 0, 0, 0, 4, 0, 0, 0, 3, 65, 7, 53)
+[node name="WoodCrate3Denemy" parent="bridging_district_a" instance=ExtResource("28_ygdo5")]
+transform = Transform3D(1.03923, 0, -0.6, 0, 1.2, 0, 0.6, 0, 1.03923, 64, 8.6, 53)
 
 [node name="bridging_district_b" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
 
+[node name="WoodCrate3Denemy" parent="bridging_district_b" instance=ExtResource("28_ygdo5")]
+transform = Transform3D(1.25025, 0, -0.828779, 0, 1.5, 0, 0.828779, 0, 1.25025, -39.3105, 2.3245, 46.9599)
+
 [node name="ladder_type_a" parent="bridging_district_b" instance=ExtResource("18_y2qa4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 17.5, 57)
 
-[node name="Block2" parent="bridging_district_b" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-2.82843, 0, 2.82843, 0, 4, 0, -2.82843, 0, -2.82843, -39.18, 1, 47.8522)
-
 [node name="Block7" parent="bridging_district_b" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-1.03528, 0, 3.8637, 0, 1, 0, -3.8637, 0, -1.03528, -40.18, 13.5, 14.852)
-
-[node name="Block3" parent="bridging_district_b" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-2.12132, 0, 2.12132, 0, 4, 0, -2.12132, 0, -2.12132, -44.1297, 7, 41.4883)
 
 [node name="walk_way_type_a" parent="bridging_district_b" instance=ExtResource("3_i1kup")]
 transform = Transform3D(-6.18172e-08, 0.422618, -30.8145, 6.18172e-08, 0.906308, 14.369, 2, -1.49502e-08, -1.39656e-06, -15, 17, 54)
@@ -2980,10 +2978,13 @@ transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -43, 0, 38)
 
 [node name="ShipContainerTypeBColdones" parent="bridging_district_b" instance=ExtResource("25_ibmxf")]
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -38, 7, 16)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -38, 6.34882, 16)
 
 [node name="ShipContainerTypeBColdones2" parent="bridging_district_b" instance=ExtResource("25_ibmxf")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -39, 7.6, 35)
+
+[node name="StackedScreensAColdones" parent="bridging_district_b" instance=ExtResource("35_bqgrv")]
+transform = Transform3D(-1.09278e-07, 0, -2.5, 0, 2.5, 0, 2.5, 0, -1.09278e-07, -43, 7.9238, 41)
 
 [node name="bridging_district_c" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
@@ -5190,72 +5191,6 @@ transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
 [node name="roof2" parent="building_abs_apt/center_stalk/apt_temp3" instance=ExtResource("3_i1kup")]
 transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 2, -3)
 
-[node name="stalk_a" type="Node3D" parent="building_abs_apt/center_stalk"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
-
-[node name="Block" parent="building_abs_apt/center_stalk/stalk_a" instance=ExtResource("3_i1kup")]
-transform = Transform3D(4.98097, 1.30734, 0, -0.42093, 14.4338, -1.2941, -0.112788, 3.86751, 4.82963, 36, 7, -37)
-
-[node name="Block2" parent="building_abs_apt/center_stalk/stalk_a" instance=ExtResource("3_i1kup")]
-transform = Transform3D(3.93923, -1.73648, 0, 0.670925, 9.51251, 1.03528, -0.179774, -2.54887, 3.8637, 36, 17, -36)
-
-[node name="Block3" parent="building_abs_apt/center_stalk/stalk_a" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1.96962, 1.04189, 0, -0.34202, 5.81908, 0.347296, 0.0603074, -1.02606, 1.96962, 36, 23, -38)
-
-[node name="Block4" parent="building_abs_apt/center_stalk/stalk_a" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 4.78152, -0.292372, 0, 1.46186, 0.956305, 36, 27, -38)
-
-[node name="stalk_a2" type="Node3D" parent="building_abs_apt/center_stalk"]
-transform = Transform3D(0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 0, 1, 12, 10, 3)
-
-[node name="Block" parent="building_abs_apt/center_stalk/stalk_a2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(4.98098, 1.30734, -5.96046e-08, -0.420931, 14.4338, -1.2941, -0.112788, 3.86751, 4.82963, 37.6237, 5.46263, -37)
-
-[node name="Block2" parent="building_abs_apt/center_stalk/stalk_a2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(2.55065, 7.36985, 0.896576, -3.07602, 6.2601, 0.517638, -0.179774, -2.54887, 3.8637, 41.4689, 13.6696, -37)
-
-[node name="Block3" parent="building_abs_apt/center_stalk/stalk_a2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1.34181, 5.65235, 0, -3.76823, 2.01271, 0, 0, 0, 4, 46.9378, 16.3393, -38)
-
-[node name="Block4" parent="building_abs_apt/center_stalk/stalk_a2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-1.03098, -4.69547, 0, 2.81728, -1.7183, 0, 0, 0, 3, 51.125, 17, -38)
-
-[node name="stalk_a3" type="Node3D" parent="building_abs_apt/center_stalk"]
-transform = Transform3D(0.212012, -0.148453, 0.965926, 0.573576, 0.819152, 0, -0.79124, 0.554032, 0.258819, 66, -20, -5)
-
-[node name="Block" parent="building_abs_apt/center_stalk/stalk_a3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(3.98478, 0.871557, -1.49012e-07, -0.336744, 9.6225, -1.03528, -0.0902303, 2.57834, 3.8637, 35.4264, 4.18085, -37)
-
-[node name="Block2" parent="building_abs_apt/center_stalk/stalk_a3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(2.95442, -1.38919, 1.10061e-08, 0.503194, 7.61001, 0.776457, -0.13483, -2.0391, 2.89778, 36, 12, -37)
-
-[node name="Block3" parent="building_abs_apt/center_stalk/stalk_a3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1.96962, 0.694593, -3.6687e-09, -0.34202, 3.87938, 0.347296, 0.0603074, -0.68404, 1.96962, 36, 17, -38)
-
-[node name="Block4" parent="building_abs_apt/center_stalk/stalk_a3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(0.872047, 2.43775, -0.0427513, -0.48718, 4.28192, -0.171062, -0.0467898, 0.85001, 0.984333, 36.7912, 19.446, -37.2589)
-
-[node name="stalk_a4" type="Node3D" parent="building_abs_apt/center_stalk"]
-transform = Transform3D(-0.709406, 0.496732, 0.5, 0.573576, 0.819152, 2.98202e-08, -0.409576, 0.286788, -0.866025, 76, -20, -46)
-
-[node name="Block" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(3.98478, 0.871557, 2.38419e-07, -0.336744, 9.6225, -1.03528, -0.0902302, 2.57834, 3.8637, 35.4264, 4.18084, -37)
-
-[node name="Block2" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(2.95442, -1.38919, 1.10061e-08, 0.503194, 7.61001, 0.776457, -0.13483, -2.0391, 2.89778, 36, 12, -37)
-
-[node name="Block3" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1.42233, -2.68324, -0.420739, 1.14758, 2.90696, -0.755291, 0.812426, 0.591442, 1.80347, 34.0076, 17.1743, -37)
-
-[node name="Block5" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1.42233, -2.68324, -0.420739, 1.14758, 2.90696, -0.755291, 0.812426, 0.591442, 1.80347, 34.0076, 17.1743, -37)
-
-[node name="Block4" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(0.736031, 3.38462, 0.00576362, -0.675463, 3.67477, -0.0599442, -0.0448133, 0.20114, 0.998185, 35.5082, 19.1235, -36.7589)
-
-[node name="Block6" parent="building_abs_apt/center_stalk/stalk_a4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(0.784737, -3.03265, 0.127713, 0.524895, 2.7035, -0.657364, 0.329656, 2.91447, 0.742672, 32.2328, 18.9754, -35.2589)
-
 [node name="Block" parent="building_abs_apt/center_stalk" instance=ExtResource("3_i1kup")]
 transform = Transform3D(2, 0, 0, 0, 0.965926, 2.19996, 0, -0.258819, 8.21037, 41, 8, -48)
 
@@ -5282,6 +5217,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 19.5, -22)
 
 [node name="ladder_type_a3" parent="building_abs_apt/center_stalk" instance=ExtResource("18_y2qa4")]
 transform = Transform3D(1, 0, 0, 0, 0.75, 0, 0, 0, 1, 35, 25, -27)
+
+[node name="center_tree_mesh" type="Node3D" parent="building_abs_apt"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="apartments_tree" parent="building_abs_apt/center_tree_mesh" instance=ExtResource("59_cdqba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -23.5)
 
 [node name="building_d" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.2535, 12.0966, 105.226)
