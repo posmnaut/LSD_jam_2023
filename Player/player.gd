@@ -258,7 +258,7 @@ func _on_dialogic_signal(argument:String):
 	if argument == "dialogue_exhausted":
 		var NPC_check = Look_Cast.get_collider();
 		if NPC_check != null :
-			if is_instance_of(NPC_check,talkable_NPC) || is_instance_of(NPC_check,billboard_talkable_NPC):
+			if is_instance_of(NPC_check,talkable_NPC) || is_instance_of(NPC_check,billboard_talkable_NPC) || is_instance_of(NPC_check,construction_talkable_NPC):
 				NPC_check.is_sleep = true;
 
 func _input(event):
@@ -280,7 +280,7 @@ func _input(event):
 			var NPC_check = Look_Cast.get_collider();
 			var click_check = look_cast_door.get_collider();
 			if NPC_check != null :
-				if is_instance_of(NPC_check, talkable_NPC) || is_instance_of(NPC_check, billboard_talkable_NPC) :
+				if is_instance_of(NPC_check,talkable_NPC) || is_instance_of(NPC_check,billboard_talkable_NPC) || is_instance_of(NPC_check,construction_talkable_NPC):
 					var dialogue_string = NPC_check.dialogue_string
 					var op_audio = NPC_check.open_audio;
 					var talk_timer = NPC_check.talk_timer;

@@ -9,9 +9,11 @@ audio = "res://music/LSD_Project.mp3"
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91443, 0)
+volume_db = -5.0
 unit_size = 1.0
+max_db = 0.0
 autoplay = true
-max_distance = 30.0
+max_distance = 70.0
 bus = &"Music"
 doppler_tracking = 2
 
