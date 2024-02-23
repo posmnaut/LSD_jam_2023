@@ -1,5 +1,4 @@
-[gd_scene load_steps=275 format=3 uid="uid://dvajvt4h05xqg"]
-
+[gd_scene load_steps=297 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -36,13 +35,13 @@
 [ext_resource type="PackedScene" uid="uid://rr4lmwmts448" path="res://kenney_models/urban_retro_scenes/platforming_metal/plat_complete_a.tscn" id="21_goo3m"]
 [ext_resource type="PackedScene" uid="uid://bhgosh3etfmqn" path="res://props/shipping_container_coldones/ship_container_type_a_coldones.tscn" id="22_i2x0a"]
 [ext_resource type="PackedScene" uid="uid://2s754y1i4816" path="res://kenney_models/urban_retro_scenes/billboard_template/billboard_temp_a.tscn" id="22_kp6yd"]
+[ext_resource type="Texture2D" uid="uid://1cbfvpvxqjus" path="res://Industrial_Models/Industrial_exterior_v2_Concrete.png" id="22_m3y3o"]
+[ext_resource type="Texture2D" uid="uid://jsaalomx0gl3" path="res://Industrial_Models/Industrial_exterior_v2_Cargo_1.png" id="23_13jgt"]
 [ext_resource type="PackedScene" uid="uid://kgj8pha6vuij" path="res://props/shipping_container_coldones/ship_container_type_c_coldones.tscn" id="23_qcmvf"]
+[ext_resource type="Texture2D" uid="uid://b3krcbrwqfl3r" path="res://Industrial_Models/Industrial_exterior_v2_Cargo_2.png" id="24_lk440"]
 [ext_resource type="PackedScene" uid="uid://ct8f0s2qx1kcg" path="res://props/shipping_container_coldones/ship_container_type_d_coldones.tscn" id="24_q7c7i"]
 [ext_resource type="PackedScene" uid="uid://c4q4wf32b433e" path="res://props/shipping_container_coldones/ship_container_type_b_coldones.tscn" id="25_ibmxf"]
 [ext_resource type="Texture2D" uid="uid://bdlvlioketk2s" path="res://kenney_models/urban_retro/scaffolding_poles_metal.png" id="27_0e8mh"]
-[ext_resource type="Texture2D" uid="uid://1cbfvpvxqjus" path="res://Industrial_Models/Industrial_exterior_v2_Concrete.png" id="22_m3y3o"]
-[ext_resource type="Texture2D" uid="uid://jsaalomx0gl3" path="res://Industrial_Models/Industrial_exterior_v2_Cargo_1.png" id="23_13jgt"]
-[ext_resource type="Texture2D" uid="uid://b3krcbrwqfl3r" path="res://Industrial_Models/Industrial_exterior_v2_Cargo_2.png" id="24_lk440"]
 [ext_resource type="PackedScene" uid="uid://dbuloer42rosn" path="res://Objects/Block_hidn.tscn" id="27_bqnf6"]
 [ext_resource type="PackedScene" uid="uid://cg56ym3ojtfdg" path="res://kenney_models/urban_retro_scenes/wall_a/wall_a_corner.tscn" id="28_b8u2e"]
 [ext_resource type="PackedScene" uid="uid://dtslancfnl3im" path="res://Models/3denemy/parking_garage_a.tscn" id="28_hwtak"]
@@ -2142,8 +2141,7 @@ specular_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 1, 1, 0.00392157)
 
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_eq7xq"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5hjq"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -2178,7 +2176,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_eq7xq"),
+"material": SubResource("ShaderMaterial_e5hjq"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -2506,7 +2504,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
 
 [node name="ladder_type_a" parent="bridging_district_b" instance=ExtResource("18_y2qa4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41, 17.5, 57)
-
 
 [node name="long_block_sc_a" parent="bridging_district_b" instance=ExtResource("3_i1kup")]
 transform = Transform3D(0, 0, 6, 0, 6, 0, -16, 0, 0, -44.1297, 3, 38.6598)
