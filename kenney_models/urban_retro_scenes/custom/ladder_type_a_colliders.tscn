@@ -77,6 +77,8 @@ mesh = SubResource("BoxMesh_ennv6")
 
 [node name="Block" parent="." instance=ExtResource("3_0rnel")]
 transform = Transform3D(1, 0, 0, 0, 4.25, 0, 0, 0, 0.5, 0, 2.9, -0.35)
+visible = false
 
 [node name="ladder_type_a" parent="." instance=ExtResource("4_n33gj")]
 transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 1.15, 0.4)
+visible = false

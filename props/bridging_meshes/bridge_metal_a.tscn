@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbs13711jmuoo"]
+
+[ext_resource type="Texture2D" uid="uid://1cbfvpvxqjus" path="res://Industrial_Models/Industrial_exterior_v2_Concrete.png" id="1_j0133"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nhb5l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b0tfy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gkuf"]
+albedo_texture = ExtResource("1_j0133")
+uv1_scale = Vector3(10, 1, 1)
+
+[node name="BridgeMetalA" type="Node3D"]
+
+[node name="Block3" type="StaticBody3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+disable_mode = 1
+metadata/is_wallrunable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Block3"]
+shape = SubResource("BoxShape3D_nhb5l")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Block3"]
+transform = Transform3D(1, 0, 1.11022e-16, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_b0tfy")
+surface_material_override/0 = SubResource("StandardMaterial3D_2gkuf")
