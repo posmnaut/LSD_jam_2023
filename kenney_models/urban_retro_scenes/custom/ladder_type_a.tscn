@@ -14,7 +14,7 @@ roughness = 0.5
 emission_enabled = true
 texture_filter = 1
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_i21hs"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_3c7j6"]
 _surfaces = [{
 "aabb": AABB(-0.5, 0, 0, 1.00001, 1, 1e-05),
 "format": 34896613377,
@@ -44,14 +44,14 @@ _surfaces = [{
 "vertex_data": PackedByteArray(254, 255, 0, 0, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 255, 127, 254, 255, 255, 255, 0, 0, 255, 127, 0, 0, 255, 255, 0, 0, 255, 127, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_i21hs")
+shadow_mesh = SubResource("ArrayMesh_3c7j6")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lplyw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pomvm"]
 albedo_color = Color(0.733333, 0.733333, 0.733333, 1)
 albedo_texture = ExtResource("2_60gxe")
 
 [sub_resource type="BoxMesh" id="BoxMesh_j2h2b"]
-material = SubResource("StandardMaterial3D_lplyw")
+material = SubResource("StandardMaterial3D_pomvm")
 
 [node name="LadderTypeA" type="Node3D"]
 

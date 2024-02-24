@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://c72usqwxqtw4u"]
+
+[ext_resource type="Texture2D" uid="uid://bkolqtkmrxd3t" path="res://kenney_models/urban_retro/wallC_flat_bars.png" id="1_jrr8r"]
+[ext_resource type="Texture2D" uid="uid://dyan5xfbuxxey" path="res://kenney_models/urban_retro/detailBarrier_typeB_metal.png" id="2_xh5lp"]
+[ext_resource type="PackedScene" uid="uid://rwrbsssaksbh" path="res://Objects/Block.tscn" id="3_0rnel"]
+[ext_resource type="PackedScene" uid="uid://by5kw50jmtucl" path="res://Objects/ladder_type_a.tscn" id="4_n33gj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0uyko"]
+resource_name = "bars"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_jrr8r")
+metallic_specular = 0.0
+roughness = 0.5
+emission_enabled = true
+texture_filter = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_i21hs"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, 0, 1.00001, 1, 1e-05),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0, 0, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0),
+"name": "bars",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gsf6o"]
+resource_name = "wallC_flat_Mesh wallC_flat"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, 0, 1.00001, 1, 1e-05),
+"attribute_data": PackedByteArray(255, 255, 255, 255, 218, 246, 255, 255, 255, 255, 255, 127, 218, 246, 255, 127, 255, 255, 255, 127, 218, 246, 255, 255, 255, 255, 255, 255, 218, 246, 255, 127),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray(2, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0, 6, 0, 4, 0, 5, 0, 7, 0, 5, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_0uyko"),
+"name": "bars",
+"primitive": 3,
+"uv_scale": Vector4(28, 2, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(254, 255, 0, 0, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 255, 127, 254, 255, 255, 255, 0, 0, 255, 127, 0, 0, 255, 255, 0, 0, 255, 127, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_i21hs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lplyw"]
+albedo_color = Color(0.733333, 0.733333, 0.733333, 1)
+albedo_texture = ExtResource("2_xh5lp")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ennv6"]
+material = SubResource("StandardMaterial3D_lplyw")
+
+[node name="LadderTypeAcolliders" type="Node3D"]
+
+[node name="wallC_flat4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.74228e-08, 1.333, 0, -2, -5.82673e-08, 0, 0, 0, 2, -0.65, 2, 0)
+mesh = SubResource("ArrayMesh_gsf6o")
+skeleton = NodePath("")
+
+[node name="wallC_flat5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.74228e-08, 1.333, 0, -2, -5.82673e-08, 0, 0, 0, 2, -0.65, 4, 0)
+mesh = SubResource("ArrayMesh_gsf6o")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 4.5, 0, 0, 0, 0.25, 0.57, 3, 0)
+mesh = SubResource("BoxMesh_ennv6")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.25, 0, 0, 0, 4.5, 0, 0, 0, 0.25, -0.53, 3, 0)
+mesh = SubResource("BoxMesh_ennv6")
+
+[node name="Block" parent="." instance=ExtResource("3_0rnel")]
+transform = Transform3D(1, 0, 0, 0, 4.25, 0, 0, 0, 0.5, 0, 2.9, -0.35)
+
+[node name="ladder_type_a" parent="." instance=ExtResource("4_n33gj")]
+transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 1.15, 0.4)
