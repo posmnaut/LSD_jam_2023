@@ -506,7 +506,7 @@ func _physics_process(delta):
 		else:
 			wallTouched = true
 			collisionInst = get_slide_collision(0).get_collider_id()
-			consecWallJumps += 1
+			consecWallJumps = 1
 			#NOTE: I re-assign the `jump_token` variable to `1` instead of doing `jump_token += 1` because it ->
 			#-> prevents the double jump AND the wall jump from being used (prevents the three jump up a single ->
 			#-> wall, allowing players to get to places they shouldn't). Another way to put it is, you either ->

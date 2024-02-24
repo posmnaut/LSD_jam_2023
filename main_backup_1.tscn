@@ -2251,7 +2251,7 @@ specular_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 1, 1, 0.00392157)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qi442"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ja224"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -2286,7 +2286,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_qi442"),
+"material": SubResource("ShaderMaterial_ja224"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -2926,13 +2926,13 @@ transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 4, 0)
 transform = Transform3D(-0.883883, 0, 0.883883, 0, 1.25, 0, -0.883883, 0, -0.883883, -70, 0, 89)
 
 [node name="PlatCompleteA" parent="bridging_district_b" instance=ExtResource("21_goo3m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 5, 77)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 3.80542, 77)
 
 [node name="PlatCompleteA2" parent="bridging_district_b" instance=ExtResource("21_goo3m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 5, 77)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 4.18717, 77)
 
 [node name="PlatCompleteA3" parent="bridging_district_b" instance=ExtResource("21_goo3m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 5, 65)
+transform = Transform3D(1, 0, 0, 0, 1.28, 0, 0, 0, 1, -60, 2.57672, 65)
 
 [node name="PlatCompleteA5" type="Node3D" parent="bridging_district_b"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 4, 57)
