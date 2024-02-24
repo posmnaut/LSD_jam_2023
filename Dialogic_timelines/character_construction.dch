@@ -1,0 +1,30 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+"default_portrait": "anim_talk",
+"description": "",
+"display_name": "character_construction",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"anim_talk": {
+"export_overrides": {
+"image": ""
+},
+"ignore_char_scale": false,
+"mirror": false,
+"offset": Vector2(35, 50),
+"scale": 0.3,
+"scene": "res://NPC_talk_scenes/npc_talk_scene_construction.tscn"
+}
+},
+"scale": 1.0
+}

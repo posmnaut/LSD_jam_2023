@@ -1,5 +1,6 @@
-join character_billboard 1 [animation="Slide In Up" length="5"]
+[update_position time="0.0"]
+join character_construction 1
 [sound path="res://snd_effects/NPC_talk_audio/Intro_Talk_Sprite_Level_1.wav" volume="0.0"]
-"... well, it beats re-electing Holden Bloodfeast again..."
+"That's odd, construction was supposed to resume today..."
 [signal arg="dialogue_exhausted"]
 [end_timeline]

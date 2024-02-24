@@ -8,6 +8,8 @@ var mouse_relative_y = 0
 var jump_token = 2;
 var consecWallJumps = 0;
 
+signal cash_fire
+
 @onready var ray_upper = $Head/Upper_Check
 @onready var ray_lower = $Head/Lower_Check
 @onready var ray_shadow = $D_Shad_Check
@@ -17,6 +19,7 @@ var consecWallJumps = 0;
 @onready var stp_audio_player = $footsteps_1
 @onready var Look_Cast = $Head/Look_Cast_NPC
 @onready var look_cast_door = $Head/Look_Cast_door
+@onready var look_cast_cash = $Head/Look_Cast_cash
 @onready var hud_RTL = $UI/RichTextLabel;
 @onready var blink_anim = $UI/Control/AnimatedSprite2D as AnimatedSprite2D
 @onready var audio_s_player = $AudioStreamPlayer
@@ -188,8 +191,9 @@ func _process(delta):
 	if !in_dialogue && !fog_fade:
 		var NPC_check = Look_Cast.get_collider();
 		var door_check = look_cast_door.get_collider();
-		if NPC_check != null || door_check != null:
-			if NPC_check != null :
+		var cash_check = look_cast_cash.get_collider();
+		if NPC_check != null || door_check != null || cash_check != null:
+			if NPC_check != null:
 				if NPC_check.fully_asleep || NPC_check.is_sleep :
 					interact_sprite.visible = false
 				else:
@@ -279,6 +283,7 @@ func _input(event):
 		if !fog_fade :		
 			var NPC_check = Look_Cast.get_collider();
 			var click_check = look_cast_door.get_collider();
+			var cash_check = look_cast_cash.get_collider();
 			if NPC_check != null :
 				if is_instance_of(NPC_check,talkable_NPC) || is_instance_of(NPC_check,billboard_talkable_NPC) || is_instance_of(NPC_check,construction_talkable_NPC):
 					var dialogue_string = NPC_check.dialogue_string
@@ -298,6 +303,9 @@ func _input(event):
 										audio_s_player.volume_db = -10.0
 										audio_s_player.play();
 										NPC_check.talk_timer = true
+			elif(is_instance_of(cash_check, cash_body)):
+					cash_fire.emit()
+			#elif(cash_check != null)
 			
 			if click_check !=null :
 				teleport_point = click_check.get_parent().target_point;
@@ -498,7 +506,7 @@ func _physics_process(delta):
 		else:
 			wallTouched = true
 			collisionInst = get_slide_collision(0).get_collider_id()
-			consecWallJumps += 1
+			consecWallJumps = 1
 			#NOTE: I re-assign the `jump_token` variable to `1` instead of doing `jump_token += 1` because it ->
 			#-> prevents the double jump AND the wall jump from being used (prevents the three jump up a single ->
 			#-> wall, allowing players to get to places they shouldn't). Another way to put it is, you either ->
