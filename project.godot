@@ -34,6 +34,7 @@ directories/dtl_directory={
 "timeline_null_reset": "res://Dialogic_timelines/timeline_null_reset.dtl",
 "timeline_test_a": "res://Dialogic_timelines/timeline_test_a.dtl",
 "tml_bldg_radio_a": "res://Dialogic_timelines/tml_bldg_radio_a.dtl",
+"tml_distant_lightpost": "res://Dialogic_timelines/tml_distant_lightpost.dtl",
 "tml_npc_b": "res://Dialogic_timelines/tml_npc_b.dtl",
 "tml_npc_blbd_a": "res://Dialogic_timelines/tml_npc_blbd_a.dtl",
 "tml_npc_c": "res://Dialogic_timelines/tml_npc_c.dtl"

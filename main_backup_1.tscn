@@ -1,4 +1,4 @@
-[gd_scene load_steps=311 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=327 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -227,6 +227,42 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rqyto")
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xd7mt"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k2ge2"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bvui5"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6604u"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7wrvq"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gj801"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3f5vr"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_o2ghi"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_x2lsl"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rqoc2"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_scec5"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rc5o6"]
+points = PackedVector3Array(-0.5, 0, -0.141873, -0.5, 0.280791, -0.141873, 0.5, 0, -0.141873, -0.5, 0, 0.141869, -0.5, 0.280791, 0.141869, 0.5, 0.280791, -0.141873, 0.5, 0, 0.141869, 0.5, 0.280791, 0.141869)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mml04"]
 resource_name = "metal"
 albedo_texture = ExtResource("60_ul8qe")
@@ -310,6 +346,18 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6nfoj")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g5byu"]
+points = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.999995, -0.5, 0.5, 0, -0.5, -0.5, 0.999995, 0.5, 0.5, 0, 0.5, 0.5, 0.999995, -0.5, 0.5, 0.999995, 0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5diyi"]
+points = PackedVector3Array(0.125, 0.25, 0.499995, 0.125, 0, 0.499995, 0.125, 0.25, -0.5, -0.125, 0.25, 0.499995, -0.125, 0, 0.499995, 0.125, 0, -0.5, -0.125, 0.25, -0.5, -0.125, 0, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nlos5"]
+points = PackedVector3Array(0.125, 0.25, 0.499995, 0.125, 0, 0.499995, 0.125, 0.25, -0.5, -0.125, 0.25, 0.499995, -0.125, 0, 0.499995, 0.125, 0, -0.5, -0.125, 0.25, -0.5, -0.125, 0, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pj7vs"]
+points = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0, 0.5, -0.5, 0.999995, -0.5, 0.5, 0, -0.5, -0.5, 0.999995, 0.5, 0.5, 0, 0.5, 0.5, 0.999995, -0.5, 0.5, 0.999995, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk2lw"]
 albedo_color = Color(0.415686, 0.415686, 0.415686, 1)
@@ -2203,7 +2251,7 @@ specular_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 1, 1, 0.00392157)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cb1ne"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qi442"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -2238,7 +2286,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_cb1ne"),
+"material": SubResource("ShaderMaterial_qi442"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -2345,6 +2393,7 @@ metadata/opener_audio = ExtResource("17_ichpr")
 
 [node name="cosmonaut_animations-FINALBAKE2" parent="NPCs" instance=ExtResource("14_8kv7q")]
 transform = Transform3D(0.71691, 0, 0.697165, 0, 1, 0, -0.697165, 0, 0.71691, -80.2294, 0.495342, -59.8673)
+dialogue_string = "res://Dialogic_timelines/tml_distant_lightpost.dtl"
 metadata/dialogue = "res://Dialogic_timelines/tml_npc_blbd_a.dtl"
 metadata/opener_audio = ExtResource("15_v6qj8")
 
@@ -2526,7 +2575,7 @@ transform = Transform3D(1, 0, 0, 0, 12, 0, 0, 0, 1, 103, 5, 53)
 [node name="platform_cluster" type="Node3D" parent="bridging_district_a"]
 
 [node name="PlatCompleteA" parent="bridging_district_a/platform_cluster" instance=ExtResource("21_goo3m")]
-transform = Transform3D(1, 0, 0, 0, 1.31, 0, 0, 0, 1, 47, 3.05586, 73)
+transform = Transform3D(1, 0, 0, 0, 1.31, 0, 0, 0, 1, 47, 2.42499, 73)
 
 [node name="PlatCompleteA2" parent="bridging_district_a/platform_cluster" instance=ExtResource("21_goo3m")]
 transform = Transform3D(1, 0, 0, 0, 1.39, 0, 0, 0, 1, 54, 4.2883, 66)
@@ -2980,65 +3029,115 @@ skeleton = NodePath("")
 
 [node name="grate" type="Node3D" parent="bridging_district_c/BillboardTempA2/board_body"]
 
-[node name="balcony_typeA2" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(-2.26494e-07, 1.13677e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.77489e-07, 0.7, 10, 7.75)
+[node name="StaticBody3D" type="StaticBody3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
+
+[node name="balcony_typeA2" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, 7.74999)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
 
-[node name="balcony_typeA3" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(-2.26494e-07, 1.13677e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.77489e-07, 0.7, 10, 4.75)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, 7.74999)
+shape = SubResource("ConvexPolygonShape3D_xd7mt")
+
+[node name="balcony_typeA3" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, 4.74999)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
 
-[node name="balcony_typeA4" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(-2.26494e-07, 1.13677e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.77489e-07, 0.7, 10, 1.75)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, 4.74999)
+shape = SubResource("ConvexPolygonShape3D_k2ge2")
+
+[node name="balcony_typeA4" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, 1.75)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
 
-[node name="balcony_typeA5" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(-2.26494e-07, 1.13677e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.77489e-07, 0.7, 10, -1.25)
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, 1.75)
+shape = SubResource("ConvexPolygonShape3D_bvui5")
+
+[node name="balcony_typeA5" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, -1.25)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
 
-[node name="balcony_typeA6" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(-2.26494e-07, 1.13677e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.77489e-07, 0.7, 10, -4.25)
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, -1.25)
+shape = SubResource("ConvexPolygonShape3D_6604u")
+
+[node name="balcony_typeA6" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, -4.25)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
 
-[node name="balcony_typeA7" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(-2.26494e-07, 1.13677e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.77489e-07, 0.7, 10, -7.25)
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, -4.25)
+shape = SubResource("ConvexPolygonShape3D_7wrvq")
+
+[node name="balcony_typeA7" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, -7.25)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
 
-[node name="balcony_typeA8" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(4.88762e-07, -3.11685e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.14603e-07, -0.7, 10, -7.25)
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(-2.38419e-07, 1.06581e-14, 5, -4.52987e-07, -1.5, -1.91069e-14, 3, -2.26494e-07, 3.57628e-07, 0.700001, 10, -7.25)
+shape = SubResource("ConvexPolygonShape3D_gj801")
+
+[node name="balcony_typeA8" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.699997, 10, -7.25)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
 
-[node name="balcony_typeA9" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(4.88762e-07, -3.11685e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.14603e-07, -0.7, 10, -4.25)
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.699997, 10, -7.25)
+shape = SubResource("ConvexPolygonShape3D_3f5vr")
+
+[node name="balcony_typeA9" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.700001, 10, -4.25)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
 
-[node name="balcony_typeA10" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(4.88762e-07, -3.11685e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.14603e-07, -0.7, 10, -1.25)
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.700001, 10, -4.25)
+shape = SubResource("ConvexPolygonShape3D_o2ghi")
+
+[node name="balcony_typeA10" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.700001, 10, -1.25)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
 
-[node name="balcony_typeA11" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(4.88762e-07, -3.11685e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.14603e-07, -0.7, 10, 1.75)
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.700001, 10, -1.25)
+shape = SubResource("ConvexPolygonShape3D_x2lsl")
+
+[node name="balcony_typeA11" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.700001, 10, 1.75)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
 
-[node name="balcony_typeA12" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(4.88762e-07, -3.11685e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.14603e-07, -0.7, 10, 4.75)
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.700001, 10, 1.75)
+shape = SubResource("ConvexPolygonShape3D_rqoc2")
+
+[node name="balcony_typeA12" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.700001, 10, 4.75)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
 
-[node name="balcony_typeA13" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate"]
-transform = Transform3D(4.88762e-07, -3.11685e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.14603e-07, -0.7, 10, 7.75)
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.700001, 10, 4.75)
+shape = SubResource("ConvexPolygonShape3D_scec5")
+
+[node name="balcony_typeA13" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.700001, 10, 7.75)
 mesh = SubResource("ArrayMesh_l8jea")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_body/grate/StaticBody3D"]
+transform = Transform3D(5.36442e-07, -3.19744e-14, -5, -4.52987e-07, -1.5, -1.91069e-14, -3, 2.26494e-07, -8.34465e-07, -0.700001, 10, 7.75)
+shape = SubResource("ConvexPolygonShape3D_rc5o6")
 
 [node name="detailLight_single2" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_body"]
 transform = Transform3D(-6.55671e-08, 2.59808, 1.5, 1.13566e-07, 1.5, -2.59808, -3, 0, -1.31134e-07, 0, 20, -3)
@@ -3092,19 +3191,25 @@ omni_range = 1.0
 
 [node name="board_stem" type="Node3D" parent="bridging_district_c/BillboardTempA2"]
 
-[node name="Block40" parent="bridging_district_c/BillboardTempA2/board_stem" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-7.86805e-07, 0, -3, 0, 0.5, 0, 18, 0, -1.31134e-07, -1.09278e-08, 9.75, 0.25)
-visible = false
+[node name="StaticBody3D" type="StaticBody3D" parent="bridging_district_c/BillboardTempA2/board_stem"]
 
-[node name="scaffolding_poles2" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_stem"]
+[node name="scaffolding_poles2" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_stem/StaticBody3D"]
 transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_42qwr")
 skeleton = NodePath("")
 
-[node name="detailBeam2" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_stem"]
-transform = Transform3D(6, 0, 0, 0, -2.62268e-07, 10, 0, -6, -4.37114e-07, 0, 5, 0.75)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_stem/StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_g5byu")
+
+[node name="detailBeam2" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA2/board_stem/StaticBody3D"]
+transform = Transform3D(6, 1.19209e-07, 0, 0, -2.62268e-07, 10, 1.19209e-07, -6, -4.37114e-07, 0, 5, 0.75)
 mesh = SubResource("ArrayMesh_rn1ej")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA2/board_stem/StaticBody3D"]
+transform = Transform3D(6, 1.19209e-07, 0, 0, -2.62268e-07, 10, 1.19209e-07, -6, -4.37114e-07, 0, 5, 0.75)
+shape = SubResource("ConvexPolygonShape3D_5diyi")
 
 [node name="BillboardTempA3" type="Node3D" parent="bridging_district_c"]
 transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, -38, 0, -35)
@@ -3218,15 +3323,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0539169, 0, -6.10564)
 transform = Transform3D(-7.86805e-07, 0, -3, 0, 0.5, 0, 18, 0, -1.31134e-07, -1.09278e-08, 9.75, 0.25)
 visible = false
 
-[node name="scaffolding_poles2" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA3/board_stem"]
+[node name="StaticBody3D" type="StaticBody3D" parent="bridging_district_c/BillboardTempA3/board_stem"]
+
+[node name="detailBeam2" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA3/board_stem/StaticBody3D"]
+transform = Transform3D(6, -2.38419e-07, 0, 0, -2.62268e-07, 10, -2.38419e-07, -6, -4.37114e-07, 3.8147e-06, 5, 0.75)
+mesh = SubResource("ArrayMesh_rn1ej")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA3/board_stem/StaticBody3D"]
+transform = Transform3D(6, -2.38419e-07, 0, 0, -2.62268e-07, 10, -2.38419e-07, -6, -4.37114e-07, 3.8147e-06, 5, 0.75)
+shape = SubResource("ConvexPolygonShape3D_nlos5")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="bridging_district_c/BillboardTempA3/board_stem"]
+
+[node name="scaffolding_poles2" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA3/board_stem/StaticBody3D2"]
 transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_42qwr")
 skeleton = NodePath("")
 
-[node name="detailBeam2" type="MeshInstance3D" parent="bridging_district_c/BillboardTempA3/board_stem"]
-transform = Transform3D(6, -2.38419e-07, 0, 0, -2.62268e-07, 10, -2.38419e-07, -6, -4.37114e-07, 0, 5, 0.75)
-mesh = SubResource("ArrayMesh_rn1ej")
-skeleton = NodePath("")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bridging_district_c/BillboardTempA3/board_stem/StaticBody3D2"]
+transform = Transform3D(2, 0, 0, 0, 10, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_pj7vs")
 
 [node name="board_stem2" type="Node3D" parent="bridging_district_c/BillboardTempA3"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 0.2, 0, 2.98023e-08, 0, 1, -0.109673, 7.93739, 7.4091)

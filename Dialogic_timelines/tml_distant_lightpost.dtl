@@ -1,0 +1,4 @@
+join character_test_a 1 [animation="Bounce In" length="1.5"]
+[sound path="Intro_Talk_Sprite_Level_1.wav" volume="0.0"]
+"They say the eternal worm that swallowed Conneticut is coming..."
+[signal arg="dialogue_exhausted"]
