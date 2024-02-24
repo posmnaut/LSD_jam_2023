@@ -1,5 +1,4 @@
-[gd_scene load_steps=327 format=3 uid="uid://dvajvt4h05xqg"]
-
+[gd_scene load_steps=339 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -2368,8 +2367,7 @@ specular_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 1, 1, 0.00392157)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1enxk"]
-
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ql882"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -2404,7 +2402,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_1enxk"),
+"material": SubResource("ShaderMaterial_ql882"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -2710,12 +2708,10 @@ shape = SubResource("ConcavePolygonShape3D_0p2t6")
 [node name="platform_cluster" type="Node3D" parent="bridging_district_a"]
 
 [node name="PlatCompleteA" parent="bridging_district_a/platform_cluster" instance=ExtResource("21_goo3m")]
-
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47, 4, 73)
 
 [node name="PlatCompleteA2" type="Node3D" parent="bridging_district_a/platform_cluster"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54, 8, 66)
-
 
 [node name="PlatMetalSupport" parent="bridging_district_a/platform_cluster/PlatCompleteA2" instance=ExtResource("18_6m64y")]
 transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 1, 0, 2, 0)
@@ -3063,7 +3059,6 @@ transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 4, 0)
 transform = Transform3D(-0.883883, 0, 0.883883, 0, 1.25, 0, -0.883883, 0, -0.883883, -70, 0, 89)
 
 [node name="PlatCompleteA" parent="bridging_district_b" instance=ExtResource("21_goo3m")]
-
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 4, 77)
 
 [node name="PlatCompleteA2" parent="bridging_district_b" instance=ExtResource("21_goo3m")]
@@ -3071,7 +3066,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 4, 77)
 
 [node name="PlatCompleteA3" parent="bridging_district_b" instance=ExtResource("21_goo3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 4, 65)
-
 
 [node name="PlatCompleteA5" type="Node3D" parent="bridging_district_b"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 4, 57)
