@@ -8,7 +8,7 @@ class_name cash_controller
 @onready var emitter4 = $GPUParticles3DBrick2
 @onready var audioPlayer = $AudioStreamPlayer3D
 
-var isPressed = false
+var isPressed = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

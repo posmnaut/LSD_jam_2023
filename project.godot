@@ -25,6 +25,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"character_billboard": "res://Dialogic_timelines/character_billboard.dch",
 "character_construction": "res://Dialogic_timelines/character_construction.dch",
 "character_test_a": "res://Dialogic_timelines/character_test_a.dch"
 }
