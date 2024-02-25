@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cqoa7g8s32y4c"]
+[gd_scene load_steps=23 format=3 uid="uid://cqoa7g8s32y4c"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_xuua8"]
 [ext_resource type="Texture2D" uid="uid://d2oik12wohmhe" path="res://Textures/d_shadow_1.png" id="2_6b36o"]
@@ -84,7 +84,11 @@ size = Vector3(0.5, 2, 0.5)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bb4wg"]
 
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_cmdu3"]
+length = 0.25
+
 [node name="Player" type="CharacterBody3D"]
+wall_min_slide_angle = 0.349066
 floor_stop_on_slope = false
 script = ExtResource("1_xuua8")
 
@@ -254,6 +258,10 @@ bus = &"SFX"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88844, 0)
 target_position = Vector3(0, 0.25, 0)
 collision_mask = 3
+
+[node name="seperation_raycast" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.25, -0.5)
+shape = SubResource("SeparationRayShape3D_cmdu3")
 
 [connection signal="pressed" from="UI/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/options" to="." method="_on_options_pressed"]
