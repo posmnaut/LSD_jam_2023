@@ -35,6 +35,7 @@ directories/dtl_directory={
 "timeline_test_a": "res://Dialogic_timelines/timeline_test_a.dtl",
 "tml_bldg_radio_a": "res://Dialogic_timelines/tml_bldg_radio_a.dtl",
 "tml_distant_lightpost": "res://Dialogic_timelines/tml_distant_lightpost.dtl",
+"tml_edge_npc": "res://NPC_talk_scenes/tml_edge_npc.dtl",
 "tml_npc_b": "res://Dialogic_timelines/tml_npc_b.dtl",
 "tml_npc_blbd_a": "res://Dialogic_timelines/tml_npc_blbd_a.dtl",
 "tml_npc_c": "res://Dialogic_timelines/tml_npc_c.dtl"
