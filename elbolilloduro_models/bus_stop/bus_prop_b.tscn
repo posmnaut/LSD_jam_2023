@@ -233,14 +233,14 @@ shadow_mesh = SubResource("ArrayMesh_fmjsn")
 
 [node name="BusPropB" type="Node3D"]
 
-[node name="Bus" type="MeshInstance3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.622364, 2.15227, 0.586458)
+
+[node name="Bus" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("ArrayMesh_bgwsc")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Bus"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bus/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D/Bus"]
 shape = SubResource("ConcavePolygonShape3D_vgjnj")
 
 [node name="Tire_01" type="MeshInstance3D" parent="."]

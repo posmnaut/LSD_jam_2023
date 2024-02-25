@@ -3294,7 +3294,7 @@ specular_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 1, 1, 0.00392157)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tla1y"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4nv3"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -3329,7 +3329,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_tla1y"),
+"material": SubResource("ShaderMaterial_g4nv3"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -7088,7 +7088,6 @@ transform = Transform3D(1.44889, 0, 0.452933, 0, 1.75, 0, -0.388229, 0, 1.69037,
 [node name="StaticBody3D" type="StaticBody3D" parent="building_abs_apt/BusPropB"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -1.49012e-08, 0, 1, 0.622364, 2.15227, 0.586456)
 disable_mode = 1
-metadata/is_wallrunable = false
 
 [node name="Bus" type="MeshInstance3D" parent="building_abs_apt/BusPropB/StaticBody3D"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)

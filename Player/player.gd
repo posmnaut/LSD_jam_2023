@@ -430,7 +430,6 @@ func process_wall_run_rotation(delta) :
 
 func _physics_process(delta):
 	
-	
 	#ladder detection
 	#door detection
 	#donk block detection
@@ -499,14 +498,14 @@ func _physics_process(delta):
 			stp_audio_player.play()
 	#NOTE: This `if-statement` allows for the player to do wall jumps on "non-sliding" walls up to a certain ->
 	#-> number of wall jumps (currently `2`).
-	elif(is_on_floor() == false && get_slide_collision_count() != 0 && get_slide_collision(0).get_collider().has_meta("is_wallrunable") == true && get_slide_collision(0).get_collider().get_meta("is_wallrunable") == false && consecWallJumps < 2 && is_wallrunning == false && get_slide_collision(0).get_collider_id() != collisionInst && mantling == false && allowWallJump == true):
+	elif(is_on_floor() == false && get_slide_collision_count() != 0 && consecWallJumps < 2 && is_wallrunning == false && get_slide_collision(0).get_collider_id() != collisionInst && mantling == false && allowWallJump == true):
 		if(wallTouched == false && jump_token == 0):
 			allowWallJump = false
 			jump_token -= 1
 		else:
 			wallTouched = true
 			collisionInst = get_slide_collision(0).get_collider_id()
-			consecWallJumps = 1
+			consecWallJumps += 1
 			#NOTE: I re-assign the `jump_token` variable to `1` instead of doing `jump_token += 1` because it ->
 			#-> prevents the double jump AND the wall jump from being used (prevents the three jump up a single ->
 			#-> wall, allowing players to get to places they shouldn't). Another way to put it is, you either ->
