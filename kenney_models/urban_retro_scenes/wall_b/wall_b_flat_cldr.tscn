@@ -1,12 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://hw775uid8nj2"]
+[gd_scene load_steps=9 format=3 uid="uid://dqm7j4xkch8ka"]
 
-[ext_resource type="PackedScene" uid="uid://ygy30ifp3nvj" path="res://kenney_models/urban_retro/wallB.glb" id="1_jy1ax"]
-[ext_resource type="Texture2D" uid="uid://chyvrdbac3nur" path="res://kenney_models/urban_retro/wallB_metal_wall.png" id="2_38nw0"]
-[ext_resource type="Texture2D" uid="uid://b6jktde7s4m65" path="res://kenney_models/urban_retro/wallB_concrete.png" id="3_p4j4m"]
+[ext_resource type="PackedScene" uid="uid://ygy30ifp3nvj" path="res://kenney_models/urban_retro/wallB.glb" id="1_tuhr7"]
+[ext_resource type="Texture2D" uid="uid://chyvrdbac3nur" path="res://kenney_models/urban_retro/wallB_metal_wall.png" id="2_updv2"]
+[ext_resource type="Texture2D" uid="uid://b6jktde7s4m65" path="res://kenney_models/urban_retro/wallB_concrete.png" id="3_hcsq2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrgjp"]
 resource_name = "wall_metal"
-albedo_texture = ExtResource("2_38nw0")
+albedo_texture = ExtResource("2_updv2")
 metallic_specular = 0.0
 roughness = 0.5
 emission_enabled = true
@@ -14,7 +14,7 @@ texture_filter = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ckkj"]
 resource_name = "concrete"
-albedo_texture = ExtResource("3_p4j4m")
+albedo_texture = ExtResource("3_hcsq2")
 metallic_specular = 0.0
 roughness = 0.5
 emission_enabled = true
@@ -74,8 +74,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bg7j7")
 
-[node name="wallB" instance=ExtResource("1_jy1ax")]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ftu5p"]
+points = PackedVector3Array(-0.5, 0, -0.5, -0.5, 0, 0.499995, -0.5, 1, -0.5, 0.499995, 0, -0.5, 0.499995, 0, 0.499995, -0.5, 1, 0.499995, 0.499995, 1, -0.5, 0.499995, 1, 0.499995)
+
+[node name="wallBflatcldr" instance=ExtResource("1_tuhr7")]
 
 [node name="wallB2" parent="tmpParent" index="0"]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_24465")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tmpParent" index="1"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_ftu5p")
