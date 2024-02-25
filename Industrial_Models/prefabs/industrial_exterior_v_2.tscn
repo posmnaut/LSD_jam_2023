@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddpx78a6dh82x"]
+
+[ext_resource type="PackedScene" uid="uid://dxte1gpo3en15" path="res://Industrial_Models/Industrial_exterior_v2.glb" id="1_ad5ha"]
+
+[node name="Industrial_exterior_v2" instance=ExtResource("1_ad5ha")]

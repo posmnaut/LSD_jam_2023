@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://diq1wk3pl4e4t"]
+
+[ext_resource type="PackedScene" uid="uid://xd2x0e28ermw" path="res://kenney_models/urban_retro_scenes/wall_b/wall_b_crnr_cldr.tscn" id="1_et73t"]
+[ext_resource type="PackedScene" uid="uid://c2ecpe1q2f5cm" path="res://kenney_models/urban_retro_scenes/wall_b/wall_a_painted_flat_cldr.tscn" id="2_ki0s0"]
+[ext_resource type="PackedScene" uid="uid://d3j2fade6pf3o" path="res://kenney_models/urban_retro_scenes/wall_a/wall_a_window_cldr.tscn" id="3_2npr6"]
+[ext_resource type="Texture2D" uid="uid://tmd12alydkvy" path="res://Industrial_Models/Industrial_exterior_v2_Asphalt_1-4.png" id="4_ufjq8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b5crj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cimbi"]
+albedo_texture = ExtResource("4_ufjq8")
+uv1_scale = Vector3(10, 5, 1)
+uv1_offset = Vector3(1.195, 2.34, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5wiw8"]
+
+[node name="AptBlockPrefabA" type="Node3D"]
+
+[node name="apt_block_prefab" type="Node3D" parent="."]
+
+[node name="WallBCrnrCldr" parent="apt_block_prefab" instance=ExtResource("1_et73t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5, 0, 2)
+
+[node name="WallBCrnrCldr5" parent="apt_block_prefab" instance=ExtResource("1_et73t")]
+transform = Transform3D(-7.54979e-08, -2.81784e-15, -1, 1.50996e-07, -0.75, -7.64274e-15, -1, -1.13247e-07, 7.54979e-08, 5, 5.25, 2)
+
+[node name="WallBCrnrCldr6" parent="apt_block_prefab" instance=ExtResource("1_et73t")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -7.64274e-15, -3.17865e-08, 2.13234e-15, -1, -6, 5.25, 2)
+
+[node name="WallBCrnrCldr7" parent="apt_block_prefab" instance=ExtResource("1_et73t")]
+transform = Transform3D(-1.19249e-08, -7.08251e-15, 1, 1.50996e-07, -0.75, -7.64274e-15, 1, 1.13247e-07, 1.19249e-08, -6, 5.25, -3)
+
+[node name="WallBCrnrCldr8" parent="apt_block_prefab" instance=ExtResource("1_et73t")]
+transform = Transform3D(-1, -1.13247e-07, -5.56363e-08, 1.50996e-07, -0.75, -7.64274e-15, -5.56363e-08, -1.20327e-14, 1, 5, 5.25, -3)
+
+[node name="WallBCrnrCldr3" parent="apt_block_prefab" instance=ExtResource("1_et73t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, -3)
+
+[node name="WallBCrnrCldr4" parent="apt_block_prefab" instance=ExtResource("1_et73t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="WallBCrnrCldr2" parent="apt_block_prefab" instance=ExtResource("1_et73t")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -6, 0, 2)
+
+[node name="wallA_painted" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.5)
+
+[node name="wallA_painted3" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.5, 0, -0.5)
+
+[node name="wallA_painted5" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.5, 0, -0.5)
+
+[node name="wallA_painted7" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, 5.5, 5.25, -0.5)
+
+[node name="wallA_painted9" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, 2.5, 5.25, -3.5)
+
+[node name="wallA_painted10" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, -3.5)
+
+[node name="wallA_painted11" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, -3.5)
+
+[node name="wallA_painted12" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, 2.5)
+
+[node name="wallA_painted13" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, 2.5)
+
+[node name="wallA_painted14" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, 2.5, 5.25, 2.5)
+
+[node name="wallA_painted8" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, -6.5, 5.25, -0.5)
+
+[node name="wallA_painted2" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
+
+[node name="wallA_painted4" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -3.5)
+
+[node name="wallA_painted6" parent="apt_block_prefab" instance=ExtResource("2_ki0s0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -3.5)
+
+[node name="wallA_window" parent="apt_block_prefab" instance=ExtResource("3_2npr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 2.5)
+
+[node name="Block16" type="StaticBody3D" parent="apt_block_prefab"]
+transform = Transform3D(11, 0, 0, 0, 1, 0, 0, 0, 6, -0.600006, 4.72, -0.299999)
+disable_mode = 1
+metadata/is_wallrunable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="apt_block_prefab/Block16"]
+shape = SubResource("BoxShape3D_b5crj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="apt_block_prefab/Block16"]
+material_override = SubResource("StandardMaterial3D_cimbi")
+mesh = SubResource("BoxMesh_5wiw8")

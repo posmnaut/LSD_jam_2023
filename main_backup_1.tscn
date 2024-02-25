@@ -1,4 +1,4 @@
-[gd_scene load_steps=440 format=3 uid="uid://dvajvt4h05xqg"]
+[gd_scene load_steps=452 format=3 uid="uid://dvajvt4h05xqg"]
 
 [ext_resource type="Script" path="res://main_1.gd" id="1_dn6qx"]
 [ext_resource type="PackedScene" uid="uid://cqoa7g8s32y4c" path="res://Player/player.tscn" id="2_qq07f"]
@@ -83,6 +83,7 @@
 [ext_resource type="Texture2D" uid="uid://bkv8l1ysipdvq" path="res://elbolilloduro_models/misc_props/elbolilloduro_Shelf_Store_13.png" id="45_8hmuv"]
 [ext_resource type="Texture2D" uid="uid://crm6ndnidr4l" path="res://elbolilloduro_models/misc_props/elbolilloduro_Shelf_Store_08.png" id="46_tssav"]
 [ext_resource type="PackedScene" uid="uid://cy0baknwmyu22" path="res://Objects/doors/door_swing_a.tscn" id="47_i1qbc"]
+[ext_resource type="PackedScene" uid="uid://dca3bbibgi8x2" path="res://Models/3denemy/building_c_prefab/building_c_textured.tscn" id="47_ocn7e"]
 [ext_resource type="Texture2D" uid="uid://cf27br7wnroj2" path="res://elbolilloduro_models/misc_props/elbolilloduro_Shelf_Store_07.jpg" id="47_ymivd"]
 [ext_resource type="Texture2D" uid="uid://bv4t7m32ol6uq" path="res://elbolilloduro_models/misc_props/elbolilloduro_Shelf_Store_05.jpg" id="48_gy6ja"]
 [ext_resource type="PackedScene" uid="uid://dhpbw5gxgy5fc" path="res://props/billboard_type_enemy/billboard_type_3denemy_b.tscn" id="48_sxlf3"]
@@ -107,7 +108,12 @@
 [ext_resource type="Texture2D" uid="uid://bqadnrwh0kl12" path="res://elbolilloduro_models/bus_stop/elbolilloduro_bus_station_Seating.png" id="79_ds8rd"]
 [ext_resource type="Texture2D" uid="uid://3pi4m57qr2vx" path="res://elbolilloduro_models/bus_stop/elbolilloduro_bus_station_Glass.png" id="80_aateb"]
 [ext_resource type="Texture2D" uid="uid://c0b0xaa1l4qrc" path="res://elbolilloduro_models/bus_stop/elbolilloduro_bus_station_Seating_01.png" id="81_vvult"]
+[ext_resource type="PackedScene" uid="uid://c2ecpe1q2f5cm" path="res://kenney_models/urban_retro_scenes/wall_b/wall_a_painted_flat_cldr.tscn" id="85_dje2d"]
 [ext_resource type="Texture2D" uid="uid://b0g5shh3a6iys" path="res://Industrial_Models/Industrial_exterior_v2_Barrel_1.png" id="85_kuitt"]
+[ext_resource type="PackedScene" uid="uid://d3j2fade6pf3o" path="res://kenney_models/urban_retro_scenes/wall_a/wall_a_window_cldr.tscn" id="86_p38h4"]
+[ext_resource type="PackedScene" uid="uid://s1xsb3qfj8l5" path="res://kenney_models/urban_retro_scenes/wall_a/wall_broken_type_a.tscn" id="86_qd6u6"]
+[ext_resource type="PackedScene" uid="uid://coq4tf4kjkfel" path="res://kenney_models/urban_retro_scenes/wall_a/wall_broken_type_b.tscn" id="86_qr4jq"]
+[ext_resource type="PackedScene" uid="uid://diq1wk3pl4e4t" path="res://kenney_models/urban_retro_scenes/custom/apt_block_prefab_a.tscn" id="87_3d45t"]
 [ext_resource type="ArrayMesh" uid="uid://61tshunmj5wb" path="res://props/CASH/single_bill.mesh" id="87_ariyy"]
 [ext_resource type="Texture2D" uid="uid://cox3vht4lqbes" path="res://Industrial_Models/Industrial_exterior_v2_Barrel_3.png" id="87_d2yxj"]
 [ext_resource type="Script" path="res://CashController.gd" id="87_unff0"]
@@ -2457,6 +2463,24 @@ points = PackedVector3Array(-0.416246, -0.0336596, -0.392991, 0.443464, -0.03365
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2yrnq"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_b5crj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cimbi"]
+albedo_texture = ExtResource("101_asigh")
+uv1_scale = Vector3(10, 5, 1)
+uv1_offset = Vector3(1.195, 2.34, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5wiw8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yuhjo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhu8n"]
+albedo_texture = ExtResource("101_asigh")
+uv1_scale = Vector3(10, 5, 1)
+uv1_offset = Vector3(1.195, 2.34, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fnyx2"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4883x"]
 resource_name = "Bus"
 cull_mode = 2
@@ -3294,7 +3318,7 @@ specular_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 1, 1, 0.00392157)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_evfmp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_irw0i"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -3329,7 +3353,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_evfmp"),
+"material": SubResource("ShaderMaterial_irw0i"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -3546,7 +3570,7 @@ transform = Transform3D(1.08253, 0, -0.625, 0, 1.25, 0, 0.625, 0, 1.08253, 109, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
 
 [node name="ShipContainerTypeDColdones" parent="bridging_district_a" instance=ExtResource("24_q7c7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126, 0, 43)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126, 0, 39)
 
 [node name="PlatCompleteA" parent="bridging_district_a" instance=ExtResource("21_goo3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91, 5, 116)
@@ -3571,10 +3595,10 @@ mesh = SubResource("ArrayMesh_632dw")
 skeleton = NodePath("")
 
 [node name="Container_2_3" type="StaticBody3D" parent="bridging_district_a/block_a"]
-transform = Transform3D(0.194114, 0.1875, 0.699759, 1.11759e-08, 0.724444, -0.194114, -0.724444, 0.0502405, 0.1875, 111, -5.8, 79)
+transform = Transform3D(0.194114, 0.1875, 0.699759, 1.11759e-08, 0.724444, -0.194114, -0.724444, 0.0502405, 0.1875, 111, -6.40035, 79)
 
 [node name="Cargo_1_open" type="MeshInstance3D" parent="bridging_district_a/block_a/Container_2_3"]
-transform = Transform3D(0.0135815, 0.0433904, -3.22468, 0.972653, 3.10741, 0.045028, 3.50761, -0.861844, -1.40955e-07, 22.1187, 20.1835, -14.4369)
+transform = Transform3D(0.0135815, 0.0433904, -3.22468, 0.972653, 3.10741, 0.045028, 3.50761, -0.861844, -2.38419e-07, 22.1187, 20.1835, -14.4369)
 mesh = SubResource("ArrayMesh_3qyeo")
 skeleton = NodePath("")
 
@@ -3601,9 +3625,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 2, 80)
 
 [node name="PlatCompleteA4" parent="bridging_district_a/platform_cluster" instance=ExtResource("21_goo3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57, -1, 74)
-
-[node name="ladder_type_a" parent="bridging_district_a" instance=ExtResource("18_y2qa4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99, 12.5, 113)
 
 [node name="ShipContainerTypeAColdones" parent="bridging_district_a" instance=ExtResource("22_i2x0a")]
 transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 61, 0, 66)
@@ -4459,6 +4480,11 @@ skeleton = NodePath("")
 transform = Transform3D(6, -2.38419e-07, 0, 0, -2.62268e-07, 10, -2.38419e-07, -6, -4.37114e-07, 0, 5, 0.75)
 mesh = SubResource("ArrayMesh_rn1ej")
 skeleton = NodePath("")
+
+[node name="building_c_mesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 0, 18)
+
+[node name="BuildingCTextured" parent="building_c_mesh" instance=ExtResource("47_ocn7e")]
 
 [node name="bridging_zoetrope" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 99)
@@ -6860,7 +6886,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 2, -28)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 17.4442, 10)
 
 [node name="building_c" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86, 0, 18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 296, 0, -16)
+visible = false
 
 [node name="Block_WR" parent="building_c" instance=ExtResource("4_i8u5b")]
 transform = Transform3D(-2.40725e-07, -7.161, 0, 5.50715, -3.13017e-07, 0, 0, 0, 0.5, -3.66907, 4, 0.0291824)
@@ -7079,816 +7106,857 @@ transform = Transform3D(0.00484349, -0.0412309, -0.698768, -0.0815258, 0.693996,
 shaded = true
 texture = ExtResource("20_jgvec")
 
-[node name="building_abs_apt" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110, -1, 103)
+[node name="bldg_abs_apts_mesh" type="Node3D" parent="."]
 
-[node name="BusPropB" type="Node3D" parent="building_abs_apt"]
-transform = Transform3D(1.44889, 0, 0.452933, 0, 1.75, 0, -0.388229, 0, 1.69037, 12, 14, -13)
+[node name="lower_floor" type="Node3D" parent="bldg_abs_apts_mesh"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="building_abs_apt/BusPropB"]
+[node name="wallBroken_typeB2" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("86_qr4jq")]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 124, 5.73, 108.75)
+
+[node name="wallBroken_typeB3" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("86_qr4jq")]
+transform = Transform3D(2, 0, 3.49691e-07, 0, 2, 0, -3.49691e-07, 0, 2, 113, 5.73, 108.75)
+
+[node name="wallBroken_typeB4" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("86_qr4jq")]
+transform = Transform3D(-4.37114e-07, 0, 2, 0, 2, 0, -2, 0, -4.37114e-07, 110.25, 5.73, 105.5)
+
+[node name="AptBlockPrefabA" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 149, 0.5, 53)
+
+[node name="AptBlockPrefabA2" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 149, 0.5, 66)
+
+[node name="AptBlockPrefabA3" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 149, 0.5, 83)
+
+[node name="AptBlockPrefabA4" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 149, 0.5, 96)
+
+[node name="AptBlockPrefabA9" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 94, 0.5, 102)
+
+[node name="AptBlockPrefabA10" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 94, 0.5, 89)
+
+[node name="AptBlockPrefabA11" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 94, 0.5, 72)
+
+[node name="AptBlockPrefabA12" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 94, 0.5, 59)
+
+[node name="AptBlockPrefabA5" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 146, 0.5, 105)
+
+[node name="AptBlockPrefabA6" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 133, 0.5, 105)
+
+[node name="AptBlockPrefabA7" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 116, 0.5, 105)
+
+[node name="AptBlockPrefabA8" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 103, 0.5, 105)
+
+[node name="AptBlockPrefabA13" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 97, 0.5, 50)
+
+[node name="AptBlockPrefabA14" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 110, 0.5, 50)
+
+[node name="AptBlockPrefabA15" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 127, 0.5, 50)
+
+[node name="AptBlockPrefabA16" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 140, 0.5, 50)
+
+[node name="wallBroken_typeB" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("86_qr4jq")]
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 105.25, 5.75, 52.8)
+
+[node name="wallBroken_typeA" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("86_qd6u6")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 105.25, 5.75, 46.15)
+
+[node name="wallBroken_typeA2" parent="bldg_abs_apts_mesh/lower_floor" instance=ExtResource("86_qd6u6")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 103.2, 5.75, 48.55)
+
+[node name="upper_floors" type="Node3D" parent="bldg_abs_apts_mesh"]
+
+[node name="AptBlockPrefabA19" type="Node3D" parent="bldg_abs_apts_mesh/upper_floors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 149, 5.75, 96)
+
+[node name="apt_block_prefab" type="Node3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19"]
+
+[node name="WallBCrnrCldr" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5, 0, 2)
+
+[node name="WallBCrnrCldr5" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-7.54979e-08, -2.81784e-15, -1, 1.50996e-07, -0.75, -7.64274e-15, -1, -1.13247e-07, 7.54979e-08, 5, 5.25, 2)
+
+[node name="WallBCrnrCldr8" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1, -1.13247e-07, -5.56363e-08, 1.50996e-07, -0.75, -7.64274e-15, -5.56363e-08, -1.20327e-14, 1, 5, 5.25, -3)
+
+[node name="WallBCrnrCldr3" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, -3)
+
+[node name="wallA_painted" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.5)
+
+[node name="wallA_painted5" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.5, 0, -0.5)
+
+[node name="wallA_painted7" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, 5.5, 5.25, -0.5)
+
+[node name="wallA_painted9" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, 2.5, 5.25, -3.5)
+
+[node name="wallA_painted10" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, -3.5)
+
+[node name="wallA_painted11" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, -3.5)
+
+[node name="wallA_painted12" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, 2.5)
+
+[node name="wallA_painted13" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, 2.5)
+
+[node name="wallA_painted14" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, 2.5, 5.25, 2.5)
+
+[node name="wallA_painted2" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
+
+[node name="wallA_painted4" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -3.5)
+
+[node name="wallA_painted6" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -3.5)
+
+[node name="wallA_window" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab" instance=ExtResource("86_p38h4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 2.5)
+
+[node name="Block16" type="StaticBody3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab"]
+transform = Transform3D(11, 0, 0, 0, 1, 0, 0, 0, 6, -0.600006, 4.72, -0.299999)
+disable_mode = 1
+metadata/is_wallrunable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab/Block16"]
+shape = SubResource("BoxShape3D_b5crj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA19/apt_block_prefab/Block16"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, 0, 0, 1, 0.142596, 0, 0)
+material_override = SubResource("StandardMaterial3D_cimbi")
+mesh = SubResource("BoxMesh_5wiw8")
+
+[node name="AptBlockPrefabA20" type="Node3D" parent="bldg_abs_apts_mesh/upper_floors"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 149, 5.75, 66)
+
+[node name="apt_block_prefab" type="Node3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20"]
+
+[node name="WallBCrnrCldr6" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -7.64274e-15, -3.17865e-08, 2.13234e-15, -1, -6, 5.25, 2)
+
+[node name="WallBCrnrCldr7" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1.19249e-08, -7.08251e-15, 1, 1.50996e-07, -0.75, -7.64274e-15, 1, 1.13247e-07, 1.19249e-08, -6, 5.25, -3)
+
+[node name="WallBCrnrCldr4" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="WallBCrnrCldr2" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -6, 0, 2)
+
+[node name="wallA_painted" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.5)
+
+[node name="wallA_painted3" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.5, 0, -0.5)
+
+[node name="wallA_painted10" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, -3.5)
+
+[node name="wallA_painted11" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, -3.5)
+
+[node name="wallA_painted12" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, 2.5)
+
+[node name="wallA_painted13" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, 2.5)
+
+[node name="wallA_painted8" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, -6.5, 5.25, -0.5)
+
+[node name="wallA_painted2" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
+
+[node name="wallA_painted4" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -3.5)
+
+[node name="wallA_painted6" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -3.5)
+
+[node name="wallA_window" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA20/apt_block_prefab" instance=ExtResource("86_p38h4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 2.5)
+
+[node name="AptBlockPrefabA17" parent="bldg_abs_apts_mesh/upper_floors" instance=ExtResource("87_3d45t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 146, 5.75, 105)
+
+[node name="AptBlockPrefabA18" parent="bldg_abs_apts_mesh/upper_floors" instance=ExtResource("87_3d45t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 133, 5.75, 105)
+
+[node name="AptBlockPrefabA27" parent="bldg_abs_apts_mesh/upper_floors" instance=ExtResource("87_3d45t")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 103, 5.75, 105)
+
+[node name="AptBlockPrefabA28" type="Node3D" parent="bldg_abs_apts_mesh/upper_floors"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 103, 10.75, 105)
+
+[node name="apt_block_prefab" type="Node3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28"]
+
+[node name="WallBCrnrCldr" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5, 0, 2)
+
+[node name="WallBCrnrCldr5" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-7.54979e-08, -2.81784e-15, -1, 1.50996e-07, -0.75, -7.64274e-15, -1, -1.13247e-07, 7.54979e-08, 5, 5.25, 2)
+
+[node name="WallBCrnrCldr6" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -7.64274e-15, -3.17865e-08, 2.13234e-15, -1, -6, 5.25, 2)
+
+[node name="WallBCrnrCldr7" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1.19249e-08, -7.08251e-15, 1, 1.50996e-07, -0.75, -7.64274e-15, 1, 1.13247e-07, 1.19249e-08, -6, 5.25, -3)
+
+[node name="WallBCrnrCldr8" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1, -1.13247e-07, -5.56363e-08, 1.50996e-07, -0.75, -7.64274e-15, -5.56363e-08, -1.20327e-14, 1, 5, 5.25, -3)
+
+[node name="WallBCrnrCldr3" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, -3)
+
+[node name="WallBCrnrCldr4" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="WallBCrnrCldr2" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -6, 0, 2)
+
+[node name="wallA_painted" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.5)
+
+[node name="wallA_painted5" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.5, 0, -0.5)
+
+[node name="wallA_painted7" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, 5.5, 5.25, -0.5)
+
+[node name="wallA_painted9" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, 2.5, 5.25, -3.5)
+
+[node name="wallA_painted10" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, -3.5)
+
+[node name="wallA_painted11" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, -3.5)
+
+[node name="wallA_painted12" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, 2.5)
+
+[node name="wallA_painted13" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, 2.5)
+
+[node name="wallA_painted14" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, 2.5, 5.25, 2.5)
+
+[node name="wallA_painted8" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, -6.5, 5.25, -0.5)
+
+[node name="wallA_painted2" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
+
+[node name="wallA_painted4" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -3.5)
+
+[node name="wallA_painted6" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -3.5)
+
+[node name="wallA_window" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("86_p38h4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 2.5)
+
+[node name="Block16" type="StaticBody3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab"]
+transform = Transform3D(11, 0, 0, 0, 1, 0, 0, 0, 6, -0.600006, 4.72, -0.299999)
+disable_mode = 1
+metadata/is_wallrunable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab/Block16"]
+shape = SubResource("BoxShape3D_b5crj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA28/apt_block_prefab/Block16"]
+material_override = SubResource("StandardMaterial3D_cimbi")
+mesh = SubResource("BoxMesh_5wiw8")
+
+[node name="AptBlockPrefabA21" parent="bldg_abs_apts_mesh/upper_floors" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 127, 5.75, 50)
+
+[node name="AptBlockPrefabA22" parent="bldg_abs_apts_mesh/upper_floors" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 97, 5.75, 50)
+
+[node name="AptBlockPrefabA23" type="Node3D" parent="bldg_abs_apts_mesh/upper_floors"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 94, 5.75, 59)
+
+[node name="apt_block_prefab" type="Node3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23"]
+
+[node name="WallBCrnrCldr" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5, 0, 2)
+
+[node name="WallBCrnrCldr5" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-7.54979e-08, -2.81784e-15, -1, 1.50996e-07, -0.75, -7.64274e-15, -1, -1.13247e-07, 7.54979e-08, 5, 5.25, 2)
+
+[node name="WallBCrnrCldr6" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -7.64274e-15, -3.17865e-08, 2.13234e-15, -1, -6, 5.25, 2)
+
+[node name="WallBCrnrCldr7" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1.19249e-08, -7.08251e-15, 1, 1.50996e-07, -0.75, -7.64274e-15, 1, 1.13247e-07, 1.19249e-08, -6, 5.25, -3)
+
+[node name="WallBCrnrCldr8" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1, -1.13247e-07, -5.56363e-08, 1.50996e-07, -0.75, -7.64274e-15, -5.56363e-08, -1.20327e-14, 1, 5, 5.25, -3)
+
+[node name="WallBCrnrCldr3" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, -3)
+
+[node name="WallBCrnrCldr4" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="WallBCrnrCldr2" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -6, 0, 2)
+
+[node name="wallA_painted" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.5)
+
+[node name="wallA_painted3" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.5, 0, -0.5)
+
+[node name="wallA_painted5" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.5, 0, -0.5)
+
+[node name="wallA_painted7" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, 5.5, 5.25, -0.5)
+
+[node name="wallA_painted9" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, 2.5, 5.25, -3.5)
+
+[node name="wallA_painted10" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, -3.5)
+
+[node name="wallA_painted11" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, -3.5)
+
+[node name="wallA_painted12" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, 2.5)
+
+[node name="wallA_painted13" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, 2.5)
+
+[node name="wallA_painted14" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, 2.5, 5.25, 2.5)
+
+[node name="wallA_painted8" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, -6.5, 5.25, -0.5)
+
+[node name="wallA_painted2" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
+
+[node name="wallA_painted4" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, -3.5)
+
+[node name="wallA_painted6" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -3.5)
+
+[node name="wallA_window" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab" instance=ExtResource("86_p38h4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 2.5)
+
+[node name="Block16" type="StaticBody3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab"]
+transform = Transform3D(7, 0, 0, 0, 1, 0, 0, 0, 6, -3.60001, 4.72, -0.299995)
+disable_mode = 1
+metadata/is_wallrunable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab/Block16"]
+shape = SubResource("BoxShape3D_yuhjo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23/apt_block_prefab/Block16"]
+material_override = SubResource("StandardMaterial3D_qhu8n")
+mesh = SubResource("BoxMesh_fnyx2")
+
+[node name="LadderTypeAcolliders" parent="bldg_abs_apts_mesh/upper_floors/AptBlockPrefabA23" instance=ExtResource("66_6xkfd")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0.329111, 0)
+
+[node name="AptBlockPrefabA24" parent="bldg_abs_apts_mesh/upper_floors" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 94, 5.75, 72)
+
+[node name="AptBlockPrefabA25" parent="bldg_abs_apts_mesh/upper_floors" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 94, 5.75, 89)
+
+[node name="AptBlockPrefabA26" parent="bldg_abs_apts_mesh/upper_floors" instance=ExtResource("87_3d45t")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 94, 5.75, 102)
+
+[node name="walkway_a" type="Node3D" parent="bldg_abs_apts_mesh"]
+
+[node name="BridgeMetalA4" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 130, 5.5, 101.5)
+
+[node name="BridgeMetalA16" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 130, 5.5, 100.25)
+
+[node name="BridgeMetalA5" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 120, 5.5, 101.5)
+
+[node name="BridgeMetalA6" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 110, 5.5, 101.5)
+
+[node name="BridgeMetalA9" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 102, 5.5, 100.25)
+
+[node name="BridgeMetalA10" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.61, 0, 0, 0, 1, 0, 0, 0, 1.5, 110.005, 5.5, 100.25)
+
+[node name="BridgeMetalA7" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 100, 5.5, 101.5)
+
+[node name="BridgeMetalA11" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 100, 5.5, 99)
+
+[node name="BridgeMetalA12" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 110, 5.5, 99)
+
+[node name="BridgeMetalA13" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 120, 5.5, 99)
+
+[node name="BridgeMetalA14" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 130, 5.5, 99)
+
+[node name="BridgeMetalA8" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0, 0, 1.5, 117, 2.66927, 100.25)
+
+[node name="BridgeMetalA2" parent="bldg_abs_apts_mesh/walkway_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 8.88178e-16, -1, 0, -4.37114e-08, 145.5, 5.5, 87)
+
+[node name="walkway_a2" type="Node3D" parent="bldg_abs_apts_mesh"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 112, 0, 41)
+
+[node name="BridgeMetalA3" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1, 54.25, 5.5, 14.5)
+
+[node name="BridgeMetalA4" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 46, 5.5, 14.5)
+
+[node name="BridgeMetalA16" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 46, 5.5, 13.25)
+
+[node name="BridgeMetalA17" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1.5, 54.25, 5.5, 13.25)
+
+[node name="BridgeMetalA5" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 36, 5.5, 14.5)
+
+[node name="BridgeMetalA6" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 26, 5.5, 14.5)
+
+[node name="BridgeMetalA9" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 18, 5.5, 13.25)
+
+[node name="BridgeMetalA10" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.61, 0, 0, 0, 1, 0, 0, 0, 1.5, 26.005, 5.5, 13.25)
+
+[node name="BridgeMetalA7" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 16, 5.5, 14.5)
+
+[node name="BridgeMetalA11" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 16, 5.5, 12)
+
+[node name="BridgeMetalA12" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 26, 5.5, 12)
+
+[node name="BridgeMetalA13" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 36, 5.5, 12)
+
+[node name="BridgeMetalA14" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 46, 5.5, 12)
+
+[node name="BridgeMetalA15" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1, 54.25, 5.5, 12)
+
+[node name="BridgeMetalA8" parent="bldg_abs_apts_mesh/walkway_a2" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0, 0, 1.5, 33, 2.66927, 13.25)
+
+[node name="walkway_a3" type="Node3D" parent="bldg_abs_apts_mesh"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 158, 0, 68)
+
+[node name="BridgeMetalA3" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1, 54.25, 5.5, 14.5)
+
+[node name="BridgeMetalA4" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 46, 5.5, 14.5)
+
+[node name="BridgeMetalA16" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 46, 5.5, 13.25)
+
+[node name="BridgeMetalA17" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1.5, 54.25, 5.5, 13.25)
+
+[node name="BridgeMetalA5" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 36, 5.5, 14.5)
+
+[node name="BridgeMetalA6" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 26, 5.5, 14.5)
+
+[node name="BridgeMetalA10" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.61, 0, 0, 0, 1, 0, 0, 0, 1.5, 26.005, 5.5, 13.25)
+
+[node name="BridgeMetalA7" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 16, 5.5, 14.5)
+
+[node name="BridgeMetalA11" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 16, 5.5, 12)
+
+[node name="BridgeMetalA12" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 26, 5.5, 12)
+
+[node name="BridgeMetalA13" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 36, 5.5, 12)
+
+[node name="BridgeMetalA14" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 46, 5.5, 12)
+
+[node name="BridgeMetalA15" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1, 54.25, 5.5, 12)
+
+[node name="BridgeMetalA8" parent="bldg_abs_apts_mesh/walkway_a3" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0, 0, 1.5, 33, 2.66927, 13.25)
+
+[node name="walkway_a4" type="Node3D" parent="bldg_abs_apts_mesh"]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 131, 0, 114)
+
+[node name="BridgeMetalA3" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1, 54.25, 5.5, 14.5)
+
+[node name="BridgeMetalA4" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 46, 5.5, 14.5)
+
+[node name="BridgeMetalA16" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 46, 5.5, 13.25)
+
+[node name="BridgeMetalA17" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1.5, 54.25, 5.5, 13.25)
+
+[node name="BridgeMetalA5" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 36, 5.5, 14.5)
+
+[node name="BridgeMetalA9" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5, 18, 5.5, 13.25)
+
+[node name="BridgeMetalA10" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.61, 0, 0, 0, 1, 0, 0, 0, 1.5, 26.005, 5.5, 13.25)
+
+[node name="BridgeMetalA7" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 16, 5.5, 14.5)
+
+[node name="BridgeMetalA11" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 16, 5.5, 12)
+
+[node name="BridgeMetalA12" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 26, 5.5, 12)
+
+[node name="BridgeMetalA13" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 36, 5.5, 12)
+
+[node name="BridgeMetalA14" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 8.88178e-16, 0, 0, 1, 46, 5.5, 12)
+
+[node name="BridgeMetalA15" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 1, 54.25, 5.5, 12)
+
+[node name="BridgeMetalA8" parent="bldg_abs_apts_mesh/walkway_a4" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.819152, 0.573576, 0, -0.573576, 0.819152, 0, 0, 0, 1.5, 33, 2.66927, 13.25)
+
+[node name="stalk_a" type="Node3D" parent="bldg_abs_apts_mesh"]
+
+[node name="AptBlockPrefabA28" type="Node3D" parent="bldg_abs_apts_mesh/stalk_a"]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 127, 10.75, 50)
+
+[node name="apt_block_prefab" type="Node3D" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28"]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -11, -3, 18)
+
+[node name="WallBCrnrCldr" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.00001, 0, 2)
+
+[node name="WallBCrnrCldr5" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-7.54979e-08, -2.81784e-15, -1, 1.50996e-07, -0.75, -7.64274e-15, -1, -1.13247e-07, 7.54979e-08, 2.00001, 5.25, 2)
+
+[node name="WallBCrnrCldr6" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -7.64274e-15, -3.17865e-08, 2.13234e-15, -1, -6, 5.25, 2)
+
+[node name="WallBCrnrCldr7" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1.19249e-08, -7.08251e-15, 1, 1.50996e-07, -0.75, -7.64274e-15, 1, 1.13247e-07, 1.19249e-08, -6, 5.25, -3)
+
+[node name="WallBCrnrCldr3" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.00007, 0, -3)
+
+[node name="WallBCrnrCldr4" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="WallBCrnrCldr2" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -6, 0, 2)
+
+[node name="wallA_painted3" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.5, 0, -0.5)
+
+[node name="wallA_painted5" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.50001, 0, -0.5)
+
+[node name="wallA_painted7" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, 2.50001, 5.25, -0.5)
+
+[node name="wallA_painted11" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, -3.5)
+
+[node name="wallA_painted12" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, 2.5)
+
+[node name="wallA_painted14" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, 2.5)
+
+[node name="wallA_painted8" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, -6.5, 5.25, -0.5)
+
+[node name="wallA_painted2" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
+
+[node name="wallA_window" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab" instance=ExtResource("86_p38h4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 2.5)
+
+[node name="Block16" type="StaticBody3D" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab"]
+transform = Transform3D(8.55635, 0, 0, 0, 1, 0, 0, 0, 6, -1.84303, 4.72, -0.299999)
+disable_mode = 1
+metadata/is_wallrunable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab/Block16"]
+shape = SubResource("BoxShape3D_yuhjo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab/Block16"]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, -5.96046e-08, 0, 1, -0.258635, 0, -0.00628567)
+material_override = SubResource("StandardMaterial3D_qhu8n")
+mesh = SubResource("BoxMesh_fnyx2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA28/apt_block_prefab/Block16"]
+transform = Transform3D(1, 0, 1.19209e-07, 0, 0.5, 0, -1.19209e-07, 0, 1, 0, -5, 0)
+material_override = SubResource("StandardMaterial3D_qhu8n")
+mesh = SubResource("BoxMesh_fnyx2")
+
+[node name="AptBlockPrefabA29" type="Node3D" parent="bldg_abs_apts_mesh/stalk_a"]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 127, 27.75, 50)
+
+[node name="apt_block_prefab" type="Node3D" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29"]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -14.1339, -3, 25.4282)
+
+[node name="WallBCrnrCldr" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.00001, 0, 2)
+
+[node name="WallBCrnrCldr5" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-7.54979e-08, -2.81784e-15, -1, 1.50996e-07, -0.75, -7.64274e-15, -1, -1.13247e-07, 7.54979e-08, 2.00001, 5.25, 2)
+
+[node name="WallBCrnrCldr6" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -7.64274e-15, -3.17865e-08, 2.13234e-15, -1, -6, 5.25, 2)
+
+[node name="WallBCrnrCldr7" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1.19249e-08, -7.08251e-15, 1, 1.50996e-07, -0.75, -7.64274e-15, 1, 1.13247e-07, 1.19249e-08, -6, 5.25, -3)
+
+[node name="WallBCrnrCldr8" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-1, -1.13247e-07, -5.56363e-08, 1.50996e-07, -0.75, -7.64274e-15, -5.56363e-08, -1.20327e-14, 1, 2.00002, 5.25, -3)
+
+[node name="WallBCrnrCldr3" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.00007, 0, -3)
+
+[node name="WallBCrnrCldr4" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="WallBCrnrCldr2" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("71_pmuby")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -6, 0, 2)
+
+[node name="wallA_painted3" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.5, 0, -0.5)
+
+[node name="wallA_painted5" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.50001, 0, -0.5)
+
+[node name="wallA_painted7" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, 2.50001, 5.25, -0.5)
+
+[node name="wallA_painted9" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, -3.5)
+
+[node name="wallA_painted11" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, -3.5)
+
+[node name="wallA_painted12" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -3.5, 5.25, 2.5)
+
+[node name="wallA_painted14" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 1.13247e-07, -3.17865e-08, 1.50996e-07, -0.75, -3.82137e-15, -3.17865e-08, -7.33693e-16, -1, -0.5, 5.25, 2.5)
+
+[node name="wallA_painted8" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(-7.54979e-08, -5.68387e-15, -1, 1.50996e-07, -0.75, -3.82137e-15, -1, -1.13247e-07, 7.54979e-08, -6.5, 5.25, -0.5)
+
+[node name="wallA_painted2" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, -3.5)
+
+[node name="wallA_painted6" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("85_dje2d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499954, 0, -3.5)
+
+[node name="wallA_window" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab" instance=ExtResource("86_p38h4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0, 2.5)
+
+[node name="Block16" type="StaticBody3D" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab"]
+transform = Transform3D(8.55635, 0, 0, 0, 1, 0, 0, 0, 6, -1.84303, 4.72, -0.299999)
+disable_mode = 1
+metadata/is_wallrunable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab/Block16"]
+shape = SubResource("BoxShape3D_yuhjo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab/Block16"]
+material_override = SubResource("StandardMaterial3D_qhu8n")
+mesh = SubResource("BoxMesh_fnyx2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="bldg_abs_apts_mesh/stalk_a/AptBlockPrefabA29/apt_block_prefab/Block16"]
+transform = Transform3D(1.15, 0, 1.37091e-07, 0, 0.5, 0, -1.37091e-07, 0, 1.15, -0.01, -5, -0.03)
+material_override = SubResource("StandardMaterial3D_qhu8n")
+mesh = SubResource("BoxMesh_fnyx2")
+
+[node name="BridgeMetalB" parent="bldg_abs_apts_mesh/stalk_a" instance=ExtResource("38_idvbw")]
+transform = Transform3D(0.965926, 2.30742e-09, -0.323524, 0.0448723, 0.984856, 0.209332, 0.2549, -0.173373, 1.18912, 118.64, 6.46153, 62.1246)
+
+[node name="BridgeMetalA13" parent="bldg_abs_apts_mesh/stalk_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(1.67297, 1.50255e-08, -1.66014, 0.557762, 1.94919, 0.24981, 2.42694, -0.447963, 1.08698, 131.856, 8.0184, 68.3158)
+
+[node name="BridgeMetalA14" parent="bldg_abs_apts_mesh/stalk_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(-0.25, 0.0669873, 0.965926, 0.405152, 0.913306, 0.041523, -0.879404, 0.401728, -0.255467, 146, 7.16483, 80)
+
+[node name="BridgeMetalA15" parent="bldg_abs_apts_mesh/stalk_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(0.237653, 0.238883, 0.941518, -0.559867, 0.825772, -0.0681971, -0.79377, -0.510917, 0.32999, 146, 6.16483, 71)
+
+[node name="PlatCompleteA" parent="bldg_abs_apts_mesh/stalk_a" instance=ExtResource("21_goo3m")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 113.1, -3.65, 72)
+
+[node name="PlatCompleteA2" parent="bldg_abs_apts_mesh/stalk_a" instance=ExtResource("21_goo3m")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 112.1, -3.65, 86)
+
+[node name="BridgeMetalA16" parent="bldg_abs_apts_mesh/stalk_a" instance=ExtResource("35_aqtj5")]
+transform = Transform3D(-5.00108e-08, -4.41731e-09, 1, -0.0057002, 0.999988, 4.2017e-09, -1.14999, -0.0049567, -4.3509e-08, 111, 8.70305, 78.4744)
+
+[node name="ineractive" type="Node3D" parent="bldg_abs_apts_mesh"]
+
+[node name="LadderTypeAcolliders" parent="bldg_abs_apts_mesh/ineractive" instance=ExtResource("66_6xkfd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 110.113, 5.94656, 106)
+
+[node name="LadderTypeAcolliders2" parent="bldg_abs_apts_mesh/ineractive" instance=ExtResource("66_6xkfd")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 92, 12.4553, 101.477)
+
+[node name="BusPropB" type="Node3D" parent="bldg_abs_apts_mesh"]
+transform = Transform3D(1.44889, 0, 0.452933, 0, 1.75, 0, -0.388229, 0, 1.69037, 122, 13, 90)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="bldg_abs_apts_mesh/BusPropB"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, -1.49012e-08, 0, 1, 0.622364, 2.15227, 0.586456)
 disable_mode = 1
 metadata/is_wallrunable = false
 
-[node name="Bus" type="MeshInstance3D" parent="building_abs_apt/BusPropB/StaticBody3D"]
+[node name="Bus" type="MeshInstance3D" parent="bldg_abs_apts_mesh/BusPropB/StaticBody3D"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_bgwsc")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="building_abs_apt/BusPropB/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bldg_abs_apts_mesh/BusPropB/StaticBody3D"]
 transform = Transform3D(1, 0, 5.96047e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_vgjnj")
 
-[node name="Tire_03" type="MeshInstance3D" parent="building_abs_apt/BusPropB"]
+[node name="Tire_03" type="MeshInstance3D" parent="bldg_abs_apts_mesh/BusPropB"]
 transform = Transform3D(1.06274, 0, -7.45058e-09, 0, -0.275057, -1.02653, 1.49012e-08, 1.02653, -0.275057, 3.98829, 0.831745, 1.88065)
 mesh = SubResource("ArrayMesh_g58tj")
 skeleton = NodePath("")
 
-[node name="Tire_01" type="MeshInstance3D" parent="building_abs_apt/BusPropB"]
+[node name="Tire_01" type="MeshInstance3D" parent="bldg_abs_apts_mesh/BusPropB"]
 transform = Transform3D(1.06274, 0, 0, 0, 0.53137, -0.92036, 0, 0.92036, 0.53137, 3.98829, 0.831745, -0.86082)
 mesh = SubResource("ArrayMesh_rg7xo")
 skeleton = NodePath("")
 
-[node name="Tire" type="MeshInstance3D" parent="building_abs_apt/BusPropB"]
+[node name="Tire" type="MeshInstance3D" parent="bldg_abs_apts_mesh/BusPropB"]
 transform = Transform3D(0.53137, -0.92036, 0, 0.797055, 0.46018, -0.53137, 0.46018, 0.265685, 0.92036, -2.04827, 0.831745, -0.662599)
 mesh = SubResource("ArrayMesh_o2evc")
 skeleton = NodePath("")
 
-[node name="floor" type="StaticBody3D" parent="building_abs_apt"]
-transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 10, 0, -26)
+[node name="floor" type="StaticBody3D" parent="bldg_abs_apts_mesh"]
+transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 60, 120, -1, 77)
 disable_mode = 1
 metadata/is_wallrunable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="building_abs_apt/floor"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bldg_abs_apts_mesh/floor"]
 shape = SubResource("BoxShape3D_rtean")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="building_abs_apt/floor"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bldg_abs_apts_mesh/floor"]
 mesh = SubResource("BoxMesh_n5ol3")
 surface_material_override/0 = SubResource("StandardMaterial3D_puonu")
 
-[node name="north_ground" type="Node3D" parent="building_abs_apt"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3)
+[node name="center_stalk" type="Node3D" parent="bldg_abs_apts_mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, -1, 111)
 
-[node name="apt_temp9" type="Node3D" parent="building_abs_apt/north_ground"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29, 0, -1)
-
-[node name="Block2" parent="building_abs_apt/north_ground/apt_temp9" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/north_ground/apt_temp9" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/north_ground/apt_temp9" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/north_ground/apt_temp9" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/north_ground/apt_temp9" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp10" type="Node3D" parent="building_abs_apt/north_ground"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 0, -1)
-
-[node name="Block2" parent="building_abs_apt/north_ground/apt_temp10" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/north_ground/apt_temp10" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/north_ground/apt_temp10" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/north_ground/apt_temp10" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/north_ground/apt_temp10" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp11" type="Node3D" parent="building_abs_apt/north_ground"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1, 0, -1)
-
-[node name="Block2" parent="building_abs_apt/north_ground/apt_temp11" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/north_ground/apt_temp11" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/north_ground/apt_temp11" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/north_ground/apt_temp11" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/north_ground/apt_temp11" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp12" type="Node3D" parent="building_abs_apt/north_ground"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, 0, -1)
-
-[node name="Block2" parent="building_abs_apt/north_ground/apt_temp12" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/north_ground/apt_temp12" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/north_ground/apt_temp12" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -1.5)
-
-[node name="Block3" parent="building_abs_apt/north_ground/apt_temp12" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/north_ground/apt_temp12" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="north_floor_0" type="Node3D" parent="building_abs_apt"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 6, 3)
-
-[node name="apt_temp9" type="Node3D" parent="building_abs_apt/north_floor_0"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29, 0, -1)
-
-[node name="Block2" parent="building_abs_apt/north_floor_0/apt_temp9" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/north_floor_0/apt_temp9" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/north_floor_0/apt_temp9" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/north_floor_0/apt_temp9" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/north_floor_0/apt_temp9" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp10" type="Node3D" parent="building_abs_apt/north_floor_0"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 17, 0, -1)
-
-[node name="Block2" parent="building_abs_apt/north_floor_0/apt_temp10" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/north_floor_0/apt_temp10" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/north_floor_0/apt_temp10" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/north_floor_0/apt_temp10" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/north_floor_0/apt_temp10" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp11" type="Node3D" parent="building_abs_apt/north_floor_0"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, 6, -1)
-
-[node name="Block4" parent="building_abs_apt/north_floor_0/apt_temp11" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/north_floor_0/apt_temp11" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/north_floor_0/apt_temp11" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/north_floor_0/apt_temp11" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="roof2" parent="building_abs_apt/north_floor_0/apt_temp11" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 1, -3)
-
-[node name="ladder_type_a" parent="building_abs_apt/north_floor_0/apt_temp11" instance=ExtResource("18_y2qa4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -3.5, -9)
-
-[node name="apt_temp12" type="Node3D" parent="building_abs_apt/north_floor_0"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11, 0, -1)
-
-[node name="Block2" parent="building_abs_apt/north_floor_0/apt_temp12" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/north_floor_0/apt_temp12" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/north_floor_0/apt_temp12" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -1.5)
-
-[node name="Block3" parent="building_abs_apt/north_floor_0/apt_temp12" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/north_floor_0/apt_temp12" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="floor" parent="building_abs_apt/north_floor_0" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-3.49691e-07, 0, -52, 0, 1, 0, 8, 0, -2.27299e-06, 12, 1, -3)
-
-[node name="broken_wall_a" parent="building_abs_apt/north_floor_0" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-4.37114e-08, 2.11309, -10.8757, 0, 4.53154, 5.07142, 1, 9.23662e-08, -4.75392e-07, 0, 3, 0.5)
-
-[node name="broken_wall_b" parent="building_abs_apt/north_floor_0" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-4.37114e-08, -1.2941, -11.5911, 0, 4.82963, -3.10583, 1, -5.65667e-08, -5.06664e-07, 10, 3, 0.5)
-
-[node name="walk_way_3" type="Node3D" parent="building_abs_apt/north_floor_0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-
-[node name="walk_way_0" parent="building_abs_apt/north_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, -48, 0, 1, 0, 2, 0, -2.09815e-06, 9, 1, -10)
-
-[node name="walk_way_1" parent="building_abs_apt/north_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0.573576, -13.1064, 0, 0.819152, 9.17722, 2, 2.50718e-08, -5.729e-07, 7, -3.5, -8)
-
-[node name="walk_way_2" parent="building_abs_apt/north_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, -16, 0, 1, 0, 2, 0, -6.99382e-07, -7.2682, 1, -8)
-
-[node name="walk_way_3" parent="building_abs_apt/north_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, -16, 0, 1, 0, 2, 0, -6.99382e-07, 19, 1, -8)
-
-[node name="east_ground" type="Node3D" parent="building_abs_apt"]
-
-[node name="apt_temp" type="Node3D" parent="building_abs_apt/east_ground"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 0, -45)
-
-[node name="Block2" parent="building_abs_apt/east_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/east_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/east_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -1.5)
-
-[node name="Block3" parent="building_abs_apt/east_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/east_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp2" type="Node3D" parent="building_abs_apt/east_ground"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 0, -33)
-
-[node name="Block2" parent="building_abs_apt/east_ground/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/east_ground/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/east_ground/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/east_ground/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/east_ground/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp3" type="Node3D" parent="building_abs_apt/east_ground"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 0, -17)
-
-[node name="Block2" parent="building_abs_apt/east_ground/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/east_ground/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/east_ground/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/east_ground/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/east_ground/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp4" type="Node3D" parent="building_abs_apt/east_ground"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 0, -5)
-
-[node name="Block2" parent="building_abs_apt/east_ground/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/east_ground/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/east_ground/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/east_ground/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/east_ground/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="east_floor_0" type="Node3D" parent="building_abs_apt"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
-
-[node name="apt_temp" type="Node3D" parent="building_abs_apt/east_floor_0"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 0, -45)
-
-[node name="Block2" parent="building_abs_apt/east_floor_0/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/east_floor_0/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/east_floor_0/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -1.5)
-
-[node name="Block3" parent="building_abs_apt/east_floor_0/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/east_floor_0/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 5, -2, 6, -6)
-
-[node name="apt_temp2" type="Node3D" parent="building_abs_apt/east_floor_0"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 0, -33)
-
-[node name="Block2" parent="building_abs_apt/east_floor_0/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/east_floor_0/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/east_floor_0/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/east_floor_0/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/east_floor_0/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp3" type="Node3D" parent="building_abs_apt/east_floor_0"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 0, -17)
-
-[node name="Block2" parent="building_abs_apt/east_floor_0/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/east_floor_0/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/east_floor_0/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/east_floor_0/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/east_floor_0/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp4" type="Node3D" parent="building_abs_apt/east_floor_0"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -18, 0, -5)
-
-[node name="Block2" parent="building_abs_apt/east_floor_0/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/east_floor_0/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/east_floor_0/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/east_floor_0/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/east_floor_0/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="floor" parent="building_abs_apt/east_floor_0" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 52, -16, 1, -22)
-
-[node name="walk_way_3" type="Node3D" parent="building_abs_apt/east_floor_0"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -19, 0, -35)
-
-[node name="walk_way_0" parent="building_abs_apt/east_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, -48, 0, 1, 0, 2, 0, -2.09815e-06, 9, 1, -10)
-
-[node name="walk_way_1" parent="building_abs_apt/east_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0.573576, -13.1064, 0, 0.819152, 9.17722, 2, 2.50718e-08, -5.729e-07, 7, -3.5, -8)
-
-[node name="walk_way_2" parent="building_abs_apt/east_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, -16, 0, 1, 0, 2, 0, -6.99382e-07, -7.2682, 1, -8)
-
-[node name="walk_way_3" parent="building_abs_apt/east_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, -16, 0, 1, 0, 2, 0, -6.99382e-07, 19, 1, -8)
-
-[node name="south_ground" type="Node3D" parent="building_abs_apt"]
-
-[node name="apt_temp5" type="Node3D" parent="building_abs_apt/south_ground"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 29, 0, -54)
-
-[node name="Block2" parent="building_abs_apt/south_ground/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/south_ground/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/south_ground/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -1.5)
-
-[node name="Block3" parent="building_abs_apt/south_ground/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/south_ground/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp6" type="Node3D" parent="building_abs_apt/south_ground"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17, 0, -54)
-
-[node name="Block2" parent="building_abs_apt/south_ground/apt_temp6" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/south_ground/apt_temp6" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/south_ground/apt_temp6" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/south_ground/apt_temp6" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/south_ground/apt_temp6" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp7" type="Node3D" parent="building_abs_apt/south_ground"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, -54)
-
-[node name="Block2" parent="building_abs_apt/south_ground/apt_temp7" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/south_ground/apt_temp7" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/south_ground/apt_temp7" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/south_ground/apt_temp7" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/south_ground/apt_temp7" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp8" type="Node3D" parent="building_abs_apt/south_ground"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, 0, -54)
-
-[node name="Block2" parent="building_abs_apt/south_ground/apt_temp8" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/south_ground/apt_temp8" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/south_ground/apt_temp8" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/south_ground/apt_temp8" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/south_ground/apt_temp8" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="south_floor_0" type="Node3D" parent="building_abs_apt"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
-
-[node name="apt_temp6" type="Node3D" parent="building_abs_apt/south_floor_0"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21, 0, -54)
-
-[node name="Block2" parent="building_abs_apt/south_floor_0/apt_temp6" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/south_floor_0/apt_temp6" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/south_floor_0/apt_temp6" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/south_floor_0/apt_temp6" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/south_floor_0/apt_temp6" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp7" type="Node3D" parent="building_abs_apt/south_floor_0"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, -54)
-
-[node name="Block2" parent="building_abs_apt/south_floor_0/apt_temp7" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/south_floor_0/apt_temp7" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/south_floor_0/apt_temp7" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 4.82963, -1.55291, 0, 1.2941, 5.79556, -5.5, 2, -5.5)
-
-[node name="Block3" parent="building_abs_apt/south_floor_0/apt_temp7" instance=ExtResource("3_i1kup")]
-transform = Transform3D(4.91491, -2.86788, 0, 3.44146, 4.09576, 0, 0, 0, 1, -2, 2, 2.5)
-
-[node name="apt_temp8" type="Node3D" parent="building_abs_apt/south_floor_0"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, 0, -54)
-
-[node name="Block2" parent="building_abs_apt/south_floor_0/apt_temp8" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/south_floor_0/apt_temp8" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/south_floor_0/apt_temp8" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/south_floor_0/apt_temp8" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/south_floor_0/apt_temp8" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="floor" parent="building_abs_apt/south_floor_0" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-3.49691e-07, 0, -52, 0, 1, 0, 8, 0, -2.27299e-06, 6, 1, -52)
-
-[node name="walk_way_3" type="Node3D" parent="building_abs_apt/south_floor_0"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 19, 0, -55)
-
-[node name="walk_way_0" parent="building_abs_apt/south_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, -48, 0, 1, 0, 2, 0, -2.09815e-06, 9, 1, -10)
-
-[node name="walk_way_1" parent="building_abs_apt/south_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0.573576, -13.1064, 0, 0.819152, 9.17722, 2, 2.50718e-08, -5.729e-07, 7, -3.5, -8)
-
-[node name="walk_way_2" parent="building_abs_apt/south_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, -16, 0, 1, 0, 2, 0, -6.99382e-07, -7.2682, 1, -8)
-
-[node name="walk_way_3" parent="building_abs_apt/south_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, -2, 0, 1, 0, 2, 0, -8.74228e-08, 17, 1, -8)
-
-[node name="west_ground" type="Node3D" parent="building_abs_apt"]
-
-[node name="apt_temp" type="Node3D" parent="building_abs_apt/west_ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, -47)
-
-[node name="Block2" parent="building_abs_apt/west_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/west_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/west_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -3.5)
-
-[node name="Block3" parent="building_abs_apt/west_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 1, -3.5, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/west_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="board_0" parent="building_abs_apt/west_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(0.5, 0, 0, 0, 0.478152, -0.877115, 0, 0.146186, 2.86891, -6, 2.5, 1.5)
-
-[node name="board_1" parent="building_abs_apt/west_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(0.5, 0, 0, 0, 0.472759, 0.976704, 0, -0.162784, 2.83656, -6, 4, 1.5)
-
-[node name="board_2" parent="building_abs_apt/west_ground/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(0.5, 0, 0, 0, 0.453154, -1.26785, 0, 0.211309, 2.71892, -6, 4, 1.5)
-
-[node name="apt_temp2" type="Node3D" parent="building_abs_apt/west_ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, -35)
-
-[node name="Block2" parent="building_abs_apt/west_ground/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(4, 0, 0, 0, 5, 0, 0, 0, 1, -4, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/west_ground/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/west_ground/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/west_ground/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/west_ground/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp3" type="Node3D" parent="building_abs_apt/west_ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, -19)
-
-[node name="Block2" parent="building_abs_apt/west_ground/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/west_ground/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/west_ground/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/west_ground/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/west_ground/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp4" type="Node3D" parent="building_abs_apt/west_ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, -7)
-
-[node name="Block2" parent="building_abs_apt/west_ground/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/west_ground/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/west_ground/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -1.5)
-
-[node name="Block3" parent="building_abs_apt/west_ground/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/west_ground/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="west_floor_0" type="Node3D" parent="building_abs_apt"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0)
-
-[node name="apt_temp2" type="Node3D" parent="building_abs_apt/west_floor_0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, -35)
-
-[node name="Block2" parent="building_abs_apt/west_floor_0/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/west_floor_0/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/west_floor_0/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="roof" parent="building_abs_apt/west_floor_0/apt_temp2" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="apt_temp4" type="Node3D" parent="building_abs_apt/west_floor_0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, -7)
-
-[node name="Block4" parent="building_abs_apt/west_floor_0/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/west_floor_0/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -1.5)
-
-[node name="Block3" parent="building_abs_apt/west_floor_0/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/west_floor_0/apt_temp4" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="floor" parent="building_abs_apt/west_floor_0" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 52, 36, 1, -30)
-
-[node name="walk_way_3" type="Node3D" parent="building_abs_apt/west_floor_0"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 39, 0, -17)
-
-[node name="walk_way_0" parent="building_abs_apt/west_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, -48, 0, 1, 0, 2, 0, -2.09815e-06, 9, 1, -10)
-
-[node name="walk_way_1" parent="building_abs_apt/west_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0.573576, -13.1064, 0, 0.819152, 9.17722, 2, 2.50718e-08, -5.729e-07, 7, -3.5, -8)
-
-[node name="walk_way_2" parent="building_abs_apt/west_floor_0/walk_way_3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, -16, 0, 1, 0, 2, 0, -6.99382e-07, -7.2682, 1, -8)
-
-[node name="center_stalk" type="Node3D" parent="building_abs_apt"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 8)
-
-[node name="LadderTypeAcolliders2" parent="building_abs_apt/center_stalk" instance=ExtResource("66_6xkfd")]
+[node name="LadderTypeAcolliders2" parent="bldg_abs_apts_mesh/center_stalk" instance=ExtResource("66_6xkfd")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 50.5, 24.5, -33)
 
-[node name="apt_temp5" type="Node3D" parent="building_abs_apt/center_stalk"]
-transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 32, 7, -43)
+[node name="apt_temp3" type="Node3D" parent="bldg_abs_apts_mesh/center_stalk"]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 113, 23, -34)
 
-[node name="Block2" parent="building_abs_apt/center_stalk/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/center_stalk/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, -3.55271e-15, 0, 5, 1.5, 4, -6)
-
-[node name="Block5" parent="building_abs_apt/center_stalk/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, -3.55271e-15, 0, 5, -5.5, 4, -3.49999)
-
-[node name="Block3" parent="building_abs_apt/center_stalk/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 3.55271e-15, 0, 5, 0, -2.84217e-14, 0, 1, -2, 4, -0.5)
-
-[node name="Block6" parent="building_abs_apt/center_stalk/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 9, 0, 2.98023e-08, 0, 1, -4.73206, -3, -1.23204)
-
-[node name="roof" parent="building_abs_apt/center_stalk/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 2.84217e-14, 0, 1, 0, -2.84217e-14, 0, 8, -2, 6, -4)
-
-[node name="roof2" parent="building_abs_apt/center_stalk/apt_temp5" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 8, -2, 2, -4)
-
-[node name="apt_temp" type="Node3D" parent="building_abs_apt/center_stalk"]
-transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 143, 13, -26)
-
-[node name="Block2" parent="building_abs_apt/center_stalk/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -8.5)
-
-[node name="Block4" parent="building_abs_apt/center_stalk/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 12, 1.5, 4, -3)
-
-[node name="Block5" parent="building_abs_apt/center_stalk/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 9, -5.5, 4, -4.5)
-
-[node name="Block3" parent="building_abs_apt/center_stalk/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/center_stalk/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="roof2" parent="building_abs_apt/center_stalk/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(10, 0, 7.15256e-07, 0, 1, 0, 0, 0, 12, -2.9659, 2, -3.2588)
-
-[node name="roof3" parent="building_abs_apt/center_stalk/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(2, 0, 7.15256e-07, 0, 1, 0, 0, 0, 12, -7.15775, 2, 0.79438)
-
-[node name="roof5" parent="building_abs_apt/center_stalk/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-0.517638, -0.25, 11.1962, 7.71341e-09, 0.965926, 3.10583, -1.93185, 0.0669873, -3, -14.247, 0.5, 4.07102)
-
-[node name="roof4" parent="building_abs_apt/center_stalk/apt_temp" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-5.96046e-08, -0.5, 10.3923, 0, 0.866025, 6, -2, 1.49012e-08, -4.76837e-07, -2.13865, 4, 5.24512)
-
-[node name="apt_temp3" type="Node3D" parent="building_abs_apt/center_stalk"]
-transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 47, 23, -34)
-
-[node name="Block2" parent="building_abs_apt/center_stalk/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, -6.5)
-
-[node name="Block4" parent="building_abs_apt/center_stalk/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 10, 1.5, 4, -2)
-
-[node name="Block5" parent="building_abs_apt/center_stalk/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 7, -5.5, 4, -3.5)
-
-[node name="Block3" parent="building_abs_apt/center_stalk/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 5, 0, 0, 0, 1, -2, 4, 2.5)
-
-[node name="roof" parent="building_abs_apt/center_stalk/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 6, -3)
-
-[node name="roof2" parent="building_abs_apt/center_stalk/apt_temp3" instance=ExtResource("3_i1kup")]
-transform = Transform3D(8, 0, 0, 0, 1, 0, 0, 0, 12, -2, 2, -3)
-
-[node name="Block" parent="building_abs_apt/center_stalk" instance=ExtResource("3_i1kup")]
-transform = Transform3D(2, 0, 0, 0, 0.965926, 2.19996, 0, -0.258819, 8.21037, 41, 8, -48)
-
-[node name="Block6" parent="building_abs_apt/center_stalk" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1.73205, -0.0868241, 10.8329, 0, 0.984808, 3.82026, -1, -0.150384, 18.7631, 48, 9, -42)
-
-[node name="Block2" parent="building_abs_apt/center_stalk" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1.41421, 0.183013, -5.80561, 0, 0.965926, 2.19996, 1.41421, -0.183013, 5.80561, 31, 9, -38)
-
-[node name="Block3" parent="building_abs_apt/center_stalk" instance=ExtResource("3_i1kup")]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 28, 10, -34)
-
-[node name="ladder_type_a" parent="building_abs_apt/center_stalk" instance=ExtResource("18_y2qa4")]
+[node name="ladder_type_a" parent="bldg_abs_apts_mesh/center_stalk" instance=ExtResource("18_y2qa4")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 34.4129, 10.0259, -25.3786)
 
-[node name="PlatCompleteA" parent="building_abs_apt/center_stalk" instance=ExtResource("21_goo3m")]
+[node name="PlatCompleteA" parent="bldg_abs_apts_mesh/center_stalk" instance=ExtResource("21_goo3m")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 37, 2, -23)
 
-[node name="PlatCompleteA2" type="Node3D" parent="building_abs_apt/center_stalk"]
+[node name="PlatCompleteA2" type="Node3D" parent="bldg_abs_apts_mesh/center_stalk"]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 51, 12, -28)
 
-[node name="PlatMetalSupport" parent="building_abs_apt/center_stalk/PlatCompleteA2" instance=ExtResource("18_6m64y")]
+[node name="PlatMetalSupport" parent="bldg_abs_apts_mesh/center_stalk/PlatCompleteA2" instance=ExtResource("18_6m64y")]
 transform = Transform3D(1, 0, 0, 0, 5.75, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="PlatMetalTop" parent="building_abs_apt/center_stalk/PlatCompleteA2" instance=ExtResource("17_7mx2a")]
+[node name="PlatMetalTop" parent="bldg_abs_apts_mesh/center_stalk/PlatCompleteA2" instance=ExtResource("17_7mx2a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
 
-[node name="PlatMetalTop2" parent="building_abs_apt/center_stalk/PlatCompleteA2" instance=ExtResource("17_7mx2a")]
+[node name="PlatMetalTop2" parent="bldg_abs_apts_mesh/center_stalk/PlatCompleteA2" instance=ExtResource("17_7mx2a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, -5)
 
-[node name="wallC_flat" parent="building_abs_apt/center_stalk" instance=ExtResource("64_huqkh")]
+[node name="wallC_flat" parent="bldg_abs_apts_mesh/center_stalk" instance=ExtResource("64_huqkh")]
 transform = Transform3D(1, 0, -1.73205, 0, 2, 0, 1.73205, 0, 1, 40, 16, -26)
 
-[node name="Block4" type="StaticBody3D" parent="building_abs_apt/center_stalk"]
+[node name="Block4" type="StaticBody3D" parent="bldg_abs_apts_mesh/center_stalk"]
 transform = Transform3D(0.866025, 0, 3.5, 0, 7, 0, -0.5, 0, 6.06218, 39.7743, 19, -26)
 disable_mode = 1
 metadata/is_wallrunable = false
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="building_abs_apt/center_stalk/Block4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bldg_abs_apts_mesh/center_stalk/Block4"]
 shape = SubResource("BoxShape3D_rtean")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="building_abs_apt/center_stalk/Block4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bldg_abs_apts_mesh/center_stalk/Block4"]
 mesh = SubResource("BoxMesh_n5ol3")
 surface_material_override/0 = SubResource("StandardMaterial3D_puonu")
 
-[node name="LadderTypeA" parent="building_abs_apt/center_stalk" instance=ExtResource("49_avhul")]
+[node name="LadderTypeA" parent="bldg_abs_apts_mesh/center_stalk" instance=ExtResource("49_avhul")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1.25, 0, -0.258819, 0, 0.965926, 34.4947, 8.49302, -25.0189)
 
-[node name="Block5" parent="building_abs_apt/center_stalk" instance=ExtResource("3_i1kup")]
+[node name="Block5" parent="bldg_abs_apts_mesh/center_stalk" instance=ExtResource("3_i1kup")]
 transform = Transform3D(0.965926, 0, 0.12941, 0, 6, 0, -0.258819, 0, 0.482963, 34.6036, 12.569, -24.6626)
 
-[node name="LadderTypeAcolliders" parent="building_abs_apt/center_stalk" instance=ExtResource("66_6xkfd")]
+[node name="LadderTypeAcolliders" parent="bldg_abs_apts_mesh/center_stalk" instance=ExtResource("66_6xkfd")]
 transform = Transform3D(0.258819, 0, -0.965926, 0, 1.5, 0, 0.965926, 0, 0.258819, 48.8, 17, -26)
 
-[node name="BridgeWoodA" parent="building_abs_apt/center_stalk" instance=ExtResource("33_dfgtv")]
+[node name="BridgeWoodA" parent="bldg_abs_apts_mesh/center_stalk" instance=ExtResource("33_dfgtv")]
 transform = Transform3D(1.80551, -0.15266, 0.84666, 0.168504, 1.99289, 0, -0.84365, 0.0713326, 1.81195, 26.6664, 14.2193, -17.7163)
 
-[node name="center_tree_mesh" type="Node3D" parent="building_abs_apt"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+[node name="center_tree_mesh" type="Node3D" parent="bldg_abs_apts_mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 0, 103)
 
-[node name="apartments_tree" parent="building_abs_apt/center_tree_mesh" instance=ExtResource("59_cdqba")]
+[node name="apartments_tree" parent="bldg_abs_apts_mesh/center_tree_mesh" instance=ExtResource("59_cdqba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -23.5)
 
 [node name="building_d" type="Node3D" parent="."]
