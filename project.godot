@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 global="*res://global.gd"
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dialogic]
 
@@ -34,6 +35,7 @@ directories/dtl_directory={
 "construction_npc": "res://Dialogic_timelines/construction_npc.dtl",
 "npc_micro_observer_a": "res://Dialogic_timelines/npc_micro_observer_a.dtl",
 "npc_retest_a": "res://Dialogic_timelines/npc_retest_a.dtl",
+"npc_sewer_a": "res://Dialogic_timelines/npc_sewer_a.dtl",
 "timeline_null_reset": "res://Dialogic_timelines/timeline_null_reset.dtl",
 "timeline_test_a": "res://Dialogic_timelines/timeline_test_a.dtl",
 "tml_bldg_radio_a": "res://Dialogic_timelines/tml_bldg_radio_a.dtl",

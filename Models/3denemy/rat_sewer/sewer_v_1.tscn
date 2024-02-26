@@ -1,5 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1hy2wex5nsd0"]
+[gd_scene load_steps=9 format=3 uid="uid://b1hy2wex5nsd0"]
 
 [ext_resource type="PackedScene" uid="uid://dwstyftulbnwv" path="res://Models/3denemy/rat_sewer/sewer_V1.glb" id="1_k2mgi"]
+[ext_resource type="PackedScene" uid="uid://dvo6oiswnhthr" path="res://Models/3denemy/rat_sewer/rat_idle.tscn" id="2_n24q4"]
+[ext_resource type="Texture2D" uid="uid://pjkxxfpcph1f" path="res://Models/3denemy/rat_sewer/sewer_water_yum.png" id="3_fh5ke"]
+[ext_resource type="PackedScene" uid="uid://rwrbsssaksbh" path="res://Objects/Block.tscn" id="3_sj2bn"]
+[ext_resource type="Script" path="res://Models/3denemy/rat_sewer/MeshInstance3D.gd" id="4_5o8fh"]
+[ext_resource type="PackedScene" uid="uid://dk1q621bm15x7" path="res://elbolilloduro_models/scenes/trailer_home_a_ELBLDLO.tscn" id="6_7j6m3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qkdh"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.501961)
+albedo_texture = ExtResource("3_fh5ke")
+
+[sub_resource type="QuadMesh" id="QuadMesh_eiki6"]
+material = SubResource("StandardMaterial3D_0qkdh")
+size = Vector2(15, 120)
+orientation = 1
 
 [node name="sewer_V1" instance=ExtResource("1_k2mgi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2232, 0)
+
+[node name="rat_idle" parent="." index="1" instance=ExtResource("2_n24q4")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, -1.56461, 9.98076)
+mesh = SubResource("QuadMesh_eiki6")
+script = ExtResource("4_5o8fh")
+
+[node name="colliders" type="Node3D" parent="." index="3"]
+visible = false
+
+[node name="Block" parent="colliders" index="0" instance=ExtResource("3_sj2bn")]
+transform = Transform3D(110, 0, 0, 0, 1, 0, 0, 0, 14, 0, -2.14234, 11.186)
+
+[node name="Block2" parent="colliders" index="1" instance=ExtResource("3_sj2bn")]
+transform = Transform3D(110, 0, 0, 0, 1, 0, 0, 0, 14, 0, -1.07898, -2.95676)
+
+[node name="Block7" parent="colliders" index="2" instance=ExtResource("3_sj2bn")]
+transform = Transform3D(110, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0789781, 0.0432405)
+
+[node name="Block8" parent="colliders" index="3" instance=ExtResource("3_sj2bn")]
+transform = Transform3D(1, 0, 0, 0, 24, 0, 0, 0, 24, -53.75, 0, 9)
+
+[node name="Block9" parent="colliders" index="4" instance=ExtResource("3_sj2bn")]
+transform = Transform3D(1, 0, 0, 0, 24, 0, 0, 0, 24, 53.25, 0, 9)
+
+[node name="Block3" parent="colliders" index="5" instance=ExtResource("3_sj2bn")]
+transform = Transform3D(110, 0, 0, 0, -0.258819, -13.523, 0, 0.965926, -3.62347, 0, -1.07898, -0.956759)
+
+[node name="Block4" parent="colliders" index="6" instance=ExtResource("3_sj2bn")]
+transform = Transform3D(110, 0, 0, 0, -0.5, -5.19615, 0, 0.866025, -3, 0, 6.75, 3.25)
+
+[node name="Block5" parent="colliders" index="7" instance=ExtResource("3_sj2bn")]
+transform = Transform3D(-110, -8.44439e-08, 3.16774e-07, 0, -0.258819, -13.523, 9.6165e-06, -0.965926, 3.62347, 1.83883e-07, -1.07898, 18.25)
+
+[node name="Block6" parent="colliders" index="8" instance=ExtResource("3_sj2bn")]
+transform = Transform3D(-110, -7.57103e-08, 2.62268e-07, 0, -0.5, -5.19615, 9.61651e-06, -0.866025, 3, -1.83883e-07, 6.75, 14.0432)
+
+[node name="Block10" parent="colliders" index="9" instance=ExtResource("3_sj2bn")]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 2, -42, 1, 2)
+
+[node name="TrailerHomeAElbldlo" parent="." index="4" instance=ExtResource("6_7j6m3")]
+transform = Transform3D(0.323524, 0, 1.20741, 0.3125, 1.20741, -0.0837342, -1.16627, 0.323524, 0.3125, -47, -1, 8)

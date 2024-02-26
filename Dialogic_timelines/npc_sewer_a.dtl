@@ -1,0 +1,5 @@
+join NPC_micro_observer_a 1
+NPC_micro_observer_a (port_default): Yannow, if there's dream sewers, that means someone out there is dreaming of using the toilet.
+NPC_micro_observer_a (port_default): What a strange person that must be.
+[signal arg="dialogue_exhausted"]
+[end_timeline]
