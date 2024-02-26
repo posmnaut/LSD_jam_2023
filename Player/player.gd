@@ -607,7 +607,7 @@ func _physics_process(delta):
 
 
 	# sptin control
-	if Input.is_action_pressed("duck") :
+	if Input.is_action_pressed("duck") && Input.is_action_pressed("forward"):
 		sprint_spd = sprint_mod
 		camera.fov = lerp(camera.fov,fov_sprint,0.1);
 		if is_on_floor() && spd < bs_spd + sprint_spd :
