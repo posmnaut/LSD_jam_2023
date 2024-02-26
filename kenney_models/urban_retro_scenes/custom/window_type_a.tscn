@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://xtfdrgb4mev"]
+
+[ext_resource type="Texture2D" uid="uid://tyb0n66cns5r" path="res://kenney_models/urban_retro/wallA_window_windows.png" id="1_5oynk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_01fgo"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.662745)
+albedo_texture = ExtResource("1_5oynk")
+uv1_scale = Vector3(0.5, 0.5, 1)
+uv1_offset = Vector3(0, 0.5, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_mtsw8"]
+material = SubResource("StandardMaterial3D_01fgo")
+
+[node name="WindowTypeA" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 0, 0, -0.1)
+mesh = SubResource("QuadMesh_mtsw8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("QuadMesh_mtsw8")
