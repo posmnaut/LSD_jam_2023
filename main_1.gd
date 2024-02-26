@@ -123,6 +123,7 @@ func _process (delta) :
 	#if outside disappear range & disappear set to true, move position
 	if npc_dist > NPC_disappear_range :
 		if NPC_array[NPC_int].disappear == true :
+			NPC_array[NPC_int].gone = true
 			NPC_array[NPC_int].global_transform.origin.y = -200;
 	
 	

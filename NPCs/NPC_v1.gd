@@ -19,6 +19,7 @@ var face_player = false
 var is_sleep = false
 var talk_timer = false
 var timing_int = 100.0
+var gone = false
 
 
 #NOTE:

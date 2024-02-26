@@ -264,7 +264,7 @@ func _on_dialogic_signal(argument:String):
 	if argument == "dialogue_exhausted":
 		var NPC_check = Look_Cast.get_collider();
 		if NPC_check != null :
-			if is_instance_of(NPC_check,talkable_NPC) || is_instance_of(NPC_check,billboard_talkable_NPC) || is_instance_of(NPC_check,construction_talkable_NPC):
+			if is_instance_of(NPC_check,talkable_NPC) || is_instance_of(NPC_check,billboard_talkable_NPC) || is_instance_of(NPC_check,construction_talkable_NPC) || is_instance_of(NPC_check,edge_talkable_NPC):
 				NPC_check.is_sleep = true;
 
 func _input(event):
@@ -287,11 +287,14 @@ func _input(event):
 			var click_check = look_cast_door.get_collider();
 			var cash_check = look_cast_cash.get_collider();
 			if NPC_check != null :
-				if is_instance_of(NPC_check,talkable_NPC) || is_instance_of(NPC_check,billboard_talkable_NPC) || is_instance_of(NPC_check,construction_talkable_NPC):
+					
+
+				if is_instance_of(NPC_check,talkable_NPC) || is_instance_of(NPC_check,billboard_talkable_NPC) || is_instance_of(NPC_check,construction_talkable_NPC) || is_instance_of(NPC_check,edge_talkable_NPC):
 					if Look_Cast.get_collider_rid() != NPCinst :
 						Dialogic.VAR.linear_null = 0
 						NPCinst = Look_Cast.get_collider_rid()
-					
+
+
 					var dialogue_string = NPC_check.dialogue_string
 					var op_audio = NPC_check.open_audio;
 					var talk_timer = NPC_check.talk_timer;
@@ -613,7 +616,7 @@ func _physics_process(delta):
 
 
 	# sptin control
-	if Input.is_action_pressed("duck") :
+	if Input.is_action_pressed("duck") && Input.is_action_pressed("forward"):
 		sprint_spd = sprint_mod
 		camera.fov = lerp(camera.fov,fov_sprint,0.1);
 		if is_on_floor() && spd < bs_spd + sprint_spd :
