@@ -3294,7 +3294,7 @@ specular_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 1, 1, 0.00392157)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_evfmp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cvwhp"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -3329,7 +3329,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_evfmp"),
+"material": SubResource("ShaderMaterial_cvwhp"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -8228,10 +8228,21 @@ tilt_enabled = false
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("19_plvh7")
 
+[node name="building_d_skinned" type="Node3D" parent="building_d"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="building_d/building_d_skinned"]
+transform = Transform3D(27.0201, 0, 0, 0, 1, 0, 0, 0, 30, 3.09606, 3.25352, -44.9702)
+material_override = SubResource("StandardMaterial3D_oxxqo")
+mesh = SubResource("BoxMesh_r1yry")
+skeleton = NodePath("../../../building_a/Block9")
+
 [node name="building_d_meshed" type="Node3D" parent="."]
 
 [node name="ParkingGarageA" parent="building_d_meshed" instance=ExtResource("28_hwtak")]
-transform = Transform3D(-0.750722, 0, -0.660618, 0, 1, 0, 0.660618, 0, -0.750722, -34.5, 0, 104)
+transform = Transform3D(0.584052, 0, -0.811716, 0, 1, 0, 0.811716, 0, 0.584052, -34.5, 0, 104)
+
+[node name="BridgeMetalB8" parent="building_d_meshed" instance=ExtResource("38_idvbw")]
+transform = Transform3D(-1.7, -1.47861e-08, 1.26602e-07, -1.56973e-08, 0.946055, 0.111723, -1.45311e-07, 0.0707858, -1.49319, -39.287, 15.4221, 81.6187)
 
 [node name="building_e" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58656, 0, 6)
