@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx37xaymoynlp"]
+
+[ext_resource type="PackedScene" uid="uid://bm8w23ylwv54d" path="res://Models/chilly_durango_industrial/Wires.glb" id="1_q6o7y"]
+
+[node name="Wires" instance=ExtResource("1_q6o7y")]

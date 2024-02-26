@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdb6l5jb7jrrl"]
+
+[ext_resource type="PackedScene" uid="uid://coatgxp27ecps" path="res://Models/chilly_durango_industrial/Transformer.glb" id="1_fnl0j"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0eqce"]
+points = PackedVector3Array(0.639764, 1.67323, 0.442914, 5.55112e-18, 1.67323, 0.442914, 0.639764, 0.196706, 0.442914, 0.639764, 1.67323, -0.442914, 5.55112e-18, 1.67323, -0.442914, 5.55112e-18, 0.196706, 0.442914, 0.56593, 0, 0.369037, 0.639764, 0.196706, -0.442914, 5.55112e-18, 0.196706, -0.442914, 0.0737707, 0, 0.369037, 0.56593, 0, -0.369124, 0.0737707, 0, -0.369124)
+
+[node name="Transformer2" instance=ExtResource("1_fnl0j")]
+
+[node name="Transformer" parent="." index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_0eqce")

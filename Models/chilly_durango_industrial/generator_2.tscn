@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://fpwef05qpmrm"]
+
+[ext_resource type="PackedScene" uid="uid://bx316ffl4dgb7" path="res://Models/chilly_durango_industrial/Generator.glb" id="1_j1ucg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a3n36"]
+size = Vector3(1.15, 1.7, 2.65)
+
+[node name="Generator2" instance=ExtResource("1_j1ucg")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0.173584)
+shape = SubResource("BoxShape3D_a3n36")

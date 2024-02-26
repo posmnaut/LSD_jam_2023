@@ -7,7 +7,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chhjq"]
 resource_name = "wall_lines"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("2_l6xeu")
 metallic_specular = 0.0
 roughness = 0.5
@@ -16,7 +15,6 @@ texture_filter = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcoba"]
 resource_name = "concrete"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_2ht0g")
 metallic_specular = 0.0
 roughness = 0.5
@@ -28,7 +26,6 @@ resource_name = "bars"
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("4_5qgrp")
 metallic_specular = 0.0
 roughness = 0.5
