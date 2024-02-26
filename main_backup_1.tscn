@@ -133,7 +133,7 @@
 [ext_resource type="Texture2D" uid="uid://dub1aiestc1v8" path="res://Industrial_Models/Industrial_exterior_v2_Palet.png" id="98_jcsjw"]
 [ext_resource type="Texture2D" uid="uid://tmd12alydkvy" path="res://Industrial_Models/Industrial_exterior_v2_Asphalt_1-4.png" id="101_asigh"]
 [ext_resource type="PackedScene" uid="uid://u7i5yc03xnfp" path="res://Models/coldones/underground_a/underground_scene.tscn" id="113_gtjf0"]
-[ext_resource type="PackedScene" uid="uid://0f3qufmkd4x1" path="res://Models/3denemy/building_microscope/microscopebuilding.tscn" id="125_rluv0"]
+[ext_resource type="PackedScene" uid="uid://chdp2clo78upe" path="res://Models/3denemy/building_microscope/microscopebuilding_v_2_5.tscn" id="124_7tm23"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ojppl"]
 
@@ -2321,12 +2321,12 @@ shadow_mesh = SubResource("ArrayMesh_m5ii1")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_57pqf"]
 points = PackedVector3Array(-0.405073, 0.774884, 0.405073, 0.405071, 0.774884, 0.404994, -0.405073, 0.774884, -0.405073, -0.405073, -0.0374956, 0.404994, 0.405071, -0.0374956, 0.404994, 0.405071, 0.774884, -0.405073, -0.405073, -0.0374956, -0.405073, 0.405071, -0.0374956, -0.405073)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kpik"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hdtew"]
 albedo_texture = ExtResource("43_kq6b6")
 uv1_scale = Vector3(30, 30, 30)
 
 [sub_resource type="QuadMesh" id="QuadMesh_adom3"]
-material = SubResource("StandardMaterial3D_2kpik")
+material = SubResource("StandardMaterial3D_hdtew")
 orientation = 1
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5slum"]
@@ -3318,7 +3318,7 @@ specular_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 1, 1, 0.00392157)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_irw0i"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8rpnn"]
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("35_iuuh8")
@@ -3353,7 +3353,7 @@ _surfaces = [{
 "format": 34359742495,
 "index_count": 12,
 "index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 3, 0, 1, 0, 0, 0, 4, 0, 5, 0, 6, 0, 7, 0, 5, 0, 4, 0),
-"material": SubResource("ShaderMaterial_irw0i"),
+"material": SubResource("ShaderMaterial_8rpnn"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
@@ -3663,7 +3663,7 @@ transform = Transform3D(0.307245, 0.0445593, 1.46752, -0.215291, 1.48447, -9.424
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
 
 [node name="BridgeMetalA" parent="bridging_district_b" instance=ExtResource("35_aqtj5")]
-transform = Transform3D(1.71601, 0.252759, 0.995702, -0.252758, 1.98281, -0.0677266, -0.995701, -0.0677266, 1.7332, -53, 14, 18)
+transform = Transform3D(2.15526, 0.178993, 0.997529, -0.236118, 1.99082, -0.0307246, -1.24463, -0.0677262, 1.7332, -54.7206, 13.7927, 21)
 
 [node name="BridgeWoodA" parent="bridging_district_b" instance=ExtResource("33_dfgtv")]
 transform = Transform3D(-4.37114e-08, 0, 1, -0.150812, 0.988562, -6.59221e-09, -0.988562, -0.150812, -4.32114e-08, -35, 13.2351, 26.3569)
@@ -4088,18 +4088,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
 
 [node name="billboard_2" type="Node3D" parent="bridging_district_c"]
 transform = Transform3D(0.258819, 0, -2.89778, 0, 3, 0, 0.965926, 0, 0.776457, -55.232, -2.64523, -16.8621)
-
-[node name="walk_way_type_a2" parent="bridging_district_c" instance=ExtResource("3_i1kup")]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 6, -104, 12, -10)
-
-[node name="walk_way_type_a3" parent="bridging_district_c" instance=ExtResource("3_i1kup")]
-transform = Transform3D(1.41421, 0, -11.3137, 0, 1, 0, 1.41421, 0, 11.3137, -100, 13, -19)
-
-[node name="walk_way_type_a4" parent="bridging_district_c" instance=ExtResource("3_i1kup")]
-transform = Transform3D(-8.74228e-08, 0, 18, 0, 1, 0, -2, 0, -7.86805e-07, -86, 14, -26)
-
-[node name="walk_way_type_a5" parent="bridging_district_c" instance=ExtResource("3_i1kup")]
-transform = Transform3D(2.82843, 0, 11.3137, 0, 1, 0, -2.82843, 0, 11.3137, -73, 15, -25)
 
 [node name="Block9" parent="bridging_district_c" instance=ExtResource("3_i1kup")]
 transform = Transform3D(12, 0, 0, 0, 1, 0, 0, 0, 35, -114, 0, -199.511)
@@ -9671,6 +9659,7 @@ light_specular = 0.0
 
 [node name="building_microscope" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -265, 0, 14)
+visible = false
 
 [node name="Block" parent="building_microscope" instance=ExtResource("3_i1kup")]
 transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 32, -32, 5, 4)
@@ -9832,8 +9821,14 @@ transform = Transform3D(36, 0, 0, 0, -0.866026, -6, 0, 0.5, -10.3923, -9, 27, 6)
 [node name="Block14" parent="building_microscope/roof_a" instance=ExtResource("3_i1kup")]
 transform = Transform3D(36, 0, 0, 0, -0.866026, -6, 0, 0.5, -10.3923, -9, 42, -3)
 
-[node name="tt_from_zone_c" parent="building_microscope" instance=ExtResource("17_po3j1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 43, -22)
+[node name="bldg_microscope" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 0, 0)
+
+[node name="microscopebuilding_V2_5" parent="bldg_microscope" instance=ExtResource("124_7tm23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.635, 0.5, 0)
+
+[node name="tt_from_zone_c" parent="bldg_microscope" instance=ExtResource("17_po3j1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 51, 0)
 
 [node name="detailLight_single" parent="." instance=ExtResource("15_0no74")]
 transform = Transform3D(-0.902254, 0, 0.431204, 0, 1, 0, -0.431204, 0, -0.902254, -81.6376, 0.5, -57.8468)
@@ -10330,7 +10325,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.469
 
 [node name="click_trigger" parent="ndrgrd_teleport_zones/zone_c" node_paths=PackedStringArray("target") instance=ExtResource("16_ece4e")]
 transform = Transform3D(1.31134e-07, 0, 1, 0, 3, 0, -1, 0, 1.31134e-07, 22.5, 2, -5.5)
-target = NodePath("../../../building_microscope/tt_from_zone_c")
+target = NodePath("../../../bldg_microscope/tt_from_zone_c")
 
 [node name="roads" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.51, -12)
@@ -10434,16 +10429,40 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -51, 0
 transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -57, 0, -28)
 
 [node name="roadAsphalt_cornerInner3" parent="roads/roads_center" instance=ExtResource("34_r2g8c")]
-transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -117, 0, 56)
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -129, 0, 56)
 
 [node name="roadAsphalt_side13" parent="roads/roads_center" instance=ExtResource("33_my01c")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -111, 0, 56)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -123, 0, 56)
 
 [node name="roadAsphalt_side14" parent="roads/roads_center" instance=ExtResource("33_my01c")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -117, 0, 50)
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -129, 0, 50)
 
 [node name="roadAsphalt_cornerOuter15" parent="roads/roads_center" instance=ExtResource("31_6uelx")]
-transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -111, 0, 50)
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, -123, 0, 50)
+
+[node name="roadAsphalt_cornerInner4" parent="roads/roads_center" instance=ExtResource("34_r2g8c")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -111, 0, -4)
+
+[node name="roadAsphalt_side15" parent="roads/roads_center" instance=ExtResource("33_my01c")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -111, 0, -10)
+
+[node name="roadAsphalt_side16" parent="roads/roads_center" instance=ExtResource("33_my01c")]
+transform = Transform3D(-1, 0, 8.74226e-08, 0, 1, 0, -8.74226e-08, 0, -1, -117, 0, -4)
+
+[node name="roadAsphalt_cornerOuter16" parent="roads/roads_center" instance=ExtResource("31_6uelx")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -117, 0, -10)
+
+[node name="roadAsphalt_cornerInner5" parent="roads/roads_center" instance=ExtResource("34_r2g8c")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -129, 0, -10)
+
+[node name="roadAsphalt_side17" parent="roads/roads_center" instance=ExtResource("33_my01c")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -129, 0, -4)
+
+[node name="roadAsphalt_side18" parent="roads/roads_center" instance=ExtResource("33_my01c")]
+transform = Transform3D(1, 0, 1.63425e-13, 0, 1, 0, -1.63425e-13, 0, 1, -123, 0, -10)
+
+[node name="roadAsphalt_cornerOuter17" parent="roads/roads_center" instance=ExtResource("31_6uelx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -123, 0, -4)
 
 [node name="roadAsphalt_cornerInner2" parent="roads/roads_center" instance=ExtResource("34_r2g8c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0, 2)
@@ -10518,7 +10537,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 0, 0)
 
 [node name="roadAsphalt_straight_long7" parent="roads/roads_city" instance=ExtResource("32_471gi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 0, 0)
 
 [node name="roadAsphalt_straight" parent="roads/roads_city" instance=ExtResource("31_eqrta")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, -9)
@@ -10564,6 +10583,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -3)
 
 [node name="roadAsphalt_straight2" parent="roads/roads_city" instance=ExtResource("31_eqrta")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -22, 0, 9)
+
+[node name="roadAsphalt_straight16" parent="roads/roads_city" instance=ExtResource("31_eqrta")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -43, 0, 0)
+
+[node name="roadAsphalt_straight17" parent="roads/roads_city" instance=ExtResource("31_eqrta")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -49, 0, 0)
 
 [node name="roadAsphalt_straight9" parent="roads/roads_city" instance=ExtResource("31_eqrta")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 9)
@@ -10721,22 +10746,22 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 120, 0
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 132, 0, 125)
 
 [node name="roadAsphalt_straight35" parent="roads/roads_apt" instance=ExtResource("32_471gi")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 144, 0, 125)
+transform = Transform3D(-1.25, 0, 1.50996e-07, 0, 1, 0, -1.88745e-07, 0, -1, 145.5, 0, 125)
 
 [node name="roadAsphalt_straight36" parent="roads/roads_apt" instance=ExtResource("32_471gi")]
-transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 156, 0, 113)
+transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 159, 0, 113)
 
 [node name="roadAsphalt_straight37" parent="roads/roads_apt" instance=ExtResource("32_471gi")]
-transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 156, 0, 101)
+transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 159, 0, 101)
 
 [node name="roadAsphalt_straight38" parent="roads/roads_apt" instance=ExtResource("32_471gi")]
-transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 156, 0, 89)
+transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 159, 0, 89)
 
 [node name="roadAsphalt_straight39" parent="roads/roads_apt" instance=ExtResource("32_471gi")]
-transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 156, 0, 77)
+transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 159, 0, 77)
 
 [node name="roadAsphalt_straight40" parent="roads/roads_apt" instance=ExtResource("32_471gi")]
-transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 156, 0, 65)
+transform = Transform3D(-8.9407e-08, 0, -1, 0, 1, 0, 1, 0, -8.9407e-08, 159, 0, 65)
 
 [node name="roadAsphalt_straight22" parent="roads/roads_apt" instance=ExtResource("32_471gi")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 108, 0, 53)
@@ -10748,7 +10773,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 120, 0
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 132, 0, 53)
 
 [node name="roadAsphalt_straight25" parent="roads/roads_apt" instance=ExtResource("32_471gi")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 144, 0, 53)
+transform = Transform3D(-1.25, 0, 1.50996e-07, 0, 1, 0, -1.88745e-07, 0, -1, 145.5, 0, 53)
 
 [node name="roadAsphalt_straight15" parent="roads/roads_apt" instance=ExtResource("32_471gi")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 48, 0, 35)
@@ -10796,28 +10821,28 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 69, 0,
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 75, 0, 50)
 
 [node name="roadAsphalt_cornerInner5" parent="roads/roads_apt" instance=ExtResource("34_r2g8c")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 159, 0, 50)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 162, 0, 50)
 
 [node name="roadAsphalt_side19" parent="roads/roads_apt" instance=ExtResource("33_my01c")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 153, 0, 50)
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 156, 0, 50)
 
 [node name="roadAsphalt_side20" parent="roads/roads_apt" instance=ExtResource("33_my01c")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 159, 0, 56)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 162, 0, 56)
 
 [node name="roadAsphalt_cornerOuter19" parent="roads/roads_apt" instance=ExtResource("31_6uelx")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 153, 0, 56)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 156, 0, 56)
 
 [node name="roadAsphalt_cornerInner6" parent="roads/roads_apt" instance=ExtResource("34_r2g8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 159, 0, 128)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162, 0, 128)
 
 [node name="roadAsphalt_side21" parent="roads/roads_apt" instance=ExtResource("33_my01c")]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 159, 0, 122)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 162, 0, 122)
 
 [node name="roadAsphalt_side22" parent="roads/roads_apt" instance=ExtResource("33_my01c")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 153, 0, 128)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 156, 0, 128)
 
 [node name="roadAsphalt_cornerOuter20" parent="roads/roads_apt" instance=ExtResource("31_6uelx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153, 0, 122)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156, 0, 122)
 
 [node name="roadAsphalt_cornerInner3" parent="roads/roads_apt" instance=ExtResource("34_r2g8c")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 68)
@@ -11104,9 +11129,6 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -36, 0
 [node name="roadAsphalt_straight_long28" parent="roads/roads_under" instance=ExtResource("32_471gi")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54, 0, 30)
 
-[node name="roadAsphalt_straight_long29" parent="roads/roads_under" instance=ExtResource("32_471gi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54, 0, 42)
-
 [node name="roadAsphalt_straight_long34" parent="roads/roads_under" instance=ExtResource("32_471gi")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54, 0, 6)
 
@@ -11162,16 +11184,16 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54, 0
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54, 0, -90)
 
 [node name="roadAsphalt_straight_long30" parent="roads/roads_under" instance=ExtResource("32_471gi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54, 0, 54)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -66, 0, 54)
 
 [node name="roadAsphalt_straight_long31" parent="roads/roads_under" instance=ExtResource("32_471gi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54, 0, 66)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -66, 0, 66)
 
 [node name="roadAsphalt_straight_long32" parent="roads/roads_under" instance=ExtResource("32_471gi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54, 0, 78)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -66, 0, 78)
 
 [node name="roadAsphalt_straight_long33" parent="roads/roads_under" instance=ExtResource("32_471gi")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -54, 0, 90)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -66, 0, 90)
 
 [node name="roadAsphalt_straight_long13" parent="roads/roads_under" instance=ExtResource("32_471gi")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 132, 0, 24)
@@ -11667,11 +11689,6 @@ transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 12, -18.9764, -6.08907, 25.5741)
 
 [node name="Block10" parent="building_ndrgnd_a" instance=ExtResource("3_i1kup")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 1, -19.002, -3.53512, 19.0071)
-
-[node name="bldg_microscope" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 0, -5)
-
-[node name="microscopebuilding" parent="bldg_microscope" instance=ExtResource("125_rluv0")]
 
 [connection signal="set_particle" from="." to="Player" method="_on_main_set_particle"]
 [connection signal="cash_fire" from="Player" to="building_cstore/building_c_store_kenney/interior_detail/CashController" method="_on_player_cash_fire"]
