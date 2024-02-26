@@ -57,10 +57,11 @@ func _process (delta) :
 			if f_timer > dur_timer :
 				talk_timer = false
 				f_timer = 0;
-			if face_player == true :
-				_look_at_target_interpolated(0.1)
-			else :
-				rotation.y = lerp_angle(rotation.y,rotation_y,0.1)
+				
+		if face_player == true :
+			_look_at_target_interpolated(0.1)
+		else :
+			rotation.y = lerp_angle(rotation.y,rotation_y,0.1)
 
 
 

@@ -1,0 +1,41 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {
+"Mood 1": {
+"mode": 0,
+"name": "Mood 1",
+"pitch_base": 1.2,
+"pitch_variance": 0.2,
+"skip_characters": 0.0,
+"sound_path": "res://snd_effects/NPC_talk_audio/talk_sprite_Level_1-_pitch_1.wav",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
+},
+"style": ""
+},
+"default_portrait": "port_default",
+"description": "",
+"display_name": "Iron & Steam",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"port_default": {
+"export_overrides": {
+"image": "\"res://NPCs/sprite_portraits/npc_04_tp_bord.png\""
+},
+"mirror": false,
+"offset": Vector2(-128, -64),
+"scale": 0.5,
+"scene": "",
+"sound_mood": "Mood 1"
+}
+},
+"scale": 1.0
+}

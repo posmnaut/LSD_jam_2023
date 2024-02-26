@@ -86,6 +86,7 @@ var blink_frames = 0
 var collisionInst = null
 var wallTouched = false
 var allowWallJump = false
+var NPCinst = null
 
 var wall_run_angle = 15 #export me 
 var wall_run_current_angle = 0
@@ -154,6 +155,7 @@ func _on_resume_pressed():
 	blink_anim.play()
 
 func _process(delta):
+	
 	if step_timer > 30 :
 		step_timer = 0;
 		stp_audio_player.pitch_scale = randf_range(0.7,1.3);
@@ -286,6 +288,10 @@ func _input(event):
 			var cash_check = look_cast_cash.get_collider();
 			if NPC_check != null :
 				if is_instance_of(NPC_check,talkable_NPC) || is_instance_of(NPC_check,billboard_talkable_NPC) || is_instance_of(NPC_check,construction_talkable_NPC):
+					if Look_Cast.get_collider_rid() != NPCinst :
+						Dialogic.VAR.linear_null = 0
+						NPCinst = Look_Cast.get_collider_rid()
+					
 					var dialogue_string = NPC_check.dialogue_string
 					var op_audio = NPC_check.open_audio;
 					var talk_timer = NPC_check.talk_timer;

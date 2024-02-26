@@ -1,0 +1,10 @@
+join NPC_retest_a 1
+if {linear_null} == 0:
+	NPC_retest_a (port_default): Reality has been frozen and quiet for as long as I can remember.
+	NPC_retest_a (port_default): But apparently they found one last living atom at the center of the universe?
+	set {linear_null} = 1
+elif {linear_null} == 1:
+	NPC_retest_a (port_default): I'm waiting in line to check it out. You better not cut! 
+	set {linear_null} = 0
+	[signal arg="dialogue_exhausted"]
+[end_timeline]

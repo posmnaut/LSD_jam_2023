@@ -19,18 +19,21 @@ config/icon="res://icon.svg"
 
 global="*res://global.gd"
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
 directories/dch_directory={
+"NPC_micro_observer_a": "res://Dialogic_timelines/NPC_micro_observer_a.dch",
+"NPC_retest_a": "res://Dialogic_timelines/NPC_retest_a.dch",
 "character_billboard": "res://Dialogic_timelines/character_billboard.dch",
 "character_construction": "res://Dialogic_timelines/character_construction.dch",
 "character_test_a": "res://Dialogic_timelines/character_test_a.dch"
 }
 directories/dtl_directory={
 "construction_npc": "res://Dialogic_timelines/construction_npc.dtl",
+"npc_micro_observer_a": "res://Dialogic_timelines/npc_micro_observer_a.dtl",
+"npc_retest_a": "res://Dialogic_timelines/npc_retest_a.dtl",
 "timeline_null_reset": "res://Dialogic_timelines/timeline_null_reset.dtl",
 "timeline_test_a": "res://Dialogic_timelines/timeline_test_a.dtl",
 "tml_bldg_radio_a": "res://Dialogic_timelines/tml_bldg_radio_a.dtl",
@@ -40,10 +43,11 @@ directories/dtl_directory={
 "tml_npc_c": "res://Dialogic_timelines/tml_npc_c.dtl"
 }
 glossary/default_case_sensitive=true
-layout/style_list=["res://NPCs/sprite_portraits/construction_npc_style.tres"]
+layout/style_list=[]
 layout/default_style="res://NPCs/sprite_portraits/construction_npc_style.tres"
 variables={
 "Var": 0,
+"linear_null": 0,
 "npc_blbd_a": 0,
 "npc_bldg_radio": 0,
 "tml_npc_b": 0
