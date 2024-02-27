@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmmwwtlpd7m1h"]
+
+[ext_resource type="Script" path="res://NPCs/audio_boxes/radio_test_1.gd" id="1_1o46r"]
+[ext_resource type="PackedScene" uid="uid://qyitlx0txmar" path="res://Models/radio/radio.glb" id="2_e7e0d"]
+
+[node name="radio_test_3" type="Node3D"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -91.5316, 2.22968, 97.5471)
+script = ExtResource("1_1o46r")
+audio = "res://music/Track_B_-_LSD_cloudya.mp3"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91443, 0)
+volume_db = -5.0
+unit_size = 1.0
+max_db = 0.0
+autoplay = true
+max_distance = 70.0
+bus = &"Music"
+doppler_tracking = 2
+
+[node name="radio" parent="." instance=ExtResource("2_e7e0d")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

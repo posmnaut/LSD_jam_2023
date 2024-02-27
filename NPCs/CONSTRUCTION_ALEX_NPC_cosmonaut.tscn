@@ -7653,7 +7653,7 @@ bones/24/name = "DEF-forearm.L"
 bones/24/parent = 23
 bones/24/rest = Transform3D(1, 9.03844e-07, -1.38792e-07, -9.06182e-07, 0.99984, -0.0178865, 1.22604e-07, 0.0178865, 0.99984, -5.88596e-07, 0.808559, 1.08406e-06)
 bones/24/enabled = true
-bones/24/position = Vector3(-5.50797e-08, 0.88005, -1.62575e-07)
+bones/24/position = Vector3(-2.19073e-07, 0.880701, -6.69195e-08)
 bones/24/rotation = Quaternion(0.738184, -0.245428, 0.112431, 0.618231)
 bones/24/scale = Vector3(1, 1, 1)
 bones/25/name = "DEF-forearm.L.001"
@@ -7998,7 +7998,7 @@ mesh = SubResource("ArrayMesh_iy138")
 skin = SubResource("Skin_a7r5t")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="game rig/Skeleton3D"]
-transform = Transform3D(0.0340714, -0.304688, 0.951843, -0.278981, 0.911638, 0.301805, -0.959692, -0.275828, -0.0539414, 0.520453, 8.50309, -0.000991586)
+transform = Transform3D(0.00278147, -0.319055, 0.947732, 0.00129902, 0.947736, 0.319053, -0.999995, 0.000343708, 0.00305057, 0.636364, 8.39386, 0.0308438)
 bone_name = "DEF-spine.006"
 bone_idx = 6
 

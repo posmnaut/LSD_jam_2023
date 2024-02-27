@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmayqr0jwpmxe"]
+
+[ext_resource type="Script" path="res://radio_float_1.gd" id="1_7mfl5"]
+[ext_resource type="PackedScene" uid="uid://qyitlx0txmar" path="res://Models/radio/radio.glb" id="2_l1wmb"]
+
+[sub_resource type="Animation" id="Animation_s2mix"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2.38122, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(91.5946, 2.9693, 26.6722)]
+}
+
+[sub_resource type="Animation" id="Animation_iwmuw"]
+resource_name = "float"
+length = 4.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.292621, -2.38625, -0.0611127), Vector3(-0.302985, -2.49123, 0.0962167), Vector3(0.322981, -2.39434, -0.16811)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.8, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(91.5946, 2.27622, 26.6722), Vector3(91.5946, 3.72646, 26.6722), Vector3(91.5946, 3.72646, 26.6722)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5lbgf"]
+_data = {
+"RESET": SubResource("Animation_s2mix"),
+"float": SubResource("Animation_iwmuw")
+}
+
+[node name="radio_test_1" type="Node3D"]
+transform = Transform3D(-0.7146, -0.241848, -0.656397, -0.0584784, 0.955704, -0.288463, 0.697085, -0.16775, -0.697089, 91.5946, 2.27622, 26.6722)
+script = ExtResource("1_7mfl5")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91443, 0)
+volume_db = -5.0
+unit_size = 1.0
+max_db = 0.0
+autoplay = true
+max_distance = 70.0
+bus = &"Music"
+doppler_tracking = 2
+
+[node name="radio" parent="." instance=ExtResource("2_l1wmb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5lbgf")
+}

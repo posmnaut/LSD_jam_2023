@@ -181,6 +181,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9527, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
+[node name="FishFood" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -2.01)
+collision_mask = 134217728
+
 [node name="Upper_Check" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.400872, 0)
 target_position = Vector3(0, 0, -1)
@@ -263,6 +267,11 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.25, -0.5)
 shape = SubResource("SeparationRayShape3D_cmdu3")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.5
+one_shot = true
+
 [connection signal="pressed" from="UI/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout_player"]
