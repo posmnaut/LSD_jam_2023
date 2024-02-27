@@ -2,13 +2,11 @@ extends CharacterBody3D
 
 const JUMP_VELOCITY = 12*0.8
 var wall_jump_y_velocity = 14
-var mouseSensibility = 600
+var mouseSensibility = 550
 var mouse_relative_x = 0
 var mouse_relative_y = 0
 var jump_token = 2;
 var consecWallJumps = 0;
-
-signal cash_fire
 
 @onready var ray_upper = $Head/Upper_Check
 @onready var ray_lower = $Head/Lower_Check
@@ -20,6 +18,7 @@ signal cash_fire
 @onready var Look_Cast = $Head/Look_Cast_NPC
 @onready var look_cast_door = $Head/Look_Cast_door
 @onready var look_cast_cash = $Head/Look_Cast_cash
+@onready var look_cast_fish = $Head/Camera3D/FishFood
 @onready var hud_RTL = $UI/RichTextLabel;
 @onready var blink_anim = $UI/Control/AnimatedSprite2D as AnimatedSprite2D
 @onready var audio_s_player = $AudioStreamPlayer
@@ -35,6 +34,7 @@ signal cash_fire
 @onready var part_rain = $particles/rain_1
 @onready var part_m_snow = $particles/marine_snow_1
 @onready var options_menu = $UI/options_menu
+@onready var timer_shake = $Timer
 
 
 @export var spwn_point : Node3D
@@ -87,6 +87,11 @@ var collisionInst = null
 var wallTouched = false
 var allowWallJump = false
 var NPCinst = null
+var fish_clicked = false
+var fired_cash = false
+var cam_shake = false
+var shake_strength = 0.0
+var SHAKE_DECAY_RATE = 0.35
 
 var wall_run_angle = 15 #export me 
 var wall_run_current_angle = 0
@@ -104,6 +109,8 @@ var step_timer = 0;
 var in_dialogue = false;
 
 signal click_teleport(audio)
+signal cash_fire
+signal fish_eat
 
 func _ready():
 	$"/root/global".register_player(self)
@@ -156,6 +163,11 @@ func _on_resume_pressed():
 
 func _process(delta):
 	
+	if(cam_shake == true):
+		shake_strength = lerp(shake_strength, 0.0, SHAKE_DECAY_RATE * delta)
+		camera.h_offset = randf_range(-shake_strength, shake_strength)
+		camera.v_offset = randf_range(-shake_strength, shake_strength)
+		
 	if step_timer > 30 :
 		step_timer = 0;
 		stp_audio_player.pitch_scale = randf_range(0.7,1.3);
@@ -194,7 +206,8 @@ func _process(delta):
 		var NPC_check = Look_Cast.get_collider();
 		var door_check = look_cast_door.get_collider();
 		var cash_check = look_cast_cash.get_collider();
-		if NPC_check != null || door_check != null || cash_check != null:
+		var fish_check = look_cast_fish.get_collider();
+		if NPC_check != null || door_check != null || cash_check != null  || fish_check != null && fish_clicked == false || cash_check != null && fired_cash == false:
 			if NPC_check != null:
 				if NPC_check.fully_asleep || NPC_check.is_sleep :
 					interact_sprite.visible = false
@@ -286,6 +299,8 @@ func _input(event):
 			var NPC_check = Look_Cast.get_collider();
 			var click_check = look_cast_door.get_collider();
 			var cash_check = look_cast_cash.get_collider();
+			var fish_check = look_cast_fish.get_collider();
+			
 			if NPC_check != null :
 					
 
@@ -313,10 +328,14 @@ func _input(event):
 										audio_s_player.play();
 										NPC_check.talk_timer = true
 			elif(is_instance_of(cash_check, cash_body)):
-					cash_fire.emit()
+				fired_cash = true
+				cash_fire.emit()
 			#elif(cash_check != null)
+			elif(fish_check != null && fish_check.name == "FishStaticBody" && fish_clicked == false):
+				fish_clicked = true
+				fish_eat.emit()
 			
-			if click_check !=null :
+			if click_check !=null:
 				teleport_point = click_check.get_parent().target_point;
 				click_teleport.emit(click_check.get_parent().audio);
 				fog_fade = true
@@ -799,3 +818,15 @@ func _on_main_set_particle(type):
 	if type == 1 :
 		part_rain.visible = false
 		part_m_snow.visible = true
+
+
+func _on_timer_timeout():
+	shake_strength = 1.5
+	cam_shake = true
+	timer_shake.start()
+
+
+func _on_timer_timeout_player():
+	camera.h_offset = 0.0
+	camera.v_offset = 0.0
+	cam_shake = false

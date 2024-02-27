@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bso04dqylpvcf"]
+
+[ext_resource type="Script" path="res://NPCs/audio_boxes/radio_test_1.gd" id="1_ciywa"]
+[ext_resource type="PackedScene" uid="uid://qyitlx0txmar" path="res://Models/radio/radio.glb" id="2_8rwhx"]
+
+[node name="radio_test_2" type="Node3D"]
+transform = Transform3D(0.572976, 0, 0.819572, 0, 1, 0, -0.819572, 0, 0.572976, 10.7668, 10.5267, 57.3409)
+script = ExtResource("1_ciywa")
+audio = "res://music/City_Level_Song_cloudy.mp3"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91443, 0)
+volume_db = -5.0
+unit_size = 1.0
+max_db = 0.0
+autoplay = true
+max_distance = 70.0
+bus = &"Music"
+doppler_tracking = 2
+
+[node name="radio" parent="." instance=ExtResource("2_8rwhx")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

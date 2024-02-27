@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8dtg8fp5skc8"]
+
+[ext_resource type="Script" path="res://Items/Scripts/FishFood.gd" id="1_uj04n"]
+[ext_resource type="PackedScene" uid="uid://baghmypf6j5ro" path="res://gpu_particles_3d_single.tscn" id="2_wo7mm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a3ehs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fl3ra"]
+
+[node name="FishFood" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -87.9127, 44.5102, 40.5032)
+script = ExtResource("1_uj04n")
+
+[node name="FishStaticBody" type="StaticBody3D" parent="."]
+collision_layer = 134217729
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FishStaticBody"]
+shape = SubResource("BoxShape3D_a3ehs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_fl3ra")
+
+[node name="GPUParticles3DSingle" parent="." instance=ExtResource("2_wo7mm")]
