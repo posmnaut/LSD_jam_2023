@@ -1,0 +1,4 @@
+join NPC_micro_observer_a 1
+NPC_micro_observer_a (port_default): “I’ve been standing here staring at this thing for five hours and I can’t tell if it’s moving or my eyes are just swimming.”
+[signal arg="dialogue_exhausted"]
+[end_timeline]

@@ -1,0 +1,6 @@
+join NPC_micro_observer_a 1
+NPC_micro_observer_a (port_default): "I've been observing this thing as long as I can remember."
+NPC_micro_observer_a (port_default): "I’ve never seen it move an inch."
+NPC_micro_observer_a (port_default): “I wonder if the guy who made this entire observatory was just messing with the rest of us.”
+[signal arg="dialogue_exhausted"]
+[end_timeline]

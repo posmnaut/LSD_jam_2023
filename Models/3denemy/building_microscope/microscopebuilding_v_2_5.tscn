@@ -1965,7 +1965,7 @@ mesh = SubResource("ArrayMesh_5axiw")
 skeleton = NodePath("")
 
 [node name="StackedScreensAColdones" parent="internal_detail/upper" instance=ExtResource("19_ikhbn")]
-transform = Transform3D(-0.129938, 0, 0.991522, 0, 1, 0, -0.991522, 0, -0.129938, 1.4359, 3.55023, 8.81171)
+transform = Transform3D(-0.129938, 0, 0.991522, 0, 1, 0, -0.991522, 0, -0.129938, 1.20444, 3.55023, 8.81171)
 
 [node name="StackedScreensAColdones2" parent="internal_detail/upper" instance=ExtResource("19_ikhbn")]
 transform = Transform3D(-0.141713, 0, -0.989908, 0, 1, 0, 0.989908, 0, -0.141713, 5.4359, 1.62651, 20.3874)
@@ -1989,7 +1989,6 @@ skeleton = NodePath("")
 transform = Transform3D(-0.899269, 0, 1.20055, 0, 1.5, 0, -1.20055, 0, -0.899269, -9.9098, -0.0531082, 22.5103)
 
 [node name="TV3" type="MeshInstance3D" parent="internal_detail/upper/TV32"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_uinb8")
 skeleton = NodePath("")
 
@@ -2002,7 +2001,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5w55r")
 transform = Transform3D(0.178516, 0, -1.48934, 0, 1.5, 0, 1.48934, 0, 0.178516, 14.0586, -0.0531082, 12.1104)
 
 [node name="TV3" type="MeshInstance3D" parent="internal_detail/upper/TV33"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_uinb8")
 skeleton = NodePath("")
 
@@ -2025,7 +2023,6 @@ skeleton = NodePath("")
 transform = Transform3D(-1.44476, 0, -0.403329, 0, 1.5, 0, 0.403329, 0, -1.44476, 12.667, 1.29877, 21.7045)
 
 [node name="TV3" type="MeshInstance3D" parent="internal_detail/upper/TV34"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_uinb8")
 skeleton = NodePath("")
 
@@ -2078,7 +2075,6 @@ mesh = SubResource("ArrayMesh_yxaaw")
 skeleton = NodePath("")
 
 [node name="TV1-Screen" type="MeshInstance3D" parent="internal_detail/upper/TV12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_0u5im")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4wu0p")
@@ -2091,7 +2087,6 @@ mesh = SubResource("ArrayMesh_yxaaw")
 skeleton = NodePath("")
 
 [node name="TV1-Screen" type="MeshInstance3D" parent="internal_detail/upper/TV15"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_0u5im")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4wu0p")
@@ -2104,7 +2099,6 @@ mesh = SubResource("ArrayMesh_yxaaw")
 skeleton = NodePath("")
 
 [node name="TV1-Screen" type="MeshInstance3D" parent="internal_detail/upper/TV14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_0u5im")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4wu0p")
@@ -2117,7 +2111,6 @@ mesh = SubResource("ArrayMesh_yxaaw")
 skeleton = NodePath("")
 
 [node name="TV1-Screen" type="MeshInstance3D" parent="internal_detail/upper/TV13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_0u5im")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4wu0p")
@@ -2130,7 +2123,6 @@ mesh = SubResource("ArrayMesh_yxaaw")
 skeleton = NodePath("")
 
 [node name="TV1-Screen" type="MeshInstance3D" parent="internal_detail/upper/TV16"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_0u5im")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_4wu0p")

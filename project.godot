@@ -34,6 +34,9 @@ directories/dch_directory={
 directories/dtl_directory={
 "construction_npc": "res://Dialogic_timelines/construction_npc.dtl",
 "npc_micro_observer_a": "res://Dialogic_timelines/npc_micro_observer_a.dtl",
+"npc_micro_observer_b": "res://Dialogic_timelines/npc_micro_observer_b.dtl",
+"npc_micro_scientist_a": "res://Dialogic_timelines/npc_micro_scientist_a.dtl",
+"npc_micro_scientist_b": "res://Dialogic_timelines/npc_micro_scientist_b.dtl",
 "npc_retest_a": "res://Dialogic_timelines/npc_retest_a.dtl",
 "npc_sewer_a": "res://Dialogic_timelines/npc_sewer_a.dtl",
 "timeline_null_reset": "res://Dialogic_timelines/timeline_null_reset.dtl",

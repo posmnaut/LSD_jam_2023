@@ -319,6 +319,10 @@ func _input(event):
 			if click_check !=null :
 				teleport_point = click_check.get_parent().target_point;
 				click_teleport.emit(click_check.get_parent().audio);
+				if !audio_s_player.is_playing() :
+					audio_s_player.stream = load("res://snd_effects/Teleport_Woosh_-_LSD.wav");
+					audio_s_player.volume_db = -10.0
+					audio_s_player.play();
 				fog_fade = true
 
 	
