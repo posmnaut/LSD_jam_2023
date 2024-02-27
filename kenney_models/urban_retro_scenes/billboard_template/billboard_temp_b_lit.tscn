@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://di30l1mqu1hct"]
+[gd_scene load_steps=26 format=3 uid="uid://di30l1mqu1hct"]
 
 [ext_resource type="Texture2D" uid="uid://c4lj3vkej5o8b" path="res://Textures/billboards/chrome_sFUyElTgJf.png" id="1_g71g0"]
 [ext_resource type="Texture2D" uid="uid://dob01emhj3w7f" path="res://kenney_models/urban_retro/detailBeam_roof.png" id="2_r4xt8"]
@@ -165,7 +165,6 @@ shadow_mesh = SubResource("ArrayMesh_rqyto")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ad878"]
 resource_name = "metal"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("6_mxt7u")
 metallic = 0.35
 roughness = 0.5
@@ -219,12 +218,17 @@ specular_mode = 2
 disable_ambient_light = true
 albedo_color = Color(1, 1, 1, 0.00392157)
 
+[sub_resource type="QuadMesh" id="QuadMesh_s0gvq"]
+size = Vector2(16, 9)
+orientation = 0
+
 [node name="BillboardTempA" type="Node3D"]
 
 [node name="bb_visuals" type="Node3D" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="bb_visuals"]
 transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 0.4, 15, 0)
+visible = false
 shaded = true
 texture = ExtResource("1_g71g0")
 
@@ -376,6 +380,10 @@ cast_shadow = 0
 gi_mode = 0
 mesh = SubResource("CylinderMesh_ka52l")
 surface_material_override/0 = SubResource("StandardMaterial3D_td1b7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="bb_visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 15, 0.31)
+mesh = SubResource("QuadMesh_s0gvq")
 
 [node name="bb_colliders" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

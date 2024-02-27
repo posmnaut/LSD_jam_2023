@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://dniuwts1t408c"]
+[gd_scene load_steps=63 format=3 uid="uid://dniuwts1t408c"]
 
 [ext_resource type="Texture2D" uid="uid://c4dgsp4xtj7y4" path="res://kenney_models/urban_retro/roofMetal_typeA_roof_plates.png" id="1_4328o"]
 [ext_resource type="PackedScene" uid="uid://xtfdrgb4mev" path="res://kenney_models/urban_retro_scenes/custom/window_type_a.tscn" id="1_a82gr"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dbs13711jmuoo" path="res://props/bridging_meshes/bridge_metal_a.tscn" id="15_vsmha"]
 [ext_resource type="PackedScene" uid="uid://c2ecpe1q2f5cm" path="res://kenney_models/urban_retro_scenes/wall_b/wall_a_painted_flat_cldr.tscn" id="16_04dea"]
 [ext_resource type="PackedScene" uid="uid://c72usqwxqtw4u" path="res://kenney_models/urban_retro_scenes/custom/ladder_type_a_colliders.tscn" id="17_8pcab"]
+[ext_resource type="Texture2D" uid="uid://cppkgtcebpyrw" path="res://Textures/billboards/chuckle_head_1_graf.png" id="19_cv37i"]
 [ext_resource type="Texture2D" uid="uid://cbjc8bumo1244" path="res://Industrial_Models/Industrial_exterior_v2_Box_wood.png" id="21_s2whs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4g5f"]
@@ -215,6 +216,15 @@ shadow_mesh = SubResource("ArrayMesh_oieal")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5xwhr"]
 points = PackedVector3Array(-0.895083, -0.0284443, -0.546832, -0.895083, 0.642937, -0.546832, 0.895065, -0.0284443, -0.546832, -0.895083, -0.0284443, 0.546825, -0.895083, 0.642937, 0.546825, 0.895065, 0.642937, -0.546832, 0.895065, -0.0284443, 0.546825, 0.895065, 0.642937, 0.546825)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1c6gn"]
+transparency = 1
+albedo_texture = ExtResource("19_cv37i")
+
+[sub_resource type="QuadMesh" id="QuadMesh_h1aq1"]
+material = SubResource("StandardMaterial3D_1c6gn")
+size = Vector2(25, 20)
+orientation = 0
 
 [node name="Building7Prefab" type="Node3D"]
 
@@ -758,3 +768,7 @@ transform = Transform3D(2.62268e-07, 0, -10, 0, 2, 0, 2, 0, 1.31134e-06, 14.9027
 
 [node name="LadderTypeAcolliders" parent="." instance=ExtResource("17_8pcab")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.37658, 13.6149, -10.7162)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.77457, 10.0532, -20.578)
+mesh = SubResource("QuadMesh_h1aq1")

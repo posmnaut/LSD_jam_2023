@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0axskdko0u71"]
+[gd_scene load_steps=21 format=3 uid="uid://b0axskdko0u71"]
 
 [ext_resource type="PackedScene" uid="uid://c6a505nq6i4b6" path="res://Objects/Block_wall_run.tscn" id="1_rw1k2"]
 [ext_resource type="Texture2D" uid="uid://c4lj3vkej5o8b" path="res://Textures/billboards/chrome_sFUyElTgJf.png" id="2_wblkj"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bf8vlb5adwon0" path="res://kenney_models/urban_retro/balcony_typeA_bars.png" id="5_3u7ia"]
 [ext_resource type="Texture2D" uid="uid://bccgelqspubns" path="res://Models/srt_light/detailLight_single_metal.png" id="6_ufwfh"]
 [ext_resource type="PackedScene" uid="uid://rwrbsssaksbh" path="res://Objects/Block.tscn" id="7_6j1o6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_joj2d"]
+size = Vector2(16, 9)
+orientation = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jarrr"]
 resource_name = "roof"
@@ -177,8 +181,13 @@ visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="board_body"]
 transform = Transform3D(-5.24537e-08, 0, 1.2, 0, 1.2, 0, -1.2, 0, -5.24537e-08, 0.4, 15, 0)
+visible = false
 shaded = true
 texture = ExtResource("2_wblkj")
+
+[node name="grafic" type="MeshInstance3D" parent="board_body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.353, 15.0138, 0.25)
+mesh = SubResource("QuadMesh_joj2d")
 
 [node name="detailBeam3" type="MeshInstance3D" parent="board_body"]
 transform = Transform3D(-2.97237e-06, -3, -4.37114e-07, 0, -1.31134e-07, 10, -68, 1.31134e-07, 1.91069e-14, 0.35, 15, 0.3)

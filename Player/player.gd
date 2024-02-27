@@ -650,16 +650,16 @@ func _physics_process(delta):
 		sprint = false
 		
 	# Handle Ledge Grab
-	var result1 = ray_upper.get_collider()
-	var result2 = ray_lower.get_collider()
-	mantling = false
+	#var result1 = ray_upper.get_collider()
+	#var result2 = ray_lower.get_collider()
+	#mantling = false
 	
-	if result1 == null and result2 != null:
-		if Input.is_action_pressed("forward") :
-			if !is_on_floor() :
-				if !Input.is_action_pressed("crouch") :
-					velocity.y = JUMP_VELOCITY
-					mantling = true
+	#if result1 == null and result2 != null:
+		#if Input.is_action_pressed("forward") :
+			#if !is_on_floor() :
+				#if !Input.is_action_pressed("crouch") :
+					#velocity.y = JUMP_VELOCITY
+					#mantling = true
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

@@ -24,6 +24,8 @@ var district_tag = false
 var crossfade = false
 var crossfade_step = 0;
 var fade_token = -1
+var env_inst = null
+var light_inst = null
 
 var NPC_talk_reset_range = 20.0
 var NPC_sleep_range = 70.0
@@ -58,9 +60,9 @@ func _ready():
 	NPC_array = $NPCs.get_children(false)
 	#this is a really stupid way to preload shadow maps for lights
 	#I'm 90% certain there's as better way 
-	for n in 3:
+	for n in light_array.size()-1:
 			light_array[n].visible = true;
-	for n in 3:
+	for n in light_array.size()-1:
 			light_array[n].visible = false;
 	light_array[0].visible = true;
 	district_audio.stream = load(district_array[0].audio)
@@ -70,9 +72,9 @@ func _ready():
 func shift_environ() -> void:
 	if fade_token != -1 :
 		player.blink_anim.play()
-		for n in 3:
+		for n in district_array.size()-1:
 			light_array[n].visible = false;
-		light_array[fade_token].visible = true;
+		district_array[fade_token].light.visible = true;
 		environ.set_environment(district_array[fade_token].environ_info)
 		fade_token = -1
 
@@ -141,9 +143,15 @@ func _process (delta) :
 			if _dist < _radius :
 				if player.is_on_floor() :
 					if district_array[district_int].audio != null :
-						if district_audio.stream != load(district_array[district_int].audio) :
-							crossfade = true;
-							crossfade_step = 0;
+						#if district_audio.stream != load(district_array[district_int].audio) :
+							if env_inst != district_array[district_int].environ_info || light_inst != district_array[district_int].light :
+								crossfade = true;
+								crossfade_step = 0;
+								env_inst = district_array[district_int].environ_info
+								light_inst = district_array[district_int].light
+							else :
+								crossfade = true
+								crossfade_step = 1
 
 	
 	if crossfade :
