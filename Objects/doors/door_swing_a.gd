@@ -5,6 +5,7 @@ class_name door
 @onready var swing = false;
 @onready var swing_direction = 0;
 @onready var base_rotation;
+@onready var audio = $AudioStreamPlayer3D
 
 var swing_state = 0;
 var open_int = 100;
@@ -21,6 +22,7 @@ func _ready():
 func _process(delta):
 	if swing :
 		if swing_state == 0 :
+			audio.play()
 			if swing_direction > 0 :
 				swing_state = 1
 			else :

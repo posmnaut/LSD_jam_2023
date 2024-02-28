@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbr5e267ot7sl"]
+
+[ext_resource type="PackedScene" uid="uid://dt1gnj3lvvw30" path="res://kenney_models/urban_retro/detailBarrierStrong_typeB.glb" id="1_qipxy"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sh46w"]
+points = PackedVector3Array(0.332, 0.332, 0.0728514, 0.332, 0.332, -0.0728771, -0.332, 0.332, 0.0728514, 0.332, 0.0829675, 0.124499, 0.332, 0.0829675, -0.1245, -0.332, 0.332, -0.0728771, -0.332, 0.0829675, 0.124499, 0.332, 0, 0.124499, 0.332, 0, -0.1245, -0.332, 0.0829675, -0.1245, -0.332, 0, 0.124499, -0.332, 0, -0.1245)
+
+[node name="detailBarrierStrong_typeB" instance=ExtResource("1_qipxy")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="detailBarrierStrong_typeB2" parent="tmpParent" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_sh46w")

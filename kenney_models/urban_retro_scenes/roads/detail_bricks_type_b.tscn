@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpu6pfinxbmiw"]
+
+[ext_resource type="PackedScene" uid="uid://dq47ykunnf14y" path="res://kenney_models/urban_retro/detailBricks_typeB.glb" id="1_sustf"]
+
+[node name="detailBricks_typeB" instance=ExtResource("1_sustf")]
+
+[node name="detailBricks_typeB2" parent="tmpParent" index="0"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)

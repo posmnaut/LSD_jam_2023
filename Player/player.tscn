@@ -258,6 +258,8 @@ current = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
 
+[node name="sub_player_2" type="AudioStreamPlayer" parent="."]
+
 [node name="head_bonk" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88844, 0)
 target_position = Vector3(0, 0.25, 0)

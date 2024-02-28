@@ -35,6 +35,7 @@ var consecWallJumps = 0;
 @onready var part_m_snow = $particles/marine_snow_1
 @onready var options_menu = $UI/options_menu
 @onready var timer_shake = $Timer
+@onready var audiosubplayer2 = $sub_player_2
 
 
 @export var spwn_point : Node3D
