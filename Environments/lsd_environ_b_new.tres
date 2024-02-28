@@ -1,4 +1,4 @@
-[gd_resource type="Environment" load_steps=2 format=3 uid="uid://dwrknp0svk5yq"]
+[gd_resource type="Environment" load_steps=2 format=3 uid="uid://dy1usirxq4ib4"]
 
 [sub_resource type="Sky" id="Sky_qyyum"]
 
@@ -7,9 +7,7 @@ background_mode = 2
 background_energy_multiplier = 0.0
 sky = SubResource("Sky_qyyum")
 reflected_light_source = 1
-tonemap_mode = 3
-tonemap_exposure = 1.43
 fog_enabled = true
-fog_light_color = Color(0.12549, 0.396078, 0.45098, 1)
+fog_light_color = Color(0, 0.4, 0.803922, 1)
 fog_light_energy = 0.1
 fog_density = 0.08
