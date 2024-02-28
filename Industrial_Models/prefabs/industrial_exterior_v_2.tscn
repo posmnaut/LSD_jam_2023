@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://dxte1gpo3en15" path="res://Industrial_Models/Industrial_exterior_v2.glb" id="1_ad5ha"]
 
 [node name="Industrial_exterior_v2" instance=ExtResource("1_ad5ha")]
+
+[node name="Building_7" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.7962, -0.0194261, 21.6994)
