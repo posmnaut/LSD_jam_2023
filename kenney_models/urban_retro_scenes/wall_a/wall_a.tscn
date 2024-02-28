@@ -6,7 +6,6 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fswqn"]
 resource_name = "wall_lines"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("2_lyw5y")
 metallic_specular = 0.0
 roughness = 0.5
@@ -15,7 +14,6 @@ texture_filter = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2nt8r"]
 resource_name = "concrete"
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("3_y01hc")
 metallic_specular = 0.0
 roughness = 0.5

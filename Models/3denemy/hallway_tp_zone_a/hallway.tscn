@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfbuq4l5oy0l2"]
+
+[ext_resource type="PackedScene" uid="uid://dw8vplmlyq5b3" path="res://Models/3denemy/hallway_tp_zone_a/hallway.glb" id="1_45j8j"]
+[ext_resource type="PackedScene" uid="uid://rwrbsssaksbh" path="res://Objects/Block.tscn" id="2_kmqgq"]
+[ext_resource type="Texture2D" uid="uid://dafrtgfhufsc3" path="res://Models/3denemy/hallway_tp_zone_a/chrome_SUYdAOh7qc.png" id="2_nkkvc"]
+[ext_resource type="Script" path="res://Models/3denemy/rat_sewer/MeshInstance3D.gd" id="3_milkk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ll6e"]
+shading_mode = 0
+albedo_color = Color(0.419608, 0.556863, 1, 1)
+albedo_texture = ExtResource("2_nkkvc")
+uv1_scale = Vector3(5, 5, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5kgok"]
+material = SubResource("StandardMaterial3D_0ll6e")
+flip_faces = true
+radius = 15.0
+height = 30.0
+radial_segments = 32
+rings = 16
+
+[node name="hallway" instance=ExtResource("1_45j8j")]
+
+[node name="stars" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+mesh = SubResource("SphereMesh_5kgok")
+script = ExtResource("3_milkk")
+
+[node name="colliders" type="Node3D" parent="." index="4"]
+visible = false
+
+[node name="Block" parent="colliders" index="0" instance=ExtResource("2_kmqgq")]
+transform = Transform3D(22, 0, 0, 0, 3, 0, 0, 0, 1, 9.55053, 0, 1.50809)
+
+[node name="Block3" parent="colliders" index="1" instance=ExtResource("2_kmqgq")]
+transform = Transform3D(22, 0, 0, 0, 3, 0, 0, 0, 1, 9.55053, 0, -1.50467)
+
+[node name="Block2" parent="colliders" index="2" instance=ExtResource("2_kmqgq")]
+transform = Transform3D(22, 0, 0, 0, -1.31134e-07, 1, 0, -3, -4.37114e-08, 9.55053, 1.49683, 0.0525606)
+
+[node name="Block4" parent="colliders" index="3" instance=ExtResource("2_kmqgq")]
+transform = Transform3D(22, 0, 0, 0, -1.31134e-07, 1, 0, -3, -4.37114e-08, 9.55053, -1.50508, 0.0194998)
+
+[node name="Block5" parent="colliders" index="4" instance=ExtResource("2_kmqgq")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 2.5, -1.52529, 0, 0)
+
+[node name="Block6" parent="colliders" index="5" instance=ExtResource("2_kmqgq")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 20.5522, 0, 0)
