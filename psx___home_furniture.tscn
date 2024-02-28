@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://rcrjm180qokp"]
+
+[ext_resource type="PackedScene" uid="uid://dmrnjms4ycwoj" path="res://PSX_models/PSX - Home Furniture.glb" id="1_nr2x8"]
+
+[node name="PSX - Home Furniture" instance=ExtResource("1_nr2x8")]
+
+[node name="Old Phone" parent="." index="24"]
+transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -0.160486, 0.687611, -1.48728)
