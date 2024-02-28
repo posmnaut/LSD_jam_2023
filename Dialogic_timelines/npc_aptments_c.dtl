@@ -1,0 +1,9 @@
+join npc_talk_5_skl 1
+if {linear_null} == 0:
+	npc_talk_5_skl (port_default): Liminal beings like us can't really affect reality without influencing an intermediary.
+	set {linear_null} = 1
+elif {linear_null} == 1:
+	npc_talk_5_skl (port_default): With no dreamers, we're just echoing fragments. Dreams of memories.
+	set {linear_null} = 0
+	[signal arg="dialogue_exhausted"]
+[end_timeline]

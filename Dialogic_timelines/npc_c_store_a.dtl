@@ -1,0 +1,4 @@
+join npc_talk_1_hnd 1
+npc_talk_1_hnd (port_default): Welcome to Martmart, the place place place.
+[signal arg="dialogue_exhausted"]
+[end_timeline]

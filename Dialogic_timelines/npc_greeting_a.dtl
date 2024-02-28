@@ -1,0 +1,18 @@
+join npc_talk_0_pos 1
+if {linear_null} == 0:
+	npc_talk_0_pos (port_default): Oh hey, you woke up! 
+	npc_talk_0_pos: Pretty rare for that to happen these days.
+	set {linear_null} = 1
+elif {linear_null} == 1:
+	npc_talk_0_pos (port_default): You uh, need some help?
+	npc_talk_0_pos: Well, since the planet stopped spinning, gravity is pretty low. You can double jump if you tap space again while in the air. 
+	set {linear_null} = 2
+elif {linear_null} == 2:
+	npc_talk_0_pos: If you got places to be, you can hold shift to move faster.
+	npc_talk_0_pos: Also, if you run alongside a wall and jump into it, you'll start running along that wall. It's pretty neat. 
+	set {linear_null} = 3
+elif {linear_null} == 3:
+	npc_talk_0_pos: ... that's all I got. Enjoy yourself as long as your interest lasts! 
+	set {linear_null} = 0
+	[signal arg="dialogue_exhausted"]
+[end_timeline]

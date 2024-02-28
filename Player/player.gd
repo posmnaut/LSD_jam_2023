@@ -231,6 +231,7 @@ func _process(delta):
 		
 	#falling fade out behavior
 	if fog_fade == true :
+		blink_anim.visible = false
 		if 	fall_fade == 0 :
 			fog_density_default = environ_a.environment.get_fog_density()
 			fog_color_default = environ_a.environment.get_fog_light_color()
@@ -257,6 +258,9 @@ func _process(delta):
 			fall_tween.tween_property(environ_a.environment, "fog_light_color", fog_color_default,3.0)
 			fall_tween.finished.connect(set.bind("fall_fade", 0 ))
 			fog_fade = false
+			
+	else :
+		blink_anim.visible = true
 			
 	#check ceiling depth when crouching
 	ceil_too_low = false

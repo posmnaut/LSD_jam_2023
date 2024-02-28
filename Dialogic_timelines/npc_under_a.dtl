@@ -1,0 +1,6 @@
+join npc_talk_7_tre 1
+npc_talk_7_tre (port_default): Zzznnrk... huh?
+npc_talk_7_tre: Hey, why'd you wake me up!?
+npc_talk_7_tre: I was dreaming of the most wonderful reality...
+[signal arg="dialogue_exhausted"]
+[end_timeline]

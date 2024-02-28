@@ -1,0 +1,10 @@
+join npc_aptmt_a 1
+if {linear_null} == 0:
+	npc_aptmt_a (port_default): The universe used to be far too noisy for us liminal beings to exist without being washed away on the tides of busy work and upkeep.
+	npc_aptmt_a (port_default): It got so bad that dreams seemed to stop existing for a bit entirely. 
+	set {linear_null} = 1
+elif {linear_null} == 1:
+	npc_aptmt_a (port_default): Now it's quiet enough for us to build... something, I guess. 
+	set {linear_null} = 0
+	[signal arg="dialogue_exhausted"]
+[end_timeline]

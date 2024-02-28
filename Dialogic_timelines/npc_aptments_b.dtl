@@ -1,0 +1,9 @@
+join npc_talk_4_tpt 1
+if {linear_null} == 0:
+	npc_talk_4_tpt (port_default): None of us really remember what things were like before it all came to a stop. 
+	set {linear_null} = 1
+elif {linear_null} == 1:
+	npc_talk_4_tpt (port_default): By the time the reverberating noise of maintenance and upkeep faded, reality had been dead for a long time.
+	set {linear_null} = 0
+	[signal arg="dialogue_exhausted"]
+[end_timeline]

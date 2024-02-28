@@ -342,6 +342,7 @@ frame_progress = 0.597089
 centered = false
 
 [node name="ColorRect2" type="ColorRect" parent="Control"]
+visible = false
 material = SubResource("CanvasItemMaterial_qhnyw")
 layout_mode = 0
 offset_left = -387.273

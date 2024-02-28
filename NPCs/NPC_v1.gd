@@ -61,6 +61,9 @@ func _process (delta) :
 				
 		if face_player == true :
 			_look_at_target_interpolated(0.1)
+			rotation.x = 0
+			rotation.z = 0
+			
 		else :
 			rotation.y = lerp_angle(rotation.y,rotation_y,0.1)
 

@@ -1,0 +1,11 @@
+join npc_talk_6_car 1
+if {linear_null} == 0:
+	npc_talk_6_car (port_default): I've been wondering lately why we keep constructing these dreams if they can never truly interact with reality.
+	npc_talk_6_car: What's the point of a dream that can't come true? 
+	set {linear_null} = 1
+elif {linear_null} == 1:
+	npc_talk_6_car (port_default): Maybe we would lose ourselves, even dreaming of each other, as memories shift.
+	npc_talk_6_car: Or is all this merely an abstract method of communication through time?
+	set {linear_null} = 0
+	[signal arg="dialogue_exhausted"]
+[end_timeline]
