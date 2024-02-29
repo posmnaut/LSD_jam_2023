@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://de57dr1nqv0bm"]
+
+[ext_resource type="PackedScene" uid="uid://qjjrrand3xxd" path="res://kenney_models/urban_retro/detailDumpster_closed.glb" id="1_fq4ti"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ojmhg"]
+points = PackedVector3Array(-0.00436726, 0.402184, 0.281991, -0.2, 0.00124473, -0.297702, -0.19528, 0.49764, -0.290676, 0.2, 0.00126816, -0.297674, -0.2, 0.00124473, 0.297702, 0.2, 0.00126816, 0.297674, 0.189486, 0.305257, -0.282024, -0.19528, 0.49764, 0.290676, 0.189486, 0.305257, 0.282024)
+
+[node name="detailDumpster_closed" instance=ExtResource("1_fq4ti")]
+
+[node name="detailDumpster_closed2" parent="tmpParent" index="0"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tmpParent" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent/StaticBody3D" index="0"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ojmhg")

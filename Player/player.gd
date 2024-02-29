@@ -112,6 +112,7 @@ var in_dialogue = false;
 signal click_teleport(audio)
 signal cash_fire
 signal fish_eat
+signal fade_environ_shift 
 
 func _ready():
 	$"/root/global".register_player(self)
@@ -238,7 +239,7 @@ func _process(delta):
 			fog_color_default = environ_a.environment.get_fog_light_color()
 			fall_tween = create_tween()
 			fall_tween.set_parallel(true)
-			fall_tween.tween_property(environ_a.environment, "fog_density", 1.0,3.0)
+			fall_tween.tween_property(environ_a.environment, "fog_density", 2.0,4.0)
 			fall_tween.tween_property(environ_a.environment, "fog_light_color", fall_color_white,3.0)
 			fall_tween.finished.connect(set.bind("fall_fade", 2 ))
 			fall_fade = 1
@@ -839,3 +840,10 @@ func _on_timer_timeout_player():
 	camera.h_offset = 0.0
 	camera.v_offset = 0.0
 	cam_shake = false
+
+
+func _on_unstuck_pressed():
+	position = spwn_point.global_position
+	rotation.y = spwn_point.rotation.y
+	pause = !pause
+	blink_anim.play()

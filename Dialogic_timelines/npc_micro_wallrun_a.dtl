@@ -1,0 +1,6 @@
+join npc_talk_11_scp 1
+npc_talk_11_scp (port_default): The only way up is to either jump around on these platforms or run straight up the wall. 
+npc_talk_11_scp: And I don't really feel like doing either. 
+npc_talk_11_scp: Is this what burnout feels like? 
+[signal arg="dialogue_exhausted"]
+[end_timeline]

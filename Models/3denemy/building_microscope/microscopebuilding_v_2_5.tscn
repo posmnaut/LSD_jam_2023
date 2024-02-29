@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=3 uid="uid://chdp2clo78upe"]
+[gd_scene load_steps=149 format=3 uid="uid://chdp2clo78upe"]
 
 [ext_resource type="Texture2D" uid="uid://beqy4twqf2njq" path="res://Models/3denemy/building_microscope/microscopebuilding_V3_building1_Bake1_PBR_Diffuse.png" id="1_geus7"]
 [ext_resource type="Texture2D" uid="uid://1xnbo5cd6c1j" path="res://Models/3denemy/building_microscope/microscopebuilding_V3_microscope building.png" id="2_m37h0"]
@@ -47,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://di0fbpjdohqvh" path="res://Models/coldones/tv_screens/TV2_TV-Diffuse.png" id="44_5yxq7"]
 [ext_resource type="Texture2D" uid="uid://breuovokiny63" path="res://Models/coldones/tv_screens/TV1_TV-Diffuse.png" id="45_go3e3"]
 [ext_resource type="Texture2D" uid="uid://dax7ud3dy31f2" path="res://Textures/coldones/ReleaseForm_a.png" id="47_j22bg"]
+[ext_resource type="Texture2D" uid="uid://cp6p41offu75e" path="res://Textures/kenney_paint/paint_arrow_left.png" id="48_miltx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eguwr"]
 resource_name = "building1"
@@ -1242,6 +1243,15 @@ albedo_texture = ExtResource("47_j22bg")
 material = SubResource("StandardMaterial3D_atbqx")
 orientation = 1
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0ddx"]
+transparency = 1
+albedo_texture = ExtResource("48_miltx")
+
+[sub_resource type="QuadMesh" id="QuadMesh_2onfa"]
+material = SubResource("StandardMaterial3D_w0ddx")
+size = Vector2(2, 1)
+orientation = 0
+
 [node name="microscopebuilding_V2_5" type="Node3D"]
 
 [node name="microscopebuilding_V3" type="Node3D" parent="."]
@@ -2243,3 +2253,15 @@ omni_range = 6.0
 
 [node name="WoodCrate3Denemy" parent="internal_detail/column" instance=ExtResource("6_wbmc2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.75, -26)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="internal_detail/column"]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 12.0802, 3.56865, -25.2793)
+mesh = SubResource("QuadMesh_2onfa")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="internal_detail/column"]
+transform = Transform3D(1.49012e-07, 0, -1, 0, 1, 0, 1, 0, 1.78814e-07, 1.08015, 6.56865, -29.5112)
+mesh = SubResource("QuadMesh_2onfa")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="internal_detail/column"]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -8.34536, 8.57081, -25.2793)
+mesh = SubResource("QuadMesh_2onfa")

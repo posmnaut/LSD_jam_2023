@@ -158,6 +158,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "RESUME"
 
+[node name="unstuck" type="Button" parent="UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "UNSTUCK"
+
 [node name="options" type="Button" parent="UI/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
@@ -274,6 +279,7 @@ wait_time = 4.5
 one_shot = true
 
 [connection signal="pressed" from="UI/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/unstuck" to="." method="_on_unstuck_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/quit" to="." method="_on_quit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout_player"]

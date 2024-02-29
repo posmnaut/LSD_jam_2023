@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://5e7t0g146pu8"]
+
+[ext_resource type="PackedScene" uid="uid://cdbfdf6eqkmda" path="res://kenney_models/urban_retro/detailCables_typeA.glb" id="1_dju5n"]
+
+[node name="detailCables_typeA" instance=ExtResource("1_dju5n")]
+
+[node name="detailCables_typeA2" parent="tmpParent" index="0"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
