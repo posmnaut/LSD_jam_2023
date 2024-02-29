@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dr3jsr5rhikda"]
+[gd_scene load_steps=15 format=3 uid="uid://dr3jsr5rhikda"]
 
 [ext_resource type="Script" path="res://options_menu.gd" id="1_bwdas"]
 [ext_resource type="Texture2D" uid="uid://ddqefkbpw5f2p" path="res://Textures/eyes_close_1.png" id="1_wjlf4"]
 [ext_resource type="Texture2D" uid="uid://vmrvon835uyi" path="res://Textures/main_menu/space_man_a_cover_Edit_a_half.png" id="2_etl1m"]
 [ext_resource type="PackedScene" uid="uid://bh2onxymo5wnr" path="res://audio_slider_settings.tscn" id="3_1vug5"]
+[ext_resource type="AudioStream" uid="uid://b6g6x1ydexvbh" path="res://Textures/Comp_sprite/JBM_UI_click_grain_015.wav" id="5_4dfwd"]
+[ext_resource type="AudioStream" uid="uid://ioc14b38gvva" path="res://Textures/Comp_sprite/JBM_UI_click_grain_020.wav" id="6_mds0s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rqxc"]
 atlas = ExtResource("1_wjlf4")
@@ -164,3 +166,15 @@ scale = Vector2(3.22, 3.22)
 sprite_frames = SubResource("SpriteFrames_syqqx")
 frame = 8
 frame_progress = 1.0
+
+[node name="Mouse_Entered" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4dfwd")
+volume_db = -3.0
+
+[node name="Mouse_Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_mds0s")
+
+[connection signal="button_down" from="MarginContainer/ScrollContainer/VBoxContainer/fullscreen_toggle" to="." method="_on_fullscreen_toggle_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/fullscreen_toggle" to="." method="_on_fullscreen_toggle_mouse_entered"]
+[connection signal="button_down" from="MarginContainer/ScrollContainer/VBoxContainer/exit" to="." method="_on_exit_button_down"]
+[connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/exit" to="." method="_on_exit_mouse_entered"]

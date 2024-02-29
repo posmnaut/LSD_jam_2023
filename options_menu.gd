@@ -3,6 +3,8 @@ extends Control
 @onready var exit_button = $MarginContainer/ScrollContainer/VBoxContainer/exit as Button
 @onready var window_toggle = $MarginContainer/ScrollContainer/VBoxContainer/fullscreen_toggle as Button
 @onready var blink_anim = $CenterContainer/AnimatedSprite2D
+@onready var hover_audio = $Mouse_Entered
+@onready var click_audio = $Mouse_Click
 
 var button_select = 0
 var f_screen = false
@@ -41,3 +43,19 @@ func _process(delta):
 				set_process(false)
 				button_select = 0
 				type_tag = 0;
+
+
+func _on_fullscreen_toggle_mouse_entered():
+	hover_audio.play()
+
+
+func _on_exit_mouse_entered():
+	hover_audio.play()
+
+
+func _on_exit_button_down():
+	click_audio.play()
+
+
+func _on_fullscreen_toggle_button_down():
+	click_audio.play()
