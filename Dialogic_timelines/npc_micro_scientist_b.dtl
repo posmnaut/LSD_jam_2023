@@ -1,6 +1,6 @@
-join NPC_micro_observer_a 1
-NPC_micro_observer_a (port_default): "If the party is well and truly over, what do we do now?"
-NPC_micro_observer_a (port_default): "We missed our moment, and now we’re just dreams without a dreamer."
-NPC_micro_observer_a (port_default): "A blueprint with no architect…”
+join npc_talk_2_dih 1
+npc_talk_2_dih (New portrait): "If the party is well and truly over, what do we do now?"
+npc_talk_2_dih (New portrait): "We missed our moment, and now we’re just dreams without a dreamer."
+npc_talk_2_dih (New portrait): "A blueprint with no architect…”
 [signal arg="dialogue_exhausted"]
 [end_timeline]

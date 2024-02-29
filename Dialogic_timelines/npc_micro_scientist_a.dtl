@@ -1,6 +1,6 @@
-join NPC_micro_observer_a 1
-NPC_micro_observer_a (port_default): "I've been observing this thing as long as I can remember."
-NPC_micro_observer_a (port_default): "I’ve never seen it move an inch."
-NPC_micro_observer_a (port_default): “I wonder if the guy who made this entire observatory was just messing with the rest of us.”
+join npc_talk_10_mon 1
+npc_talk_10_mon (New portrait): "I've been observing this thing as long as I can remember."
+npc_talk_10_mon (New portrait): "I’ve never seen it move an inch."
+npc_talk_10_mon (New portrait): “I wonder if the guy who made this entire observatory was just messing with the rest of us.”
 [signal arg="dialogue_exhausted"]
 [end_timeline]

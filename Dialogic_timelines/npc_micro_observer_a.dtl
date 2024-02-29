@@ -1,4 +1,4 @@
-join NPC_micro_observer_a 1
-NPC_micro_observer_a (port_default): “Look, it’s going to move! Aaaaaany second now…”
+join npc_talk_16_bun 1
+npc_talk_16_bun (New portrait): “Look, it’s going to move! Aaaaaany second now…”
 [signal arg="dialogue_exhausted"]
 [end_timeline]

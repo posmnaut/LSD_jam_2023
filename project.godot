@@ -33,11 +33,15 @@ directories/dch_directory={
 "character_test_a": "res://Dialogic_timelines/character_test_a.dch",
 "npc_aptmt_a": "res://Dialogic_timelines/npc_aptmt_a.dch",
 "npc_talk_0_pos": "res://Dialogic_timelines/npc_talk_0_pos.dch",
+"npc_talk_10_mon": "res://Dialogic_timelines/npc_talk_10_mon.dch",
 "npc_talk_11_scp": "res://Dialogic_timelines/npc_talk_11_scp.dch",
+"npc_talk_12_bat": "res://Dialogic_timelines/npc_talk_12_bat.dch",
 "npc_talk_15_stx": "res://Dialogic_timelines/npc_talk_15_stx.dch",
+"npc_talk_16_bun": "res://Dialogic_timelines/npc_talk_16_bun.dch",
 "npc_talk_17": "res://Dialogic_timelines/npc_talk_17.dch",
 "npc_talk_18_tak": "res://Dialogic_timelines/npc_talk_18_tak.dch",
 "npc_talk_1_hnd": "res://Dialogic_timelines/npc_talk_1_hnd.dch",
+"npc_talk_2_dih": "res://Dialogic_timelines/npc_talk_2_dih.dch",
 "npc_talk_4_tpt": "res://Dialogic_timelines/npc_talk_4_tpt.dch",
 "npc_talk_5_skl": "res://Dialogic_timelines/npc_talk_5_skl.dch",
 "npc_talk_6_car": "res://Dialogic_timelines/npc_talk_6_car.dch",
@@ -179,6 +183,10 @@ f2={
 [internationalization]
 
 locale/translations_pot_files=PackedStringArray("res://Dialogue.dialogue")
+
+[rendering]
+
+textures/vram_compression/import_s3tc_bptc=true
 
 [shader_globals]
 
