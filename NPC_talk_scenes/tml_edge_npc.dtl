@@ -1,4 +1,8 @@
-[signal arg="dialogue_exhausted"]
-join character_test_a 1
-"Everything fell on the ceiling... now I can't find my WareMagic..."
+join Diagetic_Marsupial 1
+if {edge_null} == 0:
+	Diagetic_Marsupial (anim): "My Ocoloid remote slipped into the expanse... in a weird way I envy it."
+	set {edge_null} = 1
+elif {edge_null} == 1:
+	Diagetic_Marsupial (anim): "Whatever's down there, cant be worse than up here..."
+	[signal arg="dialogue_exhausted"]
 [end_timeline]

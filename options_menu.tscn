@@ -169,10 +169,13 @@ frame_progress = 1.0
 
 [node name="Mouse_Entered" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_4dfwd")
-volume_db = -3.0
+volume_db = -12.0
+pitch_scale = 0.64
 
 [node name="Mouse_Click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_mds0s")
+volume_db = -14.0
+pitch_scale = 0.75
 
 [connection signal="button_down" from="MarginContainer/ScrollContainer/VBoxContainer/fullscreen_toggle" to="." method="_on_fullscreen_toggle_button_down"]
 [connection signal="mouse_entered" from="MarginContainer/ScrollContainer/VBoxContainer/fullscreen_toggle" to="." method="_on_fullscreen_toggle_mouse_entered"]

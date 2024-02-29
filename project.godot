@@ -25,6 +25,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
+"Diagetic_Marsupial": "res://Dialogic_timelines/Diagetic_Marsupial.dch",
 "NPC_micro_observer_a": "res://Dialogic_timelines/NPC_micro_observer_a.dch",
 "NPC_retest_a": "res://Dialogic_timelines/NPC_retest_a.dch",
 "character_billboard": "res://Dialogic_timelines/character_billboard.dch",
@@ -74,6 +75,7 @@ layout/style_list=[]
 layout/default_style="res://NPCs/sprite_portraits/construction_npc_style.tres"
 variables={
 "Var": 0,
+"edge_null": 0.0,
 "linear_null": 0,
 "npc_blbd_a": 0,
 "npc_bldg_radio": 0,
