@@ -22,6 +22,7 @@ var talk_timer = false
 var timing_int = 100.0
 var head_scratch = true
 var gone = false
+var dia_finished = false
 
 
 #NOTE:

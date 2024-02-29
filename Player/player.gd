@@ -45,9 +45,9 @@ var consecWallJumps = 0;
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 30.0
 var fall = 30.0
-var bs_spd = 6.0
+var bs_spd = 5.0
 var wall_run_spd = 12.0
-var spd = 6.0
+var spd = 5.0
 var spd_crch_mod = 0.5
 var p_normal
 var wall_run_t = 0.0
@@ -120,6 +120,7 @@ signal cash_fire
 signal fish_eat
 signal fade_environ_shift
 signal bootsGrabbedSignal
+signal fade_env_shif_override
 
 
 func _ready():
@@ -248,7 +249,7 @@ func _process(delta):
 			fog_color_default = environ_a.environment.get_fog_light_color()
 			fall_tween = create_tween()
 			fall_tween.set_parallel(true)
-			fall_tween.tween_property(environ_a.environment, "fog_density", 2.0,4.0)
+			fall_tween.tween_property(environ_a.environment, "fog_density", 2.0,2.0)
 			fall_tween.tween_property(environ_a.environment, "fog_light_color", fall_color_white,3.0)
 			fall_tween.finished.connect(set.bind("fall_fade", 2 ))
 			fall_fade = 1
@@ -256,6 +257,7 @@ func _process(delta):
 		if fall_fade > 1 :
 			# this handles position teleportation
 			if teleport_point != null :
+				fade_env_shif_override.emit()
 				position = teleport_point.global_position
 				rotation.y = teleport_point.rotation.y
 				teleport_point = null
@@ -294,6 +296,7 @@ func _on_dialogic_signal(argument:String):
 		if NPC_check != null :
 			if is_instance_of(NPC_check,talkable_NPC) || is_instance_of(NPC_check,billboard_talkable_NPC) || is_instance_of(NPC_check,construction_talkable_NPC) || is_instance_of(NPC_check,edge_talkable_NPC):
 				NPC_check.is_sleep = true;
+				NPC_check.dia_finished = true;
 
 func _input(event):
 	#Handle escape quit function
@@ -331,18 +334,19 @@ func _input(event):
 					var talk_timer = NPC_check.talk_timer;
 					var is_asleep  = NPC_check.fully_asleep;
 					NPC_check.face_player = true
-					if !is_asleep :
-						if dialogue_string != "" :
-							Dialogic.start(dialogue_string)
-							in_dialogue = true;
-							if op_audio != "" && op_audio != null:
-								if !audio_s_player.is_playing() :
-									if talk_timer == false :
-										audio_s_player.pitch_scale = 1.0
-										audio_s_player.stream = load(op_audio);
-										audio_s_player.volume_db = -10.0
-										audio_s_player.play();
-										NPC_check.talk_timer = true
+					if !NPC_check.dia_finished :
+						if !is_asleep :
+							if dialogue_string != "" :
+								Dialogic.start(dialogue_string)
+								in_dialogue = true;
+								if op_audio != "" && op_audio != null:
+									if !audio_s_player.is_playing() :
+										if talk_timer == false :
+											audio_s_player.pitch_scale = 1.0
+											audio_s_player.stream = load(op_audio);
+											audio_s_player.volume_db = -10.0
+											audio_s_player.play();
+											NPC_check.talk_timer = true
 			elif(is_instance_of(cash_check, cash_body)):
 				fired_cash = true
 				cash_fire.emit()

@@ -1,0 +1,6 @@
+join npc_talk_18_tak 1
+npc_talk_18_tak (default_port): Hey, feel this. Sometimes, life goes against your tide, and trying to take total control is what causes all your problems.
+npc_talk_18_tak (default_port): I think that instead of getting so washed up about making life go one certain way, the solution is to go with the flow.
+npc_talk_18_tak (default_port): I did that once in the Pacific and ended up here.
+[signal arg="dialogue_exhausted"]
+[end_timeline]

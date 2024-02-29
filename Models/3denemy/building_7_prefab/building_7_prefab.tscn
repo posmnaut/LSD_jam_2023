@@ -350,9 +350,6 @@ transform = Transform3D(1.82592, 0, 0, 0, 4.95108, 0, 0, 0, 6.98749, 44.8638, 7.
 [node name="Block33" parent="building_collide_mesh" instance=ExtResource("1_wt7jf")]
 transform = Transform3D(1.82592, 0, 0, 0, 4.95108, 0, 0, 0, 6.54455, 44.8638, 3.09156, 0.738689)
 
-[node name="Block34" parent="building_collide_mesh" instance=ExtResource("1_wt7jf")]
-transform = Transform3D(1.78949, 0.0622163, 2.96869, 0, 0.516369, -9.05336, -0.362937, 0.306762, 14.6373, 45.813, 14.9083, -2.46671)
-
 [node name="Block15" parent="building_collide_mesh" instance=ExtResource("1_wt7jf")]
 transform = Transform3D(11.1934, 0, 0, 0, 0.686305, 0, 0, 0, 14.594, 49.2929, 5.98475, 5.18579)
 
@@ -444,10 +441,10 @@ transform = Transform3D(1.4228, 0, 0, 0, 19.8442, 0, 0, 0, 20.9742, 49.0069, 9.8
 transform = Transform3D(28.8888, 0, 0, 0, 4.45761, 0, 0, 0, 1.93916, 35.2246, 9.81185, -10.3982)
 
 [node name="Block23" parent="building_collide_mesh" instance=ExtResource("1_wt7jf")]
-transform = Transform3D(18, 0, 0, 0, 8.565, 0, 0, 0, 1.939, 29.8788, 15.1849, -10.3982)
+transform = Transform3D(10.75, 0, 0, 0, 8.565, 0, 0, 0, 1.939, 26.2642, 15.4157, -10.3982)
 
 [node name="Block24" parent="building_collide_mesh" instance=ExtResource("1_wt7jf")]
-transform = Transform3D(9.96592, 0, 0, 0, 8.56459, 0, 0, 0, 1.93916, 43.6983, 15.1849, -10.3982)
+transform = Transform3D(9.96592, 0, 0, 0, 8.56459, 0, 0, 0, 1.93916, 43.6983, 15.4227, -10.3982)
 
 [node name="Block26" parent="building_collide_mesh" instance=ExtResource("1_wt7jf")]
 transform = Transform3D(9.96592, 0, 0, 0, 8.56459, 0, 0, 0, 1.93916, 44.0094, 4.41908, -10.3982)

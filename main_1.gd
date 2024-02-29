@@ -52,6 +52,7 @@ func _ready():
 	player = $"/root/global".player
 	player.blink_anim.animation_finished.connect(shift_environ)
 	player.click_teleport.connect(teleport_audio_shift)
+	player.fade_env_shif_override.connect(fade_env_shif_override)
 	vis_map.visible = false
 	environ.environment = env_lsd;
 	#process_mode = Node.PROCESS_MODE_ALWAYS;
@@ -68,6 +69,8 @@ func _ready():
 	district_audio.stream = load(district_array[0].audio)
 	district_audio.volume_db = 0.0
 	district_audio.play(randf_range(0.0,district_audio.stream.get_length()))
+	env_inst = district_array[0].environ_info
+	light_inst = district_array[0].light
 	
 func shift_environ() -> void:
 	if fade_token != -1 :
@@ -77,6 +80,28 @@ func shift_environ() -> void:
 		district_array[fade_token].light.visible = true;
 		environ.set_environment(district_array[fade_token].environ_info)
 		fade_token = -1
+
+func fade_env_shif_override() -> void:
+	var d_token = 0;
+	var top_range = 2999.0;
+	for n in district_array.size()-1:
+		var p_test = district_array[n].get_child(0);
+		var _radius = p_test.mesh.radius * district_array[n].scale.y;
+		var _dist = district_array[n].global_position.distance_to($"/root/global".player.global_position)
+		if _dist < _radius :
+			if _dist < top_range :
+				top_range = _dist
+				d_token = n
+	if env_inst != district_array[d_token].environ_info || light_inst != district_array[d_token].light : 
+		crossfade = true;
+		crossfade_step = 0;
+		env_inst = district_array[d_token].environ_info
+		light_inst = district_array[d_token].light
+	else :
+		crossfade = true
+		crossfade_step = 1
+	
+		
 
 func teleport_audio_shift(audio) -> void:
 	pass
@@ -89,6 +114,7 @@ func _process (delta) :
 	if npc_dist > NPC_talk_reset_range :
 		NPC_array[NPC_int].talk_timer = false;
 		NPC_array[NPC_int].f_timer = 0;
+		NPC_array[NPC_int].dia_finished = false
 	#if outside sleep range, is ready to sleep, go to sleep
 	if npc_dist > NPC_sleep_range :
 		if NPC_array[NPC_int].is_sleep == true :

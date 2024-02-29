@@ -1,0 +1,15 @@
+join npc_talk_17 1
+if {linear_null} == 0:
+	npc_talk_17 (default_port): I feel like I can travel to anyplace and anytime through my mind with my beloved books.
+	npc_talk_17 (default_port): Oh how I wish to be there! Instead of…here… 
+	set {linear_null} = 1
+elif {linear_null} == 1:
+	npc_talk_17 (default_port): This place has been so noisy lately that my insomnia has reached new heights alongside everyone else in this building.
+	npc_talk_17 (default_port): Their constructions have gotten unruly... it keeps me up.
+	set {linear_null} = 2
+elif {linear_null} == 2:
+	npc_talk_17 (default_port): Funny thing about these books; as liminal beings the books of the dead are off limits to us. And yet we can interact with the ideas within.
+	npc_talk_17 (default_port): Memories interacting with memories of memories.
+	set {linear_null} = 3
+	[signal arg="dialogue_exhausted"]
+[end_timeline]

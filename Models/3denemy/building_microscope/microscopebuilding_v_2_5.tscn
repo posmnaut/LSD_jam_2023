@@ -1341,7 +1341,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
 mesh = SubResource("CylinderMesh_sq8ae")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="internal_atrium/LMP"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.11039, 16)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="internal_atrium/LMP/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_f31vs")

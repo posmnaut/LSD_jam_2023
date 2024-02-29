@@ -20,6 +20,7 @@ var is_sleep = false
 var talk_timer = false
 var timing_int = 100.0
 var gone = false
+var dia_finished = false
 
 
 #NOTE:
@@ -57,6 +58,7 @@ func _process (delta) :
 			f_timer += timing_int * delta;
 			if f_timer > dur_timer :
 				talk_timer = false
+				#dia_finished = false
 				f_timer = 0;
 				
 		if face_player == true :

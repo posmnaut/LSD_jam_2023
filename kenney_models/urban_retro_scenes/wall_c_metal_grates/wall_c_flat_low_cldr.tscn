@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://brm4mcnp3syvu"]
+[gd_scene load_steps=7 format=3 uid="uid://brm4mcnp3syvu"]
 
 [ext_resource type="PackedScene" uid="uid://07t2c83p21db" path="res://kenney_models/urban_retro/wallC_flatLow.glb" id="1_i7008"]
 [ext_resource type="Texture2D" uid="uid://c8dm1qcss2wtn" path="res://kenney_models/urban_retro/wallC_flatLow_bars.png" id="2_dul5n"]
+[ext_resource type="PackedScene" uid="uid://rwrbsssaksbh" path="res://Objects/Block.tscn" id="3_ggpve"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pb38h"]
 resource_name = "bars"
@@ -51,3 +52,6 @@ shadow_mesh = SubResource("ArrayMesh_lrp15")
 [node name="wallC_flatLow2" parent="tmpParent" index="0"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("ArrayMesh_aua66")
+
+[node name="Block" parent="tmpParent" index="1" instance=ExtResource("3_ggpve")]
+transform = Transform3D(3, 0, 0, 0, 1.5, 0, 0, 0, 0.3, 0, 0.762531, 0)

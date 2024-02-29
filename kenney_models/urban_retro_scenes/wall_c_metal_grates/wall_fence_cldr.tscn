@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://gjnb22tkragb"]
+[gd_scene load_steps=11 format=3 uid="uid://gjnb22tkragb"]
 
 [ext_resource type="PackedScene" uid="uid://77qxdasy8xsd" path="res://kenney_models/urban_retro/wallFence.glb" id="1_mv5cy"]
 [ext_resource type="Texture2D" uid="uid://d3faaporgu1jo" path="res://kenney_models/urban_retro/wallFence_wall_lines.png" id="2_6um2j"]
 [ext_resource type="Texture2D" uid="uid://dmjjhok4rrf4y" path="res://kenney_models/urban_retro/wallFence_concrete.png" id="3_sjqkm"]
 [ext_resource type="Texture2D" uid="uid://dop3q7eqnnhts" path="res://kenney_models/urban_retro/wallFence_bars.png" id="4_3jjs6"]
+[ext_resource type="PackedScene" uid="uid://rwrbsssaksbh" path="res://Objects/Block.tscn" id="5_4w3hv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chhjq"]
 resource_name = "wall_lines"
@@ -113,3 +114,6 @@ shadow_mesh = SubResource("ArrayMesh_7dw2n")
 [node name="wallFence2" parent="tmpParent" index="0"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("ArrayMesh_vo64b")
+
+[node name="Block" parent="tmpParent" index="1" instance=ExtResource("5_4w3hv")]
+transform = Transform3D(3, 0, 0, 0, 1.5, 0, 0, 0, 0.3, 0, 0.75, 0)
