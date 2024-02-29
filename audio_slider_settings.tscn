@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh2onxymo5wnr"]
+[gd_scene load_steps=3 format=3 uid="uid://bh2onxymo5wnr"]
 
 [ext_resource type="Script" path="res://audio_slider_settings.gd" id="1_h2gl5"]
+[ext_resource type="AudioStream" uid="uid://corj6ph3ey7kj" path="res://Textures/Comp_sprite/JBM_Text_Grain_Loop_05.wav" id="2_e4qg3"]
 
 [node name="audio_slider_settings" type="Control"]
 layout_mode = 3
@@ -41,3 +42,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "100
 "
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_e4qg3")
+
+[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

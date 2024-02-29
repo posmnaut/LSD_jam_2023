@@ -3,6 +3,7 @@ extends Control
 @onready var audio_label = $HBoxContainer/audio_label as Label
 @onready var audio_level_label = $HBoxContainer/audio_level_label as Label
 @onready var h_slider = $HBoxContainer/HSlider as HSlider
+@onready var dragging_audio = $AudioStreamPlayer2D
 
 @export_enum("Master", "Music", "SFX") var bus_name : String
 
@@ -30,3 +31,7 @@ func set_slider_value() -> void:
 func on_value_changed(value : float) -> void : 
 	AudioServer.set_bus_volume_db(bus_index,linear_to_db(value))
 	set_audio_num_label()
+
+
+func _on_h_slider_value_changed(value):
+	dragging_audio.play()

@@ -6,6 +6,9 @@ extends Control
 @onready var start_level = preload("res://RenderContainer.tscn") as PackedScene 
 @onready var blink_anim = $CenterContainer/AnimatedSprite2D
 @onready var options_menu = $options_menu
+@onready var hover_audio = $Mouse_Entered
+@onready var click_audio = $Mouse_Click
+@onready var options_click_audio = $Mouse_Clicked_Options
 
 
 var button_select = 0
@@ -75,3 +78,27 @@ func _process(delta) :
 		
 	
 	
+
+
+func _on_start_mouse_entered():
+	hover_audio.play()
+
+
+func _on_options_mouse_entered():
+	hover_audio.play()
+
+
+func _on_quit_mouse_entered():
+	hover_audio.play()
+
+
+func _on_start_button_down():
+	click_audio.play()
+
+
+func _on_options_button_down():
+	options_click_audio.play()
+
+
+func _on_quit_button_down():
+	click_audio.play()

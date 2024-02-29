@@ -1,9 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://y78ryt3e82vb"]
+[gd_scene load_steps=17 format=3 uid="uid://y78ryt3e82vb"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_khdyb"]
 [ext_resource type="Texture2D" uid="uid://vmrvon835uyi" path="res://Textures/main_menu/space_man_a_cover_Edit_a_half.png" id="1_ntfj0"]
 [ext_resource type="Texture2D" uid="uid://ddqefkbpw5f2p" path="res://Textures/eyes_close_1.png" id="3_1p3w4"]
 [ext_resource type="PackedScene" uid="uid://dr3jsr5rhikda" path="res://options_menu.tscn" id="4_s0cjy"]
+[ext_resource type="AudioStream" uid="uid://ioc14b38gvva" path="res://Textures/Comp_sprite/JBM_UI_click_grain_020.wav" id="5_wfnb1"]
+[ext_resource type="AudioStream" uid="uid://b6g6x1ydexvbh" path="res://Textures/Comp_sprite/JBM_UI_click_grain_015.wav" id="6_j6467"]
+[ext_resource type="AudioStream" uid="uid://dgwvho05iqp8v" path="res://Textures/Comp_sprite/JBM_UI_click_grain_029.wav" id="7_6we6u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8rqxc"]
 atlas = ExtResource("3_1p3w4")
@@ -181,3 +184,21 @@ sprite_frames = SubResource("SpriteFrames_0islo")
 frame = 9
 frame_progress = 1.0
 speed_scale = 2.0
+
+[node name="Mouse_Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wfnb1")
+
+[node name="Mouse_Entered" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_j6467")
+volume_db = -3.0
+
+[node name="Mouse_Clicked_Options" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_6we6u")
+volume_db = -0.2
+
+[connection signal="button_down" from="HBoxContainer/VBoxContainer/start" to="." method="_on_start_button_down"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/start" to="." method="_on_start_mouse_entered"]
+[connection signal="button_down" from="HBoxContainer/VBoxContainer/options" to="." method="_on_options_button_down"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/options" to="." method="_on_options_mouse_entered"]
+[connection signal="button_down" from="HBoxContainer/VBoxContainer/quit" to="." method="_on_quit_button_down"]
+[connection signal="mouse_entered" from="HBoxContainer/VBoxContainer/quit" to="." method="_on_quit_mouse_entered"]

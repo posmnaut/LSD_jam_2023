@@ -20,6 +20,7 @@ var consecWallJumps = 0;
 @onready var look_cast_cash = $Head/Camera3D/Look_Cast_cash
 @onready var look_cast_fish = $Head/Camera3D/FishFood
 @onready var look_cast_boots = $Head/Camera3D/BunnyBoots
+@onready var look_cast_comp = $Head/Camera3D/Keyboard_Cast
 @onready var hud_RTL = $UI/RichTextLabel;
 @onready var blink_anim = $UI/Control/AnimatedSprite2D as AnimatedSprite2D
 @onready var audio_s_player = $AudioStreamPlayer
@@ -99,6 +100,7 @@ var accBunnyHop = false
 var BUNNY_SPEED_MULT = 0.0
 var frame_check = 0
 var bunny_fired = false
+var compClicked = false
 
 var wall_run_angle = 15 #export me 
 var wall_run_current_angle = 0
@@ -121,6 +123,7 @@ signal fish_eat
 signal fade_environ_shift
 signal bootsGrabbedSignal
 signal fade_env_shif_override
+signal compClickedSignal
 
 
 func _ready():
@@ -219,7 +222,9 @@ func _process(delta):
 		var cash_check = look_cast_cash.get_collider();
 		var fish_check = look_cast_fish.get_collider();
 		var boot_check = look_cast_boots.get_collider();
-		if NPC_check != null || door_check != null || cash_check != null  || fish_check != null && fish_clicked == false || cash_check != null && fired_cash == false || boot_check != null && bootGrabbed == false:
+		var comp_check = look_cast_comp.get_collider();
+		
+		if NPC_check != null || door_check != null || cash_check != null  || fish_check != null && fish_clicked == false || cash_check != null && fired_cash == false || boot_check != null && bootGrabbed == false || comp_check != null && compClicked == false:
 			if NPC_check != null:
 				if NPC_check.fully_asleep || NPC_check.is_sleep :
 					interact_sprite.visible = false
@@ -319,6 +324,7 @@ func _input(event):
 			var cash_check = look_cast_cash.get_collider();
 			var fish_check = look_cast_fish.get_collider();
 			var boot_check = look_cast_boots.get_collider();
+			var comp_check = look_cast_comp.get_collider();
 			
 			if NPC_check != null :
 					
@@ -357,6 +363,10 @@ func _input(event):
 			elif(boot_check != null && boot_check.name == "BootsStaticBody" && bootGrabbed == false):
 				bootGrabbed = true
 				bootsGrabbedSignal.emit()
+			elif(comp_check != null && comp_check.name == "CompStaticBody" && compClicked == false):
+				print("FIRED")
+				compClicked = true
+				compClickedSignal.emit()
 				
 			
 			if click_check !=null:
