@@ -15,5 +15,6 @@ metadata/is_wallrunable = true
 shape = SubResource("BoxShape3D_a66xn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
 mesh = SubResource("BoxMesh_r1yry")
 surface_material_override/0 = SubResource("StandardMaterial3D_y17ol")
