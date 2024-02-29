@@ -33,6 +33,7 @@ directories/dch_directory={
 "npc_aptmt_a": "res://Dialogic_timelines/npc_aptmt_a.dch",
 "npc_talk_0_pos": "res://Dialogic_timelines/npc_talk_0_pos.dch",
 "npc_talk_11_scp": "res://Dialogic_timelines/npc_talk_11_scp.dch",
+"npc_talk_15_stx": "res://Dialogic_timelines/npc_talk_15_stx.dch",
 "npc_talk_1_hnd": "res://Dialogic_timelines/npc_talk_1_hnd.dch",
 "npc_talk_4_tpt": "res://Dialogic_timelines/npc_talk_4_tpt.dch",
 "npc_talk_5_skl": "res://Dialogic_timelines/npc_talk_5_skl.dch",
