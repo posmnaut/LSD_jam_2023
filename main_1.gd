@@ -134,7 +134,7 @@ func _process (delta) :
 		NPC_int = 0;
 	
 	#player environment check
-	#if environment changed, do environment change behavior 
+	#if environment changed, do environment change behavior
 	if audio_override == false :
 		var p_test = district_array[district_int].get_child(0);
 		var _radius = p_test.mesh.radius * district_array[district_int].scale.y;

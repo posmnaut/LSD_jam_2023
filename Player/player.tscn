@@ -185,6 +185,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9527, 0)
 target_position = Vector3(0, 0, -2.01)
 collision_mask = 134217728
 
+[node name="Look_Cast_cash" type="RayCast3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0455912, 0)
+target_position = Vector3(0, 0, -1.995)
+collision_mask = 256
+
+[node name="BunnyBoots" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -2.04)
+collision_mask = 67108864
+
 [node name="Upper_Check" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.400872, 0)
 target_position = Vector3(0, 0, -1)
@@ -203,13 +212,9 @@ collision_mask = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2, 0, -0.5, 0)
 target_position = Vector3(0, 0, -1)
 collision_mask = 16
+hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
-
-[node name="Look_Cast_cash" type="RayCast3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0455912, 0)
-target_position = Vector3(0, 0, -1.995)
-collision_mask = 256
 
 [node name="D_Shad_Check" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -17,8 +17,9 @@ var consecWallJumps = 0;
 @onready var stp_audio_player = $footsteps_1
 @onready var Look_Cast = $Head/Look_Cast_NPC
 @onready var look_cast_door = $Head/Look_Cast_door
-@onready var look_cast_cash = $Head/Look_Cast_cash
+@onready var look_cast_cash = $Head/Camera3D/Look_Cast_cash
 @onready var look_cast_fish = $Head/Camera3D/FishFood
+@onready var look_cast_boots = $Head/Camera3D/BunnyBoots
 @onready var hud_RTL = $UI/RichTextLabel;
 @onready var blink_anim = $UI/Control/AnimatedSprite2D as AnimatedSprite2D
 @onready var audio_s_player = $AudioStreamPlayer
@@ -41,14 +42,14 @@ var consecWallJumps = 0;
 @export var environ_a : WorldEnvironment
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = 30
-var fall = 30
-var bs_spd = 6
-var wall_run_spd = 12
-var spd = 6
+var gravity = 30.0
+var fall = 30.0
+var bs_spd = 6.0
+var wall_run_spd = 12.0
+var spd = 6.0
 var spd_crch_mod = 0.5
 var p_normal
-var wall_run_t = 0 
+var wall_run_t = 0.0
 var direction
 var is_wallrunning = false
 var side = ""
@@ -89,9 +90,14 @@ var allowWallJump = false
 var NPCinst = null
 var fish_clicked = false
 var fired_cash = false
+var bootGrabbed = false
 var cam_shake = false
 var shake_strength = 0.0
 var SHAKE_DECAY_RATE = 0.35
+var accBunnyHop = false
+var BUNNY_SPEED_MULT = 0.0
+var frame_check = 0
+var bunny_fired = false
 
 var wall_run_angle = 15 #export me 
 var wall_run_current_angle = 0
@@ -111,6 +117,7 @@ var in_dialogue = false;
 signal click_teleport(audio)
 signal cash_fire
 signal fish_eat
+signal bootsGrabbedSignal
 
 func _ready():
 	$"/root/global".register_player(self)
@@ -207,7 +214,8 @@ func _process(delta):
 		var door_check = look_cast_door.get_collider();
 		var cash_check = look_cast_cash.get_collider();
 		var fish_check = look_cast_fish.get_collider();
-		if NPC_check != null || door_check != null || cash_check != null  || fish_check != null && fish_clicked == false || cash_check != null && fired_cash == false:
+		var boot_check = look_cast_boots.get_collider();
+		if NPC_check != null || door_check != null || cash_check != null  || fish_check != null && fish_clicked == false || cash_check != null && fired_cash == false || boot_check != null && bootGrabbed == false:
 			if NPC_check != null:
 				if NPC_check.fully_asleep || NPC_check.is_sleep :
 					interact_sprite.visible = false
@@ -304,6 +312,7 @@ func _input(event):
 			var click_check = look_cast_door.get_collider();
 			var cash_check = look_cast_cash.get_collider();
 			var fish_check = look_cast_fish.get_collider();
+			var boot_check = look_cast_boots.get_collider();
 			
 			if NPC_check != null :
 					
@@ -338,6 +347,10 @@ func _input(event):
 			elif(fish_check != null && fish_check.name == "FishStaticBody" && fish_clicked == false):
 				fish_clicked = true
 				fish_eat.emit()
+			elif(boot_check != null && boot_check.name == "BootsStaticBody" && bootGrabbed == false):
+				bootGrabbed = true
+				bootsGrabbedSignal.emit()
+				
 			
 			if click_check !=null:
 				teleport_point = click_check.get_parent().target_point;
@@ -518,7 +531,39 @@ func _physics_process(delta):
 				
 	
 	if is_on_floor():
-		spd = bs_spd
+		frame_check += 1
+		if(bootGrabbed == true):
+			#IMPORTANT NOTE: We check to see if `accBunnyHop` is `false` in the `if-statement` below because we only want the ->
+			#-> `BUNNY_SPEED_MULT` to increase one time per each instance of touching the `floor`, to do this we check to see if we ->
+			#-> already increased `BUNNY_SPEED_MULT` previously (and the player did not "re-touch" the `floor` yet). We use ->
+			#-> `accBunnyHop` as this check because it will only flip from `false` to `true` one time between touching the `floor`, ->
+			#-> jumping, and touching the `floor` again.
+			if(frame_check <= 6):
+				#IMPORTANT NOTE: IF you dont want the player to be able to "charge up" a jump and then move forward to expell it all at ->
+				#-> once, then make sure the player is pressing `forward` to gain `BUNNY_SPEED_MULT`
+				#IMPORTANT NOTE: The speed of the player while bunny-hopping grows EXPONENTIALLY.
+				if(Input.is_action_just_pressed("ui_accept") && bunny_fired == false):
+					#if(BUNNY_SPEED_MULT < 1.65):
+						#BUNNY_SPEED_MULT += 0.4
+					if(spd < 14):
+						BUNNY_SPEED_MULT = 2.0
+						spd += BUNNY_SPEED_MULT
+					bunny_fired = true
+					accBunnyHop = true
+			else:
+				BUNNY_SPEED_MULT = 0.0
+				bunny_fired = false
+				accBunnyHop = false
+				spd = bs_spd
+				#if(spd > bs_spd):
+					#spd -= 4.0
+		
+		#NOTE: This `if-statement` will never be met unless the `frame_check <= 6` condition is not met in the previous nested ->
+		#-> `if-statement`. This is important because we only want the `spd` of the player to be reset when the player messes up ->
+		#-> a bunny-hop jump.
+		if(bootGrabbed == false):
+			spd = bs_spd
+		
 		wall_run_t = 0
 		is_wall_run_jumping = 0
 		jump_token = 2;
@@ -535,6 +580,13 @@ func _physics_process(delta):
 	#NOTE: This `if-statement` allows for the player to do wall jumps on "non-sliding" walls up to a certain ->
 	#-> number of wall jumps (currently `2`).
 	elif(is_on_floor() == false && get_slide_collision_count() != 0 && consecWallJumps < 2 && is_wallrunning == false && get_slide_collision(0).get_collider_id() != collisionInst && mantling == false && allowWallJump == true):
+		#IMPORTANT NOTE: If you want the player to maintain bunny-hop speed after wall-climbing, then un-comment this.
+		# wasPrevOnFloor = false
+		#IMPORANT NOTE: We only want the players x-velocity to increase when they just touched the ground AND hit the ->
+		#-> jump button, so we need to prevent them from gaining speed otherwise (i.e., wall-climbing or in mid-air).
+		#accBunnyHop = false
+		bunny_fired = false
+		
 		if(wallTouched == false && jump_token == 0):
 			allowWallJump = false
 			jump_token -= 1
@@ -550,9 +602,17 @@ func _physics_process(delta):
 			velocity.y += JUMP_VELOCITY/4
 			#print("I jumped!")
 			#hud_RTL.text = str(get_slide_collision(0).get_collider_id())
+	#NOTE: This `if-statement` means the player is currently in mid-air.
+	else:
+		#IMPORANT NOTE: We only want the players x-velocity to increase when they just touched the ground AND hit the ->
+		#-> jump button, so we need to prevent them from gaining speed otherwise (i.e., wall-climbing or in mid-air).
+		#accBunnyHop = false
+		bunny_fired = false
 	
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept"):
+		#hud_RTL.text = str(frame_check)
+		frame_check = 0
 		#if(jump_token == 1 && wallTouched == false && get_slide_collision_count() != 0 && get_slide_collision(0).get_collider().has_meta("is_wallrunable") == true && get_slide_collision(0).get_collider().get_meta("is_wallrunable") == false ):
 			#wallTouched = true
 		if(jump_token < 0 && wallTouched == false):
@@ -561,14 +621,17 @@ func _physics_process(delta):
 			jump_token -= 1;
 			land_audio = true;
 			velocity.y = JUMP_VELOCITY
-			if jump_token == 1 :
-				spd += 1
+			#IMPORTANT NOTE: Without the check in the `if-statement` below to see if `accBunnyHop` is `false` the player would be able ->
+			#-> to infinitely gain speed while bunny-hopping because `spd = bs_spd` is never ran when `accBunnyHop = true`. Basically what ->
+			#-> this means is that unlike the `BUNNY_SPEED_MULT` variable constant, there is no cap on how many times this `spd += 1` in ->
+			#-> the `if-statement` below can run.
+			if jump_token == 1 && accBunnyHop == false:
+				spd += 1.0
 			audio_s_player.stream = load("res://snd_effects/player/wall_grab_option_3.wav");
 			audio_s_player.pitch_scale = randf_range(0.9,1.1);
 			audio_s_player.play()
 			if jump_token < 2 :
 				is_wall_run_jumping = 0
-					
 	
 	#if is_on_floor():
 		#spd = bs_spd
@@ -804,6 +867,8 @@ func _physics_process(delta):
 	#$Decal.global_position.x = global_position.x
 	#$Decal.global_position.z = global_position.z
 	
+	#hud_RTL.text = str(spd)
+	#hud_RTL.text = str(BUNNY_SPEED_MULT)
 	#var debug = rad_to_deg(Vector2(p_normal.x,p_normal.z).angle())
 	#var debug1 = wrapf((debug + 90) *-1,-180,180)
 	#var debug2 = wrapf((rotation_degrees.y + 90) *-1,-180,180)
