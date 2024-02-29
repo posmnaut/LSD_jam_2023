@@ -185,6 +185,7 @@ shape = SubResource("CapsuleShape3D_xeej3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9527, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+far = 140.0
 
 [node name="FishFood" type="RayCast3D" parent="Head/Camera3D"]
 target_position = Vector3(0, 0, -2.01)

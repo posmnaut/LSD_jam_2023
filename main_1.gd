@@ -72,7 +72,7 @@ func _ready():
 func shift_environ() -> void:
 	if fade_token != -1 :
 		player.blink_anim.play()
-		for n in district_array.size()-1:
+		for n in light_array.size()-1:
 			light_array[n].visible = false;
 		district_array[fade_token].light.visible = true;
 		environ.set_environment(district_array[fade_token].environ_info)
