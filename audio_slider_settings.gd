@@ -33,5 +33,5 @@ func on_value_changed(value : float) -> void :
 	set_audio_num_label()
 
 
-func _on_h_slider_value_changed(value):
-	dragging_audio.play()
+#func _on_h_slider_value_changed(value):
+	#dragging_audio.play()

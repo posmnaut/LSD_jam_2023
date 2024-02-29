@@ -1975,7 +1975,7 @@ mesh = SubResource("ArrayMesh_5axiw")
 skeleton = NodePath("")
 
 [node name="StackedScreensAColdones" parent="internal_detail/upper" instance=ExtResource("19_ikhbn")]
-transform = Transform3D(-0.129938, 0, 0.991522, 0, 1, 0, -0.991522, 0, -0.129938, 1.20444, 3.55023, 8.81171)
+transform = Transform3D(-0.129938, 0, 0.991522, 0, 1, 0, -0.991522, 0, -0.129938, 0.986609, 3.46985, 8.81171)
 
 [node name="StackedScreensAColdones2" parent="internal_detail/upper" instance=ExtResource("19_ikhbn")]
 transform = Transform3D(-0.141713, 0, -0.989908, 0, 1, 0, 0.989908, 0, -0.141713, 5.4359, 1.62651, 20.3874)
@@ -2244,6 +2244,33 @@ omni_range = 6.0
 [node name="OmniLight3D6" type="OmniLight3D" parent="internal_detail/upper_lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.43634, 0.451996, 17.0168)
 light_color = Color(0.639216, 1, 0.262745, 1)
+light_indirect_energy = 5.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 6.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="internal_detail/upper_lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56366, -3.548, 15.0168)
+light_color = Color(0.639216, 1, 0.262745, 1)
+light_energy = 10.0
+light_indirect_energy = 5.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 9.0
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="internal_detail/upper_lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56366, -7.548, 15.0168)
+light_color = Color(0.639216, 1, 0.262745, 1)
+light_energy = 10.0
+light_indirect_energy = 5.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+omni_range = 6.0
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="internal_detail/upper_lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56366, -12.548, 15.0168)
+light_color = Color(0.639216, 1, 0.262745, 1)
+light_energy = 10.0
 light_indirect_energy = 5.0
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0

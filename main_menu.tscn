@@ -337,8 +337,8 @@ anchor_right = 1.0
 anchor_bottom = 0.998
 offset_left = -4.81
 offset_top = -17.02
-offset_right = 955.19
-offset_bottom = 522.98
+offset_right = 635.19
+offset_bottom = 343.34
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_s2m6s")
@@ -348,8 +348,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 2.247
 anchor_bottom = 0.994
-offset_right = 719.0
-offset_bottom = 179.0
+offset_right = -0.039978
+offset_bottom = 0.0800018
 scale = Vector2(0.815, 0.815)
 
 [node name="Label" type="Label" parent="VBoxContainer"]
