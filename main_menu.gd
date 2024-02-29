@@ -9,6 +9,8 @@ extends Control
 @onready var hover_audio = $Mouse_Entered
 @onready var click_audio = $Mouse_Click
 @onready var options_click_audio = $Mouse_Clicked_Options
+@onready var anim_player = $AnimationPlayer
+@onready var theme_player = $Theme
 
 
 var button_select = 0
@@ -23,6 +25,8 @@ func _ready():
 	blink_anim.visible = true
 	blink_anim.set_frame_and_progress(0,0.0);
 	blink_anim.play();
+	anim_player.play("float")
+	theme_player.play()
 
 func on_start_pressed() -> void:
 	blink_anim.play_backwards()
