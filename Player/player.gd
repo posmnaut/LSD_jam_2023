@@ -538,7 +538,7 @@ func _physics_process(delta):
 			#-> already increased `BUNNY_SPEED_MULT` previously (and the player did not "re-touch" the `floor` yet). We use ->
 			#-> `accBunnyHop` as this check because it will only flip from `false` to `true` one time between touching the `floor`, ->
 			#-> jumping, and touching the `floor` again.
-			if(frame_check <= 6):
+			if(frame_check <= 8):
 				#IMPORTANT NOTE: IF you dont want the player to be able to "charge up" a jump and then move forward to expell it all at ->
 				#-> once, then make sure the player is pressing `forward` to gain `BUNNY_SPEED_MULT`
 				#IMPORTANT NOTE: The speed of the player while bunny-hopping grows EXPONENTIALLY.
