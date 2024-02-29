@@ -200,6 +200,12 @@ collision_mask = 256
 target_position = Vector3(0, 0, -2.04)
 collision_mask = 67108864
 
+[node name="Keyboard_Cast" type="RayCast3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -2.495, 0)
+collision_mask = 33554432
+hit_from_inside = true
+
 [node name="Upper_Check" type="RayCast3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.400872, 0)
 target_position = Vector3(0, 0, -1)
