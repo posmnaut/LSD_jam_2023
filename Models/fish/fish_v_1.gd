@@ -20,11 +20,11 @@ func _on_player_fish_eat():
 	#storePath = path.progress
 	path.progress = 0
 	eatingFood = true
-	anim_player.play("eating")
+	anim_player.play("eating_v2")
 	
 
 
 func _on_animation_player_animation_finished(anim_name):
-	if(anim_name == "eating"):
+	if(anim_name == "eating_v2"):
 		anim_player.play("swimming")
 		eatingFood = false

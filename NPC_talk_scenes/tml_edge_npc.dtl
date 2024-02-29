@@ -1,4 +1,4 @@
 [signal arg="dialogue_exhausted"]
 join character_test_a 1
-"Everything fell on the ceiling... Now I can't find my WareMagic..."
+"Everything fell on the ceiling... now I can't find my WareMagic..."
 [end_timeline]

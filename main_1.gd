@@ -110,6 +110,7 @@ func _process (delta) :
 		NPC_int = 0;
 	
 	#player environment check
+
 	#if environment changed, do environment change behavior 
 
 	var p_test = district_array[district_int].get_child(0);
@@ -127,6 +128,7 @@ func _process (delta) :
 					else :
 						crossfade = true
 						crossfade_step = 1
+
 
 	
 	if crossfade :
