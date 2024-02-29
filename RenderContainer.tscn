@@ -9,7 +9,7 @@ shader_parameter/change_color_depth = true
 shader_parameter/target_color_depth = 4
 shader_parameter/dithering = true
 shader_parameter/scale_resolution = true
-shader_parameter/target_resolution_scale = 3
+shader_parameter/target_resolution_scale = 4
 shader_parameter/enable_recolor = false
 
 [node name="RenderContainer" type="SubViewportContainer"]
