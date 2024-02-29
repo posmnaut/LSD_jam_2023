@@ -6,3 +6,6 @@
 
 [node name="Old Phone" parent="." index="24"]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, -0.160486, 0.687611, -1.48728)
+
+[node name="Drawer_004" parent="Drawer" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.14001, -0.0558472, -6.22358)

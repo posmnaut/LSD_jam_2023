@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dguoll5erc0a"]
+
+[ext_resource type="PackedScene" uid="uid://bpjdftbm0p2ik" path="res://vhs_shop/vhshop.glb" id="1_k5eh7"]
+
+[node name="vhshop" instance=ExtResource("1_k5eh7")]
+
+[node name="Keyboard_01" parent="." index="110"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2882, 1.07382, 8.39365)
+
+[node name="Aquarium" parent="." index="231"]
+visible = false
+
+[node name="Water" parent="." index="248"]
+visible = false
+
+[node name="Shop_VHS__Windows" parent="." index="250"]
+visible = false
+
+[node name="parking_Collision" parent="." index="252"]
+visible = false
+
+[node name="Shop_VHS__Collision" parent="." index="253"]
+visible = false
+
+[node name="Sidewalk_Collision" parent="." index="254"]
+visible = false

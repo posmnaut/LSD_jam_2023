@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cg357ewb6pd5g"]
+
+[ext_resource type="PackedScene" uid="uid://bjoygkgfjc1hw" path="res://survival kit/untitled.glb" id="1_ak2y1"]
+
+[node name="untitled" instance=ExtResource("1_ak2y1")]

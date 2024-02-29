@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://safja88kkx1y"]
+
+[ext_resource type="PackedScene" uid="uid://bwg0tpcwljdsn" path="res://Models/3denemy/All.glb" id="1_dn70n"]
+
+[node name="All" instance=ExtResource("1_dn70n")]
+
+[node name="Mop" parent="." index="461"]
+transform = Transform3D(0.897391, 0, 0, 0, 0.897391, 0, 0, 0, 0.897391, -5.37828, 0.947351, -7.45908)
+
+[node name="Bote" parent="." index="463"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40967, 0.226188, -7.94979)
+
+[node name="Basket" parent="." index="464"]
+transform = Transform3D(1.23427, 0, 0, 0, 1.23427, 0, 0, 0, 1.23427, -6.30408, 0.299173, -7.66928)
+
+[node name="Basket_01" parent="." index="466"]
+transform = Transform3D(1.23427, 0, 0, 0, 1.23427, 0, 0, 0, 1.23427, -7.2626, 0.307027, -7.66715)
