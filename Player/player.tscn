@@ -156,7 +156,7 @@ offset_bottom = 545.0
 [node name="resume" type="Button" parent="UI/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "RESUME"
+text = "DREAM"
 
 [node name="unstuck" type="Button" parent="UI/VBoxContainer"]
 layout_mode = 2
@@ -171,7 +171,7 @@ text = "OPTIONS"
 [node name="quit" type="Button" parent="UI/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "QUIT"
+text = "WAKE UP"
 
 [node name="options_menu" parent="UI" instance=ExtResource("4_7vlyy")]
 visible = false
