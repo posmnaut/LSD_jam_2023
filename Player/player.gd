@@ -145,6 +145,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS;
 	part_m_snow.visible = true;
 	part_rain.visible = false;
+	options_menu.visible = false
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 	
 	

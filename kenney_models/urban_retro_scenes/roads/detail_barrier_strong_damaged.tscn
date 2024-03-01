@@ -10,6 +10,8 @@ points = PackedVector3Array(-0.175034, 0.332, 0.0728514, -0.175034, 0.332, -0.07
 [node name="detailBarrierStrong_damaged2" parent="tmpParent" index="0"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent" index="1"]
+[node name="StaticBody3D" type="StaticBody3D" parent="tmpParent" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tmpParent/StaticBody3D" index="0"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_s7obs")
