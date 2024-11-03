@@ -31,6 +31,10 @@ enum PathTarget {
 @onready var globals_list: Tree = $Runtime/GlobalsList
 
 # Advanced
+@onready var check_for_updates: CheckBox = $Advanced/CheckForUpdates
+@onready var include_characters_in_translations: CheckBox = $Advanced/IncludeCharactersInTranslations
+@onready var include_notes_in_translations: CheckBox = $Advanced/IncludeNotesInTranslations
+@onready var open_in_external_editor_button: CheckBox = $Advanced/OpenInExternalEditorButton
 @onready var test_scene_path_input: LineEdit = $Advanced/CustomTestScene/TestScenePath
 @onready var revert_test_scene_button: Button = $Advanced/CustomTestScene/RevertTestScene
 @onready var load_test_scene_button: Button = $Advanced/CustomTestScene/LoadTestScene
@@ -62,10 +66,17 @@ func _ready() -> void:
 	$Runtime/StatesMessage.text = DialogueConstants.translate("settings.states_message")
 	$Runtime/StatesHint.text = DialogueConstants.translate("settings.states_hint")
 
+	check_for_updates.text = DialogueConstants.translate("settings.check_for_updates")
+	include_characters_in_translations.text = DialogueConstants.translate("settings.include_characters_in_translations")
+	include_notes_in_translations.text = DialogueConstants.translate("settings.include_notes_in_translations")
+	open_in_external_editor_button.text = DialogueConstants.translate("settings.open_in_external_editor")
+	$Advanced/ExternalWarning.text = DialogueConstants.translate("settings.external_editor_warning")
 	$Advanced/CustomTestSceneLabel.text = DialogueConstants.translate("settings.custom_test_scene")
 	$Advanced/RecompileWarning.text = DialogueConstants.translate("settings.recompile_warning")
 	missing_translations_button.text = DialogueConstants.translate("settings.missing_keys")
 	create_lines_for_response_characters.text = DialogueConstants.translate("settings.create_lines_for_responses_with_characters")
+
+	current_tab = 0
 
 
 func prepare() -> void:
@@ -78,6 +89,9 @@ func prepare() -> void:
 	load_test_scene_button.icon = get_theme_icon("Load", "EditorIcons")
 
 	var balloon_path: String = DialogueSettings.get_setting("balloon_path", "")
+	if not FileAccess.file_exists(balloon_path):
+		DialogueSettings.set_setting("balloon_path", "")
+		balloon_path = ""
 	balloon_path_input.placeholder_text = balloon_path if balloon_path != "" else DialogueConstants.translate("settings.default_balloon_path")
 	revert_balloon_button.visible = balloon_path != ""
 	revert_balloon_button.icon = get_theme_icon("RotateLeft", "EditorIcons")
@@ -89,6 +103,7 @@ func prepare() -> void:
 
 	states_title.add_theme_font_override("font", get_theme_font("bold", "EditorFonts"))
 
+	check_for_updates.set_pressed_no_signal(DialogueSettings.get_user_value("check_for_updates", true))
 	characters_translations_button.set_pressed_no_signal(DialogueSettings.get_setting("export_characters_in_translation", true))
 	wrap_lines_button.set_pressed_no_signal(DialogueSettings.get_setting("wrap_lines", false))
 	include_all_responses_button.set_pressed_no_signal(DialogueSettings.get_setting("include_all_responses", false))
@@ -98,6 +113,18 @@ func prepare() -> void:
 
 	missing_translations_button.set_pressed_no_signal(DialogueSettings.get_setting("missing_translations_are_errors", false))
 	create_lines_for_response_characters.set_pressed_no_signal(DialogueSettings.get_setting("create_lines_for_responses_with_characters", true))
+
+	include_characters_in_translations.set_pressed_no_signal(DialogueSettings.get_setting("include_character_in_translation_exports", false))
+	include_notes_in_translations.set_pressed_no_signal(DialogueSettings.get_setting("include_notes_in_translation_exports", false))
+	open_in_external_editor_button.set_pressed_no_signal(DialogueSettings.get_user_value("open_in_external_editor", false))
+
+	var editor_settings: EditorSettings = editor_plugin.get_editor_interface().get_editor_settings()
+	var external_editor: String = editor_settings.get_setting("text_editor/external/exec_path")
+	var use_external_editor: bool = editor_settings.get_setting("text_editor/external/use_external_editor") and external_editor != ""
+	if not use_external_editor:
+		open_in_external_editor_button.hide()
+		$Advanced/ExternalWarning.hide()
+		$Advanced/ExternalSeparator.hide()
 
 	var project = ConfigFile.new()
 	var err = project.load("res://project.godot")
@@ -109,7 +136,7 @@ func prepare() -> void:
 			if key != "DialogueManager":
 				all_globals[key] = project.get_value("autoload", key)
 
-	enabled_globals = DialogueSettings.get_setting("states", [])
+	enabled_globals = DialogueSettings.get_setting("states", []).duplicate()
 	globals_list.clear()
 	var root = globals_list.create_item()
 	for name in all_globals.keys():
@@ -235,3 +262,19 @@ func _on_load_balloon_path_pressed() -> void:
 
 func _on_create_lines_for_response_characters_toggled(toggled_on: bool) -> void:
 	DialogueSettings.set_setting("create_lines_for_responses_with_characters", toggled_on)
+
+
+func _on_open_in_external_editor_button_toggled(toggled_on: bool) -> void:
+	DialogueSettings.set_user_value("open_in_external_editor", toggled_on)
+
+
+func _on_include_characters_in_translations_toggled(toggled_on: bool) -> void:
+	DialogueSettings.set_setting("include_character_in_translation_exports", toggled_on)
+
+
+func _on_include_notes_in_translations_toggled(toggled_on: bool) -> void:
+	DialogueSettings.set_setting("include_notes_in_translation_exports", toggled_on)
+
+
+func _on_keep_up_to_date_toggled(toggled_on: bool) -> void:
+	DialogueSettings.set_user_value("check_for_updates", toggled_on)

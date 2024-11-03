@@ -101,9 +101,10 @@ visible = false
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 6.0
+anchor_bottom = 6.0
+offset_right = -0.00012207
+offset_bottom = -0.00012207
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -117,41 +118,35 @@ offset_bottom = 394.0
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 visible = false
 layout_mode = 0
-offset_left = -1717.0
-offset_top = -890.0
-offset_right = -442.0
-offset_bottom = -155.0
+offset_left = 379.0
+offset_top = 178.0
+offset_right = 1654.0
+offset_bottom = 913.0
 
 [node name="Control" type="Control" parent="UI"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="sprite_pointer" type="Sprite2D" parent="UI/Control"]
-position = Vector2(-6, 43)
+position = Vector2(960, 514)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("6_08gl2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/Control"]
-scale = Vector2(3.22, 3.22)
+scale = Vector2(3.22502, 3.26981)
 sprite_frames = SubResource("SpriteFrames_8rkq1")
 speed_scale = 3.0
+centered = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
-layout_mode = 2
-anchor_left = 0.006
-anchor_top = 0.05
-anchor_right = 0.006
-anchor_bottom = 0.05
-offset_left = 178.08
-offset_top = 136.0
-offset_right = 949.08
-offset_bottom = 545.0
+layout_mode = 0
+offset_left = 600.0
+offset_top = 339.0
+offset_right = 1327.0
+offset_bottom = 659.0
+pivot_offset = Vector2(363, 161)
 
 [node name="resume" type="Button" parent="UI/VBoxContainer"]
 layout_mode = 2
