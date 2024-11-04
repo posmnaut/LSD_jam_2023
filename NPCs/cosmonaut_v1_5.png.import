@@ -1,0 +1,37 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://d3ag6worw63b7"
+path="res://.godot/imported/cosmonaut_v1_5.png-337ddf3aeaa92fb16a848fa3de6110b5.ctex"
+metadata={
+"vram_texture": false
+}
+generator_parameters={
+"md5": "8c82a82dee8a37bef17f01222522d745"
+}
+
+[deps]
+
+source_file="res://NPCs/cosmonaut_v1_5.png"
+dest_files=["res://.godot/imported/cosmonaut_v1_5.png-337ddf3aeaa92fb16a848fa3de6110b5.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
