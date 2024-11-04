@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxjj7ir3y7b4t"
+uid="uid://cj2g618gwkehr"
 path.s3tc="res://.godot/imported/cosmonaut_body_BaseColor.png-02a7007fd6b8f5a702a475ccd3884943.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

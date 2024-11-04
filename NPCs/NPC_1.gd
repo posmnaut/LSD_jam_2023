@@ -1,5 +1,1 @@
 extends StaticBody3D
-
-
-
-

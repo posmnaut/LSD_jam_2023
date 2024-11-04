@@ -68,7 +68,3 @@ func _process (delta) :
 			
 		else :
 			rotation.y = lerp_angle(rotation.y,rotation_y,0.1)
-
-
-
-

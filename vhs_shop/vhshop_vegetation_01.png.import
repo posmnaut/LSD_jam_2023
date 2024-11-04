@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7tesi5mec460"
+uid="uid://cj78owbpchkb3"
 path.s3tc="res://.godot/imported/vhshop_vegetation_01.png-924d7a8257bf918134d9ec47406d519c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

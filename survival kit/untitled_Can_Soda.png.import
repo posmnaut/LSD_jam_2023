@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wyoxm5pgby8v"
+uid="uid://dketu7fcijpwg"
 path.s3tc="res://.godot/imported/untitled_Can_Soda.png-b00c8a357ef93b225bc02381fe4d33d9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

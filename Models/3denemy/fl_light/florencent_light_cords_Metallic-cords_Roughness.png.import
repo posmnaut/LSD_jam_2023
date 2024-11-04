@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b103lyrafpv4p"
+uid="uid://b7okroqut5wwy"
 path.s3tc="res://.godot/imported/florencent_light_cords_Metallic-cords_Roughness.png-5211e3afd6a3fc17a5c12e810d4f5443.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

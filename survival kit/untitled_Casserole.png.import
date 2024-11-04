@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmqeq5u52sspe"
+uid="uid://b4dhmy5ikdo6b"
 path.s3tc="res://.godot/imported/untitled_Casserole.png-8354a7b4119e1cff17d714cb5dcf5e1f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 

@@ -2,13 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crxfw17d2fgf8"
+uid="uid://d1yer25dqd7ch"
 path.s3tc="res://.godot/imported/florencent_light_cords_Normal.png-9f734ad575d04c5a41828081aab938c9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={}
 
 [deps]
 
@@ -26,7 +25,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Models/3denemy/florencent_light_cords_Normal.png"
+roughness/src_normal="res://Models/3denemy/fl_light/florencent_light_cords_Normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
