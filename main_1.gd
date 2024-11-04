@@ -27,6 +27,9 @@ var fade_token = -1
 var env_inst = null
 var light_inst = null
 
+var tele_load = 0
+var tele_load_2 = 0
+
 var NPC_talk_reset_range = 20.0
 var NPC_sleep_range = 70.0
 var NPC_disappear_range = 70.0
@@ -107,6 +110,21 @@ func teleport_audio_shift(audio) -> void:
 	pass
 
 func _process (delta) :
+	
+	if tele_load < district_array.size() :
+		player.blink_anim.set_frame_and_progress(0,0.0);
+		player.global_position = district_array[tele_load].global_position
+		tele_load += 1
+	else :
+		if tele_load_2 < 3 :
+			tele_load_2 += 1
+			tele_load = 0
+		else :
+			if tele_load_2 == 3 :
+				player.blink_anim.play()
+				tele_load_2 += 1
+				tele_load += 1 
+				player.global_position = $player_spawn_1.global_position
 	
 	#NPC talk, sleep, and disappear toggle check 
 	var npc_dist = NPC_array[NPC_int].global_position.distance_to($"/root/global".player.global_position)
