@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const JUMP_VELOCITY = 12*0.8
 var wall_jump_y_velocity = 14
-var mouseSensibility = 550
+var mouseSensibility = 1000
 var mouse_relative_x = 0
 var mouse_relative_y = 0
 var jump_token = 2;
@@ -101,6 +101,8 @@ var BUNNY_SPEED_MULT = 0.0
 var frame_check = 0
 var bunny_fired = false
 var compClicked = false
+var bookState = "closed"
+var journalLocked = false
 
 var wall_run_angle = 15 #export me 
 var wall_run_current_angle = 0
@@ -124,6 +126,10 @@ signal fade_environ_shift
 signal bootsGrabbedSignal
 signal fade_env_shif_override
 signal compClickedSignal
+signal openBook
+signal pageLeft
+signal pageRight
+signal closeBook
 
 
 func _ready():
@@ -178,6 +184,10 @@ func _on_resume_pressed():
 
 func _process(delta):
 	
+	if(journalLocked == true):
+		interact_sprite.visible = true
+		interact_sprite.global_position = get_viewport().get_mouse_position()
+	
 	if(cam_shake == true):
 		shake_strength = lerp(shake_strength, 0.0, SHAKE_DECAY_RATE * delta)
 		camera.h_offset = randf_range(-shake_strength, shake_strength)
@@ -201,15 +211,17 @@ func _process(delta):
 		#		#get_tree().quit()
 		#		pass
 		
-	if pause :
+	if pause:
 		if blink_anim.frame == 0 :
 			blink_anim.set_frame_and_progress(0,0.0);
 			pause_menu.show()
 			#get_tree().paused = true
 			Engine.time_scale = 0
-			#also disable movement here 
+			#also disable movement here
 			Input.mouse_mode = Input.MOUSE_MODE_CONFINED #captures mouse inside the screenspace
-	else :
+	elif(journalLocked == true):
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED_HIDDEN
+	else:
 		pause_menu.hide()
 			#get_tree().paused = true
 		Engine.time_scale = 1
@@ -230,6 +242,7 @@ func _process(delta):
 				if NPC_check.fully_asleep || NPC_check.is_sleep :
 					interact_sprite.visible = false
 				else:
+					interact_sprite.position = Vector2(960.0, 514.0)
 					interact_sprite.visible = true
 			else:	
 				interact_sprite.visible = true
@@ -240,10 +253,14 @@ func _process(delta):
 			var _s = (1+sin(deg_to_rad(point_timer))) *0.2;
 			interact_sprite.scale.x = 0.75+_s
 			interact_sprite.scale.y = 0.75+_s
+		elif(journalLocked == true):
+			pass
 		else :
 			interact_sprite.visible = false
 		if NPC_check != null :
 			NPC_check.face_player = false
+	elif(journalLocked == true):
+		pass
 	else :
 		interact_sprite.visible = false
 		
@@ -305,8 +322,19 @@ func _on_dialogic_signal(argument:String):
 				NPC_check.dia_finished = true;
 
 func _input(event):
+	
+	if(event.is_action_pressed("journal") && pause == false):
+		if(bookState == "closed"):
+			journalLocked = true
+			bookState = "opened"
+			openBook.emit()
+		elif(bookState == "opened"):
+			journalLocked = false
+			bookState = "closed"
+			closeBook.emit()
+	
 	#Handle escape quit function
-	if event.is_action_pressed("escape"):
+	if event.is_action_pressed("escape") && journalLocked == false:
 		#close_game = true;
 		if blink_anim.frame == 0 || blink_anim.sprite_frames.get_frame_count(blink_anim.animation) :
 			pause = !pause
@@ -314,6 +342,7 @@ func _input(event):
 				blink_anim.play_backwards();
 			else :
 				blink_anim.play()
+				
 
 	#this is organized terribly, fix it 
 	#Handle NPC talk w/ shoot 
@@ -382,7 +411,7 @@ func _input(event):
 	
 #Handle camera look / aim
 	if fog_fade == false :
-		if event is InputEventMouseMotion:
+		if event is InputEventMouseMotion && journalLocked == false:
 			rotation.y -= event.relative.x / mouseSensibility 
 			camera.rotation.x -= event.relative.y / mouseSensibility
 			camera.rotation.x = clamp(camera.rotation.x,deg_to_rad(-90),deg_to_rad(90))
@@ -749,9 +778,16 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if !is_wallrunning :
-		var input_dir = Input.get_vector("left", "right", "forward", "back")
-		direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		p_normal = direction
+		if(bookState == "opened" && journalLocked == true && Input.is_action_pressed("left")):
+			#bookState = "closed"
+			pageLeft.emit()
+		elif(bookState == "opened" && journalLocked == true && Input.is_action_pressed(("right"))):
+			#bookState = "closed"
+			pageRight.emit()
+		else:
+			var input_dir = Input.get_vector("left", "right", "forward", "back")
+			direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+			p_normal = direction
 	
 	if can_wall_run :
 		wall_run()
