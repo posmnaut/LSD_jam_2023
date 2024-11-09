@@ -131,6 +131,7 @@ signal pageLeft
 signal pageRight
 signal closeBook
 
+var teleload = true
 
 func _ready():
 	$"/root/global".register_player(self)
@@ -148,7 +149,7 @@ func _ready():
 	default_height = p_collider.scale.y
 	crouch_height = default_height*0.6
 	head_default = head.position.y
-	process_mode = Node.PROCESS_MODE_ALWAYS;
+	#process_mode = Node.PROCESS_MODE_ALWAYS;
 	part_m_snow.visible = true;
 	part_rain.visible = false;
 	options_menu.visible = false
@@ -525,6 +526,9 @@ func process_wall_run_rotation(delta) :
 	##camera.fov = wall_run_current_FOV ##this causes huge lag; why? 
 
 func _physics_process(delta):
+	
+	if teleload :
+		return
 	
 	#ladder detection
 	#door detection

@@ -27,8 +27,8 @@ var fade_token = -1
 var env_inst = null
 var light_inst = null
 
-var tele_load = 0
-var tele_load_2 = 0
+var tele_load = true
+var tele_load_target = 0
 
 var NPC_talk_reset_range = 20.0
 var NPC_sleep_range = 70.0
@@ -111,20 +111,22 @@ func teleport_audio_shift(audio) -> void:
 
 func _process (delta) :
 	
-	if tele_load < district_array.size() :
-		player.blink_anim.set_frame_and_progress(0,0.0);
-		player.global_position = district_array[tele_load].global_position
-		tele_load += 1
-	else :
-		if tele_load_2 < 3 :
-			tele_load_2 += 1
-			tele_load = 0
+	if tele_load :
+		if tele_load_target < district_array.size() :
+			if player.global_position != district_array[tele_load_target].global_position :
+				player.global_position.x = move_toward(player.global_position.x,district_array[tele_load_target].global_position.x,10.0);
+				player.global_position.y = move_toward(player.global_position.y,district_array[tele_load_target].global_position.y,10.0);
+				player.global_position.z = move_toward(player.global_position.z,district_array[tele_load_target].global_position.z,10.0);
+			else :
+				tele_load_target += 1
 		else :
-			if tele_load_2 == 3 :
-				player.blink_anim.play()
-				tele_load_2 += 1
-				tele_load += 1 
-				player.global_position = $player_spawn_1.global_position
+			Dialogic.start("timeline_null_reset") #this preloads the dialogic system
+			player.global_position = $player_spawn_1.global_position
+			player.teleload = false
+			player.blink_anim.play()
+			tele_load = false
+			$loading_screen.visible = false
+		
 	
 	#NPC talk, sleep, and disappear toggle check 
 	var npc_dist = NPC_array[NPC_int].global_position.distance_to($"/root/global".player.global_position)

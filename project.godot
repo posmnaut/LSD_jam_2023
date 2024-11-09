@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 global="*res://global.gd"
 SimpleGrass="*res://addons/simplegrasstextured/singleton.tscn"
-DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
@@ -117,7 +116,7 @@ project/assembly_name="lsd_fps_2023_1"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/simplegrasstextured/plugin.cfg")
 
 [filesystem]
 

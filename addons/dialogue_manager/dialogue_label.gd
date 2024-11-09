@@ -28,7 +28,7 @@ signal finished_typing()
 ## Automatically have a brief pause when these characters are encountered.
 @export var pause_at_characters: String = ".?!"
 
-## Don't auto pause if the charcter after the pause is one of these.
+## Don't auto pause if the character after the pause is one of these.
 @export var skip_pause_at_character_if_followed_by: String = ")\""
 
 ## Don't auto pause after these abbreviations (only if "." is in `pause_at_characters`).[br]
@@ -36,8 +36,10 @@ signal finished_typing()
 ## Does not support multi-period abbreviations (ex. "p.m.")
 @export var skip_pause_at_abbreviations: PackedStringArray = ["Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex"]
 
-## The amount of time to pause when exposing a character present in pause_at_characters.
+## The amount of time to pause when exposing a character present in `pause_at_characters`.
 @export var seconds_per_pause_step: float = 0.3
+
+var _already_mutated_indices: PackedInt32Array = []
 
 
 ## The current line of dialogue.
@@ -52,15 +54,17 @@ var dialogue_line:
 ## Whether the label is currently typing itself out.
 var is_typing: bool = false:
 	set(value):
-		if is_typing != value and value == false:
-			finished_typing.emit()
+		var is_finished: bool = is_typing != value and value == false
 		is_typing = value
+		if is_finished:
+			finished_typing.emit()
 	get:
 		return is_typing
 
 var _last_wait_index: int = -1
 var _last_mutation_index: int = -1
 var _waiting_seconds: float = 0
+var _is_awaiting_mutation: bool = false
 
 
 func _process(delta: float) -> void:
@@ -96,6 +100,7 @@ func type_out() -> void:
 	_waiting_seconds = 0
 	_last_wait_index = -1
 	_last_mutation_index = -1
+	_already_mutated_indices.clear()
 
 	self.is_typing = true
 
@@ -120,12 +125,15 @@ func skip_typing() -> void:
 
 # Type out the next character(s)
 func _type_next(delta: float, seconds_needed: float) -> void:
+	if _is_awaiting_mutation: return
+
 	if visible_characters == get_total_character_count():
 		return
 
 	if _last_mutation_index != visible_characters:
 		_last_mutation_index = visible_characters
 		_mutate_inline_mutations(visible_characters)
+		if _is_awaiting_mutation: return
 
 	var additional_waiting_seconds: float = _get_pause(visible_characters)
 
@@ -177,9 +185,12 @@ func _mutate_inline_mutations(index: int) -> void:
 		# inline mutations are an array of arrays in the form of [character index, resolvable function]
 		if inline_mutation[0] > index:
 			return
-		if inline_mutation[0] == index:
+		if inline_mutation[0] == index and not _already_mutated_indices.has(index):
+			_already_mutated_indices.append(index)
+			_is_awaiting_mutation = true
 			# The DialogueManager can't be referenced directly here so we need to get it by its path
-			Engine.get_singleton("DialogueManager").mutate(inline_mutation[1], dialogue_line.extra_game_states, true)
+			await Engine.get_singleton("DialogueManager").mutate(inline_mutation[1], dialogue_line.extra_game_states, true)
+			_is_awaiting_mutation = false
 
 
 # Determine if the current autopause character at the cursor should qualify to pause typing.
@@ -188,6 +199,10 @@ func _should_auto_pause() -> bool:
 
 	var parsed_text: String = get_parsed_text()
 
+	# Avoid outofbounds when the label auto-translates and the text changes to one shorter while typing out
+	# Note: visible characters can be larger than parsed_text after a translation event
+	if visible_characters >= parsed_text.length(): return false
+
 	# Ignore pause characters if they are next to a non-pause character
 	if parsed_text[visible_characters] in skip_pause_at_character_if_followed_by.split():
 		return false
@@ -195,7 +210,7 @@ func _should_auto_pause() -> bool:
 	# Ignore "." if it's between two numbers
 	if visible_characters > 3 and parsed_text[visible_characters - 1] == ".":
 		var possible_number: String = parsed_text.substr(visible_characters - 2, 3)
-		if str(float(possible_number)) == possible_number:
+		if str(float(possible_number)).pad_decimals(1) == possible_number:
 			return false
 
 	# Ignore "." if it's used in an abbreviation

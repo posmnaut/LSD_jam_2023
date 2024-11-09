@@ -14,6 +14,9 @@ msgstr ""
 msgid "open.open"
 msgstr ""
 
+msgid "open.quick_open"
+msgstr ""
+
 msgid "open.no_recent_files"
 msgstr ""
 
@@ -21,6 +24,9 @@ msgid "open.clear_recent_files"
 msgstr ""
 
 msgid "save_all_files"
+msgstr ""
+
+msgid "find_in_files"
 msgstr ""
 
 msgid "test_dialogue"
@@ -36,6 +42,9 @@ msgid "translations"
 msgstr ""
 
 msgid "settings"
+msgstr ""
+
+msgid "sponsor"
 msgstr ""
 
 msgid "show_support"
@@ -206,6 +215,21 @@ msgstr ""
 msgid "n_of_n"
 msgstr ""
 
+msgid "search.find"
+msgstr ""
+
+msgid "search.find_all"
+msgstr ""
+
+msgid "search.placeholder"
+msgstr ""
+
+msgid "search.replace_placeholder"
+msgstr ""
+
+msgid "search.replace_selected"
+msgstr ""
+
 msgid "search.previous"
 msgstr ""
 
@@ -261,9 +285,6 @@ msgid "errors.empty_title"
 msgstr ""
 
 msgid "errors.duplicate_title"
-msgstr ""
-
-msgid "errors.nested_title"
 msgstr ""
 
 msgid "errors.invalid_title_string"

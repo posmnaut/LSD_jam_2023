@@ -4,13 +4,16 @@ extends EditorPlugin
 
 const DialogueConstants = preload("./constants.gd")
 const DialogueImportPlugin = preload("./import_plugin.gd")
+const DialogueInspectorPlugin = preload("./inspector_plugin.gd")
 const DialogueTranslationParserPlugin = preload("./editor_translation_parser_plugin.gd")
 const DialogueSettings = preload("./settings.gd")
 const DialogueCache = preload("./components/dialogue_cache.gd")
 const MainView = preload("./views/main_view.tscn")
+const DialogueResource = preload("./dialogue_resource.gd")
 
 
 var import_plugin: DialogueImportPlugin
+var inspector_plugin: DialogueInspectorPlugin
 var translation_parser_plugin: DialogueTranslationParserPlugin
 var main_view
 var dialogue_cache: DialogueCache
@@ -24,20 +27,22 @@ func _enter_tree() -> void:
 
 		DialogueSettings.prepare()
 
+		dialogue_cache = DialogueCache.new()
+		Engine.set_meta("DialogueCache", dialogue_cache)
+
 		import_plugin = DialogueImportPlugin.new()
 		add_import_plugin(import_plugin)
+
+		inspector_plugin = DialogueInspectorPlugin.new()
+		add_inspector_plugin(inspector_plugin)
 
 		translation_parser_plugin = DialogueTranslationParserPlugin.new()
 		add_translation_parser_plugin(translation_parser_plugin)
 
 		main_view = MainView.instantiate()
-		main_view.editor_plugin = self
 		get_editor_interface().get_editor_main_screen().add_child(main_view)
 		_make_visible(false)
-
-		dialogue_cache = DialogueCache.new()
 		main_view.add_child(dialogue_cache)
-		Engine.set_meta("DialogueCache", dialogue_cache)
 
 		_update_localization()
 
@@ -46,12 +51,30 @@ func _enter_tree() -> void:
 
 		add_tool_menu_item("Create copy of dialogue example balloon...", _copy_dialogue_balloon)
 
+		# Prevent the project from showing as unsaved even though it was only just opened
+		if DialogueSettings.get_setting("try_suppressing_startup_unsaved_indicator", false) \
+			and Engine.get_physics_frames() == 0 \
+			and get_editor_interface().has_method("save_all_scenes"):
+			var timer: Timer = Timer.new()
+			var suppress_unsaved_marker: Callable
+			suppress_unsaved_marker = func():
+				if Engine.get_frames_per_second() >= 10:
+					timer.stop()
+					get_editor_interface().call("save_all_scenes")
+					timer.queue_free()
+			timer.timeout.connect(suppress_unsaved_marker)
+			add_child(timer)
+			timer.start(0.1)
+
 
 func _exit_tree() -> void:
 	remove_autoload_singleton("DialogueManager")
 
 	remove_import_plugin(import_plugin)
 	import_plugin = null
+
+	remove_inspector_plugin(inspector_plugin)
+	inspector_plugin = null
 
 	remove_translation_parser_plugin(translation_parser_plugin)
 	translation_parser_plugin = null
@@ -111,11 +134,7 @@ func _apply_changes() -> void:
 
 func _build() -> bool:
 	# If this is the dotnet Godot then we need to check if the solution file exists
-	if ProjectSettings.has_setting("dotnet/project/solution_directory"):
-		var directory: String = ProjectSettings.get("dotnet/project/solution_directory")
-		var file_name: String = ProjectSettings.get("dotnet/project/assembly_name")
-		var has_dotnet_solution: bool = FileAccess.file_exists("res://%s/%s.sln" % [directory, file_name])
-		DialogueSettings.set_user_value("has_dotnet_solution", has_dotnet_solution)
+	DialogueSettings.check_for_dotnet_solution()
 
 	# Ignore errors in other files if we are just running the test scene
 	if DialogueSettings.get_user_value("is_running_test_scene", true): return true
@@ -130,6 +149,87 @@ func _build() -> bool:
 			return false
 
 	return true
+
+
+## Get the shortcuts used by the plugin
+func get_editor_shortcuts() -> Dictionary:
+	var shortcuts: Dictionary = {
+		toggle_comment = [
+			_create_event("Ctrl+K"),
+			_create_event("Ctrl+Slash")
+		],
+		delete_line = [
+			_create_event("Ctrl+Shift+K")
+		],
+		move_up = [
+			_create_event("Alt+Up")
+		],
+		move_down = [
+			_create_event("Alt+Down")
+		],
+		save = [
+			_create_event("Ctrl+Alt+S")
+		],
+		close_file = [
+			_create_event("Ctrl+W")
+		],
+		find_in_files = [
+			_create_event("Ctrl+Shift+F")
+		],
+
+		run_test_scene = [
+			_create_event("Ctrl+F5")
+		],
+		text_size_increase = [
+			_create_event("Ctrl+Equal")
+		],
+		text_size_decrease = [
+			_create_event("Ctrl+Minus")
+		],
+		text_size_reset = [
+			_create_event("Ctrl+0")
+		]
+	}
+
+	var paths = get_editor_interface().get_editor_paths()
+	var settings
+	if FileAccess.file_exists(paths.get_config_dir() + "/editor_settings-4.3.tres"):
+		settings = load(paths.get_config_dir() + "/editor_settings-4.3.tres")
+	elif FileAccess.file_exists(paths.get_config_dir() + "/editor_settings-4.tres"):
+		settings = load(paths.get_config_dir() + "/editor_settings-4.tres")
+	else:
+		return shortcuts
+
+	for s in settings.get("shortcuts"):
+		for key in shortcuts:
+			if s.name == "script_text_editor/%s" % key or s.name == "script_editor/%s" % key:
+				shortcuts[key] = []
+				for event in s.shortcuts:
+					if event is InputEventKey:
+						shortcuts[key].append(event)
+
+	return shortcuts
+
+
+func _create_event(string: String) -> InputEventKey:
+	var event: InputEventKey = InputEventKey.new()
+	var bits = string.split("+")
+	event.keycode = OS.find_keycode_from_string(bits[bits.size() - 1])
+	event.shift_pressed = bits.has("Shift")
+	event.alt_pressed = bits.has("Alt")
+	if bits.has("Ctrl") or bits.has("Command"):
+		event.command_or_control_autoremap = true
+	return event
+
+
+## Get the editor shortcut that matches an event
+func get_editor_shortcut(event: InputEventKey) -> String:
+	var shortcuts: Dictionary = get_editor_shortcuts()
+	for key in shortcuts:
+		for shortcut in shortcuts.get(key, []):
+			if event.as_text().split(" ")[0] == shortcut.as_text().split(" ")[0]:
+				return key
+	return ""
 
 
 ## Get the current version
@@ -215,7 +315,7 @@ func _copy_dialogue_balloon() -> void:
 	directory_dialog.dir_selected.connect(func(path):
 		var plugin_path: String = get_plugin_path()
 
-		var is_dotnet: bool = DialogueSettings.has_dotnet_solution()
+		var is_dotnet: bool = DialogueSettings.check_for_dotnet_solution()
 		var balloon_path: String = path + ("/Balloon.tscn" if is_dotnet else "/balloon.tscn")
 		var balloon_script_path: String = path + ("/DialogueBalloon.cs" if is_dotnet else "/balloon.gd")
 
@@ -234,6 +334,8 @@ func _copy_dialogue_balloon() -> void:
 		file_contents = file.get_as_text()
 		if is_dotnet:
 			file_contents = file_contents.replace("class ExampleBalloon", "class DialogueBalloon")
+		else:
+			file_contents = file_contents.replace("class_name DialogueManagerExampleBalloon ", "")
 		file = FileAccess.open(balloon_script_path, FileAccess.WRITE)
 		file.store_string(file_contents)
 		file.close()
@@ -261,3 +363,4 @@ func _on_file_removed(file: String) -> void:
 	update_import_paths(file, "")
 	if is_instance_valid(main_view):
 		main_view.close_file(file)
+	_update_localization()

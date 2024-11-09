@@ -14,9 +14,6 @@ const REMOTE_RELEASES_URL = "https://api.github.com/repos/nathanhoad/godot_dialo
 @onready var update_failed_dialog: AcceptDialog = $UpdateFailedDialog
 @onready var timer: Timer = $Timer
 
-# The main editor plugin
-var editor_plugin: EditorPlugin
-
 var needs_reload: bool = false
 
 # A lambda that gets called just before refreshing the plugin. Return false to stop the reload.
@@ -66,7 +63,7 @@ func check_for_update() -> void:
 func _on_http_request_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS: return
 
-	var current_version: String = editor_plugin.get_version()
+	var current_version: String = Engine.get_meta("DialogueManagerPlugin").get_version()
 
 	# Work out the next version from the releases information on GitHub
 	var response = JSON.parse_string(body.get_string_from_utf8())
@@ -75,11 +72,13 @@ func _on_http_request_request_completed(result: int, response_code: int, headers
 	# GitHub releases are in order of creation, not order of version
 	var versions = (response as Array).filter(func(release):
 		var version: String = release.tag_name.substr(1)
-		return version_to_number(version) > version_to_number(current_version)
+		var major_version: int = version.split(".")[0].to_int()
+		var current_major_version: int = current_version.split(".")[0].to_int()
+		return major_version == current_major_version and version_to_number(version) > version_to_number(current_version)
 	)
 	if versions.size() > 0:
 		download_update_panel.next_version_release = versions[0]
-		text = DialogueConstants.translate("update.available").format({ version = versions[0].tag_name.substr(1) })
+		text = DialogueConstants.translate(&"update.available").format({ version = versions[0].tag_name.substr(1) })
 		show()
 
 
@@ -87,9 +86,9 @@ func _on_update_button_pressed() -> void:
 	if needs_reload:
 		var will_refresh = on_before_refresh.call()
 		if will_refresh:
-			editor_plugin.get_editor_interface().restart_editor(true)
+			Engine.get_meta("DialogueManagerPlugin").get_editor_interface().restart_editor(true)
 	else:
-		var scale: float = editor_plugin.get_editor_interface().get_editor_scale()
+		var scale: float = Engine.get_meta("DialogueManagerPlugin").get_editor_interface().get_editor_scale()
 		download_dialog.min_size = Vector2(300, 250) * scale
 		download_dialog.popup_centered()
 
@@ -101,24 +100,24 @@ func _on_download_dialog_close_requested() -> void:
 func _on_download_update_panel_updated(updated_to_version: String) -> void:
 	download_dialog.hide()
 
-	needs_reload_dialog.dialog_text = DialogueConstants.translate("update.needs_reload")
-	needs_reload_dialog.ok_button_text = DialogueConstants.translate("update.reload_ok_button")
-	needs_reload_dialog.cancel_button_text = DialogueConstants.translate("update.reload_cancel_button")
+	needs_reload_dialog.dialog_text = DialogueConstants.translate(&"update.needs_reload")
+	needs_reload_dialog.ok_button_text = DialogueConstants.translate(&"update.reload_ok_button")
+	needs_reload_dialog.cancel_button_text = DialogueConstants.translate(&"update.reload_cancel_button")
 	needs_reload_dialog.popup_centered()
 
 	needs_reload = true
-	text = DialogueConstants.translate("update.reload_project")
+	text = DialogueConstants.translate(&"update.reload_project")
 	apply_theme()
 
 
 func _on_download_update_panel_failed() -> void:
 	download_dialog.hide()
-	update_failed_dialog.dialog_text = DialogueConstants.translate("update.failed")
+	update_failed_dialog.dialog_text = DialogueConstants.translate(&"update.failed")
 	update_failed_dialog.popup_centered()
 
 
 func _on_needs_reload_dialog_confirmed() -> void:
-	editor_plugin.get_editor_interface().restart_editor(true)
+	Engine.get_meta("DialogueManagerPlugin").get_editor_interface().restart_editor(true)
 
 
 func _on_timer_timeout() -> void:

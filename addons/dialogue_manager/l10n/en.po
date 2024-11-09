@@ -21,6 +21,9 @@ msgstr "Open a file"
 msgid "open.open"
 msgstr "Open..."
 
+msgid "open.quick_open"
+msgstr "Quick open..."
+
 msgid "open.no_recent_files"
 msgstr "No recent files"
 
@@ -29,6 +32,9 @@ msgstr "Clear recent files"
 
 msgid "save_all_files"
 msgstr "Save all files"
+
+msgid "find_in_files"
+msgstr "Find in files..."
 
 msgid "test_dialogue"
 msgstr "Test dialogue"
@@ -44,6 +50,9 @@ msgstr "Translations"
 
 msgid "settings"
 msgstr "Settings"
+
+msgid "sponsor"
+msgstr "Sponsor"
 
 msgid "show_support"
 msgstr "Support Dialogue Manager"
@@ -187,7 +196,7 @@ msgid "settings.states_shortcuts"
 msgstr "State Shortcuts"
 
 msgid "settings.states_message"
-msgstr "If an autoload is enabled here you can refer to its properties and methods without having to use its name."
+msgstr "If an autoload is enabled here you can refer to its properties, methods, and signals without having to use its name."
 
 msgid "settings.states_hint"
 msgstr "ie. Instead of \"SomeState.some_property\" you could just use \"some_property\""
@@ -215,6 +224,21 @@ msgstr "Check for updates"
 
 msgid "n_of_n"
 msgstr "{index} of {total}"
+
+msgid "search.find"
+msgstr "Find:"
+
+msgid "search.find_all"
+msgstr "Find all..."
+
+msgid "search.placeholder"
+msgstr "Text to search for"
+
+msgid "search.replace_placeholder"
+msgstr "Text to replace it with"
+
+msgid "search.replace_selected"
+msgstr "Replace selected"
 
 msgid "search.previous"
 msgstr "Previous"
@@ -272,9 +296,6 @@ msgstr "Titles cannot be empty."
 
 msgid "errors.duplicate_title"
 msgstr "There is already a title with that name."
-
-msgid "errors.nested_title"
-msgstr "Titles cannot be indented."
 
 msgid "errors.invalid_title_string"
 msgstr "Titles can only contain alphanumeric characters and numbers."
@@ -427,16 +448,16 @@ msgid "runtime.key_not_found"
 msgstr "Key \"{key}\" not found in dictionary \"{dictionary}\""
 
 msgid "runtime.property_not_found"
-msgstr "\"{property}\" is not a property on any game states ({states})."
+msgstr "\"{property}\" not found. States with directly referenceable properties/methods/signals include {states}. Autoloads need to be referenced by their name to use their properties."
 
 msgid "runtime.property_not_found_missing_export"
-msgstr "\"{property}\" is not a property on any game states ({states}). You might need to add an [Export] decorator."
+msgstr "\"{property}\" not found. You might need to add an [Export] decorator. States with directly referenceable properties/methods/signals include {states}. Autoloads need to be referenced by their name to use their properties."
 
 msgid "runtime.method_not_found"
-msgstr "\"{method}\" is not a method on any game states ({states})"
+msgstr "Method \"{method}\" not found. States with directly referenceable properties/methods/signals include {states}. Autoloads need to be referenced by their name to use their properties."
 
 msgid "runtime.signal_not_found"
-msgstr "\"{signal_name}\" is not a signal on any game states ({states})"
+msgstr "Signal \"{signal_name}\" not found. States with directly referenceable properties/methods/signals include {states}. Autoloads need to be referenced by their name to use their properties."
 
 msgid "runtime.method_not_callable"
 msgstr "\"{method}\" is not a callable method on \"{object}\""

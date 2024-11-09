@@ -1,5 +1,4 @@
-[signal arg="dialogue_exhausted"]
-[update_position time="0.0"]
 join character_construction 1
 "That's odd, construction was supposed to resume today..."
+[signal arg="dialogue_exhausted"]
 [end_timeline]
