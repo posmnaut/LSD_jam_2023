@@ -155,6 +155,12 @@ func _ready():
 	options_menu.visible = false
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 	
+	var viewportWidth = get_viewport().size.x
+	var viewportHeight = get_viewport().size.y
+	var scale = viewportWidth / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().x
+	blink_anim.set_position(Vector2(0.0, 0.0))
+	blink_anim.set_scale(Vector2(scale, scale))
+	
 	
 func _on_quit_pressed():
 	get_tree().quit()
@@ -170,6 +176,11 @@ func on_exit_options_menu() -> void:
 	vis_swap_main()
 	options_menu.visible = false
 	options_menu.set_process(false)
+	var viewportWidth = get_viewport().size.x
+	var viewportHeight = get_viewport().size.y
+	var scale = viewportWidth / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().x
+	blink_anim.set_position(Vector2(0.0, 0.0))
+	blink_anim.set_scale(Vector2(scale, scale))
 	
 	
 func vis_swap_main() -> void:

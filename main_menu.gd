@@ -25,6 +25,11 @@ func _ready():
 	blink_anim.visible = true
 	blink_anim.set_frame_and_progress(0,0.0);
 	blink_anim.play();
+	var viewportWidth = get_viewport().size.x
+	var viewportHeight = get_viewport().size.y
+	var scale = viewportWidth / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().x
+	blink_anim.set_position(Vector2(0.0, 0.0))
+	blink_anim.set_scale(Vector2(scale, scale))
 	anim_player.play("float")
 	theme_player.play()
 
@@ -46,6 +51,11 @@ func on_exit_options_menu() -> void:
 	blink_anim.visible = true
 	blink_anim.set_frame_and_progress(0,0.0);
 	blink_anim.play();
+	var viewportWidth = get_viewport().size.x
+	var viewportHeight = get_viewport().size.y
+	var scale = viewportWidth / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().x
+	blink_anim.set_position(Vector2(0.0, 0.0))
+	blink_anim.set_scale(Vector2(scale, scale))
 	
 #this is garbage but I don't have time to fix it 
 func vis_swap_main() -> void:
