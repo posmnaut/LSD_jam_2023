@@ -14,6 +14,12 @@ signal exit_options_menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var viewportWidth = get_viewport().size.x
+	var viewportHeight = get_viewport().size.y
+	var scale_x = viewportWidth / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().x
+	var scale_y = viewportHeight / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().y
+	blink_anim.set_position(Vector2(0.0, 0.0))
+	blink_anim.set_scale(Vector2(scale_x, scale_y))
 	exit_button.button_down.connect(on_exit_pressed)
 	window_toggle.button_down.connect(fullscreen_toggle)
 	set_process(false)
@@ -24,6 +30,12 @@ func fullscreen_toggle() -> void :
 		DisplayServer.window_set_mode(4,0)
 	else :
 		DisplayServer.window_set_mode(0,0)
+	var viewportWidth = get_viewport().size.x
+	var viewportHeight = get_viewport().size.y
+	var scale_x = viewportWidth / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().x
+	var scale_y = viewportHeight / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().y
+	blink_anim.set_position(Vector2(0.0, 0.0))
+	blink_anim.set_scale(Vector2(scale_x, scale_y))
 
 func on_exit_pressed() -> void :
 	blink_anim.play_backwards()

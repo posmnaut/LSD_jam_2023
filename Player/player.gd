@@ -157,9 +157,10 @@ func _ready():
 	
 	var viewportWidth = get_viewport().size.x
 	var viewportHeight = get_viewport().size.y
-	var scale = viewportWidth / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().x
+	var scale_x = viewportWidth / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().x
+	var scale_y = viewportHeight / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().y
 	blink_anim.set_position(Vector2(0.0, 0.0))
-	blink_anim.set_scale(Vector2(scale, scale))
+	blink_anim.set_scale(Vector2(scale_x, scale_y))
 	
 	
 func _on_quit_pressed():
@@ -178,9 +179,10 @@ func on_exit_options_menu() -> void:
 	options_menu.set_process(false)
 	var viewportWidth = get_viewport().size.x
 	var viewportHeight = get_viewport().size.y
-	var scale = viewportWidth / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().x
+	var scale_x = viewportWidth / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().x
+	var scale_y = viewportHeight / blink_anim.get_sprite_frames().get_frame_texture("default",0).get_size().y
 	blink_anim.set_position(Vector2(0.0, 0.0))
-	blink_anim.set_scale(Vector2(scale, scale))
+	blink_anim.set_scale(Vector2(scale_x, scale_y))
 	
 	
 func vis_swap_main() -> void:
